@@ -25,9 +25,17 @@
       --max: 1160px;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       margin: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
       color: var(--ink);
       font-family: var(--font-sans);
       background:
@@ -52,11 +60,13 @@
       mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 35%);
     }
     a { color: inherit; text-decoration: none; }
-    .page { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 28px 0 80px; }
+    .page { width: min(calc(100% - 32px), var(--max)); max-width: 100%; margin: 0 auto; padding: 28px 0 80px; }
     .masthead {
       padding: 18px 0 8px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 12px;
+      min-width: 0;
+      max-width: 100%;
     }
     .eyebrow {
       margin: 0 0 10px;
@@ -72,7 +82,10 @@
       gap: 28px;
       align-items: end;
       padding: 18px 0 16px;
+      min-width: 0;
+      max-width: 100%;
     }
+    .hero > * { min-width: 0; max-width: 100%; }
     .hero h1 {
       margin: 0;
       font-size: clamp(2.25rem, 5.6vw, 4.45rem);
@@ -80,9 +93,9 @@
       letter-spacing: -0.05em;
       color: #36261c;
     }
-    .hero p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1rem; }
+    .hero p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1rem; overflow-wrap: anywhere; }
     .subject-line { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; color: var(--muted); font-size:0.95rem; }
-    .subject-line span { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.28); }
+    .subject-line span { min-width: 0; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.28); }
     .formula-strip {
       display:grid; gap:12px;
       padding: 18px;
@@ -90,15 +103,19 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       box-shadow: var(--shadow);
+      min-width: 0;
+      max-width: 100%;
     }
     .formula-strip h2 { margin:0; font-size:0.98rem; color: var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
     .formula-item { display:grid; gap:4px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
     .formula-item:last-child { border-bottom:none; padding-bottom:0; }
     .formula-item span { color: var(--muted); font-size:0.9rem; }
     .formula-item strong { font-size:1rem; line-height:1.45; }
-    .mini-nav-shell { position: sticky; top: 0; z-index: 30; padding: 10px 0 18px; background: linear-gradient(180deg, rgba(245,239,228,0.96), rgba(245,239,228,0.78), rgba(245,239,228,0)); backdrop-filter: blur(8px); }
+    .mini-nav-shell { position: sticky; top: 0; z-index: 30; max-width: 100%; overflow: hidden; padding: 10px 0 18px; background: linear-gradient(180deg, rgba(245,239,228,0.96), rgba(245,239,228,0.78), rgba(245,239,228,0)); backdrop-filter: blur(8px); }
     .mini-nav {
-      display:flex; gap:10px; overflow:auto; padding: 10px 4px 10px 2px; scrollbar-width:none;
+      display:flex; gap:10px; max-width: 100%; overflow:auto; padding: 10px 4px 10px 2px; scrollbar-width:none;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
     }
     .mini-nav::-webkit-scrollbar { display:none; }
     .mini-link {
@@ -108,11 +125,13 @@
     }
     .mini-link:hover, .mini-link:focus-visible { border-color: var(--line-strong); color: var(--ink); transform: translateY(-1px); }
     .mini-link.is-active { background: #efe4cf; border-color: rgba(124,137,96,0.4); color: #2f271f; }
-    .content { display:grid; gap: 22px; }
+    .content { display:grid; gap: 22px; min-width: 0; max-width: 100%; }
     .sheet-group {
       display: grid;
       gap: 16px;
       padding-top: 4px;
+      min-width: 0;
+      max-width: 100%;
     }
     .group-head {
       padding: 17px 20px 15px;
@@ -121,6 +140,8 @@
       background: linear-gradient(180deg, rgba(255,250,241,0.86), rgba(250,244,233,0.7));
       box-shadow: 0 10px 20px rgba(76, 56, 37, 0.03);
       position: relative;
+      min-width: 0;
+      max-width: 100%;
     }
     .group-head::after {
       content: "";
@@ -166,6 +187,8 @@
       gap: 8px;
       margin-top: 12px;
       padding-top: 2px;
+      min-width: 0;
+      max-width: 100%;
     }
     .group-link {
       padding: 9px 11px;
@@ -190,11 +213,15 @@
     .group-body {
       display: grid;
       gap: 18px;
+      min-width: 0;
+      max-width: 100%;
     }
     .sheet-section {
       position: relative; padding: 26px clamp(18px, 2vw, 28px) 28px 26px; border: 1px solid var(--line);
       border-radius: 24px; background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(255,248,236,0.8));
       box-shadow: 0 14px 28px rgba(76, 56, 37, 0.045); overflow: clip;
+      min-width: 0;
+      max-width: 100%;
     }
     .sheet-section.theme-accounting {
       background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(248,241,230,0.84));
@@ -212,7 +239,7 @@
     .section-rule { position:absolute; left:0; top:0; bottom:0; width:10px; background: linear-gradient(180deg, rgba(124,137,96,0.16), rgba(124,137,96,0.02)); }
     .section-head { position:relative; padding-left: 8px; margin-bottom: 14px; }
     .section-kicker { margin:0 0 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; }
-    .section-head h2 { margin:0; font-size: clamp(1.4rem, 2vw, 2rem); line-height:1.15; letter-spacing: -0.03em; }
+    .section-head h2 { margin:0; font-size: clamp(1.4rem, 2vw, 2rem); line-height:1.15; letter-spacing: -0.03em; overflow-wrap: anywhere; }
     .section-head + .section-intro > p:first-child {
       font-size: 1.02rem;
       color: #4a392d;
@@ -238,16 +265,20 @@
       font-family: var(--font-sans); font-size: 0.95em; font-weight: 700; color: #4f3a2b;
       padding: 0.14rem 0.42rem; border-radius: 8px; background: rgba(124, 137, 96, 0.08); border: 1px solid rgba(124, 137, 96, 0.18);
       transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .sheet-section.in-view .prose code { background: rgba(124, 137, 96, 0.16); border-color: rgba(124, 137, 96, 0.28); box-shadow: inset 0 -0.55em 0 rgba(124,137,96,0.12); }
     .prose strong { color:#2f231b; }
     .subsection, details.subsection {
       margin-top: 16px; padding: 17px; border-top: 1px solid var(--line);
       background: rgba(255,252,246,0.5);
+      min-width: 0;
+      max-width: 100%;
     }
     .subsection-head { display:flex; align-items:baseline; flex-wrap:wrap; gap: 9px 10px; margin-bottom: 11px; }
     .subsection-label { color: var(--muted); letter-spacing:0.14em; text-transform:uppercase; font-size:0.7rem; font-weight:800; }
-    .subsection h3, details.subsection summary h3 { margin:0; font-size:1.08rem; line-height:1.35; }
+    .subsection h3, details.subsection summary h3 { margin:0; font-size:1.08rem; line-height:1.35; overflow-wrap: anywhere; }
     .subsection.trap { background: linear-gradient(180deg, rgba(154,93,67,0.08), rgba(255,252,246,0.52)); border-left: 3px solid rgba(154,93,67,0.46); padding-left: 16px; }
     .subsection.alert { background: linear-gradient(180deg, rgba(124,137,96,0.12), rgba(255,252,246,0.52)); border-left: 3px solid rgba(124,137,96,0.48); padding-left: 16px; }
     .subsection.summary { background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,252,246,0.52)); }
@@ -258,7 +289,7 @@
     details.subsection summary::-webkit-details-marker { display:none; }
     details.subsection[open] summary { border-bottom: 1px dashed var(--line); }
     details.subsection .subsection-body { padding: 17px 18px 18px; }
-    .table-wrap { overflow:auto; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.52); position: relative; }
+    .table-wrap { overflow:auto; max-width: 100%; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.52); position: relative; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
     .table-wrap::after {
       content: "";
       position: sticky;
@@ -277,7 +308,7 @@
     tr:hover td { background: rgba(124,137,96,0.06); }
     .ledger-block {
       margin: 12px 0 16px; padding: 15px 16px; background: #f7f0e6; border: 1px solid var(--line);
-      border-radius: 18px; overflow:auto;
+      border-radius: 18px; overflow:auto; max-width: 100%; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
     }
     .ledger-block code { font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.7; white-space: pre; display:block; color:#2f241d; }
     .quick-review { padding: 22px 24px; border:1px solid var(--line); border-radius: 24px; background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,250,241,0.82)); }
@@ -310,6 +341,7 @@
     @media (max-width: 900px) {
       .page { width: min(calc(100% - 18px), var(--max)); padding-top: 12px; }
       .hero { grid-template-columns: 1fr; gap:18px; }
+      .formula-strip { min-width: 0; max-width: 100%; }
       .group-head { padding: 15px 15px 13px; border-radius: 20px; }
       .group-description { margin-top: 8px; font-size: 0.94rem; }
       .group-nav { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
@@ -323,7 +355,7 @@
     @media (max-width: 560px) {
       body { line-height: 1.66; }
       .hero h1 { font-size: 2.15rem; }
-      .hero p { font-size: 0.96rem; }
+      .hero p { width: 100%; max-width: 34ch; font-size: 0.96rem; white-space: normal; word-break: break-word; }
       .content { gap: 18px; }
       .mini-nav { gap: 8px; padding: 8px 2px 8px 0; }
       .mini-link { padding: 8px 11px; font-size: 0.88rem; }
@@ -336,10 +368,14 @@
         gap: 7px;
         margin-top: 10px;
         padding-bottom: 2px;
+        max-width: 100%;
         scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
       }
       .group-nav::-webkit-scrollbar { display: none; }
-      .group-link { font-size: 0.8rem; padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
+      .group-link { flex: 0 0 auto; max-width: min(72vw, 260px); overflow: hidden; text-overflow: ellipsis; font-size: 0.8rem; padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
+      .subject-line span { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
       .sheet-section { padding: 19px 13px 20px 16px; border-radius: 20px; }
       .section-head { padding-left: 6px; margin-bottom: 12px; }
       .section-kicker { font-size: 0.69rem; }
@@ -370,8 +406,8 @@
       <div class="hero">
         <div>
           <h1>Investment Property</h1>
-          <p>อ่านตามลำดับ: แยกประเภท -> รับรู้รายการ -> วัดมูลค่า -> โอน -> จำหน่ายและเปิดเผยข้อมูล</p>
-          <div class="subject-line"><span>TAS 40</span><span>Cost / Fair Value</span><span>Transfers + Disclosure</span></div>
+          <p>อ่านตามลำดับ: แยกประเภท -> รับรู้<br>วัดมูลค่า -> โอน -> จำหน่าย/เปิดเผย</p>
+          <div class="subject-line"><span>TAS 40</span><span>Cost / FV</span><span>Transfer / Disclosure</span></div>
         </div>
         <aside class="formula-strip" aria-label="quick formulae">
           <h2>Quick Frame</h2>
