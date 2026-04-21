@@ -144,9 +144,7 @@
         repeating-linear-gradient(180deg, transparent 0, transparent 30px, rgba(87,69,47,.045) 30px, rgba(87,69,47,.045) 31px);
       box-shadow:0 10px 26px rgba(52,41,28,.05);
       text-decoration:none;
-      transform:translateY(10px);
-      opacity:0;
-      transition:opacity .55s ease, transform .55s ease, border-color .18s ease, background-color .18s ease;
+      transition:border-color .18s ease, background-color .18s ease, transform .18s ease;
     }
     .chapter-row::before {
       content:"";
@@ -156,9 +154,9 @@
       background:var(--accent);
       opacity:.82;
     }
-    .chapter-row.is-visible { transform:translateY(0); opacity:1; }
     .chapter-row:hover,
     .chapter-row:focus-visible {
+      transform:translateY(-1px);
       border-color:var(--line-strong);
       outline:none;
       background:
@@ -352,21 +350,5 @@
     <p class="footer-note">AC311 cheat sheet library. Built as static HTML for local reading and GitHub Pages.</p>
   </main>
 
-  <script>
-    const rows = document.querySelectorAll(".chapter-row");
-    const reveal = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          reveal.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
-
-    rows.forEach((row, index) => {
-      row.style.transitionDelay = `${index * 80}ms`;
-      reveal.observe(row);
-    });
-  </script>
 </body>
 </html>
