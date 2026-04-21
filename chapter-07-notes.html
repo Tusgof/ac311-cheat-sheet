@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AC311 Chapter 7 - Impairment of Assets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f4efe6;
+      --paper:#fffdf8;
+      --paper-soft:#fbf6ee;
+      --ink:#2b2118;
+      --ink-strong:#1f1711;
+      --muted:#766858;
+      --line:#ded2bf;
+      --line-strong:#cbb899;
+      --accent:#8b6238;
+      --accent-soft:#efe2cf;
+      --olive:#7c8160;
+      --note:#fbf3e8;
+      --test:#f5f7f2;
+      --answer:#f7f1e7;
+      --code:#28251f;
+      --shadow:0 18px 42px rgba(52,41,28,.08);
+      --radius-lg:22px;
+      --radius-md:16px;
+      --content:1040px;
+      --font-sans:"Google Sans Text","Google Sans","Product Sans","Noto Sans Thai",sans-serif;
+      --font-mono:"Google Sans Code","SFMono-Regular",Consolas,monospace;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:92px; }
+    body {
+      margin:0;
+      font-family:var(--font-sans);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(139,98,56,.09), transparent 26%),
+        linear-gradient(90deg, rgba(139,98,56,.035) 1px, transparent 1px),
+        linear-gradient(180deg,#faf6ee 0%,var(--bg) 100%);
+      background-size:auto, 28px 28px, auto;
+      color:var(--ink);
+      line-height:1.78;
+      letter-spacing:-0.01em;
+      text-rendering:optimizeLegibility;
+    }
+    .page {
+      max-width:var(--content);
+      margin:34px auto;
+      padding:54px clamp(28px, 6vw, 76px) 72px;
+      background:var(--paper);
+      border:1px solid rgba(139,98,56,.16);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:visible;
+    }
+    .page::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0) 12%),
+        repeating-linear-gradient(180deg, transparent 0, transparent 31px, rgba(87,69,47,.045) 31px, rgba(87,69,47,.045) 32px);
+      opacity:.72;
+    }
+    h1,h2,h3,h4,p,li,table,pre,.toc,.callout,.formula,.panel,.roadmap,.test-box,.answer-box,.footer-note { position:relative; z-index:1; }
+    header { position:relative; z-index:1; padding-bottom:22px; border-bottom:1px solid var(--line); }
+    h1,h2,h3,h4,.eyebrow,.segment-label,.test-label,.answer-label,.toc a,.back a { font-family:var(--font-sans); }
+    h1,h2,h3,h4 { margin:0 0 14px; color:var(--ink-strong); line-height:1.28; letter-spacing:-.015em; }
+    h1 { max-width:none; font-size:clamp(2.25rem, 5.6vw, 4.45rem); line-height:.98; letter-spacing:-.05em; color:#36261c; font-weight:700; margin-bottom:12px; }
+    h2 {
+      font-size:clamp(24px, 3vw, 34px);
+      margin-top:64px;
+      padding:0 0 13px 18px;
+      border-bottom:1px solid var(--line);
+      scroll-margin-top:96px;
+    }
+    h2::before { content:""; position:absolute; left:0; top:5px; bottom:15px; width:4px; border-radius:999px; background:var(--accent); }
+    h3 { font-size:clamp(19px, 2vw, 24px); margin-top:30px; color:#3a2a1c; }
+    h4 {
+      display:inline-block;
+      margin-top:24px;
+      padding:4px 12px;
+      border:1px solid rgba(124,129,96,.28);
+      border-radius:999px;
+      background:#f3f1e7;
+      color:#555b3b;
+      font-size:16px;
+      font-weight:700;
+    }
+    p { max-width:74ch; margin:0 0 15px; }
+    ul,ol { margin:0 0 17px 1.35rem; padding:0; }
+    li { margin-bottom:8px; padding-left:.1rem; }
+    strong {
+      color:#24180e;
+      font-weight:750;
+      background:linear-gradient(transparent 58%, rgba(208,170,115,.34) 58%);
+      background-size:0% 100%;
+      background-repeat:no-repeat;
+      transition:background-size .65s ease;
+    }
+    strong.is-visible { background-size:100% 100%; }
+    code { font-family:var(--font-mono); font-size:.88em; background:rgba(139,98,56,.10); padding:1px 5px; border-radius:5px; }
+    pre {
+      margin:16px 0 24px;
+      padding:18px 20px 18px 24px;
+      background:linear-gradient(180deg,#302a22 0%,var(--code) 100%);
+      color:#fff7e9;
+      border:1px solid rgba(255,255,255,.08);
+      border-left:4px solid #d0aa73;
+      border-radius:var(--radius-md);
+      overflow-x:auto;
+      font-size:14px;
+      line-height:1.58;
+      tab-size:2;
+    }
+    .lead { max-width:76ch; color:#44372a; font-size:18px; line-height:1.85; }
+    .meta { margin-bottom:20px; color:var(--muted); font-size:14px; }
+    .hero {
+      display:grid;
+      grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);
+      gap:28px;
+      align-items:end;
+      padding:20px 0 18px;
+    }
+    .hero h1 { max-width:none; margin:0 0 12px; }
+    .hero p { max-width:62ch; }
+    .subject-line {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .subject-line span {
+      padding:7px 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.34);
+    }
+    .formula-strip {
+      display:grid;
+      gap:12px;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,250,241,.96), rgba(252,246,236,.82));
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+    .formula-strip h2 { margin:0; padding:0; border:0; font-size:14px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+    .formula-strip h2::before { display:none; }
+    .formula-item { display:grid; gap:4px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
+    .formula-item:last-child { border-bottom:0; padding-bottom:0; }
+    .formula-item span { color:var(--muted); font-size:13px; }
+    .formula-item strong { font-size:15px; line-height:1.5; }
+    .eyebrow,.segment-label,.test-label,.answer-label {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      width:max-content;
+      border-radius:999px;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      font-size:11px;
+      font-weight:800;
+    }
+    .eyebrow { margin-bottom:16px; padding:6px 12px; background:var(--accent-soft); color:#754c23; }
+    .segment-label,.test-label,.answer-label { margin-bottom:10px; padding:4px 10px; }
+    .segment-label { background:#efe4d5; color:#795329; }
+    .test-label { background:#eef1e7; color:#5c6542; }
+    .answer-label { background:#eadfce; color:#664828; }
+    .toc,.test-box,.answer-box,.callout,.formula,.panel,.roadmap { border-radius:var(--radius-lg); }
+    .toc {
+      position:sticky;
+      top:16px;
+      z-index:6;
+      margin:26px 0 12px;
+      padding:18px 20px;
+      background:rgba(255,253,248,.96);
+      border:1px solid var(--line);
+      box-shadow:0 10px 26px rgba(52,41,28,.06);
+    }
+    .toc h2 { margin:0 0 12px; padding:0; border:0; font-size:18px; letter-spacing:0; }
+    .toc h2::before { display:none; }
+    .toc ol {
+      display:flex;
+      gap:8px;
+      margin:0;
+      padding:0;
+      overflow-x:auto;
+      list-style:none;
+      scrollbar-width:thin;
+    }
+    .toc li { flex:0 0 auto; margin:0; padding:0; }
+    .toc a,.back a {
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:6px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:#68431f;
+      text-decoration:none;
+      white-space:nowrap;
+      transition:background-color .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .toc a:hover,.toc a:focus-visible,.toc a.is-active { background:#f0e4d1; border-color:#d3bd99; color:#3d2916; outline:none; }
+    section { scroll-margin-top:92px; }
+    section:target > h2 { background:linear-gradient(90deg, rgba(239,226,207,.95), transparent 72%); }
+    .callout,.formula,.roadmap,.test-box,.answer-box,.panel { transition:transform .18s ease, border-color .18s ease, background-color .18s ease; }
+    .callout:hover,.formula:hover,.roadmap:hover,.test-box:hover,.answer-box:hover,.panel:hover { transform:translateY(-1px); border-color:var(--line-strong); }
+    .callout { margin:22px 0; padding:18px 20px; border:1px solid var(--line); border-left:5px solid var(--accent); background:var(--note); }
+    .formula { margin:20px 0; padding:16px 18px; border:1px solid #dcc7ae; background:#fff8ee; color:#31261b; }
+    .roadmap { margin:18px 0 24px; padding:16px 18px; border:1px solid #d7c9b4; background:#fbf5eb; }
+    .test-box { margin:26px 0 12px; padding:22px 24px; border:1px solid #cfd5bd; background:var(--test); }
+    .answer-box { margin:24px 0; padding:22px 24px; border:1px solid #d9ccb8; background:var(--answer); }
+    .grid-two { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; margin:18px 0 22px; }
+    .panel { padding:17px 18px 14px; border:1px solid var(--line); background:#fffaf2; }
+    table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin:18px 0 24px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fffdfa;
+      font-size:14px;
+      line-height:1.55;
+      font-variant-numeric:tabular-nums;
+    }
+    th,td { border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 12px; vertical-align:top; text-align:left; }
+    th:last-child,td:last-child { border-right:0; }
+    tbody tr:last-child td { border-bottom:0; }
+    th { position:sticky; top:0; z-index:2; background:#f1e6d5; color:#3b2b1e; font-weight:800; }
+    tbody tr:nth-child(even) td { background:#fbf6ee; }
+    tbody tr:hover td { background:#f6eddc; }
+    .back { margin-top:18px; color:var(--muted); font-size:14px; }
+    .footer-note { margin-top:48px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+    @media (max-width:820px) {
+      html { scroll-padding-top:24px; }
+      body { background-size:auto, 22px 22px, auto; }
+      .page { margin:0; padding:28px 18px 44px; border:0; box-shadow:none; }
+      header { padding-bottom:18px; }
+      .hero { grid-template-columns:1fr; gap:18px; padding:16px 0 14px; }
+      h1 { max-width:100%; font-size:34px; }
+      h2 { margin-top:46px; font-size:25px; padding-left:14px; }
+      h3 { font-size:21px; }
+      p,.lead { max-width:none; }
+      .toc { position:static; margin-top:22px; padding:14px; }
+      .toc ol { padding-bottom:4px; }
+      .toc a { min-height:38px; }
+      .grid-two { grid-template-columns:1fr; gap:14px; }
+      .callout,.formula,.roadmap,.test-box,.answer-box,.panel { padding:15px 16px; border-radius:16px; }
+      table { display:block; overflow-x:auto; white-space:nowrap; border-radius:12px; }
+      th,td { min-width:132px; padding:9px 10px; white-space:normal; }
+      pre { padding:16px; font-size:13px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { transition:none !important; animation:none !important; }
+      strong { background-size:100% 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header id="top">
+      <div class="eyebrow">AC311 Intermediate Accounting 1</div>
+      <div class="hero">
+        <div>
+          <h1>Chapter 7: Impairment of Assets</h1>
+          <p class="lead">อ่านตามลำดับ: indicator -> recoverable amount -> impairment loss -> reversal</p>
+          <div class="subject-line"><span>TAS 36</span><span>Indicator-first</span><span>Dr./Cr.</span></div>
+        </div>
+        <aside class="formula-strip" aria-label="Quick Frame">
+          <h2>Quick Frame</h2>
+          <div class="formula-item"><span>เริ่มคิด</span><strong>ดู carrying amount ก่อน แล้วหา indicator</strong></div>
+          <div class="formula-item"><span>วัดค่า</span><strong>recoverable amount = higher of FVLCD / VIU</strong></div>
+          <div class="formula-item"><span>ขาดทุน</span><strong>carrying amount - recoverable amount</strong></div>
+          <div class="formula-item"><span>ย้อนกลับ</span><strong>reversal ได้เฉพาะตามเงื่อนไข และมี ceiling</strong></div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="toc">
+      <h2 id="toc-title">สารบัญ</h2>
+      <ol>
+        <li><a href="#segment-1">Segment 1: Objective, scope, indicators, annual testing</a></li>
+        <li><a href="#mini-test-1">Mini Test 1</a></li>
+        <li><a href="#segment-2">Segment 2: Recoverable amount, FVLCD, VIU</a></li>
+        <li><a href="#mini-test-2">Mini Test 2</a></li>
+        <li><a href="#segment-3">Segment 3: Measuring impairment loss and post-loss depreciation</a></li>
+        <li><a href="#mini-test-3">Mini Test 3</a></li>
+        <li><a href="#segment-4">Segment 4: Reversal, ceiling rule, revalued asset, goodwill boundary</a></li>
+        <li><a href="#mini-test-4">Mini Test 4</a></li>
+        <li><a href="#mock-exam">Mock Exam</a></li>
+        <li><a href="#answer-key">Answer Key</a></li>
+      </ol>
+    </section>
+
+    <section id="segment-1">
+      <h2>Segment 1: Objective, Scope, Indicators, Annual Testing</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงนี้ปูฐานทั้งบท: objective ของ TAS 36, ขอบเขตที่ต้องเชื่อมกับบทอื่น, ความต่างระหว่าง <strong>ordinary assets</strong> กับ <strong>annual-test assets</strong>, และวิธีแยก <strong>external/internal indicators</strong> ในข้อสอบ</p>
+      </div>
+      <p><strong>TAS 36 Impairment of Assets</strong> มีหน้าที่คุมไม่ให้สินทรัพย์ถูกแสดงมูลค่าสูงเกิน <strong>recoverable amount</strong> ซึ่งก็คือจำนวนที่กิจการยังกู้คืนได้จริงจากสินทรัพย์นั้น ถ้า <strong>carrying amount</strong> หรือมูลค่าตามบัญชีที่แสดงอยู่ในงบ สูงเกิน recoverable amount งบการเงินจะ overstate สินทรัพย์และกำไรของกิจการทันที ดังนั้นบทนี้ต้องคิดเป็นลำดับจากการประเมินมูลค่า ไม่ใช่เริ่มจาก journal entry</p>
+      <div class="formula"><strong>Core rule: an asset must not be carried at more than its recoverable amount</strong></div>
+
+      <h3>Decision Flow ที่ต้องจำก่อนทั้งบท</h3>
+      <ol>
+        <li>ดู <strong>carrying amount</strong> ของสินทรัพย์</li>
+        <li>ถามว่ามี <strong>impairment indicator</strong> หรือไม่</li>
+        <li>ถ้าต้องทดสอบ จึงวัด <strong>recoverable amount</strong></li>
+        <li>ถ้า carrying amount มากกว่า recoverable amount จึงรับรู้ <strong>impairment loss</strong></li>
+      </ol>
+      <p>สาระสำคัญของ Segment 1 จึงไม่ใช่การคำนวณ แต่เป็นการแยกให้ออกว่าเมื่อไร “ต้องเข้าสู่การทดสอบ” และเมื่อไร “ยังไม่ต้องทดสอบ”</p>
+
+      <h3>Scope ที่ต้องเชื่อมกับบทอื่น</h3>
+      <ul>
+        <li><strong>PPE</strong> เพื่อเชื่อมกับ <strong>TAS 16</strong></li>
+        <li><strong>Intangible assets</strong> เพื่อเชื่อมกับ <strong>TAS 38</strong></li>
+        <li><strong>Goodwill</strong> ซึ่งมี annual testing และ reversal boundary พิเศษ โดยคำว่า boundary ตรงนี้ให้มองว่าเป็น "ขอบเขตข้อจำกัด" ของสิ่งที่มาตรฐานอนุญาตหรือไม่อนุญาต</li>
+        <li>บาง investment balances และ investment property ที่ใช้ cost model ตามกรอบการสอนของบทนี้</li>
+      </ul>
+      <div class="callout">
+        <h3>Scope Watch</h3>
+        <ul>
+          <li>เวลาเจอข้อสอบ อย่าคิดว่า impairment ใช้กับสินทรัพย์ทุกชนิดแบบอัตโนมัติ ต้องดูด้วยว่าสินทรัพย์นั้นอยู่ในขอบเขตของ TAS 36 หรือไม่</li>
+          <li>สินทรัพย์ที่วัดตามมาตรฐานเฉพาะบางประเภทอาจมีตรรกะการวัดมูลค่าของตัวเอง จึงต้องระวังไม่ดึง impairment logic ไปใช้แบบเหมารวมทั้งบท</li>
+          <li>ในวิชา AC311 จุดที่ชอบโยงที่สุดคือ <strong>TAS 16</strong>, <strong>TAS 38</strong>, และ <strong>goodwill</strong> จากการรวมธุรกิจ</li>
+        </ul>
+      </div>
+
+      <h3>Rule 1: Ordinary assets ใช้ indicator-first</h3>
+      <p>สำหรับ <strong>ordinary assets</strong> มาตรฐานไม่ได้บังคับให้คำนวณ recoverable amount ทุกปีแบบอัตโนมัติ แต่ให้พิจารณาก่อนว่า ณ วันสิ้นงวดมีข้อบ่งชี้หรือไม่ว่าสินทรัพย์อาจด้อยค่า ถ้ามี indicator จึงค่อยเข้าสู่การวัด recoverable amount</p>
+      <div class="formula"><strong>Ordinary assets: indicator first</strong></div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h4>External indicators</h4>
+          <p>เป็นสัญญาณจากโลกภายนอกกิจการ เช่น ตลาด เทคโนโลยี เศรษฐกิจ กฎหมาย หรือมุมมองของตลาดทุนต่อกิจการ</p>
+          <ul>
+            <li><strong>Market value ลดลงอย่างมีนัยสำคัญ</strong>: ลดลงแรงกว่าปกติจากการใช้งานหรือเวลาที่ผ่านไป</li>
+            <li><strong>Adverse change</strong> ด้าน market, technology, economy, or law: สภาพแวดล้อมภายนอกเปลี่ยนในทางลบจนสินทรัพย์สร้างประโยชน์ได้น้อยลง</li>
+            <li><strong>Market interest rates สูงขึ้น</strong>: มักทำให้ <strong>discount rate</strong> ที่ใช้คำนวณ VIU สูงขึ้นด้วย จึงทำให้ present value ของ future cash flows ลดลงและ VIU ต่ำลง</li>
+            <li><strong>Carrying amount of net assets สูงกว่า market capitalisation</strong>: ตลาดให้มูลค่ากิจการต่ำกว่าสินทรัพย์สุทธิในงบ จึงเป็นสัญญาณว่าสินทรัพย์บางส่วนอาจบันทึกสูงเกินจริง</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Internal indicators</h4>
+          <p>เป็นสัญญาณจากตัวสินทรัพย์เองหรือจากข้อมูลภายในกิจการที่ management เห็นได้จากสภาพจริง การใช้จริง และผลการดำเนินงานจริง</p>
+          <ul>
+            <li><strong>Obsolescence หรือ physical damage</strong>: ล้าสมัยหรือเสียหายทางกายภาพจนความสามารถในการสร้างประโยชน์ลดลง</li>
+            <li><strong>เปลี่ยนรูปแบบการใช้ในทางลบ</strong>: ใช้น้อยลง ใช้ไม่เต็มกำลัง หรือเปลี่ยนไปใช้กับงานที่ให้ผลตอบแทนต่ำลง</li>
+            <li><strong>หยุดหรือ restructure การใช้สินทรัพย์</strong>: มีแผนปิดสายการผลิต ปิดสาขา ย้ายฐาน หรือขายเร็วกว่าที่เคยคาด</li>
+            <li><strong>Economic performance worse than expected</strong>: รายได้ กระแสเงินสด หรือผลตอบแทนจริงแย่กว่าที่ประมาณไว้</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h3>How to read indicators in exam facts</h3>
+        <ul>
+          <li>ถ้า fact เชื่อมกับตลาด กฎหมาย ดอกเบี้ย เทคโนโลยี หรือราคาหุ้น มักเป็น <strong>external indicator</strong></li>
+          <li>ถ้า fact เชื่อมกับสภาพสินทรัพย์ การใช้งานจริง แผนบริหาร หรือผลการดำเนินงานจริง มักเป็น <strong>internal indicator</strong></li>
+          <li><strong>Indicator</strong> ยังไม่เท่ากับ <strong>impairment loss</strong> แต่เป็น trigger ให้ไปทดสอบ recoverable amount ต่อ</li>
+        </ul>
+      </div>
+
+      <h3>Rule 2: บางสินทรัพย์ต้อง annual test แม้ไม่มี indicator</h3>
+      <p>นี่คือข้อยกเว้นสำคัญของบท เพราะมาตรฐานมองว่าสินทรัพย์บางประเภทมีความไม่แน่นอนสูงหรือเสี่ยงถูกแสดงมูลค่าสูงเกินจริงได้ง่าย จึงไม่ยอมให้รอจนเห็น indicator ก่อน</p>
+      <ul>
+        <li><strong>Intangible asset with an indefinite useful life</strong>: ไม่มีอายุการให้ประโยชน์ที่กำหนดแน่ชัดและไม่มีการ amortise ตามปกติ เช่น <strong>trademark</strong> ที่คาดว่าจะใช้สร้างประโยชน์ได้ต่อเนื่องโดยยังไม่เห็นจุดสิ้นสุดชัดเจน</li>
+        <li><strong>Intangible asset not yet available for use</strong>: ยังไม่พร้อมใช้งานจริง จึงยังไม่มี pattern การสร้างประโยชน์ที่พิสูจน์ได้ชัด เช่น <strong>software</strong> ที่ยังพัฒนาไม่เสร็จ หรือ license ที่ได้มาแล้วแต่ระบบยังไม่พร้อมใช้งาน</li>
+        <li><strong>Goodwill acquired in a business combination</strong>: เป็นรายการที่เสี่ยงสูงและแยกกระแสเงินสดเดี่ยวได้ยาก จึงต้องติดตามอย่างใกล้ชิด เช่น goodwill ที่เกิดจากการซื้อกิจการแล้วคาดหวัง synergies จากฐานลูกค้า ทีมงาน หรือชื่อเสียงของกิจการที่ซื้อมา</li>
+      </ul>
+      <div class="formula"><strong>Special annual-test assets: test every year anyway</strong></div>
+
+      <div class="callout">
+        <h3>Why the standard is stricter here</h3>
+        <ul>
+          <li>สินทรัพย์กลุ่มนี้ไม่ได้มีสัญญาณเสื่อมค่าที่สังเกตง่ายเหมือนเครื่องจักรหรืออาคาร</li>
+          <li>บางกลุ่มไม่มีการ amortise หรือยังไม่เข้าสู่ช่วงใช้งานจริง จึงไม่มี expense pattern ปกติช่วยลด carrying amount ลงทีละงวด</li>
+          <li><strong>Goodwill</strong> เป็นจุดที่ออกสอบแรงมาก เพราะต้อง annual test และยังมีข้อจำกัดพิเศษเรื่อง <strong>reversal</strong> ในตอนท้ายบท</li>
+        </ul>
+      </div>
+      <p>ประเด็นที่ออกสอบบ่อยอีกข้อหนึ่งคือคำว่า <strong>annual test</strong> ไม่ได้หมายความว่าต้องรอวันสิ้นปีเท่านั้น แต่หมายถึงต้องทดสอบอย่างน้อยปีละครั้งอย่างสม่ำเสมอ และหากมี indicator ที่มีนัยสำคัญระหว่างปีก็อาจต้องพิจารณาทดสอบก่อนรอบประจำปีด้วย</p>
+
+      <div class="formula"><strong>Ordinary assets: indicator first</strong><br><strong>Special annual-test assets: test every year anyway</strong></div>
+
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>อย่าตอบว่า impairment ต้องคำนวณทุกปีสำหรับสินทรัพย์ทุกตัว</li>
+          <li>จำ annual-test assets ให้ครบทั้ง 3 กลุ่ม</li>
+          <li>ถ้าโจทย์ระบุ indefinite-life intangible, not-yet-available-for-use intangible, หรือ goodwill ให้คิดเรื่อง annual test ทันทีแม้โจทย์ไม่ให้ indicator</li>
+          <li>goodwill ไม่ใช่แค่ annual test แต่ยังมีกฎพิเศษเรื่อง reversal ในปลายบท</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-1" class="test-box">
+      <div class="test-label">Mini Test 1</div>
+      <h2>Mini Test 1</h2>
+      <p>บริษัท เมืองใหม่อุตสาหกรรม จำกัด ปิดงบวันที่ 31 ธันวาคม 20X5 และมีข้อมูลดังนี้: เครื่องจักร A ใช้ในสายการผลิตที่ยอดขายลดลงต่อเนื่อง 2 ปีและกระแสเงินสดจริงต่ำกว่า budget มาก, อาคารสำนักงาน B ยังใช้งานปกติแต่ราคาหุ้นของบริษัทลดลงจน market capitalisation ต่ำกว่ามูลค่าสินทรัพย์สุทธิในงบ, software C พัฒนาเสร็จ 80% แต่ยังไม่พร้อมใช้งาน, trademark D มีอายุการให้ประโยชน์ไม่จำกัด, goodwill จากการซื้อกิจการ E, และคลังสินค้า F ที่ไม่มีความเสียหายและไม่มีการเปลี่ยนรูปแบบการใช้งานโดยตรง</p>
+      <ol>
+        <li>แยกให้ชัดว่ารายการใดมี <strong>external indicator</strong> และรายการใดมี <strong>internal indicator</strong></li>
+        <li>รายการใดต้อง annual test แม้ไม่มี indicator พร้อมให้เหตุผลสั้น ๆ</li>
+        <li>รายการใดในชุดนี้ยังไม่จำเป็นต้องคำนวณ recoverable amount ทันที และเพราะเหตุใด</li>
+        <li>อธิบายความต่างของตรรกะระหว่าง ordinary assets กับ annual-test assets โดยใช้รายการจากโจทย์ประกอบคำอธิบาย</li>
+        <li>ถ้าบริษัทตอบว่า “ราคาหุ้นตกจึงต้องทดสอบ impairment ทุกสินทรัพย์ทุกรายการทันที” ข้อความนี้ถูกต้องทั้งหมดหรือไม่ เพราะอะไร</li>
+      </ol>
+    </section>
+
+    <section id="segment-2">
+      <h2>Segment 2: Recoverable Amount, FVLCD, VIU</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงนี้เน้นหัวใจของการวัด impairment: ทำความเข้าใจ <strong>recoverable amount</strong>, แยกให้ขาดระหว่าง <strong>FVLCD</strong> กับ <strong>VIU</strong>, และตอบให้ได้ว่าทำไมมาตรฐานต้องใช้ <strong>higher of</strong> ไม่ใช่ lower of</p>
+      </div>
+      <p>สินทรัพย์จะ impaired ก็ต่อเมื่อ <strong>carrying amount &gt; recoverable amount</strong> ดังนั้นหัวใจของ segment นี้คือการเข้าใจคำว่า <strong>recoverable amount</strong> ให้ชัด ว่ามันไม่ใช่ “ราคาตลาด” ตัวเดียว และไม่ใช่ “ตัวเลขที่ conservative ที่สุด” แต่เป็นจำนวนที่กิจการยังกู้คืนได้จริงดีที่สุดจากสินทรัพย์นั้น</p>
+      <div class="formula"><strong>Recoverable amount = higher of FVLCD and VIU</strong></div>
+
+      <h3>Core Logic: ทำไมมาตรฐานจึงใช้ Higher Of</h3>
+      <p>จุดที่นักศึกษาพลาดบ่อยคือเลือกค่าที่ต่ำกว่าเพราะคิดว่า impairment ต้อง conservative แต่ในความเป็นจริง มาตรฐานไม่ได้ต้องการกดมูลค่าสินทรัพย์ลงให้ต่ำที่สุด มาตรฐานต้องการเพียงให้สินทรัพย์ <strong>ไม่สูงเกินจำนวนที่กู้คืนได้จริง</strong></p>
+      <p>กิจการมีทาง recover ได้ 2 ทาง คือ <strong>ขาย</strong> หรือ <strong>ใช้ต่อ</strong> ถ้าขายได้มากกว่า ก็ recover ผ่านการขายได้ดีกว่า แต่ถ้าใช้ต่อแล้วสร้างกระแสเงินสดได้มากกว่า ก็ recover ผ่านการใช้งานได้ดีกว่า ดังนั้นมาตรฐานจึงเลือก <strong>ค่าที่สูงกว่า</strong> ระหว่างสองทาง ไม่ใช่ค่าที่ต่ำกว่า</p>
+      <p>ถ้าไปเลือกค่าที่ต่ำกว่าเสมอ จะทำให้รับรู้ <strong>impairment loss</strong> มากเกินจริง และทำให้งบ <strong>understate asset</strong> ซึ่งผิดวัตถุประสงค์ของมาตรฐานพอ ๆ กับการ overstate สินทรัพย์</p>
+
+      <h3>ทางที่ 1: FVLCD</h3>
+      <p><strong>Fair value less costs of disposal (FVLCD)</strong> คือจำนวนเงินสุทธิที่กิจการคาดว่าจะกู้คืนได้ถ้าเลือกทาง <strong>ขายสินทรัพย์</strong> ดังนั้นให้เริ่มจาก <strong>fair value</strong> แล้วหักเฉพาะ <strong>costs of disposal</strong> ที่เป็นต้นทุนส่วนเพิ่มและเกี่ยวข้องโดยตรงกับการขายครั้งนั้น</p>
+      <p>คำว่า <strong>incremental costs directly attributable to disposal</strong> จึงมีความสำคัญ เพราะมาตรฐานต้องการให้หักเฉพาะค่าใช้จ่ายที่ <strong>เกิดขึ้นจากการขายสินทรัพย์ครั้งนั้นโดยตรง</strong> และ <strong>จะไม่เกิดขึ้นเลยหากไม่มีการขาย</strong> ไม่ใช่นำค่าใช้จ่ายทุกประเภทของกิจการมาหักแบบเหมารวม</p>
+      <div class="callout">
+        <h3>กรอบคิดของ FVLCD</h3>
+        <ul>
+          <li><strong>Fair value</strong> ตอบว่า "ขายได้ราคาเท่าไร"</li>
+          <li><strong>Costs of disposal</strong> ตอบว่า "ต้องเสียอะไรบ้างเพื่อให้ขายได้จริง"</li>
+          <li><strong>FVLCD</strong> จึงเท่ากับ "เงินสุทธิที่เหลือหลังขาย"</li>
+        </ul>
+      </div>
+      <p>คำว่า <strong>incremental costs directly attributable to disposal</strong> หมายถึงต้นทุนที่ <strong>จะไม่เกิดขึ้นเลยถ้าไม่ขาย</strong> เช่น ค่านายหน้า ค่ากฎหมายโอน หรือค่ารื้อถอนที่จำเป็นต่อการขาย แต่ <strong>finance costs</strong> และ <strong>income tax expense</strong> ไม่นำมาหัก เพราะไม่ใช่ต้นทุนที่ทำให้สินทรัพย์ขายได้โดยตรง</p>
+      <p>ตัวอย่างรายการที่ <strong>ไม่</strong> นำมาหักใน FVLCD ได้แก่ <strong>finance costs</strong> เช่น <strong>ดอกเบี้ยเงินกู้</strong>, <strong>ดอกเบี้ยสัญญาเช่า</strong>, หรือค่าธรรมเนียมทางการเงินจากการกู้ยืม; <strong>income tax expense</strong> เช่น <strong>ภาษีเงินได้ที่คาดว่าจะต้องจ่ายเมื่อขายสินทรัพย์</strong>; และ <strong>administrative costs</strong> เช่น <strong>เงินเดือนฝ่ายบริหาร</strong> หรือ <strong>ค่าใช้จ่ายสำนักงานทั่วไป</strong> เนื่องจากรายการเหล่านี้ไม่ได้เป็นต้นทุนส่วนเพิ่มที่ทำให้ขายสินทรัพย์ชิ้นนั้นได้โดยตรง</p>
+      <p>ตัวอย่างเช่น ถ้าสินทรัพย์มี fair value 900,000 บาท และมีค่านายหน้า 20,000 บาท กับค่ากฎหมายโอน 10,000 บาท <strong>FVLCD = 900,000 - 30,000 = 870,000 บาท</strong></p>
+
+      <h3>ทางที่ 2: VIU</h3>
+      <p><strong>Value in use (VIU)</strong> คือมูลค่าปัจจุบันของกระแสเงินสดในอนาคตที่กิจการคาดว่าจะได้รับจากการ <strong>ใช้สินทรัพย์ต่อ</strong> และจากการ <strong>จำหน่ายเมื่อสิ้นสุดการใช้</strong> ดังนั้น VIU เป็นมูลค่าจากมุมของการใช้งานจริง ไม่ใช่มุมของการขายออกในตลาด</p>
+      <div class="callout">
+        <h3>กรอบคิดของ VIU</h3>
+        <ul>
+          <li><strong>FVLCD</strong> ถามว่า "ถ้าขายตอนนี้ จะได้เงินสุทธิเท่าไร"</li>
+          <li><strong>VIU</strong> ถามว่า "ถ้าใช้ต่อ จะสร้างเงินสดสุทธิในมูลค่าปัจจุบันได้เท่าไร"</li>
+          <li>ดังนั้น FVLCD เป็นมุมของ <strong>การขาย</strong> ส่วน VIU เป็นมุมของ <strong>การใช้</strong></li>
+        </ul>
+      </div>
+      <p>VIU ต้องใช้ <strong>present value logic</strong> เพราะเงินสดในอนาคตยังไม่เท่ากับเงินสดวันนี้ จึงต้องเอากระแสเงินสดที่คาดว่าจะได้ในอนาคตมา discount กลับเป็นมูลค่าปัจจุบันก่อน</p>
+      <ul>
+        <li><strong>กระแสเงินสดสุทธิจากการใช้สินทรัพย์ต่อ</strong> ในแต่ละปี</li>
+        <li><strong>กระแสเงินสดสุทธิจากการจำหน่ายเมื่อสิ้นสุดการใช้</strong></li>
+      </ul>
+      <div class="callout">
+        <h3>VIU Assumption Watch</h3>
+        <ul>
+          <li>VIU ใช้กระแสเงินสดจากสภาพการใช้งานปัจจุบันของสินทรัพย์ ไม่ใช่เอาแผนขยายกิจการหรือ restructuring ในอนาคตที่ยังไม่ committed มาใส่ตามใจ</li>
+          <li>ต้องแยกให้ออกระหว่างกระแสเงินสดจากการใช้สินทรัพย์ กับกระแสเงินสดที่เกิดจากวิธีจัดหาเงินทุน เพราะ financing items ไม่ใช่ตัวสร้าง VIU ของสินทรัพย์</li>
+          <li>ในข้อสอบ ถ้าโจทย์ให้ future cash flows มาแบบพร้อมใช้ ให้ระวังว่าบางทีผู้สอนกำลังซ่อนประเด็นไว้ที่ discount rate มากกว่าที่ตัว cash flows เอง</li>
+        </ul>
+      </div>
+      <div class="formula"><strong>VIU = Present value of future cash flows from use + present value of disposal cash flow at the end</strong></div>
+      <p>ตัวอย่างเช่น กิจการคาดว่าเครื่องจักรจะสร้างกระแสเงินสดสุทธิได้ปีละ 100,000 บาท อีก 3 ปี และเมื่อสิ้นปีที่ 3 จะขายซากได้สุทธิ 20,000 บาท โดยใช้อัตราคิดลด 10%</p>
+      <pre>Year 1 operating cash flow = 100,000 / 1.10 = 90,909
+Year 2 operating cash flow = 100,000 / (1.10)^2 = 82,645
+Year 3 operating cash flow = 100,000 / (1.10)^3 = 75,131
+Year 3 disposal cash flow = 20,000 / (1.10)^3 = 15,026
+
+VIU = 90,909 + 82,645 + 75,131 + 15,026
+VIU = 263,711 บาท</pre>
+      <p>ดังนั้น VIU ไม่ใช่การเอาเงินสดอนาคตมาบวกตรง ๆ แต่ต้องคิดเป็น <strong>present value</strong> ก่อนเสมอ</p>
+
+      <h3>จุดที่นักศึกษามักสับสน: discount rate สูงขึ้นแล้วทำไม VIU ลดลง</h3>
+      <p>เมื่อ <strong>discount rate</strong> สูงขึ้น ตัวหารในสูตร present value จะใหญ่ขึ้น ทำให้มูลค่าปัจจุบันของเงินสดก้อนเดิมลดลงทันที ดังนั้นแม้ <strong>future cash flows</strong> จะเท่าเดิม VIU ก็ยังลดลงได้</p>
+      <div class="formula"><strong>Present value = Future cash flow / (1 + discount rate)^n</strong></div>
+      <table>
+        <thead><tr><th>รายการ</th><th>Discount rate 8%</th><th>Discount rate 12%</th></tr></thead>
+        <tbody>
+          <tr><td>Future cash flow in 1 year</td><td>100,000 / 1.08 = 92,593</td><td>100,000 / 1.12 = 89,286</td></tr>
+          <tr><td>Future cash flow in 2 years</td><td>100,000 / (1.08)^2 = 85,734</td><td>100,000 / (1.12)^2 = 79,719</td></tr>
+          <tr><td>Future cash flow in 3 years</td><td>100,000 / (1.08)^3 = 79,383</td><td>100,000 / (1.12)^3 = 71,178</td></tr>
+          <tr><td><strong>VIU รวม</strong></td><td><strong>257,710</strong></td><td><strong>240,183</strong></td></tr>
+        </tbody>
+      </table>
+      <p>จากตัวอย่างจะเห็นว่า <strong>future cash flows เท่าเดิมทุกปี</strong> แต่เมื่อใช้อัตราคิดลด 12% แทน 8% ค่า VIU ลดลง เพราะมูลค่าปัจจุบันของเงินสดแต่ละปีถูก discount ลงแรงกว่าเดิม</p>
+      <div class="callout">
+        <h3>Link Back to Indicators</h3>
+        <ul>
+          <li>ถ้าโจทย์บอกว่า market interest rates สูงขึ้น นี่คือ <strong>external indicator</strong> สำคัญ เพราะอาจทำให้ VIU ลดลงแม้กระแสเงินสดคาดการณ์ยังเท่าเดิม</li>
+          <li>ดังนั้น impairment ไม่ได้เกิดจากยอดขายตกอย่างเดียว แต่อาจเกิดจาก <strong>discount rate</strong> ที่สูงขึ้นด้วย</li>
+        </ul>
+      </div>
+
+      <h3>ตัวอย่างบูรณาการ: จาก FVLCD และ VIU ไปสู่ recoverable amount</h3>
+      <table>
+        <thead><tr><th>รายการ</th><th>จำนวน</th></tr></thead>
+        <tbody>
+          <tr><td>Carrying amount</td><td>900,000</td></tr>
+          <tr><td>Fair value</td><td>750,000</td></tr>
+          <tr><td>Costs of disposal</td><td>30,000</td></tr>
+          <tr><td>FVLCD</td><td>720,000</td></tr>
+          <tr><td>VIU</td><td>760,000</td></tr>
+          <tr><td>Recoverable amount</td><td>760,000</td></tr>
+          <tr><td>Impairment loss</td><td>140,000</td></tr>
+        </tbody>
+      </table>
+      <p>ตัวอย่างนี้แสดงให้เห็นว่า impairment loss ไม่ได้มาจาก FVLCD ตรง ๆ แต่เกิดจากการเอา <strong>carrying amount</strong> ไปเทียบกับ <strong>recoverable amount</strong> ซึ่งเป็นค่าที่สูงกว่าระหว่าง FVLCD และ VIU</p>
+      <p>เวลาอ่านโจทย์ให้แยกสามชั้นเสมอ: <strong>valuation inputs</strong> คือข้อมูลที่ใช้หา FVLCD และ VIU, <strong>recoverable amount</strong> คือผลลัพธ์จากการเลือก higher of, และ <strong>impairment loss</strong> คือผลต่างหลังเอา recoverable amount ไปเทียบกับ carrying amount นักศึกษาที่พลาดมักเอา valuation input ไปตอบเป็น impairment loss ทันที</p>
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>จำให้แม่นว่า impairment ใช้ <strong>higher of</strong> ไม่ใช่ lower of</li>
+          <li>FVLCD ไม่เท่ากับ fair value ถ้ายังไม่ได้หัก disposal costs</li>
+          <li>VIU เป็น present value logic ไม่ใช่ยอดขายรวมในอนาคตแบบไม่ discount</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-2" class="test-box">
+      <div class="test-label">Mini Test 2</div>
+      <h2>Mini Test 2</h2>
+      <p>บริษัท สยามแพ็คโปรดักส์ จำกัด มีเครื่องจักรสายบรรจุ ณ วันที่ 31 ธันวาคม 20X5 โดยมี carrying amount 1,260,000 บาท หากขายในตลาดจะมี fair value 1,150,000 บาท ระหว่างการพิจารณาทางเลือกในการจำหน่าย ฝ่ายบริหารรวบรวมข้อมูลรายจ่ายที่คาดว่าจะเกี่ยวข้องไว้ดังนี้: ค่านายหน้า 25,000 บาท, ค่ากฎหมายโอน 12,000 บาท, ค่ารื้อถอนเพื่อให้ผู้ซื้อรับมอบได้ 18,000 บาท, ดอกเบี้ยเงินกู้ที่ยังค้างจ่ายของกิจการ 20,000 บาท, ภาษีเงินได้ที่คาดว่าจะเกิดจากกำไรในการขาย 35,000 บาท, และค่าใช้จ่ายฝ่ายบริหารที่จัดสรรให้โครงการขาย 10,000 บาท ฝ่ายบัญชีประเมินว่า หากกิจการยังใช้เครื่องจักรนี้ต่อจะมี VIU เท่ากับ 1,070,000 บาท</p>
+      <ol>
+        <li>คำนวณ FVLCD</li>
+        <li>คำนวณ recoverable amount</li>
+        <li>พิจารณาว่า impaired หรือไม่</li>
+        <li>คำนวณ impairment loss</li>
+        <li>อธิบายสั้น ๆ ว่าทำไมบางรายจ่ายข้างต้นจึงไม่นำมาหักในการหา FVLCD</li>
+        <li>อธิบายว่าทำไม recoverable amount ต้องเลือกค่าที่สูงกว่าระหว่าง FVLCD กับ VIU ไม่ใช่ค่าที่ต่ำกว่า</li>
+        <li>ถ้า market interest rates สูงขึ้นจน VIU ใหม่ลดเหลือ 990,000 บาท ให้คำนวณ recoverable amount ใหม่และคำนวณ impairment loss ใหม่</li>
+      </ol>
+    </section>
+
+    <section id="segment-3">
+      <h2>Segment 3: Measuring Impairment Loss and Post-Loss Depreciation</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงนี้เปลี่ยนจากการ “วัด recoverable amount” ไปสู่การ “บันทึกผลในงบ” โดยจะพาไล่ตั้งแต่ impairment loss, journal entry, statement effect, ไปจนถึงการคิด <strong>depreciation after impairment</strong></p>
+      </div>
+      <h3>Accounting Chain หลังวัด Recoverable Amount</h3>
+      <p>เมื่อวัด recoverable amount ได้แล้ว ขั้นต่อไปคือต้องทำ accounting chain ให้ครบ ได้แก่ การวัด impairment loss, การบันทึก journal entry, และการปรับค่าเสื่อมราคาในอนาคตให้สอดคล้องกับ carrying amount ใหม่</p>
+      <ol>
+        <li><strong>Determine carrying amount</strong>: ดูก่อนว่าสินทรัพย์มีมูลค่าตามบัญชีอยู่เท่าไร เพราะนี่คือจุดตั้งต้นของการเปรียบเทียบทั้งหมด</li>
+        <li><strong>Determine FVLCD</strong>: หามูลค่าที่กู้คืนได้ถ้าเลือกทางขาย</li>
+        <li><strong>Determine VIU</strong>: หามูลค่าที่กู้คืนได้ถ้าเลือกทางใช้ต่อ</li>
+        <li><strong>Choose the higher as recoverable amount</strong>: เลือกค่าที่สูงกว่าระหว่าง FVLCD กับ VIU เพราะมาตรฐานต้องการจำนวนที่กู้คืนได้ดีที่สุด</li>
+        <li><strong>Compare carrying amount with recoverable amount</strong>: เอามูลค่าตามบัญชีไปเทียบกับมูลค่าที่กู้คืนได้</li>
+        <li><strong>Recognize impairment loss if carrying amount is higher</strong>: ถ้า carrying amount สูงกว่า recoverable amount ส่วนต่างนั้นคือ impairment loss</li>
+      </ol>
+      <p>หากต้องการจำเป็นลำดับสั้น ๆ ให้คิดว่า <strong>เริ่มจากมูลค่าตามบัญชี -> หา 2 ทางในการ recover -> เลือกทางที่ดีกว่า -> จึงตัดสินว่าด้อยค่าหรือไม่</strong></p>
+      <h3>Recognition และ Journal Entry</h3>
+      <div class="formula"><strong>Impairment loss = Carrying amount - Recoverable amount</strong></div>
+      <pre>Dr Impairment Loss
+   Cr Asset or related contra account</pre>
+      <p>บางโจทย์อาจเครดิต asset ตรง ๆ บางโจทย์อาจเครดิต related contra account ซึ่งคำว่า <strong>contra account</strong> ให้มองว่าเป็นบัญชีประกบที่ใช้หักมูลค่าของสินทรัพย์หลัก ดังนั้นต้องอ่านรูปแบบ presentation ของโจทย์ให้ดี</p>
+      <div class="callout">
+        <h3>Statement Effect</h3>
+        <ul>
+          <li>ปีที่รับรู้ impairment จะมี <strong>expense เพิ่มขึ้น</strong> และ <strong>profit ลดลง</strong></li>
+          <li>ในงบฐานะการเงิน carrying amount ของสินทรัพย์จะลดลงทันที ไม่ว่าจะลดโดยเครดิต asset ตรงหรือผ่าน contra account</li>
+          <li>หลังจากนั้นค่าเสื่อมหรือค่าตัดจำหน่ายของงวดถัดไปจะเปลี่ยนตามฐาน carrying amount ใหม่ ดังนั้นผลกระทบของ impairment ไม่ได้จบแค่ปีแรก</li>
+        </ul>
+      </div>
+      <h3>Depreciation After Impairment</h3>
+      <div class="formula"><strong>Depreciation after impairment = (new carrying amount - residual value) / remaining useful life</strong></div>
+      <p>หลักสำคัญคือเมื่อ carrying amount เปลี่ยนไป ฐานการคิดค่าเสื่อมในงวดถัดไปก็ต้องเปลี่ยนตามทันที จึงไม่สามารถนำฐานเดิมก่อน impairment มาใช้ต่อได้</p>
+      <h3>Worked Example</h3>
+      <table>
+        <thead><tr><th>รายการ</th><th>จำนวน</th></tr></thead>
+        <tbody>
+          <tr><td>Carrying amount</td><td>840,000</td></tr>
+          <tr><td>FVLCD</td><td>700,000</td></tr>
+          <tr><td>VIU</td><td>760,000</td></tr>
+          <tr><td>Recoverable amount</td><td>760,000</td></tr>
+          <tr><td>Impairment loss</td><td>80,000</td></tr>
+          <tr><td>Remaining useful life</td><td>4 ปี</td></tr>
+          <tr><td>Depreciation after impairment</td><td>190,000 ต่อปี</td></tr>
+        </tbody>
+      </table>
+      <pre>Dr Impairment Loss 80,000
+   Cr Machinery 80,000
+
+New carrying amount = 760,000
+Depreciation in next period = 760,000 / 4 = 190,000</pre>
+      <p>ข้อสอบจริงมักไม่หยุดที่ impairment loss แต่จะถามต่อเป็นลำดับตั้งแต่ indicator ไปจนถึง statement effect ดังนั้นควรคิดโจทย์เป็น flow เดียวตั้งแต่ต้น ไม่ใช่แยกตอบทีละข้อโดยไม่เชื่อมกัน</p>
+      <p>อีกประเด็นที่มักใช้หลอกคือ <strong>partial-year facts</strong> หรือการให้ค่าเสื่อมราคาของงวดปัจจุบันมาปะปนในข้อมูล หากโจทย์เน้นเรื่อง timing ต้องตรวจสอบก่อนว่า carrying amount ที่ให้มาเป็นยอดก่อนหรือหลังบันทึก depreciation ของงวดแล้ว</p>
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>ห้ามหยิบ valuation figure ตัวแรกมาใช้เป็น impairment loss ทันที</li>
+          <li>หลัง impairment ต้องคิดค่าเสื่อมใหม่ทันที</li>
+          <li>ข้อนี้ชอบออกบูรณาการจาก trigger ไป JE และ depreciation</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-3" class="test-box">
+      <div class="test-label">Mini Test 3</div>
+      <h2>Mini Test 3</h2>
+      <p>บริษัท ริเวอร์ฟู้ด จำกัด มีเครื่องจักรที่ใช้ในสายการผลิตหลัก โดย ณ วันที่ 31 ธันวาคม 20X5 เครื่องจักรมี cost 1,800,000 บาท และ accumulated depreciation 420,000 บาท หลังบันทึกค่าเสื่อมราคาประจำปีแล้ว management พบว่าเทคโนโลยีของคู่แข่งทำให้สินทรัพย์นี้เสี่ยงด้อยค่า ข้อมูลเพิ่มเติมคือ fair value 1,180,000 บาท, ค่านายหน้าและค่ากฎหมายที่เกี่ยวกับการขาย 50,000 บาท, VIU 1,240,000 บาท, residual value 40,000 บาท และอายุคงเหลือ 4 ปี</p>
+      <ol>
+        <li>คำนวณ carrying amount ของเครื่องจักร ณ วันที่ทดสอบ impairment</li>
+        <li>คำนวณ FVLCD และ recoverable amount</li>
+        <li>คำนวณ impairment loss</li>
+        <li>จัดทำ journal entry โดยสมมติว่าโจทย์ให้เครดิต asset ตรง ๆ</li>
+        <li>คำนวณ depreciation สำหรับปี 20X6 หลัง impairment</li>
+        <li>อธิบายว่าทำไมค่าเสื่อมปีถัดไปจึงไม่สามารถใช้ฐานเดิมก่อน impairment ได้</li>
+      </ol>
+    </section>
+
+    <section id="segment-4">
+      <h2>Segment 4: Reversal, Ceiling Rule, Revalued Asset, Goodwill Boundary</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงนี้เก็บปลายบทที่ออกสอบแรง: เมื่อไร reverse ได้, <strong>ceiling rule</strong> ทำงานอย่างไร, สินทรัพย์ที่ใช้ <strong>revaluation model</strong> ต้องระวังอะไร, และทำไม <strong>goodwill</strong> จึงมีข้อจำกัดพิเศษที่สุด</p>
+      </div>
+      <p>ช่วงปลายบทมักทำให้นักศึกษาสับสน เพราะเมื่อสถานการณ์ดีขึ้น ไม่ได้แปลว่าสามารถ reverse impairment ได้ทุกกรณี TAS 36 อนุญาต reversal แบบมีเงื่อนไขและมีเพดานที่ต้องตรวจสอบเสมอ</p>
+      <h3>Reversal Conditions</h3>
+      <p>สำหรับสินทรัพย์ <strong>other than goodwill</strong> ต้องมี <strong>change in estimates used to determine recoverable amount</strong> ซึ่งแปลว่ามีข้อมูลประมาณการที่ใช้วัดมูลค่ากู้คืนเปลี่ยนไปจริง เช่น กระแสเงินสดคาดการณ์ดีขึ้นหรือ discount rate เปลี่ยน ไม่ใช่แค่รู้สึกว่าธุรกิจดีขึ้น</p>
+      <p>ดังนั้น reversal ไม่ใช่สิ่งที่มาตรฐานอนุญาตโดยอัตโนมัติเมื่อกิจการเริ่มมีผลการดำเนินงานดีขึ้น แต่เป็นการปรับประมาณการเดิมเมื่อมีหลักฐานใหม่ว่ามูลค่าที่กู้คืนได้เพิ่มขึ้นจริง และการเพิ่มขึ้นนั้นต้องเชื่อมโยงกลับไปยัง recoverable amount ของสินทรัพย์นั้นโดยตรง</p>
+      <h3>Ceiling rule</h3>
+      <div class="formula"><strong>Reversal cannot push the asset above its no-impairment path</strong></div>
+      <p>นั่นคือ carrying amount หลัง reversal ห้ามเกิน carrying amount ที่สินทรัพย์ควรจะเป็นหากไม่เคยมี impairment มาก่อน หลังหัก depreciation หรือ amortisation ตามปกติแล้ว ถ้าอยากจำง่าย ๆ ให้เรียกเส้นนี้ว่า <strong>no-impairment path</strong> หรือเส้นมูลค่าตามบัญชีที่ควรจะเป็นถ้าไม่เคยด้อยค่ามาก่อน</p>
+      <h3>Recognition and Journal Entry</h3>
+      <pre>Dr Asset or related contra account
+   Cr Reversal Gain</pre>
+      <h3>Revalued Asset Interaction</h3>
+      <p>ถ้าสินทรัพย์เป็น <strong>revalued asset</strong> หรือสินทรัพย์ที่กิจการใช้นโยบายตีราคาใหม่ ต้องเชื่อม treatment กลับไปยังมาตรฐาน revaluation เช่น TAS 16 นี่คือจุดเชื่อมสำคัญระหว่าง Chapter 6 กับ Chapter 7</p>
+      <p>ในภาษาข้อสอบ หากโจทย์ระบุว่าสินทรัพย์อยู่ภายใต้ <strong>revaluation model</strong> ไม่ควรตอบ impairment และ reversal แบบ cost model โดยตรง แต่ต้องพิจารณาเรื่อง presentation ใน <strong>P/L</strong> และ <strong>OCI</strong> ตามกรอบของมาตรฐานที่เกี่ยวข้องด้วย</p>
+      <h3>Goodwill Boundary</h3>
+      <p><strong>Goodwill boundary</strong> ตรงนี้หมายถึงขอบเขตพิเศษของ goodwill ว่าแม้ goodwill ต้อง annual test แต่ไม่ใช้ reversal logic แบบ ordinary assets ดังนั้นถ้าโจทย์มี goodwill ต้องระวังการตอบส่วน reversal เป็นพิเศษ</p>
+      <p>ข้อสรุปที่ต้องจำให้ชัดคือ <strong>goodwill impairment ที่รับรู้ไปแล้วห้าม reverse</strong> แม้สถานการณ์ของธุรกิจจะดีขึ้นในภายหลังก็ตาม ดังนั้นเมื่อพบ goodwill ในข้อสอบต้องระวังประเด็นนี้เป็นพิเศษ</p>
+      <h3>Worked Example</h3>
+      <table>
+        <thead><tr><th>รายการ</th><th>จำนวน</th></tr></thead>
+        <tbody>
+          <tr><td>Current carrying amount after prior impairment</td><td>430,000</td></tr>
+          <tr><td>No-impairment carrying amount path</td><td>520,000</td></tr>
+          <tr><td>New recoverable amount</td><td>560,000</td></tr>
+          <tr><td>Maximum carrying amount after reversal</td><td>520,000</td></tr>
+          <tr><td>Reversal recognized</td><td>90,000</td></tr>
+        </tbody>
+      </table>
+      <pre>Dr Equipment 90,000
+   Cr Reversal Gain 90,000</pre>
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>reversal ไม่ใช่อัตโนมัติ</li>
+          <li>ต้องมี change in estimates</li>
+          <li>ต้องติด no-impairment ceiling</li>
+          <li>อย่าใช้ reversal logic ของ ordinary assets กับ goodwill</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-4" class="test-box">
+      <div class="test-label">Mini Test 4</div>
+      <h2>Mini Test 4</h2>
+      <p>บริษัท อัลฟ่ามีเดีย จำกัด มีอุปกรณ์ตัดต่อที่เคยรับรู้ impairment ในปีก่อน ปัจจุบัน ณ วันที่ 31 ธันวาคม 20X6 มี carrying amount หลัง impairment เท่ากับ 430,000 บาท หากไม่เคย impaired มาก่อน carrying amount ณ วันเดียวกันหลังหัก depreciation ตามปกติควรเหลือ 520,000 บาท ปีนี้ management มีหลักฐานใหม่ว่ากระแสเงินสดคาดการณ์ดีขึ้นและ discount rate ลดลง ทำให้ recoverable amount ใหม่ = 560,000 บาท นอกจากนี้กิจการยังมี goodwill จากการซื้อกิจการหนึ่งรายการที่เคยรับรู้ impairment ไว้ในปีก่อนเช่นกัน</p>
+      <ol>
+        <li>พิจารณาว่าสามารถ reverse ได้หรือไม่</li>
+        <li>คำนวณ reversal ที่รับรู้ได้</li>
+        <li>จัดทำ journal entry</li>
+        <li>อธิบายว่าทำไม reverse ไปถึง 560,000 บาทไม่ได้ แม้ recoverable amount ใหม่จะสูงกว่านั้น</li>
+        <li>อธิบายว่าเหตุใดกรณี goodwill ที่เคย impaired มาก่อนจึงไม่ใช้ logic เดียวกัน</li>
+        <li>ถ้าอุปกรณ์ชิ้นนี้เป็นสินทรัพย์ที่ใช้นโยบาย revaluation model ประเด็นใดใน presentation ที่ผู้ทำข้อสอบต้องระวังเพิ่ม</li>
+      </ol>
+    </section>
+
+    <section id="mock-exam" class="test-box">
+      <div class="test-label">Mock Exam</div>
+      <h2>Mock Exam</h2>
+      <div class="roadmap">
+        <strong>How To Use This Mock</strong>
+        <p>ข้อสอบชุดนี้ตั้งใจให้เชื่อมทั้งบทในรูปแบบไฟนอล: Question 1 เน้น <strong>indicator -> FVLCD/VIU -> impairment loss -> depreciation after impairment</strong> ส่วน Question 2 เน้น <strong>annual testing -> reversal -> ceiling rule -> goodwill boundary</strong></p>
+      </div>
+      <h3>Question 1: Impairment Measurement Chain</h3>
+      <p>บริษัท ไทยไพศาลแมชชีน จำกัด มีเครื่องจักรที่ได้รับผลกระทบจากเทคโนโลยีของคู่แข่งและผลการดำเนินงานของสายการผลิตลดลงต่อเนื่อง ณ วันที่ 31 ธันวาคม 20X5 เครื่องจักรมี cost 2,400,000 บาท และ accumulated depreciation 620,000 บาท หลังบันทึกค่าเสื่อมราคาของปีแล้ว หากจำหน่ายจะมี fair value 1,420,000 บาท โดยต้องเสียค่านายหน้า 35,000 บาท, ค่ากฎหมายโอน 15,000 บาท, ค่ารื้อถอน 30,000 บาท, ดอกเบี้ยเงินกู้ของกิจการ 40,000 บาท และภาษีเงินได้จากกำไรในการขาย 55,000 บาท ฝ่ายบัญชีประเมินว่า VIU = 1,360,000 บาท remaining useful life 4 ปี residual value 40,000 บาท</p>
+      <ol>
+        <li>ระบุ impairment indicator</li>
+        <li>คำนวณ FVLCD</li>
+        <li>คำนวณ recoverable amount</li>
+        <li>คำนวณ impairment loss</li>
+        <li>จัดทำ journal entry</li>
+        <li>คำนวณค่าเสื่อมปีถัดไป</li>
+        <li>อธิบายว่ารายการใดในข้อมูลข้างต้นเป็นตัวหลอกที่ไม่นำมาหักในการหา FVLCD</li>
+      </ol>
+      <h3>Question 2: Annual Testing, Reversal, and Goodwill Boundary</h3>
+      <p>บริษัท วิชั่นมีเดีย จำกัด ยังมี goodwill จากการซื้อกิจการ, trademark ที่มี indefinite useful life, software ที่ยังไม่พร้อมใช้งาน, และอุปกรณ์ตัดต่อที่เคย impaired ในปีก่อน ปัจจุบันอุปกรณ์ดังกล่าวมี carrying amount 390,000 บาท โดยถ้าไม่เคย impaired มาก่อนจะควรเหลือ 460,000 บาท และปีนี้ recoverable amount ใหม่ = 510,000 บาท ฝ่ายบริหารอ้างว่าธุรกิจโดยรวมดีขึ้นจึงควร reverse ทั้งอุปกรณ์และ goodwill</p>
+      <ol>
+        <li>ระบุสินทรัพย์ที่ต้อง annual test</li>
+        <li>พิจารณาว่าอุปกรณ์ตัดต่อ reverse ได้หรือไม่</li>
+        <li>คำนวณ reversal ที่รับรู้ได้</li>
+        <li>จัดทำ journal entry</li>
+        <li>อธิบาย ceiling rule และ goodwill boundary</li>
+        <li>ประเมินว่าคำกล่าวของฝ่ายบริหารที่ต้องการ reverse ทั้งอุปกรณ์และ goodwill ถูกต้องทั้งหมดหรือไม่ เพราะอะไร</li>
+      </ol>
+    </section>
+
+    <section id="answer-key">
+      <h2>Answer Key</h2>
+      <div class="roadmap">
+        <strong>How To Read The Answers</strong>
+        <p>เฉลยส่วนนี้เรียงตาม logic ของโจทย์ ไม่ใช่แค่ให้ตัวเลขท้ายข้อ ถ้าจะใช้ทบทวนก่อนสอบ ให้มองหา 3 ชั้นในทุกข้อเสมอ: <strong>facts -> accounting logic -> numerical answer / journal entry</strong></p>
+      </div>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 1</div>
+        <h3>Mini Test 1</h3>
+        <p>เครื่องจักร A มี <strong>internal indicator</strong> เพราะผลการดำเนินงานและกระแสเงินสดของสายการผลิตแย่ลง ส่วนอาคารสำนักงาน B สะท้อน <strong>external indicator</strong> เพราะ market capitalisation ต่ำกว่าสินทรัพย์สุทธิในงบ</p>
+        <p>รายการที่ต้อง annual test แม้ไม่มี indicator คือ <strong>software C ที่ยังไม่พร้อมใช้งาน</strong>, <strong>trademark D ที่มี indefinite useful life</strong>, และ <strong>goodwill</strong></p>
+        <p>คลังสินค้า F ยังไม่จำเป็นต้องคำนวณ recoverable amount ทันที หากไม่มี indicator เฉพาะของสินทรัพย์นั้น เพราะ ordinary assets ใช้ตรรกะ <code>indicator first</code></p>
+        <p>ความต่างของตรรกะคือ ordinary assets ต้องเริ่มจากถามก่อนว่ามี indicator หรือไม่ แต่ annual-test assets ต้องทดสอบทุกปีอยู่แล้วไม่ว่าปีนี้จะมี indicator ชัดหรือไม่</p>
+        <p>ข้อความที่ว่า “ราคาหุ้นตกจึงต้องทดสอบ impairment ทุกสินทรัพย์ทุกรายการทันที” ไม่ถูกทั้งหมด เพราะราคาหุ้นตกเป็น indicator สำคัญในระดับกิจการ แต่การทดสอบยังต้องใช้ judgment ว่าควรพิจารณาที่สินทรัพย์หรือหน่วยใดที่เกี่ยวข้อง ไม่ใช่สรุปแบบเหมารวมโดยไม่พิจารณาข้อเท็จจริงของแต่ละรายการ</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 2</div>
+        <h3>Mini Test 2</h3>
+        <p>ในการหา FVLCD ให้นำมาหักเฉพาะรายจ่ายที่เป็น incremental costs directly attributable to disposal ดังนั้นหักได้เฉพาะ <strong>ค่านายหน้า 25,000 บาท</strong>, <strong>ค่ากฎหมายโอน 12,000 บาท</strong>, และ <strong>ค่ารื้อถอนเพื่อให้ผู้ซื้อรับมอบได้ 18,000 บาท</strong> รวม <strong>55,000 บาท</strong></p>
+        <p><strong>ดอกเบี้ยเงินกู้ 20,000 บาท</strong>, <strong>ภาษีเงินได้ที่คาดว่าจะเกิดจากการขาย 35,000 บาท</strong>, และ <strong>ค่าใช้จ่ายฝ่ายบริหาร 10,000 บาท</strong> ไม่นำมาหัก เพราะไม่ใช่ต้นทุนส่วนเพิ่มที่ทำให้ขายสินทรัพย์ได้โดยตรง</p>
+        <p>FVLCD = 1,150,000 - 55,000 = <strong>1,095,000 บาท</strong></p>
+        <p>Recoverable amount = higher of 1,095,000 and 1,070,000 = <strong>1,095,000 บาท</strong></p>
+        <p>Impairment loss = 1,260,000 - 1,095,000 = <strong>165,000 บาท</strong></p>
+        <p>เหตุผลที่ต้องเลือกค่าที่สูงกว่า เพราะ recoverable amount ต้องสะท้อนจำนวนที่กิจการยังกู้คืนได้ดีที่สุด ไม่ว่าจะกู้คืนผ่านการขายหรือผ่านการใช้ต่อ หากเลือกค่าที่ต่ำกว่าเสมอจะทำให้รับรู้ impairment loss มากเกินจริงและทำให้สินทรัพย์ต่ำกว่าความเป็นจริง</p>
+        <p>ถ้า market interest rates สูงขึ้นจน VIU ลดเหลือ 990,000 บาท recoverable amount ใหม่ = higher of 1,095,000 and 990,000 = <strong>1,095,000 บาท</strong> ดังนั้น impairment loss ใหม่ยังคงเป็น <strong>165,000 บาท</strong> เพราะในกรณีนี้ FVLCD ยังสูงกว่า VIU</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 3</div>
+        <h3>Mini Test 3</h3>
+        <p>Carrying amount = 1,800,000 - 420,000 = <strong>1,380,000 บาท</strong></p>
+        <p>FVLCD = 1,180,000 - 50,000 = <strong>1,130,000 บาท</strong></p>
+        <p>Recoverable amount = higher of 1,130,000 and 1,240,000 = <strong>1,240,000 บาท</strong></p>
+        <p>Impairment loss = 1,380,000 - 1,240,000 = <strong>140,000 บาท</strong></p>
+        <pre>Dr Impairment Loss 140,000
+   Cr Machinery 140,000</pre>
+        <p>Depreciation ปี 20X6 = (1,240,000 - 40,000) / 4 = <strong>300,000 บาท</strong></p>
+        <p>ค่าเสื่อมปีถัดไปต้องใช้ฐานใหม่ เพราะ impairment ทำให้ carrying amount ของสินทรัพย์เปลี่ยนไปแล้ว มาตรฐานจึงไม่อนุญาตให้คิดค่าเสื่อมต่อบนฐานเดิมก่อนรับรู้ impairment</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 4</div>
+        <h3>Mini Test 4</h3>
+        <p>สามารถ reverse ได้ถ้ามี change in estimates และสินทรัพย์ไม่ใช่ goodwill</p>
+        <p>Reversal ที่รับรู้ได้ = 520,000 - 430,000 = <strong>90,000 บาท</strong> เพราะ ceiling rule ไม่อนุญาตให้ carrying amount หลัง reversal เกิน no-impairment path</p>
+        <pre>Dr Equipment 90,000
+   Cr Reversal Gain 90,000</pre>
+        <p>แม้ recoverable amount ใหม่ = 560,000 บาท ก็ reverse ได้เพียง 90,000 บาท เพราะต้องติด no-impairment ceiling ที่ 520,000 บาท</p>
+        <p>ถ้าเป็น goodwill จะใช้ reversal logic แบบนี้ไม่ได้ เพราะ goodwill impairment ที่เคยรับรู้ไปแล้วห้าม reverse</p>
+        <p>ถ้าอุปกรณ์นี้เป็นสินทรัพย์ภายใต้ revaluation model ผู้ทำข้อสอบต้องระวัง presentation ระหว่าง <strong>P/L</strong> และ <strong>OCI</strong> ตามกรอบของมาตรฐาน revaluation ไม่ใช่ตอบแบบ cost model โดยตรง</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Mock Exam Solution Guide</div>
+        <h3>Mock Exam</h3>
+        <h4>Question 1</h4>
+        <p>Question 1: impairment indicators คือ adverse technological change และ economic performance ที่แย่ลงของสายการผลิต</p>
+        <p>Carrying amount = 2,400,000 - 620,000 = <strong>1,780,000 บาท</strong></p>
+        <p>Costs of disposal ที่หักได้มีเพียงค่านายหน้า 35,000 บาท, ค่ากฎหมายโอน 15,000 บาท, และค่ารื้อถอน 30,000 บาท รวม <strong>80,000 บาท</strong> ส่วนดอกเบี้ยเงินกู้และภาษีเงินได้เป็นตัวหลอก</p>
+        <p>FVLCD = 1,420,000 - 80,000 = <strong>1,340,000 บาท</strong></p>
+        <p>Recoverable amount = higher of 1,340,000 and 1,360,000 = <strong>1,360,000 บาท</strong></p>
+        <p>Impairment loss = 1,780,000 - 1,360,000 = <strong>420,000 บาท</strong></p>
+        <pre>Dr Impairment Loss 420,000
+   Cr Machinery 420,000</pre>
+        <p>Depreciation ปีถัดไป = (1,360,000 - 40,000) / 4 = <strong>330,000 บาท</strong></p>
+        <h4>Question 2</h4>
+        <p>Question 2: annual-test assets คือ <strong>goodwill</strong>, <strong>indefinite-life trademark</strong>, และ <strong>software not yet available for use</strong></p>
+        <p>อุปกรณ์ตัดต่อ reverse ได้ถ้ามี change in estimates และไม่ใช่ goodwill แต่ต้องติด ceiling ที่ no-impairment path = 460,000 บาท ดังนั้น reversal = 460,000 - 390,000 = <strong>70,000 บาท</strong></p>
+        <pre>Dr Equipment 70,000
+   Cr Reversal Gain 70,000</pre>
+        <p>คำกล่าวของฝ่ายบริหารที่ต้องการ reverse ทั้งอุปกรณ์และ goodwill ไม่ถูกทั้งหมด เพราะ <strong>goodwill impairment ที่รับรู้ไปแล้วห้าม reverse</strong> แม้สถานการณ์โดยรวมของธุรกิจจะดีขึ้นก็ตาม</p>
+      </article>
+    </section>
+
+    <p class="footer-note">เวอร์ชันนี้ขยายจากสรุปย่อเป็น lecture note ระดับใช้สอบ โดยเน้น decision flow, worked logic, journal-entry implications, future depreciation, reversal ceiling, และจุดเชื่อมกับ TAS 16/TAS 38 ตาม Chapter 7 master outline</p>
+  </main>
+  <script>
+    const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
+    const sections = tocLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActiveLink = (id) => {
+      tocLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
+        });
+      }, { rootMargin: "-30% 0px -62% 0px", threshold: 0.01 });
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      const keywordObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            keywordObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.35 });
+      document.querySelectorAll("p strong, li strong, td strong").forEach((keyword) => keywordObserver.observe(keyword));
+    } else {
+      document.querySelectorAll("strong").forEach((keyword) => keyword.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AC311 Chapter 6 - PPE Subsequent Measurement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f4efe6;
+      --paper:#fffdf8;
+      --paper-soft:#fbf6ee;
+      --ink:#2b2118;
+      --ink-strong:#1f1711;
+      --muted:#766858;
+      --line:#ded2bf;
+      --line-strong:#cbb899;
+      --accent:#8b6238;
+      --accent-soft:#efe2cf;
+      --olive:#7c8160;
+      --note:#fbf3e8;
+      --test:#f5f7f2;
+      --answer:#f7f1e7;
+      --code:#28251f;
+      --shadow:0 18px 42px rgba(52,41,28,.08);
+      --radius-lg:22px;
+      --radius-md:16px;
+      --content:1040px;
+      --font-sans:"Google Sans Text","Google Sans","Product Sans","Noto Sans Thai",sans-serif;
+      --font-mono:"Google Sans Code","SFMono-Regular",Consolas,monospace;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:92px; }
+    body {
+      margin:0;
+      font-family:var(--font-sans);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(139,98,56,.09), transparent 26%),
+        linear-gradient(90deg, rgba(139,98,56,.035) 1px, transparent 1px),
+        linear-gradient(180deg,#faf6ee 0%,var(--bg) 100%);
+      background-size:auto, 28px 28px, auto;
+      color:var(--ink);
+      line-height:1.78;
+      letter-spacing:-0.01em;
+      text-rendering:optimizeLegibility;
+    }
+    .page {
+      max-width:var(--content);
+      margin:34px auto;
+      padding:54px clamp(28px, 6vw, 76px) 72px;
+      background:var(--paper);
+      border:1px solid rgba(139,98,56,.16);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:visible;
+    }
+    .page::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0) 12%),
+        repeating-linear-gradient(180deg, transparent 0, transparent 31px, rgba(87,69,47,.045) 31px, rgba(87,69,47,.045) 32px);
+      opacity:.72;
+    }
+    h1,h2,h3,h4,p,li,table,pre,.toc,.callout,.formula,.panel,.roadmap,.test-box,.answer-box,.footer-note { position:relative; z-index:1; }
+    header { position:relative; z-index:1; padding-bottom:22px; border-bottom:1px solid var(--line); }
+    h1,h2,h3,h4,.eyebrow,.segment-label,.test-label,.answer-label,.toc a,.back a { font-family:var(--font-sans); }
+    h1,h2,h3,h4 { margin:0 0 14px; color:var(--ink-strong); line-height:1.28; letter-spacing:-.015em; }
+    h1 { max-width:none; font-size:clamp(2.25rem, 5.6vw, 4.45rem); line-height:.98; letter-spacing:-.05em; color:#36261c; font-weight:700; margin-bottom:12px; }
+    h2 {
+      font-size:clamp(24px, 3vw, 34px);
+      margin-top:64px;
+      padding:0 0 13px 18px;
+      border-bottom:1px solid var(--line);
+      scroll-margin-top:96px;
+    }
+    h2::before { content:""; position:absolute; left:0; top:5px; bottom:15px; width:4px; border-radius:999px; background:var(--accent); }
+    h3 { font-size:clamp(19px, 2vw, 24px); margin-top:30px; color:#3a2a1c; }
+    h4 {
+      display:inline-block;
+      margin-top:24px;
+      padding:4px 12px;
+      border:1px solid rgba(124,129,96,.28);
+      border-radius:999px;
+      background:#f3f1e7;
+      color:#555b3b;
+      font-size:16px;
+      font-weight:700;
+    }
+    p { max-width:74ch; margin:0 0 15px; }
+    ul,ol { margin:0 0 17px 1.35rem; padding:0; }
+    li { margin-bottom:8px; padding-left:.1rem; }
+    strong {
+      color:#24180e;
+      font-weight:750;
+      background:linear-gradient(transparent 58%, rgba(208,170,115,.34) 58%);
+      background-size:0% 100%;
+      background-repeat:no-repeat;
+      transition:background-size .65s ease;
+    }
+    strong.is-visible { background-size:100% 100%; }
+    code { font-family:var(--font-mono); font-size:.88em; background:rgba(139,98,56,.10); padding:1px 5px; border-radius:5px; }
+    pre {
+      margin:16px 0 24px;
+      padding:18px 20px 18px 24px;
+      background:linear-gradient(180deg,#302a22 0%,var(--code) 100%);
+      color:#fff7e9;
+      border:1px solid rgba(255,255,255,.08);
+      border-left:4px solid #d0aa73;
+      border-radius:var(--radius-md);
+      overflow-x:auto;
+      font-size:14px;
+      line-height:1.58;
+      tab-size:2;
+    }
+    .lead { max-width:76ch; color:#44372a; font-size:18px; line-height:1.85; }
+    .meta { margin-bottom:20px; color:var(--muted); font-size:14px; }
+    .hero {
+      display:grid;
+      grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);
+      gap:28px;
+      align-items:end;
+      padding:20px 0 18px;
+    }
+    .hero h1 { max-width:none; margin:0 0 12px; }
+    .hero p { max-width:62ch; }
+    .subject-line {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .subject-line span {
+      padding:7px 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.34);
+    }
+    .formula-strip {
+      display:grid;
+      gap:12px;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,250,241,.96), rgba(252,246,236,.82));
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+    .formula-strip h2 { margin:0; padding:0; border:0; font-size:14px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+    .formula-strip h2::before { display:none; }
+    .formula-item { display:grid; gap:4px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
+    .formula-item:last-child { border-bottom:0; padding-bottom:0; }
+    .formula-item span { color:var(--muted); font-size:13px; }
+    .formula-item strong { font-size:15px; line-height:1.5; }
+    .eyebrow,.segment-label,.test-label,.answer-label {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      width:max-content;
+      border-radius:999px;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      font-size:11px;
+      font-weight:800;
+    }
+    .eyebrow { margin-bottom:16px; padding:6px 12px; background:var(--accent-soft); color:#754c23; }
+    .segment-label,.test-label,.answer-label { margin-bottom:10px; padding:4px 10px; }
+    .segment-label { background:#efe4d5; color:#795329; }
+    .test-label { background:#eef1e7; color:#5c6542; }
+    .answer-label { background:#eadfce; color:#664828; }
+    .toc,.test-box,.answer-box,.callout,.formula,.panel,.roadmap { border-radius:var(--radius-lg); }
+    .toc {
+      position:sticky;
+      top:16px;
+      z-index:6;
+      margin:26px 0 12px;
+      padding:18px 20px;
+      background:rgba(255,253,248,.96);
+      border:1px solid var(--line);
+      box-shadow:0 10px 26px rgba(52,41,28,.06);
+    }
+    .toc h2 { margin:0 0 12px; padding:0; border:0; font-size:18px; letter-spacing:0; }
+    .toc h2::before { display:none; }
+    .toc ol {
+      display:flex;
+      gap:8px;
+      margin:0;
+      padding:0;
+      overflow-x:auto;
+      list-style:none;
+      scrollbar-width:thin;
+    }
+    .toc li { flex:0 0 auto; margin:0; padding:0; }
+    .toc a,.back a {
+      display:inline-flex;
+      align-items:center;
+      min-height:34px;
+      padding:6px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:#68431f;
+      text-decoration:none;
+      white-space:nowrap;
+      transition:background-color .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .toc a:hover,.toc a:focus-visible,.toc a.is-active { background:#f0e4d1; border-color:#d3bd99; color:#3d2916; outline:none; }
+    section { scroll-margin-top:92px; }
+    section:target > h2 { background:linear-gradient(90deg, rgba(239,226,207,.95), transparent 72%); }
+    .callout,.formula,.roadmap,.test-box,.answer-box,.panel { transition:transform .18s ease, border-color .18s ease, background-color .18s ease; }
+    .callout:hover,.formula:hover,.roadmap:hover,.test-box:hover,.answer-box:hover,.panel:hover { transform:translateY(-1px); border-color:var(--line-strong); }
+    .callout { margin:22px 0; padding:18px 20px; border:1px solid var(--line); border-left:5px solid var(--accent); background:var(--note); }
+    .formula { margin:20px 0; padding:16px 18px; border:1px solid #dcc7ae; background:#fff8ee; color:#31261b; }
+    .roadmap { margin:18px 0 24px; padding:16px 18px; border:1px solid #d7c9b4; background:#fbf5eb; }
+    .test-box { margin:26px 0 12px; padding:22px 24px; border:1px solid #cfd5bd; background:var(--test); }
+    .answer-box { margin:24px 0; padding:22px 24px; border:1px solid #d9ccb8; background:var(--answer); }
+    .grid-two { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; margin:18px 0 22px; }
+    .panel { padding:17px 18px 14px; border:1px solid var(--line); background:#fffaf2; }
+    table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin:18px 0 24px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fffdfa;
+      font-size:14px;
+      line-height:1.55;
+      font-variant-numeric:tabular-nums;
+    }
+    th,td { border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:10px 12px; vertical-align:top; text-align:left; }
+    th:last-child,td:last-child { border-right:0; }
+    tbody tr:last-child td { border-bottom:0; }
+    th { position:sticky; top:0; z-index:2; background:#f1e6d5; color:#3b2b1e; font-weight:800; }
+    tbody tr:nth-child(even) td { background:#fbf6ee; }
+    tbody tr:hover td { background:#f6eddc; }
+    .back { margin-top:18px; color:var(--muted); font-size:14px; }
+    .footer-note { margin-top:48px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+    @media (max-width:820px) {
+      html { scroll-padding-top:24px; }
+      body { background-size:auto, 22px 22px, auto; }
+      .page { margin:0; padding:28px 18px 44px; border:0; box-shadow:none; }
+      header { padding-bottom:18px; }
+      .hero { grid-template-columns:1fr; gap:18px; padding:16px 0 14px; }
+      h1 { max-width:100%; font-size:34px; }
+      h2 { margin-top:46px; font-size:25px; padding-left:14px; }
+      h3 { font-size:21px; }
+      p,.lead { max-width:none; }
+      .toc { position:static; margin-top:22px; padding:14px; }
+      .toc ol { padding-bottom:4px; }
+      .toc a { min-height:38px; }
+      .grid-two { grid-template-columns:1fr; gap:14px; }
+      .callout,.formula,.roadmap,.test-box,.answer-box,.panel { padding:15px 16px; border-radius:16px; }
+      table { display:block; overflow-x:auto; white-space:nowrap; border-radius:12px; }
+      th,td { min-width:132px; padding:9px 10px; white-space:normal; }
+      pre { padding:16px; font-size:13px; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { transition:none !important; animation:none !important; }
+      strong { background-size:100% 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header id="top">
+      <div class="eyebrow">AC311 Intermediate Accounting 1</div>
+      <div class="hero">
+        <div>
+          <h1>Chapter 6: PPE Subsequent Measurement</h1>
+          <p class="lead">อ่านตามลำดับ: policy choice -> revaluation -> depreciation -> disposal</p>
+          <div class="subject-line"><span>TAS 16</span><span>Cost / Revaluation</span><span>Dr./Cr.</span></div>
+        </div>
+        <aside class="formula-strip" aria-label="Quick Frame">
+          <h2>Quick Frame</h2>
+          <div class="formula-item"><span>วัดต่อหลังรับรู้</span><strong>เลือก Cost model หรือ Revaluation model</strong></div>
+          <div class="formula-item"><span>Revaluation</span><strong>กำไรขึ้น OCI, ขาดทุนลง P/L ตามกฎ</strong></div>
+          <div class="formula-item"><span>Depreciation</span><strong>คิดจาก carrying amount หลัง revalue</strong></div>
+          <div class="formula-item"><span>Disposal</span><strong>proceeds - carrying amount = gain/loss</strong></div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="toc">
+      <h2 id="toc-title">สารบัญ</h2>
+      <ol>
+        <li><a href="#segment-1">Segment 1: Measurement after recognition, cost model, revaluation model</a></li>
+        <li><a href="#mini-test-1">Mini Test 1</a></li>
+        <li><a href="#segment-2">Segment 2: Revaluation increase, revaluation decrease, sequence effect</a></li>
+        <li><a href="#mini-test-2">Mini Test 2</a></li>
+        <li><a href="#segment-3">Segment 3: Accumulated depreciation at revaluation date, eliminate method, restate method</a></li>
+        <li><a href="#mini-test-3">Mini Test 3</a></li>
+        <li><a href="#segment-4">Segment 4: Depreciation after revaluation, transfer of surplus, disposal</a></li>
+        <li><a href="#mini-test-4">Mini Test 4</a></li>
+        <li><a href="#mock-exam">Mock Exam</a></li>
+        <li><a href="#answer-key">Answer Key</a></li>
+      </ol>
+    </section>
+
+    <section id="segment-1">
+      <h2>Segment 1: Measurement After Recognition, Cost Model, Revaluation Model</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: เลือกนโยบายวัดมูลค่าหลังรับรู้ -> ใช้กับทั้ง class -> เข้าใจ fair value และ sufficient regularity -> แยก assessment กับ formal revaluation</p>
+      </div>
+
+      <p>แกนของ <strong>TAS 16</strong> ในช่วงนี้คือ หลังจากกิจการรับรู้ <strong>Property, Plant and Equipment (PPE)</strong> ครั้งแรกแล้ว จะวัดมูลค่าต่อในงบการเงินอย่างไร คำตอบคือกิจการเลือกได้ระหว่าง <strong>cost model</strong> และ <strong>revaluation model</strong></p>
+      <div class="formula"><strong>Core rule: after initial recognition, PPE is subsequently measured using either the cost model or the revaluation model</strong></div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h3>Cost model</h3>
+          <div class="formula"><strong>Carrying amount = Cost - Accumulated depreciation - Accumulated impairment losses</strong></div>
+          <p>Cost model เป็น baseline model ของ TAS 16 และต้องจำให้แม่นว่ามันไม่ได้แปลว่า “ถือไว้ที่ต้นทุนเฉย ๆ” แต่เป็น cost net of accumulated depreciation และ accumulated impairment losses</p>
+        </div>
+        <div class="panel">
+          <h3>Revaluation model</h3>
+          <div class="formula"><strong>Carrying amount = Fair value at revaluation date - Subsequent accumulated depreciation - Subsequent accumulated impairment losses</strong></div>
+          <p>Revaluation model ใช้ได้เมื่อ <strong>fair value can be measured reliably</strong> และเมื่อ revalue แล้ว carrying amount จะถูก reset ไปที่ fair value ก่อนจะเดินหน้าคิด depreciation และ impairment ต่อจากฐานใหม่</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h3>Policy Guardrails</h3>
+        <ul>
+          <li>การเลือก cost model หรือ revaluation model เป็นทางเลือกของกิจการ ไม่ใช่ข้อบังคับว่าทุกกิจการต้องตีราคาใหม่</li>
+          <li>ถ้าเลือก revaluation model ต้องใช้กับ <strong>entire class of PPE</strong> ไม่ใช่เลือกเฉพาะสินทรัพย์บางชิ้นที่ทำให้งบดูดี</li>
+          <li>หลัก entire class ช่วยลดโอกาส earnings management และทำให้สินทรัพย์ประเภทเดียวกันถูกวัดด้วยฐานที่สม่ำเสมอ</li>
+          <li>แม้ revalue แล้ว ก็ยังต้องคิด <strong>depreciation</strong> และติดตาม <strong>impairment</strong> ต่อ เพราะ fair value ในวันตีราคาเป็นเพียงฐานใหม่ ไม่ใช่จุดสิ้นสุดของการวัดมูลค่า</li>
+        </ul>
+      </div>
+
+      <h3>Fair Value และ Sufficient Regularity</h3>
+      <p>เมื่อกิจการเลือก <strong>revaluation model</strong> มาตรฐานต้องการให้ทำ revaluation ด้วย <strong>sufficient regularity</strong> เพื่อไม่ให้ carrying amount ณ วันสิ้นงวดแตกต่างจาก fair value อย่างมีสาระสำคัญ</p>
+      <p>คำว่า <strong>fair value</strong> ที่ใช้ใน slide เชื่อมกับ <strong>TFRS 13</strong> คือ price that would be received to sell an asset in an orderly transaction between market participants at the measurement date</p>
+      <div class="formula"><strong>Sufficient regularity = revalue often enough so carrying amount is not materially different from fair value at reporting date</strong></div>
+      <table>
+        <thead><tr><th>สถานการณ์ของราคาตลาด</th><th>ความถี่ที่ควรคิด</th><th>ข้อสอบชอบหลอก</th></tr></thead>
+        <tbody>
+          <tr><td>ราคาผันผวนมาก</td><td>ต้องประเมินและอาจต้องตีราคาใหม่บ่อยมาก เช่น ทุกปี</td><td>ห้ามยึดตัวเลข 3 หรือ 5 ปีแบบแข็งตัว</td></tr>
+          <tr><td>ราคาค่อนข้างนิ่ง ค่อย ๆ ขยับ</td><td>อาจตีราคาใหม่ทุก 3 ปี หรือ 5 ปีได้ ถ้ายังไม่ทำให้งบคลาดเคลื่อนอย่างมีสาระสำคัญ</td><td>3 ปี หรือ 5 ปี เป็นแนวทาง ไม่ใช่กฎตายตัวของ TAS 16</td></tr>
+          <tr><td>ราคาดูเหมือนไม่เปลี่ยนหลายปี</td><td>อาจไม่ต้องทำ formal revaluation ใหม่ หาก assessment รองรับว่า fair value ไม่เปลี่ยนอย่างมีสาระสำคัญ</td><td>ยังต้อง assess ทุกสิ้นงวด และต้องมีหลักฐานให้ผู้สอบบัญชีเชื่อได้</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Assessment vs Formal Revaluation</h3>
+      <div class="grid-two">
+        <div class="panel">
+          <h3>Assessment</h3>
+          <p><strong>Assessment</strong> คือการประเมินเบื้องต้นทุกสิ้นงวดว่าราคาในบัญชีต่างจากราคาตลาดอย่างมีสาระสำคัญหรือไม่ ขั้นนี้ละเลยไม่ได้ แม้กิจการคิดว่าราคาสินทรัพย์นิ่งก็ตาม</p>
+        </div>
+        <div class="panel">
+          <h3>Formal Revaluation</h3>
+          <p><strong>Formal revaluation</strong> คือการตีราคาใหม่อย่างเป็นทางการ เช่น จ้างผู้เชี่ยวชาญหรือจัดทำรายงานประเมินราคา แล้วปรับตัวเลขในงบการเงิน ขั้นนี้จำเป็นเมื่อ carrying amount ต่างจาก fair value อย่างมีสาระสำคัญ</p>
+        </div>
+      </div>
+      <div class="callout">
+        <h3>Trap: ไม่ตีราคาใหม่หลายปี</h3>
+        <p>กิจการอาจไม่ทำ <strong>formal revaluation</strong> ใหม่เป็นเวลา 5 ปีได้ ถ้า <strong>assess ทุกปี</strong> แล้วพิสูจน์ได้ว่า fair value ไม่ต่างจาก carrying amount อย่างมีสาระสำคัญ จึงไม่ต้องจ้างผู้ประเมินใหม่หรือบันทึกปรับปรุงราคาในปีนั้น</p>
+        <p>แต่กิจการจะอ้างว่าไม่ต้องประเมินอะไรเลยตลอด 5 ปีไม่ได้ และการทิ้งช่วงยาวถึง <strong>10 ปี</strong> แม้มาตรฐานไม่ได้เขียนตัวเลขห้ามไว้ตรง ๆ ก็ยากมากในทางปฏิบัติ เพราะต้องมีหลักฐานรองรับว่าราคาสินทรัพย์ไม่ต่างอย่างมีสาระสำคัญทุกปี</p>
+      </div>
+
+      <h3>Decision Flow ในข้อสอบ</h3>
+      <ol>
+        <li>ถามก่อนว่ากิจการใช้นโยบาย <strong>cost model</strong> หรือ <strong>revaluation model</strong></li>
+        <li>ถ้าเป็น revaluation model ให้ถามต่อว่าการเลือกนี้ใช้กับ <strong>ทั้ง class</strong> หรือไม่</li>
+        <li>ถ้าโจทย์ให้ fair value มา อย่ารีบใช้ทันที ต้องเช็กก่อนว่ากิจการอยู่ภายใต้ revaluation model หรือยัง</li>
+        <li>ถ้าโจทย์ถามเรื่องรอบการตีราคา ให้แยก <strong>assessment ทุกสิ้นงวด</strong> ออกจาก <strong>formal revaluation</strong> ที่ทำเมื่อ carrying amount ต่างจาก fair value อย่างมีสาระสำคัญ</li>
+        <li>ถ้า revalue แล้ว ให้คิดต่อเสมอว่าฐาน <strong>depreciation</strong> และประเด็น <strong>impairment</strong> หลังจากนั้นจะเปลี่ยนอย่างไร</li>
+      </ol>
+
+      <h3>Worked Comparison</h3>
+      <table>
+        <thead><tr><th>รายการ</th><th>Cost model</th><th>Revaluation model</th></tr></thead>
+        <tbody>
+          <tr><td>Cost</td><td>100,000</td><td>100,000 ก่อน revaluation</td></tr>
+          <tr><td>Accumulated depreciation</td><td>40,000</td><td>40,000 ก่อน revaluation</td></tr>
+          <tr><td>Carrying amount ก่อน policy effect</td><td>60,000</td><td>60,000</td></tr>
+          <tr><td>Fair value ณ 31/12/X2</td><td>ไม่นำมาปรับในงบ</td><td>72,000</td></tr>
+          <tr><td>Carrying amount หลัง policy effect</td><td>60,000</td><td>72,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>คำว่า cost model ไม่ได้แปลว่าไม่หัก impairment</li>
+          <li>revaluation model ตีราคาแล้วก็ยังต้องคิด depreciation และ impairment ต่อ</li>
+          <li>policy choice ใช้กับทั้ง class ไม่ใช่เฉพาะบางรายการ</li>
+          <li>การมี fair value ในโจทย์ไม่ได้แปลว่าต้องใช้เสมอ ต้องดูนโยบายบัญชีก่อน</li>
+          <li>ตัวเลข 3 ปี หรือ 5 ปี เป็นแนวทาง ไม่ใช่ใบอนุญาตให้ไม่ assess fair value ทุกปี</li>
+          <li>ถ้ากิจการบอกว่าไม่ต้อง formal revaluation หลายปี ต้องมีหลักฐานว่าราคาไม่ต่างจาก carrying amount อย่างมีสาระสำคัญ</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-1" class="test-box">
+      <div class="test-label">Mini Test 1</div>
+      <h2>Mini Test 1: Cost Model vs Revaluation Model</h2>
+      <p>บริษัท เหนือฟ้าอุตสาหกรรม จำกัด ซื้อเครื่องจักร A วันที่ 1 มกราคม 20X1 ในราคา 900,000 บาท อายุการใช้งาน 6 ปี มูลค่าคงเหลือ 60,000 บาท และใช้วิธีเส้นตรง ณ 31 ธันวาคม 20X2 ผู้ประเมินรายงานว่า fair value ของเครื่องจักร A เท่ากับ 720,000 บาท ฝ่ายการเงินเสนอให้ตีราคาใหม่เฉพาะเครื่องจักร A เพราะมูลค่าสูงขึ้นชัดเจน ขณะที่กิจการยังมีเครื่องจักร B และ C ซึ่งอยู่ใน class เดียวกันและยังไม่ได้รับการประเมินราคาใหม่</p>
+      <ol>
+        <li>คำนวณค่าเสื่อมต่อปีและ carrying amount ของเครื่องจักร A ณ 31 ธันวาคม 20X2 ภายใต้ cost model</li>
+        <li>ถ้ากิจการใช้ revaluation model สำหรับ class ของเครื่องจักรทั้งหมด จงระบุ carrying amount ใหม่ของเครื่องจักร A</li>
+        <li>อธิบายว่าข้อเสนอให้ตีราคาใหม่เฉพาะเครื่องจักร A ถูกต้องหรือไม่ และเพราะเหตุใด</li>
+        <li>ถ้าหลัง revaluation เครื่องจักร A เหลืออายุใช้งานอีก 4 ปี และ residual value ไม่เปลี่ยน จงคำนวณค่าเสื่อมปี 20X3</li>
+        <li>อธิบายว่าทำไมการมี fair value ในโจทย์ไม่ได้หมายความว่ากิจการต้องใช้ revaluation model เสมอ</li>
+        <li>ถ้ากิจการใช้ revaluation model แต่ไม่ได้ทำ formal revaluation ใหม่เป็นเวลา 5 ปี จะถือว่าผิด TAS 16 เสมอหรือไม่ อธิบายโดยแยก assessment กับ formal revaluation</li>
+      </ol>
+    </section>
+
+    <section id="segment-2">
+      <h2>Segment 2: Revaluation Increase, Revaluation Decrease, Sequence Effect</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงนี้ลงลึกเรื่อง <strong>recognition location</strong> ของผลต่างจากการตีราคาใหม่: เมื่อไรเข้า <strong>OCI</strong>, เมื่อไรเข้า <strong>P/L</strong>, และทำไมต้องตามประวัติของ <strong>same asset</strong> ทุกครั้ง</p>
+      </div>
+      <p>เมื่อกิจการเลือกใช้ <strong>revaluation model</strong> คำถามใหญ่ต่อมาคือ “ส่วนต่างจากการตีราคาใหม่จะไปรับรู้ที่ไหน” จุดนี้เป็นแกนยากที่สุดของ Chapter 6 เพราะคำตอบไม่ได้เข้า <strong>profit or loss</strong> ทั้งหมด และไม่ได้เข้า <strong>OCI</strong> ทั้งหมดเสมอไป</p>
+      <div class="formula"><strong>Memory hook: reverse where it came from</strong></div>
+
+      <h3>Revaluation increase</h3>
+      <div class="formula"><strong>หลักทั่วไป: Increase -&gt; OCI -&gt; Revaluation surplus</strong></div>
+      <p>ถ้า carrying amount เพิ่มขึ้นเพราะ revaluation หลักทั่วไปคือรับรู้กำไรใน <strong>other comprehensive income (OCI)</strong> และสะสมไว้ใน equity ภายใต้ชื่อ <strong>revaluation surplus</strong></p>
+      <pre>เดิม carrying amount 40,000
+fair value ใหม่ 45,000
+increase 5,000
+
+Dr Land 5,000
+   Cr Revaluation Surplus 5,000</pre>
+      <p>แต่มีข้อยกเว้นสำคัญ: ถ้าในอดีตสินทรัพย์ตัวเดียวกันเคยมี <strong>revaluation decrease</strong> ที่รับรู้ใน P/L มาก่อน increase รอบใหม่ต้อง reverse prior loss ใน P/L ก่อน ส่วนที่เกินจึงค่อยไป OCI</p>
+      <p>ตรรกะของมาตรฐานคือ ถ้าเคยรับรู้ downside ผ่าน P/L ไปแล้ว เมื่อมูลค่าฟื้นกลับขึ้นมาในส่วนเดียวกัน ก็ควร reverse ผ่าน P/L ก่อน เพื่อให้ recognition location สอดคล้องกับประวัติเดิมของสินทรัพย์นั้น</p>
+
+      <h3>Revaluation decrease</h3>
+      <div class="formula"><strong>หลักทั่วไป: Decrease -&gt; Profit or loss</strong></div>
+      <p>ถ้า carrying amount ลดลงเพราะ revaluation หลักทั่วไปคือรับรู้ขาดทุนใน P/L แต่ถ้ามี <strong>revaluation surplus</strong> ของสินทรัพย์ตัวเดียวกันคงอยู่ ให้ใช้ surplus เดิมก่อน ส่วนที่เกินค่อยลง P/L</p>
+      <pre>เดิม carrying amount 40,000
+fair value ใหม่ 38,000
+decrease 2,000
+
+Dr Loss from Revaluation 2,000
+   Cr Land 2,000</pre>
+      <p>ในทางกลับกัน หากสินทรัพย์ตัวนั้นมี revaluation surplus ค้างอยู่ การลดลงครั้งใหม่จะไม่วิ่งเข้า P/L ทั้งหมดทันที แต่ต้องใช้ยอด surplus เดิมตัดก่อน มาตรฐานมองว่านี่คือการดึง unrealized gain เดิมกลับลงมาก่อน</p>
+
+      <h3>Sequence effect ของการตีราคาหลายรอบ</h3>
+      <table>
+        <thead><tr><th>รูปแบบ</th><th>วิธีคิด</th></tr></thead>
+        <tbody>
+          <tr><td>ขึ้นก่อน แล้วลงทีหลัง</td><td>ใช้ revaluation surplus เดิมก่อน แล้วส่วนเกินค่อยลง P/L</td></tr>
+          <tr><td>ลงก่อน แล้วขึ้นทีหลัง</td><td>reverse prior loss ใน P/L ก่อน แล้วส่วนเกินค่อยไป OCI</td></tr>
+        </tbody>
+      </table>
+      <pre>Case 1: 400,000 -&gt; 450,000 -&gt; 380,000
+Dr Revaluation Surplus 50,000
+Dr Loss from Revaluation 20,000
+   Cr Land 70,000
+
+Case 2: 400,000 -&gt; 340,000 -&gt; 430,000
+Dr Land 90,000
+   Cr Recovery from Revaluation 60,000
+   Cr Revaluation Surplus 30,000</pre>
+      <div class="callout">
+        <h3>Decision Flow สำหรับข้อสอบหลายปี</h3>
+        <ol>
+          <li>หา carrying amount ก่อน revaluation ของปีนั้นให้ถูกก่อน</li>
+          <li>เทียบกับ fair value ใหม่เพื่อหา increase หรือ decrease</li>
+          <li>เปิดประวัติเดิมของ <strong>same asset</strong> ว่าเคยมี prior loss ใน P/L หรือ prior surplus ใน OCI คงเหลือเท่าไร</li>
+          <li>จัดสรรผลต่างไปยัง <strong>P/L</strong> และ <strong>OCI</strong> ตามประวัติเดิม ไม่ใช่อาศัยความจำแบบเหมารวมว่า increase ต้องไป OCI เสมอ</li>
+        </ol>
+      </div>
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>Increase ไม่ได้เข้า OCI ทั้งหมดเสมอไป</li>
+          <li>Decrease ไม่ได้เข้า P/L ทั้งหมดเสมอไป</li>
+          <li>คำว่า <strong>same asset</strong> สำคัญมาก ห้ามเอาประวัติคนละสินทรัพย์มาหักกลบ</li>
+          <li>ต้องแยกให้ออกระหว่าง <strong>measurement amount</strong> กับ <strong>recognition location</strong> เพราะบางคนคิด fair value ถูกแต่ตอบผิดว่าต้องไปที่ P/L หรือ OCI</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-2" class="test-box">
+      <div class="test-label">Mini Test 2</div>
+      <h2>Mini Test 2: Revaluation Increase / Decrease</h2>
+      <p>บริษัท ศิลาไทย จำกัด มีที่ดินแปลงหนึ่งซึ่งรับรู้ครั้งแรกวันที่ 1 มกราคม 20X1 ในราคาทุน 1,500,000 บาท และกิจการใช้นโยบาย revaluation model สำหรับ class ของที่ดินทั้งหมด โดยมี fair value ณ สิ้นปี 20X2 = 1,680,000 บาท, สิ้นปี 20X3 = 1,420,000 บาท, สิ้นปี 20X4 = 1,560,000 บาท และสิ้นปี 20X5 = 1,740,000 บาท</p>
+      <ol>
+        <li>จัดทำตารางวิเคราะห์ carrying amount หลัง revaluation ของแต่ละปี พร้อมแยกจำนวนที่เข้า OCI และ P/L</li>
+        <li>จัดทำ journal entries ของแต่ละปี</li>
+        <li>อธิบาย logic ของปี 20X4 และ 20X5 ว่าทำไม recognition location จึงไม่เหมือนกัน</li>
+        <li>ระบุให้ชัดว่าในแต่ละปีมี revaluation surplus คงเหลือปลายปีเท่าไร</li>
+      </ol>
+    </section>
+
+    <section id="segment-3">
+      <h2>Segment 3: Accumulated Depreciation at Revaluation Date, Eliminate Method, Restate Method</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงนี้เน้น mechanics ที่ออกสอบบ่อยมากเมื่อสินทรัพย์เสื่อมราคาได้ถูก revalue: การจัดการ <strong>accumulated depreciation</strong>, ความต่างของ <strong>eliminate method</strong> กับ <strong>restate method</strong>, และเหตุผลที่ทั้งสองวิธีต้องจบที่ net amount เดียวกัน</p>
+      </div>
+      <p>เมื่อสินทรัพย์ที่คิดค่าเสื่อมอยู่แล้วถูก revalue ประเด็นไม่ได้มีแค่ว่า fair value ใหม่เท่าไร แต่ต้องตอบด้วยว่า <strong>accumulated depreciation เดิมจะจัดการอย่างไร</strong> เป้าหมายสุดท้ายคือ net carrying amount หลัง revaluation ต้องเท่ากับ revalued amount</p>
+      <div class="formula"><strong>Core target: net carrying amount after revaluation = revalued amount</strong></div>
+
+      <h3>Worked Example Setup</h3>
+      <ul>
+        <li>Cost = 100,000</li>
+        <li>Useful life = 5 ปี</li>
+        <li>Accumulated depreciation ณ สิ้นปี 25X2 = 40,000</li>
+        <li>Carrying amount ก่อน revaluation = 60,000</li>
+        <li>Fair value ใหม่ = 72,000</li>
+      </ul>
+
+      <h3>Eliminate method</h3>
+      <p>วิธีนี้ล้าง accumulated depreciation ออกก่อน แล้วค่อยปรับยอดสุทธิให้ถึง revalued amount</p>
+      <pre>Step 1 ล้าง accumulated depreciation
+Dr Accumulated Depreciation 40,000
+   Cr Equipment 40,000
+
+หลัง Step 1
+Equipment 60,000
+Accumulated depreciation 0
+
+Step 2 ปรับจาก 60,000 เป็น 72,000
+Dr Equipment 12,000
+   Cr Revaluation Surplus 12,000</pre>
+
+      <h3>Restate method</h3>
+      <p>วิธีนี้ไม่ล้าง accumulated depreciation ทั้งหมด แต่ restate ทั้ง gross amount และ accumulated depreciation ให้เป็นสัดส่วนใหม่</p>
+      <pre>Ratio = 72,000 / 60,000 = 1.2
+
+Gross amount ใหม่ = 100,000 x 1.2 = 120,000
+Accumulated depreciation ใหม่ = 40,000 x 1.2 = 48,000
+
+Dr Equipment 20,000
+   Cr Accumulated Depreciation 8,000
+   Cr Revaluation Surplus 12,000</pre>
+      <p>ความต่างของสองวิธีอยู่ที่ mechanics ไม่ใช่ผลลัพธ์สุทธิ เพราะไม่ว่าวิธีใด สุดท้ายต้องจบที่ net carrying amount = 72,000</p>
+      <table>
+        <thead><tr><th>ประเด็น</th><th>Eliminate method</th><th>Restate method</th></tr></thead>
+        <tbody>
+          <tr><td>แนวคิดหลัก</td><td>ล้าง accumulated depreciation ก่อน</td><td>ปรับ gross amount และ accumulated depreciation ให้เป็นสัดส่วนใหม่</td></tr>
+          <tr><td>จุดเริ่มต้น</td><td>remove AD first</td><td>หา ratio = fair value / old carrying amount</td></tr>
+          <tr><td>ผลลัพธ์สุดท้าย</td><td>net carrying amount ใหม่เท่ากับ revalued amount</td><td>net carrying amount ใหม่เท่ากับ revalued amount</td></tr>
+          <tr><td>สิ่งที่นักศึกษาพลาดบ่อย</td><td>ล้าง AD แล้วลืมปรับสินทรัพย์ให้ถึง revalued amount</td><td>ปรับเฉพาะ cost แต่ไม่ปรับ AD ตาม ratio</td></tr>
+        </tbody>
+      </table>
+      <p>ในข้อสอบต้องสังเกตด้วยว่า ถ้าสินทรัพย์เป็น <strong>land</strong> ซึ่งโดยปกติไม่คิดค่าเสื่อม ปัญหา accumulated depreciation จะไม่เกิดแบบเดียวกับ machinery หรือ building ดังนั้น method สองแบบนี้จึงเด่นมากกับสินทรัพย์ที่เสื่อมราคาได้</p>
+
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>ถ้าโจทย์สั่ง restated method ให้หา ratio ก่อน</li>
+          <li>ถ้าโจทย์สั่ง eliminate method ให้ล้าง accumulated depreciation ก่อนเสมอ</li>
+          <li>ห้ามปรับเฉพาะ cost แล้วไม่ปรับ accumulated depreciation ใน restated method</li>
+          <li>อย่าลืมว่า target สุดท้ายคือ <strong>net amount</strong> หลัง revaluation ต้องเท่ากับ fair value ใหม่</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-3" class="test-box">
+      <div class="test-label">Mini Test 3</div>
+      <h2>Mini Test 3: Eliminate Method and Restate Method</h2>
+      <p>บริษัท เมืองทองแมชชีนเนอรี่ จำกัด ซื้อเครื่องจักรวันที่ 1 มกราคม 20X1 ในราคา 600,000 บาท อายุการใช้งาน 8 ปี ไม่มีมูลค่าคงเหลือ และใช้วิธีเส้นตรง ณ 31 ธันวาคม 20X3 เครื่องจักรมี fair value เท่ากับ 468,000 บาท ฝ่ายบัญชีเตรียมบันทึก revaluation แต่ผู้ช่วยบัญชีเสนอว่าจะเพิ่มเฉพาะบัญชีเครื่องจักรโดยไม่แตะ accumulated depreciation</p>
+      <ol>
+        <li>คำนวณค่าเสื่อมต่อปี ค่าเสื่อมสะสม และ carrying amount ก่อน revaluation</li>
+        <li>แสดงวิธีทำภายใต้ eliminate method พร้อม carrying amount หลังแต่ละ step</li>
+        <li>แสดงวิธีทำภายใต้ restated method โดยคำนวณ ratio, gross amount ใหม่ และ accumulated depreciation ใหม่</li>
+        <li>อธิบายว่าข้อเสนอของผู้ช่วยบัญชีที่ต้องการปรับเฉพาะบัญชีเครื่องจักรโดยไม่ปรับ accumulated depreciation ถูกต้องหรือไม่</li>
+        <li>อธิบายว่าทำไมทั้งสองวิธีจึงต้องจบที่ carrying amount เดียวกันแม้ journal entries ต่างกัน</li>
+      </ol>
+    </section>
+
+    <section id="segment-4">
+      <h2>Segment 4: Depreciation After Revaluation, Transfer of Surplus, Disposal</h2>
+      <div class="segment-label">Current Segment</div>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ช่วงสุดท้ายของบทเน้นผลต่อเนื่องหลัง revaluation: การคิด <strong>depreciation จากฐานใหม่</strong>, การโอน <strong>revaluation surplus</strong>, และลำดับการบันทึกเมื่อสินทรัพย์ถูกจำหน่ายจริง</p>
+      </div>
+      <p>หลัง revaluation แล้ว งานบัญชียังไม่จบ เพราะ revalued amount ใหม่จะส่งผลต่อค่าเสื่อมในอนาคต การโอน <strong>revaluation surplus</strong> และการบันทึกเมื่อสินทรัพย์ถูกขาย</p>
+
+      <h3>Depreciation after revaluation</h3>
+      <div class="formula"><strong>Depreciation after revaluation = (Revalued carrying amount - Residual value) / Remaining useful life</strong></div>
+      <p>ตัวอย่างเดิม: revalued amount = 72,000 และอายุคงเหลือ 3 ปี ดังนั้น depreciation ใหม่ต่อปี = 24,000 จุดสำคัญคือห้ามกลับไปใช้ต้นทุนเดิมเป็นฐานคิดค่าเสื่อม</p>
+      <p>เหตุผลเชิงตรรกะคือ เมื่อกิจการ reset carrying amount ไปแล้ว ค่าเสื่อมในอนาคตก็ต้องสะท้อนฐานใหม่ด้วย ไม่เช่นนั้นงบจะใช้มูลค่าหลัง revaluation แต่ยังตัดค่าเสื่อมจากฐานเดิม ซึ่งขัดกันเอง</p>
+
+      <h3>Transfer of Revaluation Surplus</h3>
+      <p>Revaluation surplus อยู่ใน <strong>equity</strong> และสามารถโอนไป <strong>retained earnings</strong> ได้ แต่ก่อนจำวิธีโอน ต้องเข้าใจก่อนว่าทำไมมาตรฐานจึงยอมให้โอนได้</p>
+      <div class="callout">
+        <h3>Why Transfer Exists</h3>
+        <p>ตามกรอบของ <strong>TAS 16</strong> ส่วนเกินจากการตีราคาสินทรัพย์หรือ <strong>revaluation surplus</strong> เป็นกำไรที่ยังไม่เกิดขึ้นจริง (<strong>unrealized gain</strong>) จึงถูกเก็บไว้แยกในส่วนของเจ้าของ ไม่ไปรวมกับกำไรสะสมตั้งแต่แรก</p>
+        <p>แต่เมื่อเวลาผ่านไปจากการใช้งานสินทรัพย์ หรือเมื่อสินทรัพย์ถูกขายออกไป กำไรส่วนนี้จะค่อย ๆ มีลักษณะ “เกิดขึ้นจริงมากขึ้น” ในเชิงบัญชี มาตรฐานจึงอนุญาตให้ย้ายยอดดังกล่าวไปไว้ใน <strong>retained earnings</strong> เพื่อสะท้อนว่ายอดนี้พร้อมถูกพิจารณาใช้ในส่วนของเจ้าของมากขึ้น เช่น การพิจารณาปันผลตามนโยบายของกิจการ</p>
+      </div>
+
+      <p>มาตรฐานเปิดทางให้โอนได้ 2 วิธีหลัก</p>
+      <ol>
+        <li><strong>โอนเมื่อสินทรัพย์ถูกจำหน่าย</strong> คือโอนยอดคงเหลือของ revaluation surplus ทั้งก้อนเมื่อขาย บริจาค เลิกใช้ หรือ derecognize สินทรัพย์นั้น</li>
+        <li><strong>โอนทยอยตามการใช้งานของสินทรัพย์</strong> คือโอนบางส่วนทุกงวดตามผลของค่าเสื่อมราคาที่เพิ่มขึ้นหลังการตีราคาใหม่</li>
+      </ol>
+      <p>วิธีที่นิยมใช้อธิบายในข้อสอบคือกรณีโอนทยอย เพราะสะท้อนว่า “ค่าเสื่อมที่เพิ่มขึ้นจากการตีราคาใหม่” ได้กดกำไรสุทธิของแต่ละงวดไปแล้ว และค่าเสื่อมส่วนเพิ่มนี้เปรียบเสมือนการใช้งานที่เกิดขึ้นจริงของ <strong>unrealized gain</strong> ที่เคยเก็บไว้ใน revaluation surplus จึงสามารถดึงยอดบางส่วนจาก revaluation surplus มาเติมกลับเข้า retained earnings ได้</p>
+      <div class="formula"><strong>Transfer amount = Depreciation (Revalued Amount) - Depreciation (Original Cost)</strong></div>
+      <pre>ถ้าค่าเสื่อมตามต้นทุนเดิม = 20,000
+ค่าเสื่อมหลัง revaluation = 24,000
+ส่วนต่างที่โอนได้ = 4,000
+
+Dr Revaluation Surplus 4,000
+   Cr Retained Earnings 4,000</pre>
+      <p>รายการนี้เป็นเพียง <strong>equity to equity transfer</strong> ไม่มีผลกระทบต่อ <strong>profit or loss</strong> ของงวดนั้น และโดยสาระแล้วควรสะท้อนผ่าน <strong>statement of changes in equity</strong> โดยตรง ไม่ใช่วิ่งผ่านหน้า P&amp;L</p>
+      <div class="callout">
+        <h3>Statement Effect ที่ต้องแยกให้ออก</h3>
+        <ul>
+          <li><strong>Depreciation expense</strong> กระทบกำไรขาดทุนของงวด</li>
+          <li><strong>Gain or loss on disposal</strong> กระทบกำไรขาดทุนของงวด ณ วันที่ขาย</li>
+          <li><strong>Transfer of revaluation surplus</strong> ไม่กระทบกำไรขาดทุน แต่ย้ายยอดภายในส่วนของเจ้าของ</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <h3>Policy Watch</h3>
+        <ul>
+          <li>การโอน revaluation surplus เป็น <strong>ทางเลือกเชิงนโยบายบัญชี</strong> มาตรฐานอนุญาตให้ทำหรือไม่ทำก็ได้ แต่ถ้ากิจการเลือกแนวทางใดควรใช้อย่างสม่ำเสมอ</li>
+          <li>ห้ามบันทึกการโอนนี้ผ่าน <strong>profit or loss</strong> เด็ดขาด</li>
+          <li>ตอนทำข้อสอบต้องแยกให้ชัดระหว่าง <strong>depreciation expense</strong>, <strong>gain/loss on sale</strong>, และ <strong>transfer of revaluation surplus</strong> เพราะทั้งสามรายการมีผลคนละที่ในงบ</li>
+        </ul>
+      </div>
+
+      <h3>Disposal Sequence</h3>
+      <p><strong>Disposal sequence</strong> คือ “ลำดับขั้นตอนในการตัดจำหน่ายสินทรัพย์” ออกจากงบการเงินของกิจการ เหตุผลที่ต้องมีลำดับนี้ชัดเจนก็เพราะสินทรัพย์ระยะยาวหนึ่งรายการไม่ได้ผูกกับแค่บัญชีสินทรัพย์เพียงบรรทัดเดียว แต่ผูกกับหลายบัญชีพร้อมกัน เช่น</p>
+      <ul>
+        <li><strong>บัญชีสินทรัพย์</strong>: แสดงราคาทุนเดิมหรือ revalued amount</li>
+        <li><strong>บัญชีค่าเสื่อมราคาสะสม</strong>: แสดงมูลค่าที่ถูกใช้ไปแล้ว</li>
+        <li><strong>บัญชี revaluation surplus</strong>: แสดง unrealized gain ที่ยังค้างอยู่ใน equity ถ้ากิจการใช้ revaluation model</li>
+      </ul>
+      <p>ดังนั้นเมื่อสินทรัพย์ออกจากกิจการ เราจะลบเฉพาะบัญชีสินทรัพย์ทิ้งไม่ได้ แต่ต้องเคลียร์ทุกบัญชีที่เกี่ยวข้องให้ครบ เพื่อให้ยอดของสินทรัพย์นั้นกลายเป็นศูนย์ทั้งหมดในงบการเงิน</p>
+      <div class="formula"><strong>Disposal sequence = update depreciation -&gt; record disposal -&gt; transfer remaining revaluation surplus</strong></div>
+      <ol>
+        <li><strong>Update depreciation</strong>: บันทึกค่าเสื่อมราคาจากต้นงวดถึงวันที่จำหน่ายจริงก่อน</li>
+        <li><strong>Record disposal</strong>: รับรู้เงินสด ล้างสินทรัพย์ ล้าง accumulated depreciation และบันทึก gain/loss on disposal ใน P/L</li>
+        <li><strong>Transfer surplus</strong>: โอน revaluation surplus ที่เกี่ยวข้องไป retained earnings โดยตรง</li>
+      </ol>
+
+      <h4>Worked example: disposal of a revalued asset</h4>
+      <p>สมมติ ณ วันที่จะจำหน่ายเครื่องจักร กิจการมีข้อมูลดังนี้</p>
+      <table>
+        <thead><tr><th>รายการ</th><th>จำนวน</th></tr></thead>
+        <tbody>
+          <tr><td>Machine (revalued amount)</td><td>120,000</td></tr>
+          <tr><td>Accumulated depreciation ยกมาต้นปี</td><td>30,000</td></tr>
+          <tr><td>Revaluation surplus คงเหลือใน OCI</td><td>40,000</td></tr>
+          <tr><td>Cash received on disposal</td><td>100,000</td></tr>
+          <tr><td>Depreciation for half-year before disposal</td><td>15,000</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Step 1: Update depreciation</h4>
+      <p>ต้องบันทึกค่าเสื่อมราคาจากต้นปีถึงวันที่จำหน่ายจริงก่อน เพื่อให้ book value ณ วันขายถูกต้อง</p>
+      <pre>Dr Depreciation Expense 15,000
+   Cr Accumulated Depreciation 15,000</pre>
+      <p>หลังรายการนี้ accumulated depreciation จะเพิ่มจาก 30,000 เป็น <strong>45,000 บาท</strong> และ carrying amount ณ วันขายจะเท่ากับ 120,000 - 45,000 = <strong>75,000 บาท</strong></p>
+
+      <h4>Step 2: Record disposal</h4>
+      <p>เมื่อขายได้เงินสด 100,000 บาท เทียบกับ carrying amount 75,000 บาท จึงเกิด <strong>gain on disposal</strong> เท่ากับ <strong>25,000 บาท</strong> ซึ่งต้องรับรู้ใน <strong>profit or loss</strong></p>
+      <pre>Dr Cash 100,000
+Dr Accumulated Depreciation 45,000
+   Cr Machine (Revalued Amount) 120,000
+   Cr Gain on Disposal of Asset 25,000</pre>
+
+      <h4>Step 3: Transfer remaining surplus</h4>
+      <p>เมื่อเครื่องจักรถูกขายไปแล้ว revaluation surplus ที่เคยค้างอยู่สำหรับสินทรัพย์นี้ถือว่าไม่ควรค้างอยู่ใน OCI อีกต่อไป จึงโอนทั้งหมดไป retained earnings</p>
+      <pre>Dr Revaluation Surplus 40,000
+   Cr Retained Earnings 40,000</pre>
+      <p>รายการนี้ไม่ผ่าน P/L แต่เป็นการย้ายยอดภายในส่วนของเจ้าของโดยตรง</p>
+
+      <div class="callout">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>หลังจบ disposal sequence บัญชีของสินทรัพย์รายการนั้นควรถูกเคลียร์ครบ: asset = 0, accumulated depreciation = 0, และ revaluation surplus ของสินทรัพย์นั้น = 0</li>
+          <li><strong>Gain or loss on disposal</strong> กับ <strong>transfer of revaluation surplus</strong> เป็นคนละเรื่อง: อย่างแรกผ่าน <strong>P/L</strong> แต่อย่างหลังโอนไป <strong>retained earnings</strong> โดยตรงและไม่ผ่าน P/L</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <ul>
+          <li>หลัง revaluation ค่าเสื่อมต้องคิดจากฐานใหม่</li>
+          <li>ตอนขายสินทรัพย์ ห้ามปน <strong>gain on sale</strong> กับ <strong>transfer of revaluation surplus</strong> เพราะเป็นคนละขั้นตอนและคนละผลกระทบในงบ</li>
+        </ul>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-4" class="test-box">
+      <div class="test-label">Mini Test 4</div>
+      <h2>Mini Test 4: Depreciation After Revaluation, Transfer of Surplus, Disposal</h2>
+      <p>บริษัท รุ่งเรืองวิศวกรรม จำกัด ซื้ออุปกรณ์วันที่ 1 มกราคม 20X1 ในราคา 600,000 บาท อายุการใช้งาน 6 ปี ไม่มีมูลค่าคงเหลือ และใช้วิธีเส้นตรง ณ 31 ธันวาคม 20X2 กิจการตีราคาอุปกรณ์ใหม่เป็น 480,000 บาท และรับรู้ส่วนเกินไว้ใน revaluation surplus ต่อมาในวันที่ 1 กรกฎาคม 20X4 ขายอุปกรณ์ดังกล่าวในราคา 355,000 บาท กิจการมีนโยบายโอน revaluation surplus ไป retained earnings เมื่อจำหน่ายสินทรัพย์เท่านั้น</p>
+      <ol>
+        <li>คำนวณ carrying amount ก่อน revaluation และ surplus ที่เกิดขึ้น ณ 31 ธันวาคม 20X2</li>
+        <li>คำนวณค่าเสื่อมปี 20X3 และครึ่งปีแรกของ 20X4 หลัง revaluation</li>
+        <li>คำนวณ carrying amount ณ วันขาย</li>
+        <li>คำนวณ gain or loss on sale</li>
+        <li>จัดทำ journal entries สำหรับค่าเสื่อมปี 20X3, ค่าเสื่อมครึ่งปีแรกของ 20X4, การขาย และการโอน surplus</li>
+        <li>อธิบายว่าทำไม gain on sale กับ transfer of revaluation surplus จึงต้องแยกจากกัน</li>
+      </ol>
+    </section>
+
+    <section id="mock-exam" class="test-box">
+      <div class="test-label">Mock Exam</div>
+      <h2>Mock Exam: Chapter 6 Integrated Set</h2>
+      <div class="roadmap">
+        <strong>How To Use This Mock</strong>
+        <p>ข้อสอบชุดนี้ตั้งใจให้เชื่อมทั้งบทแบบไฟนอล: Part 1 เน้น <strong>revaluation increase / decrease / sequence effect</strong> ส่วน Part 2 เน้น <strong>AD treatment -&gt; depreciation after revaluation -&gt; disposal -&gt; transfer of surplus</strong></p>
+      </div>
+      <p>บริษัท ธาราอุตสาหกรรม จำกัด ใช้นโยบาย revaluation model สำหรับ class ของที่ดินและเครื่องจักร โดยมีข้อมูลดังนี้</p>
+      <h3>Part 1: Land A</h3>
+      <table>
+        <thead><tr><th>วันที่</th><th>Fair value</th></tr></thead>
+        <tbody>
+          <tr><td>31 ธันวาคม 20X2</td><td>2,260,000</td></tr>
+          <tr><td>31 ธันวาคม 20X3</td><td>1,980,000</td></tr>
+          <tr><td>31 ธันวาคม 20X4</td><td>2,140,000</td></tr>
+        </tbody>
+      </table>
+      <p>ที่ดินแปลง A ซื้อเมื่อวันที่ 1 มกราคม 20X1 ในราคา 2,000,000 บาท และในปี 20X3 ฝ่ายการเงินให้ข้อมูลเพิ่มเติมว่า ณ ต้นปีมียอด revaluation surplus ของที่ดินแปลงนี้จากปีก่อนอยู่ครบเต็มจำนวน</p>
+      <h3>Part 2: Machinery B</h3>
+      <p>เครื่องจักร B ซื้อวันที่ 1 มกราคม 20X1 ในราคา 960,000 บาท อายุการใช้งาน 6 ปี ไม่มีมูลค่าคงเหลือ ใช้วิธีเส้นตรง ณ 31 ธันวาคม 20X2 มี fair value เท่ากับ 780,000 บาท กิจการใช้ eliminate method และขายวันที่ 30 กันยายน 20X4 ในราคา 465,000 บาท โดยกิจการเลือกโอน revaluation surplus เมื่อจำหน่ายสินทรัพย์เท่านั้น</p>
+      <ol>
+        <li>สำหรับที่ดิน A ให้แยกจำนวนที่เข้า OCI และ P/L ในแต่ละปี พร้อม journal entries และยอด revaluation surplus คงเหลือปลายปี</li>
+        <li>สำหรับเครื่องจักร B ให้คำนวณ carrying amount ก่อน revaluation และแสดงการจัดการ accumulated depreciation ภายใต้ eliminate method</li>
+        <li>คำนวณ carrying amount หลัง revaluation ของเครื่องจักร B</li>
+        <li>คำนวณค่าเสื่อมปี 20X3 และค่าเสื่อม 9 เดือนแรกของ 20X4</li>
+        <li>คำนวณ carrying amount ณ วันขาย, gain or loss on sale, และจัดทำ journal entries สำหรับการขายและการโอน surplus</li>
+        <li>อธิบายว่าทำไม transfer of revaluation surplus จึงไม่ผ่าน P/L และเพราะเหตุใดจึงไม่ควรนำไปรวมกับ gain on disposal</li>
+      </ol>
+    </section>
+
+    <section id="answer-key">
+      <h2>Answer Key</h2>
+      <div class="roadmap">
+        <strong>How To Read The Answers</strong>
+        <p>เฉลยชุดนี้ตั้งใจให้ไล่ตามลำดับคิดของโจทย์ ไม่ใช่ให้แต่ตัวเลขปลายทาง เวลาใช้ทบทวนก่อนสอบให้มองทีละชั้น: <strong>policy / history -&gt; measurement -&gt; recognition location -&gt; journal entry</strong></p>
+      </div>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 1</div>
+        <h3>Mini Test 1</h3>
+        <p>Depreciation ต่อปี = (900,000 - 60,000) / 6 = <strong>140,000 บาท</strong> ค่าเสื่อมสะสม 2 ปี = <strong>280,000 บาท</strong> ดังนั้น carrying amount ณ 31 ธันวาคม 20X2 ภายใต้ cost model = 900,000 - 280,000 = <strong>620,000 บาท</strong></p>
+        <p>ถ้ากิจการใช้ revaluation model สำหรับ class ของเครื่องจักรทั้งหมด carrying amount ใหม่ของเครื่องจักร A ณ วันตีราคา = <strong>720,000 บาท</strong></p>
+        <p>ข้อเสนอให้ตีราคาใหม่เฉพาะเครื่องจักร A ไม่ถูกต้อง เพราะ TAS 16 กำหนดให้ใช้นโยบาย revaluation model กับ <strong>entire class of PPE</strong> ไม่ใช่เลือกเฉพาะสินทรัพย์ที่ทำให้กิจการดูดี</p>
+        <p>หลัง revaluation และเมื่ออายุใช้งานคงเหลือ 4 ปี โดย residual value ยังเป็น 60,000 บาท ค่าเสื่อมปี 20X3 = (720,000 - 60,000) / 4 = <strong>165,000 บาท</strong></p>
+        <p>การมี fair value ในโจทย์ไม่ได้บังคับให้ใช้ revaluation model เสมอ เพราะ fair value อาจเป็นเพียงข้อมูลประกอบ แต่ recognition ในงบยังต้องขึ้นกับนโยบายบัญชีที่กิจการเลือกใช้</p>
+        <p>กรณีไม่ได้ทำ <strong>formal revaluation</strong> ใหม่เป็นเวลา 5 ปี ไม่ได้ผิด TAS 16 เสมอไป ถ้ากิจการ <strong>assess ทุกสิ้นงวด</strong> แล้วมีหลักฐานว่ามูลค่ายุติธรรมไม่ต่างจาก carrying amount อย่างมีสาระสำคัญ แต่ถ้าไม่มีการประเมินหรือไม่มีหลักฐานรองรับ การเว้นช่วงยาวจะมีปัญหากับหลัก sufficient regularity และผู้สอบบัญชีมักไม่ยอมรับ</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 2</div>
+        <h3>Mini Test 2</h3>
+        <table>
+          <thead><tr><th>ปี</th><th>Carrying amount เดิม</th><th>Fair value ใหม่</th><th>OCI</th><th>P/L</th></tr></thead>
+          <tbody>
+            <tr><td>20X2</td><td>1,500,000</td><td>1,680,000</td><td>180,000</td><td>0</td></tr>
+            <tr><td>20X3</td><td>1,680,000</td><td>1,420,000</td><td>(180,000)</td><td>(80,000)</td></tr>
+            <tr><td>20X4</td><td>1,420,000</td><td>1,560,000</td><td>60,000</td><td>80,000 recovery</td></tr>
+            <tr><td>20X5</td><td>1,560,000</td><td>1,740,000</td><td>180,000</td><td>0</td></tr>
+          </tbody>
+        </table>
+        <p>Revaluation surplus คงเหลือปลายปีมีดังนี้: 20X2 = <strong>180,000</strong>, 20X3 = <strong>0</strong>, 20X4 = <strong>60,000</strong>, 20X5 = <strong>240,000</strong></p>
+        <pre>31/12/X2
+Dr Land 180,000
+   Cr Revaluation Surplus 180,000
+
+31/12/X3
+Dr Revaluation Surplus 180,000
+Dr Loss from Revaluation 80,000
+   Cr Land 260,000
+
+31/12/X4
+Dr Land 140,000
+   Cr Recovery from Revaluation 80,000
+   Cr Revaluation Surplus 60,000
+
+31/12/X5
+Dr Land 180,000
+   Cr Revaluation Surplus 180,000</pre>
+        <p>Logic ของปี 20X4 คือ increase รอบใหม่ 140,000 ต้อง reverse prior loss ใน P/L ก่อน <strong>80,000 บาท</strong> เพราะเป็น downside ที่เคยรับรู้ผ่าน P/L ในปี 20X3 ส่วนที่เหลือ <strong>60,000 บาท</strong> จึงไป OCI</p>
+        <p>แต่ในปี 20X5 ไม่มี prior loss ใน P/L คงเหลือให้ reverse แล้ว increase ทั้งก้อนจึงไป OCI ทั้งหมด</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 3</div>
+        <h3>Mini Test 3</h3>
+        <p>ค่าเสื่อมต่อปี = 600,000 / 8 = <strong>75,000 บาท</strong> และค่าเสื่อมสะสม 3 ปี = <strong>225,000 บาท</strong> ดังนั้น carrying amount ก่อน revaluation = 600,000 - 225,000 = <strong>375,000 บาท</strong></p>
+        <p><strong>Eliminate method</strong></p>
+        <pre>Step 1
+Dr Accumulated Depreciation 225,000
+   Cr Machinery 225,000
+
+หลัง Step 1
+Machinery = 375,000
+Accumulated depreciation = 0
+
+Step 2
+Dr Machinery 93,000
+   Cr Revaluation Surplus 93,000</pre>
+        <p><strong>Restated method</strong></p>
+        <p>Ratio = 468,000 / 375,000 = <strong>1.248</strong></p>
+        <pre>Gross amount ใหม่ = 600,000 x 1.248 = 748,800
+Accumulated depreciation ใหม่ = 225,000 x 1.248 = 280,800
+
+Dr Machinery 148,800
+   Cr Accumulated Depreciation 55,800
+   Cr Revaluation Surplus 93,000</pre>
+        <p>ข้อเสนอของผู้ช่วยบัญชีที่ต้องการปรับเฉพาะบัญชีเครื่องจักรโดยไม่แตะ accumulated depreciation ไม่ถูกต้อง โดยเฉพาะเมื่อโจทย์กำหนด restated method เพราะ accumulated depreciation ต้องถูก restate ตาม ratio ด้วย</p>
+        <p>ทั้งสองวิธีต่างกันที่ mechanics แต่จบที่ carrying amount สุทธิเดียวกันคือ <strong>468,000 บาท</strong> เพราะเป้าหมายของมาตรฐานคือ net carrying amount หลัง revaluation ต้องเท่ากับ revalued amount</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Answer Key 4</div>
+        <h3>Mini Test 4</h3>
+        <p>ค่าเสื่อมเดิมต่อปี = 600,000 / 6 = <strong>100,000 บาท</strong> และค่าเสื่อมสะสม 2 ปี = <strong>200,000 บาท</strong> ดังนั้น carrying amount ก่อน revaluation ณ 31 ธันวาคม 20X2 = <strong>400,000 บาท</strong></p>
+        <p>เมื่อ revalue เป็น 480,000 บาท จะเกิด revaluation surplus = <strong>80,000 บาท</strong> และ carrying amount หลัง revaluation = <strong>480,000 บาท</strong></p>
+        <p>อายุคงเหลือหลัง revaluation = 4 ปี ดังนั้นค่าเสื่อมใหม่ต่อปี = 480,000 / 4 = <strong>120,000 บาท</strong></p>
+        <p>ค่าเสื่อมปี 20X3 = <strong>120,000 บาท</strong> และค่าเสื่อม 6 เดือนแรกของ 20X4 = <strong>60,000 บาท</strong></p>
+        <p>Carrying amount ณ วันขาย = 480,000 - 120,000 - 60,000 = <strong>300,000 บาท</strong> ดังนั้น gain on sale = 355,000 - 300,000 = <strong>55,000 บาท</strong></p>
+        <pre>31/12/X3
+Dr Depreciation Expense 120,000
+   Cr Accumulated Depreciation 120,000
+
+1/7/X4
+Dr Depreciation Expense 60,000
+   Cr Accumulated Depreciation 60,000
+
+1/7/X4
+Dr Cash 355,000
+Dr Accumulated Depreciation 180,000
+   Cr Equipment 480,000
+   Cr Gain on Sale 55,000
+
+1/7/X4
+Dr Revaluation Surplus 80,000
+   Cr Retained Earnings 80,000</pre>
+        <p><strong>Gain on sale</strong> กับ <strong>transfer of revaluation surplus</strong> ต้องแยกจากกัน เพราะอย่างแรกเป็นผลการจำหน่ายที่ผ่าน P/L ส่วนอย่างหลังเป็น equity to equity transfer ที่ไม่ผ่าน P/L</p>
+      </article>
+
+      <article class="answer-box">
+        <div class="answer-label">Mock Exam Solution Guide</div>
+        <h3>Mock Exam</h3>
+        <h4>Part 1</h4>
+        <p><strong>Land A</strong></p>
+        <table>
+          <thead><tr><th>ปี</th><th>Land A change</th><th>OCI</th><th>P/L</th></tr></thead>
+          <tbody>
+            <tr><td>20X2</td><td>2,000,000 -&gt; 2,260,000 เพิ่ม 260,000</td><td>260,000</td><td>0</td></tr>
+            <tr><td>20X3</td><td>2,260,000 -&gt; 1,980,000 ลด 280,000</td><td>(260,000)</td><td>(20,000)</td></tr>
+            <tr><td>20X4</td><td>1,980,000 -&gt; 2,140,000 เพิ่ม 160,000</td><td>140,000</td><td>20,000 recovery</td></tr>
+          </tbody>
+        </table>
+        <p>Revaluation surplus คงเหลือปลายปีของ Land A คือ 20X2 = <strong>260,000</strong>, 20X3 = <strong>0</strong>, 20X4 = <strong>140,000</strong></p>
+        <pre>31/12/X2
+Dr Land 260,000
+   Cr Revaluation Surplus 260,000
+
+31/12/X3
+Dr Revaluation Surplus 260,000
+Dr Loss from Revaluation 20,000
+   Cr Land 280,000
+
+31/12/X4
+Dr Land 160,000
+   Cr Recovery from Revaluation 20,000
+   Cr Revaluation Surplus 140,000</pre>
+        <h4>Part 2</h4>
+        <p><strong>Machinery B</strong></p>
+        <p>ค่าเสื่อมเดิมต่อปี = 960,000 / 6 = <strong>160,000 บาท</strong> และค่าเสื่อมสะสม 2 ปี = <strong>320,000 บาท</strong> ดังนั้น carrying amount ก่อน revaluation = <strong>640,000 บาท</strong></p>
+        <p>ภายใต้ eliminate method:</p>
+        <pre>Dr Accumulated Depreciation 320,000
+   Cr Machinery 320,000
+
+Dr Machinery 140,000
+   Cr Revaluation Surplus 140,000</pre>
+        <p>Carrying amount หลัง revaluation = <strong>780,000 บาท</strong></p>
+        <p>ค่าเสื่อมปี 20X3 = 780,000 / 4 = <strong>195,000 บาท</strong> และค่าเสื่อม 9 เดือนแรกของ 20X4 = 195,000 x 9/12 = <strong>146,250 บาท</strong></p>
+        <p>Carrying amount ณ วันขาย = 780,000 - 195,000 - 146,250 = <strong>438,750 บาท</strong> และ gain on sale = 465,000 - 438,750 = <strong>26,250 บาท</strong></p>
+        <pre>30/9/X4
+Dr Depreciation Expense 146,250
+   Cr Accumulated Depreciation 146,250
+
+Dr Cash 465,000
+Dr Accumulated Depreciation 341,250
+   Cr Machinery 780,000
+   Cr Gain on Sale 26,250
+
+Dr Revaluation Surplus 140,000
+   Cr Retained Earnings 140,000</pre>
+        <p>Transfer of revaluation surplus ไม่ผ่าน P/L เพราะเป็นเพียง equity to equity transfer ไม่ใช่ผลการดำเนินงานของงวด จึงไม่ควรถูกรวมกับ gain on disposal ซึ่งเป็นกำไรจากการขายที่รับรู้ในกำไรขาดทุน</p>
+      </article>
+    </section>
+
+    <p class="footer-note">เวอร์ชันนี้ปรับจากไฟล์เดิมให้เป็น lecture note ระดับใช้สอบมากขึ้น โดยตัดส่วนซ้ำและเสริม policy logic, OCI vs P/L logic, accumulated depreciation methods, disposal sequence, และ answer key แบบเป็นลำดับคิด</p>
+  </main>
+  <script>
+    const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
+    const sections = tocLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActiveLink = (id) => {
+      tocLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
+        });
+      }, { rootMargin: "-30% 0px -62% 0px", threshold: 0.01 });
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      const keywordObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            keywordObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.35 });
+      document.querySelectorAll("p strong, li strong, td strong").forEach((keyword) => keywordObserver.observe(keyword));
+    } else {
+      document.querySelectorAll("strong").forEach((keyword) => keyword.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>

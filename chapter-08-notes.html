@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AC311 | Investment Property</title>
+  <meta name="description" content="ชีทอ่านสอบวิชา AC311 เรื่อง Investment Property แบบหน้าเดียว พร้อม Dr./Cr. และตารางเปรียบเทียบ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4ede1;
+      --paper: rgba(255, 250, 242, 0.92);
+      --paper-strong: #fffaf2;
+      --ink: #3b2c21;
+      --muted: #6b5d50;
+      --line: rgba(119, 96, 74, 0.16);
+      --line-strong: rgba(119, 96, 74, 0.3);
+      --accent: #7b8564;
+      --accent-soft: rgba(123, 133, 100, 0.12);
+      --shadow: 0 16px 32px rgba(76, 56, 37, 0.05);
+      --font-sans: "Google Sans Text", "Google Sans", "Product Sans", "Noto Sans Thai", sans-serif;
+      --font-mono: "Google Sans Code", "SFMono-Regular", Consolas, monospace;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-sans);
+      background:
+        linear-gradient(90deg, transparent 0, transparent 72px, rgba(160, 122, 88, 0.07) 72px, rgba(160, 122, 88, 0.07) 74px, transparent 74px),
+        repeating-linear-gradient(180deg, transparent 0, transparent 38px, rgba(120, 99, 78, 0.06) 38px, rgba(120, 99, 78, 0.06) 39px),
+        radial-gradient(circle at top left, rgba(255,255,255,0.42), transparent 34%),
+        var(--bg);
+      line-height: 1.78;
+      letter-spacing: -0.01em;
+    }
+    :target {
+      scroll-margin-top: 92px;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: radial-gradient(rgba(90, 67, 47, 0.18) 0.45px, transparent 0.45px);
+      background-size: 9px 9px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 35%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 28px 0 80px; }
+    .masthead {
+      padding: 18px 0 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 12px;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 28px;
+      align-items: end;
+      padding: 18px 0 16px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 5.6vw, 4.45rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: #36261c;
+    }
+    .hero p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1rem; }
+    .subject-line { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; color: var(--muted); font-size:0.95rem; }
+    .subject-line span { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.28); }
+    .formula-strip {
+      display:grid; gap:12px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,250,241,0.88), rgba(252,246,236,0.72));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .formula-strip h2 { margin:0; font-size:0.98rem; color: var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+    .formula-item { display:grid; gap:4px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
+    .formula-item:last-child { border-bottom:none; padding-bottom:0; }
+    .formula-item span { color: var(--muted); font-size:0.9rem; }
+    .formula-item strong { font-size:1rem; line-height:1.45; }
+    .mini-nav-shell { position: sticky; top: 0; z-index: 30; padding: 10px 0 18px; background: linear-gradient(180deg, rgba(245,239,228,0.96), rgba(245,239,228,0.78), rgba(245,239,228,0)); backdrop-filter: blur(8px); }
+    .mini-nav {
+      display:flex; gap:10px; overflow:auto; padding: 10px 4px 10px 2px; scrollbar-width:none;
+    }
+    .mini-nav::-webkit-scrollbar { display:none; }
+    .mini-link {
+      white-space:nowrap; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--muted); background: rgba(255,250,241,0.78); transition: 180ms ease;
+      font-size: 0.95rem;
+    }
+    .mini-link:hover, .mini-link:focus-visible { border-color: var(--line-strong); color: var(--ink); transform: translateY(-1px); }
+    .mini-link.is-active { background: #efe4cf; border-color: rgba(124,137,96,0.4); color: #2f271f; }
+    .content { display:grid; gap: 22px; }
+    .sheet-group {
+      display: grid;
+      gap: 16px;
+      padding-top: 4px;
+    }
+    .group-head {
+      padding: 17px 20px 15px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,250,241,0.86), rgba(250,244,233,0.7));
+      box-shadow: 0 10px 20px rgba(76, 56, 37, 0.03);
+      position: relative;
+    }
+    .group-head::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(123,133,100,0.16), rgba(123,133,100,0));
+    }
+    .group-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 16px;
+      align-items: baseline;
+    }
+    .group-kicker {
+      margin: 0;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .group-head h2 {
+      margin: 0;
+      font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: #2f2219;
+    }
+    .group-description {
+      margin: 10px 0 0;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.68;
+    }
+    .group-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 2px;
+    }
+    .group-link {
+      padding: 9px 11px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,241,0.6);
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.35;
+      transition: 180ms ease;
+    }
+    .group-link:hover, .group-link:focus-visible {
+      color: var(--ink);
+      border-color: var(--line-strong);
+      background: rgba(255,250,241,0.88);
+    }
+    .group-link.is-current {
+      color: #2f271f;
+      background: rgba(123, 133, 100, 0.12);
+      border-color: rgba(123, 133, 100, 0.26);
+    }
+    .group-body {
+      display: grid;
+      gap: 18px;
+    }
+    .sheet-section {
+      position: relative; padding: 26px clamp(18px, 2vw, 28px) 28px 26px; border: 1px solid var(--line);
+      border-radius: 24px; background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(255,248,236,0.8));
+      box-shadow: 0 14px 28px rgba(76, 56, 37, 0.045); overflow: clip;
+    }
+    .sheet-section.theme-accounting {
+      background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(248,241,230,0.84));
+    }
+    .sheet-section.theme-disclosure {
+      background: linear-gradient(180deg, rgba(255,250,241,0.9), rgba(244,240,230,0.8));
+    }
+    .sheet-section.theme-review {
+      background: linear-gradient(180deg, rgba(255,250,241,0.9), rgba(245,244,236,0.84));
+    }
+    .sheet-section::before {
+      content: ""; position:absolute; inset:0; pointer-events:none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45), transparent 24%);
+    }
+    .section-rule { position:absolute; left:0; top:0; bottom:0; width:10px; background: linear-gradient(180deg, rgba(124,137,96,0.16), rgba(124,137,96,0.02)); }
+    .section-head { position:relative; padding-left: 8px; margin-bottom: 14px; }
+    .section-kicker { margin:0 0 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; }
+    .section-head h2 { margin:0; font-size: clamp(1.4rem, 2vw, 2rem); line-height:1.15; letter-spacing: -0.03em; }
+    .section-head + .section-intro > p:first-child {
+      font-size: 1.02rem;
+      color: #4a392d;
+      line-height: 1.74;
+    }
+    .section-intro { margin-bottom: 12px; }
+    .prose p { margin: 0 0 11px; }
+    .prose ul, .prose ol { margin: 0 0 12px 0; padding-left: 1.05rem; }
+    .prose li { margin-bottom: 7px; padding-left: 2px; line-height: 1.7; }
+    .prose td, .prose th, .prose p, .prose li {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    .prose h4 {
+      margin: 18px 0 10px;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: #4a392d;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .prose code {
+      font-family: var(--font-sans); font-size: 0.95em; font-weight: 700; color: #4f3a2b;
+      padding: 0.14rem 0.42rem; border-radius: 8px; background: rgba(124, 137, 96, 0.08); border: 1px solid rgba(124, 137, 96, 0.18);
+      transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
+    }
+    .sheet-section.in-view .prose code { background: rgba(124, 137, 96, 0.16); border-color: rgba(124, 137, 96, 0.28); box-shadow: inset 0 -0.55em 0 rgba(124,137,96,0.12); }
+    .prose strong { color:#2f231b; }
+    .subsection, details.subsection {
+      margin-top: 16px; padding: 17px; border-top: 1px solid var(--line);
+      background: rgba(255,252,246,0.5);
+    }
+    .subsection-head { display:flex; align-items:baseline; flex-wrap:wrap; gap: 9px 10px; margin-bottom: 11px; }
+    .subsection-label { color: var(--muted); letter-spacing:0.14em; text-transform:uppercase; font-size:0.7rem; font-weight:800; }
+    .subsection h3, details.subsection summary h3 { margin:0; font-size:1.08rem; line-height:1.35; }
+    .subsection.trap { background: linear-gradient(180deg, rgba(154,93,67,0.08), rgba(255,252,246,0.52)); border-left: 3px solid rgba(154,93,67,0.46); padding-left: 16px; }
+    .subsection.alert { background: linear-gradient(180deg, rgba(124,137,96,0.12), rgba(255,252,246,0.52)); border-left: 3px solid rgba(124,137,96,0.48); padding-left: 16px; }
+    .subsection.summary { background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,252,246,0.52)); }
+    .subsection.example { background: linear-gradient(180deg, rgba(98,86,73,0.08), rgba(255,252,246,0.52)); }
+    .subsection.note { background: linear-gradient(180deg, rgba(197,172,126,0.12), rgba(255,252,246,0.52)); }
+    details.subsection { border-radius: 16px; border: 1px dashed var(--line); padding: 0; overflow: hidden; }
+    details.subsection summary { list-style:none; cursor:pointer; display:flex; gap:12px; align-items:baseline; padding: 17px 18px; background: rgba(255,252,246,0.84); }
+    details.subsection summary::-webkit-details-marker { display:none; }
+    details.subsection[open] summary { border-bottom: 1px dashed var(--line); }
+    details.subsection .subsection-body { padding: 17px 18px 18px; }
+    .table-wrap { overflow:auto; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.52); position: relative; }
+    .table-wrap::after {
+      content: "";
+      position: sticky;
+      right: 0;
+      top: 0;
+      float: right;
+      width: 18px;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(244,237,225,0.92));
+    }
+    table { width:100%; border-collapse:collapse; min-width: 640px; font-size: 0.94rem; line-height: 1.58; font-variant-numeric: tabular-nums; }
+    th, td { padding: 12px 14px; vertical-align: top; border-bottom: 1px solid rgba(120,99,78,0.12); }
+    th { text-align:left; background: rgba(124,137,96,0.08); font-weight: 700; position: sticky; top: 0; z-index: 2; backdrop-filter: blur(2px); }
+    tbody tr:nth-child(even) td { background: rgba(255,252,246,0.42); }
+    tr:hover td { background: rgba(124,137,96,0.06); }
+    .ledger-block {
+      margin: 12px 0 16px; padding: 15px 16px; background: #f7f0e6; border: 1px solid var(--line);
+      border-radius: 18px; overflow:auto;
+    }
+    .ledger-block code { font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.7; white-space: pre; display:block; color:#2f241d; }
+    .quick-review { padding: 22px 24px; border:1px solid var(--line); border-radius: 24px; background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,250,241,0.82)); }
+    .quick-review h2 { margin:0 0 8px; font-size: 1.45rem; }
+    .check-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px 18px; }
+    .check-item { padding: 10px 12px; border-bottom: 1px dashed var(--line); line-height: 1.62; }
+    blockquote { margin: 14px 0; padding: 12px 16px; border-left: 3px solid rgba(124,137,96,0.35); background: rgba(255,255,255,0.34); color: var(--muted); }
+    .footer-note { color: var(--muted); font-size: 0.95rem; padding: 20px 0 0; }
+    .sheet-section:target {
+      border-color: rgba(123, 133, 100, 0.34);
+      box-shadow: 0 0 0 1px rgba(123, 133, 100, 0.1), 0 14px 28px rgba(76, 56, 37, 0.045);
+    }
+    details.subsection summary::after {
+      content: "+";
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+    details.subsection[open] summary::after {
+      content: "-";
+    }
+    .sheet-group, .sheet-section, .group-head, .quick-review, .formula-strip {
+      scroll-margin-top: 96px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+    }
+    @media (max-width: 900px) {
+      .page { width: min(calc(100% - 18px), var(--max)); padding-top: 12px; }
+      .hero { grid-template-columns: 1fr; gap:18px; }
+      .group-head { padding: 15px 15px 13px; border-radius: 20px; }
+      .group-description { margin-top: 8px; font-size: 0.94rem; }
+      .group-nav { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+      .sheet-section { padding: 21px 15px 22px 18px; border-radius: 22px; }
+      .section-rule { width: 8px; }
+      .check-grid { grid-template-columns: 1fr; }
+      table { min-width: 560px; font-size:0.91rem; }
+      th, td { padding: 11px 12px; }
+      .table-wrap { margin: 11px -2px 15px; border-radius: 14px; }
+    }
+    @media (max-width: 560px) {
+      body { line-height: 1.66; }
+      .hero h1 { font-size: 2.15rem; }
+      .hero p { font-size: 0.96rem; }
+      .content { gap: 18px; }
+      .mini-nav { gap: 8px; padding: 8px 2px 8px 0; }
+      .mini-link { padding: 8px 11px; font-size: 0.88rem; }
+      .mini-nav-shell { padding: 8px 0 14px; }
+      .group-head { padding: 14px 14px 12px; border-radius: 18px; }
+      .group-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        gap: 7px;
+        margin-top: 10px;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+      .group-nav::-webkit-scrollbar { display: none; }
+      .group-link { font-size: 0.8rem; padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
+      .sheet-section { padding: 19px 13px 20px 16px; border-radius: 20px; }
+      .section-head { padding-left: 6px; margin-bottom: 12px; }
+      .section-kicker { font-size: 0.69rem; }
+      .section-head h2 { font-size: 1.25rem; }
+      .section-head + .section-intro > p:first-child { font-size: 0.98rem; line-height: 1.68; }
+      .section-intro { margin-bottom: 10px; }
+      .prose p { margin-bottom: 10px; }
+      .prose ul, .prose ol { padding-left: 0.95rem; margin-bottom: 11px; }
+      .prose li { margin-bottom: 6px; }
+      .subsection, details.subsection { margin-top: 14px; padding: 15px 14px; }
+      details.subsection summary { padding: 15px 14px; gap: 10px; }
+      details.subsection .subsection-body { padding: 15px 14px 16px; }
+      .table-wrap { border-radius: 12px; margin: 10px -2px 14px; }
+      table { min-width: 520px; font-size: 0.87rem; line-height: 1.5; }
+      th, td { padding: 10px 11px; }
+      .ledger-block { padding: 12px 13px; border-radius: 12px; }
+      .ledger-block code { font-size: 0.9rem; line-height: 1.62; }
+      .quick-review { padding: 18px 16px; border-radius: 20px; }
+      .quick-review h2 { font-size: 1.2rem; }
+      .check-item { padding: 9px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">AC311 Intermediate Accounting</p>
+      <div class="hero">
+        <div>
+          <h1>Investment Property</h1>
+          <p>ชีทอ่านสอบแบบหน้าเดียว สำหรับทบทวนก่อนเข้าห้องสอบ</p>
+          <div class="subject-line"><span>Single-page exam sheet</span><span>ครบเนื้อหา + สแกนเร็ว</span><span>Dr./Cr. พร้อมทวนก่อนสอบ</span></div>
+        </div>
+        <aside class="formula-strip" aria-label="quick formulae">
+          <h2>Quick Frame</h2>
+          <div class="formula-item"><span>วันแรก</span><strong>รับรู้ด้วย Cost</strong></div><div class="formula-item"><span>หลังจากนั้น</span><strong>เลือก Cost หรือ Fair Value และใช้ทั้งกลุ่ม</strong></div><div class="formula-item"><span>โอน</span><strong>ต้องมี change in use + evidence</strong></div><div class="formula-item"><span>จำหน่าย</span><strong>proceeds - carrying amount -> P&L</strong></div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="mini-nav-shell">
+      <nav class="mini-nav" aria-label="สารบัญย่อ">
+        <a href="#foundations" class="mini-link" data-target="foundations" title="เริ่มจากนิยาม ขอบเขต และตัวอย่างที่มักใช้แยกว่าเป็นหรือไม่เป็น Investment Property">01 Basics</a><a href="#recognition-cost" class="mini-link" data-target="recognition-cost" title="ต่อด้วยการรับรู้รายการ การวัดมูลค่าเมื่อเริ่มแรก และการแยก replacement ออกจาก day-to-day servicing">02 Recognition</a><a href="#measurement-models" class="mini-link" data-target="measurement-models" title="จัด Cost model และ Fair value model ไว้ด้วยกัน รวมทั้งผู้ประเมินราคาและเงื่อนไขการเปลี่ยนนโยบาย">03 Models</a><a href="#transfers" class="mini-link" data-target="transfers" title="รวม change in use, evidence, การวัดมูลค่าเมื่อโอน และกรณี PPE -> IP ที่ออกสอบบ่อย">04 Transfers</a><a href="#ending-and-disclosure" class="mini-link" data-target="ending-and-disclosure" title="ดูเรื่อง compensation, disposal, และ disclosure ให้จบเป็นก้อนเดียว">05 Closing</a><a href="#exam-wrap-up" class="mini-link" data-target="exam-wrap-up" title="สรุป phase ทั้งวงจรตั้งแต่คัดกรอง บันทึก วัดมูลค่า โอน จำหน่าย จนถึง disclosure ใช้ทวนก่อนสอบได้ในหน้าเดียว">06 Lifecycle</a>
+      </nav>
+    </div>
+
+    <main class="content">
+      <section class="sheet-group" id="foundations" data-group-title="ภาพรวมและการแยกประเภท">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 01</p>
+<p class="group-kicker">8 sections</p>
+</div>
+<h2>ภาพรวมและการแยกประเภท</h2>
+<p class="group-description">เริ่มจากนิยาม ขอบเขต และตัวอย่างที่มักใช้แยกว่าเป็นหรือไม่เป็น Investment Property</p>
+<nav class="group-nav" aria-label="ภาพรวมและการแยกประเภท"><a href="#1-ภาพรวมของบท" class="group-link" title="1) ภาพรวมของบท">ภาพรวมของบท</a><a href="#2-คำนิยามของ-investment-property" class="group-link" title="2) คำนิยามของ Investment Property">คำนิยามของ Investm</a><a href="#5-owner-occupied-property-คืออะไร" class="group-link" title="5) Owner-occupied property คืออะไร">Owner-occupied pro</a><a href="#6-operating-lease-vs-finance-lease-ในมุมผู้ให้เช่า" class="group-link" title="6) Operating Lease vs Finance Lease ในมุมผู้ให้เช่า">Operating Lease vs</a><a href="#7-การแยกประเภทโดยดู-บริการเสริม-ancillary-services" class="group-link" title="7) การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )">บริการเสริม</a><a href="#3-ตัวอย่างที่-เป็น-investment-property-พร้อมเหตุผล" class="group-link" title="3) ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล">ตัวอย่างที่ “เป็น”</a><a href="#4-ตัวอย่างที่-ไม่เป็น-investment-property" class="group-link" title="4) ตัวอย่างที่ “ไม่เป็น” Investment Property">ตัวอย่างที่ “ไม่เป</a><a href="#8-ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ" class="group-link" title="8) ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ">ตัวอย่างคำถามแยกปร</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="1-ภาพรวมของบท" data-title="1) ภาพรวมของบท">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 01</p><h2>ภาพรวมของบท</h2></header>
+<div class="section-intro prose"><p>ไฟล์นี้จัดระเบียบจาก <code>08 Investment Property.txt</code> โดยตั้งใจเก็บสาระหลักให้ครบที่สุด ไม่ทำเป็นสรุปย่อแบบตัดทอนแรง เน้นเอาเนื้อหาเดิมที่กระจายอยู่ในบทสนทนามารวมใหม่ให้อ่านต่อเนื่องก่อนสอบ</p><hr/><p>บทนี้ครอบคลุมตั้งแต่</p><ul>
+<li>คำนิยาม (<code>Definitions</code>)</li>
+<li>การรับรู้รายการ (<code>Recognition</code>)</li>
+<li>การวัดมูลค่า (<code>Measurement</code>) ทั้งวันแรกและภายหลัง</li>
+<li>การโอนเปลี่ยนประเภท (<code>Transfers</code>)</li>
+<li>การตัดรายการ (<code>Disposals</code>)</li>
+<li>การเปิดเผยข้อมูล (<code>Disclosure</code>)</li>
+</ul><p>ในงบการเงิน <code>Investment Property</code> ถูกแสดงเป็น <code>สินทรัพย์ไม่หมุนเวียน</code> และแยกจาก <code>ที่ดิน อาคาร และอุปกรณ์ (PPE)</code> ที่กิจการถือไว้ใช้เอง</p><hr/></div>
+</section>
+<section class="sheet-section theme-default" id="2-คำนิยามของ-investment-property" data-title="2) คำนิยามของ Investment Property">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 02</p><h2>คำนิยามของ Investment Property</h2></header>
+<div class="section-intro prose"><p><code>Investment Property</code> คืออสังหาริมทรัพย์ ซึ่งอาจเป็น</p><ul>
+<li>ที่ดิน</li>
+<li>อาคาร</li>
+<li>ส่วนของอาคาร</li>
+<li>หรือทั้งที่ดินและอาคารรวมกัน</li>
+</ul><p>กิจการอาจถือทรัพย์นี้ในฐานะ</p><ul>
+<li>เจ้าของ</li>
+<li>หรือผู้เช่าที่ถือครองในรูปสินทรัพย์สิทธิการใช้</li>
+</ul><p>จุดสำคัญคือวัตถุประสงค์ของการถือครองต้องเป็นอย่างใดอย่างหนึ่งต่อไปนี้</p><ul>
+<li>เพื่อหารายได้ค่าเช่า (<code>Earn rentals</code>)</li>
+<li>เพื่อรอรับมูลค่าที่เพิ่มขึ้น (<code>Capital appreciation</code>)</li>
+<li>หรือทั้งสองอย่าง</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>สิ่งที่ไม่เข้าคำนิยาม</h3></div><div class="subsection-body prose"><p>ถ้าถือครองเพื่อวัตถุประสงค์ต่อไปนี้ จะไม่ใช่ <code>Investment Property</code></p><ul>
+<li>ใช้ในการผลิต</li>
+<li>ใช้จัดหาสินค้าหรือบริการ</li>
+<li>ใช้เพื่อการบริหารงาน</li>
+<li>มีไว้เพื่อขายตามปกติของธุรกิจ</li>
+</ul><p>สรุปสั้นที่สุด:</p><ul>
+<li>ถ้าทรัพย์ “ทำเงินด้วยตัวมันเอง” จากค่าเช่าหรือราคาที่ขึ้น มักเป็น <code>Investment Property</code></li>
+<li>ถ้าทรัพย์เป็นส่วนหนึ่งของการดำเนินงานหลักของธุรกิจ มักไม่ใช่ <code>Investment Property</code></li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="5-owner-occupied-property-คืออะไร" data-title="5) Owner-occupied property คืออะไร">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 03</p><h2>Owner-occupied property คืออะไร</h2></header>
+<div class="section-intro prose"><p><code>Owner-occupied property</code> คืออสังหาริมทรัพย์ที่กิจการถือไว้เพื่อ</p><ul>
+<li>ใช้ในการผลิต</li>
+<li>ใช้จัดหาสินค้าและบริการ</li>
+<li>ใช้เป็นสำนักงานเพื่อการบริหาร</li>
+</ul><p>หัวใจสำคัญคือ <code>แหล่งที่มาของกระแสเงินสด</code></p><ul>
+<li>ถ้าเป็น <code>Investment Property</code> กระแสเงินสดจะมาจากตัวทรัพย์โดยตรง</li>
+<li>ถ้าเป็น <code>Owner-occupied property</code> กระแสเงินสดจะมาจากกิจกรรมทางธุรกิจที่ใช้ทรัพย์นั้นเป็นส่วนประกอบ</li>
+</ul><p>ตัวอย่าง:</p><ul>
+<li>โรงงานผลิตเสื้อผ้าให้รายได้จากการขายเสื้อผ้า ไม่ได้มาจากตัวอาคารโรงงานโดยตรง</li>
+</ul><p>ดังนั้น ทรัพย์ที่ใช้งานเองจะไปอยู่ภายใต้มาตรฐานของ <code>PPE</code></p><hr/></div>
+</section>
+<section class="sheet-section theme-default" id="6-operating-lease-vs-finance-lease-ในมุมผู้ให้เช่า" data-title="6) Operating Lease vs Finance Lease ในมุมผู้ให้เช่า">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 04</p><h2>Operating Lease vs Finance Lease ในมุมผู้ให้เช่า</h2></header>
+<div class="section-intro prose"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ประเด็น</th>
+<th>Operating Lease</th>
+<th>Finance Lease</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>เนื้อหาทางเศรษฐกิจ</td>
+<td>ให้เช่าใช้พื้นที่/สินทรัพย์</td>
+<td>คล้ายการให้สินเชื่อหรือขายผ่อน</td>
+</tr>
+<tr>
+<td>ความเสี่ยงและผลตอบแทน</td>
+<td>ส่วนใหญ่ยังอยู่กับผู้ให้เช่า</td>
+<td>โอนไปยังผู้เช่าเกือบทั้งหมด</td>
+</tr>
+<tr>
+<td>การจัดประเภทสินทรัพย์</td>
+<td>ยังแสดงตัวทรัพย์อยู่</td>
+<td>ตัดตัวทรัพย์ออกและรับรู้เป็นลูกหนี้</td>
+</tr>
+<tr>
+<td>รายได้ที่รับรู้</td>
+<td>รายได้ค่าเช่า</td>
+<td>รายได้ดอกเบี้ย + ตัดเงินต้น</td>
+</tr>
+<tr>
+<td>ความเชื่อมโยงกับ Investment Property</td>
+<td>ใช่ ถ้าทรัพย์ถือไว้เพื่อรับค่าเช่า</td>
+<td>ไม่ใช่ เพราะไม่ใช่การถือทรัพย์เพื่อรับค่าเช่าในสาระอีกต่อไป</td>
+</tr>
+</tbody>
+</table></div></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>อธิบายเพิ่ม</h3></div><div class="subsection-body prose"><h4>Operating Lease</h4><ul>
+<li>ผู้ให้เช่ายังรับความเสี่ยงหลักของทรัพย์อยู่</li>
+<li>ถ้าทรัพย์เสียหาย ราคาขึ้น หรือต้องซ่อมใหญ่ ผู้ให้เช่ายังเป็นฝ่ายรับผล</li>
+<li>จึงยังถือว่าทรัพย์อยู่กับผู้ให้เช่า และหากเข้าเงื่อนไขก็เป็น <code>Investment Property</code></li>
+</ul><h4>Finance Lease</h4><ul>
+<li>ลักษณะสัญญามักยาวมาก</li>
+<li>ครอบคลุมอายุการใช้งานส่วนใหญ่ของสินทรัพย์</li>
+<li>ทำให้ในเชิงสาระความเสี่ยงและผลประโยชน์หลักถูกโอนไปยังผู้เช่า</li>
+</ul><p>ดังนั้น ในงบของผู้ให้เช่า จะไม่ได้ถืออาคารเป็น <code>Investment Property</code> ต่อ</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="7-การแยกประเภทโดยดู-บริการเสริม-ancillary-services" data-title="7) การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 05</p><h2>การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )</h2></header>
+<div class="section-intro prose"><p>นี่เป็นเกณฑ์สำคัญที่ต้นฉบับเน้นมาก</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าบริการเสริม “ไม่มีนัยสำคัญ”</h3></div><div class="subsection-body prose"><p>มักเป็น <code>Investment Property</code></p><p>ตัวอย่าง:</p><ul>
+<li>ให้เช่าตึกออฟฟิศ</li>
+<li>มีเพียงยามรักษาความปลอดภัย</li>
+<li>มีแม่บ้านดูแลพื้นที่ส่วนกลาง</li>
+</ul><p>บริการเหล่านี้เป็นเพียงบริการเล็กน้อย ทรัพย์ยังสร้างกระแสเงินสดได้ด้วยตัวเอง</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าบริการเสริม “มีนัยสำคัญ”</h3></div><div class="subsection-body prose"><p>มักเป็น <code>Owner-occupied property</code> หรือ <code>PPE</code></p><p>เหตุผล:</p><ul>
+<li>ทรัพย์ไม่ได้ทำเงินจากค่าเช่าล้วน ๆ</li>
+<li>รายได้เกิดจากแพ็กเกจบริการที่ผูกกับการดำเนินงาน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กรณีศึกษา: โรงแรม vs อพาร์ตเมนต์</h3></div><div class="subsection-body prose"><h4>โรงแรม</h4><p>โดยทั่วไปเป็น <code>PPE</code></p><p>เหตุผล:</p><ul>
+<li>มีบริการเสริมที่มีนัยสำคัญมาก</li>
+<li>เช่น ทำความสะอาดห้องทุกวัน อาหารเช้า สระว่ายน้ำ ฟิตเนส</li>
+<li>ผู้เข้าพักไม่ได้จ่ายแค่ “ค่าใช้ห้อง” แต่จ่ายเพื่อประสบการณ์บริการทั้งหมด</li>
+</ul><h4>อพาร์ตเมนต์ให้เช่า</h4><p>โดยทั่วไปเป็น <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>ผู้เช่ามักจ่ายเป็นรายเดือน</li>
+<li>เจ้าของให้บริการเสริมเพียงเล็กน้อย</li>
+<li>เช่น รปภ. หรือแม่บ้านส่วนกลาง</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="3-ตัวอย่างที่-เป็น-investment-property-พร้อมเหตุผล" data-title="3) ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 06</p><h2>ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.1 ที่ดินที่ถือไว้เพื่อรอให้ราคาขึ้นในระยะยาว</h3></div><div class="subsection-body prose"><p>(<code>Land held for long-term capital appreciation</code>)</p><p>เหตุผล:</p><ul>
+<li>ไม่ได้ถือไว้เพื่อใช้เอง</li>
+<li>ไม่ได้ถือไว้เพื่อขายเป็นปกติธุรกิจ</li>
+<li>ตั้งใจถือครองเพื่อประโยชน์จากมูลค่าที่จะเพิ่มขึ้นในอนาคต</li>
+</ul><p>ดังนั้น เข้ากับแนวคิด <code>Capital appreciation</code> โดยตรง</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.2 ที่ดินที่ยังไม่ได้กำหนดการใช้งานในอนาคตอย่างชัดเจน</h3></div><div class="subsection-body prose"><p>(<code>Land held for a currently undetermined future use</code>)</p><p>เหตุผล:</p><ul>
+<li>หากกิจการยังไม่ตัดสินใจแน่ชัดว่าจะใช้เองหรือขาย</li>
+<li>มาตรฐานมองในทางอนุรักษ์นิยมว่า ในช่วงนั้นกิจการถือครองที่ดินไว้เพื่อรอประโยชน์จากมูลค่าที่เพิ่มขึ้นไปก่อน</li>
+</ul><p>จึงตีความให้เป็น <code>Investment Property</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.3 อาคารที่กิจการเป็นเจ้าของและปล่อยเช่าแบบสัญญาเช่าดำเนินงาน</h3></div><div class="subsection-body prose"><p>(<code>A building owned by the entity and leased out under operating leases</code>)</p><p>เหตุผล:</p><ul>
+<li>รายได้หลักจากทรัพย์มาจากค่าเช่า</li>
+<li>กระแสเงินสดไม่ได้เกิดจากการผลิตสินค้าหรือให้บริการหลักของกิจการ</li>
+</ul><p>จึงเป็นตัวอย่างตรงของ <code>Earn rentals</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.4 อาคารว่างที่ถือไว้เพื่อเตรียมปล่อยเช่า</h3></div><div class="subsection-body prose"><p>(<code>A building that is vacant but is held to be leased out under operating leases</code>)</p><p>เหตุผล:</p><ul>
+<li>แม้ยังไม่มีผู้เช่าในปัจจุบัน</li>
+<li>แต่เจตนาการถือครองยังเป็นการสร้างรายได้ค่าเช่า</li>
+</ul><p>ตราบใดที่กิจการยังไม่ได้เปลี่ยนใจเอาไปใช้เอง ทรัพย์ยังถือเป็น <code>Investment Property</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.5 อสังหาริมทรัพย์ที่กำลังก่อสร้างหรือพัฒนาเพื่อใช้เป็น Investment Property ในอนาคต</h3></div><div class="subsection-body prose"><p>เหตุผล:</p><ul>
+<li>แม้จะยังสร้างไม่เสร็จ</li>
+<li>แต่จุดหมายปลายทางของทรัพย์ถูกกำหนดแล้วว่าจะใช้เพื่อหารายได้ค่าเช่าหรือเก็งกำไร</li>
+</ul><p>จากแนวคิดในไฟล์ต้นฉบับ ทรัพย์ลักษณะนี้ให้นับเป็น <code>Investment Property</code> ได้เลย ไม่ต้องรอให้สร้างเสร็จก่อน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="4-ตัวอย่างที่-ไม่เป็น-investment-property" data-title="4) ตัวอย่างที่ “ไม่เป็น” Investment Property">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 07</p><h2>ตัวอย่างที่ “ไม่เป็น” Investment Property</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>4.1 อสังหาริมทรัพย์ที่มีไว้ขายตามปกติธุรกิจ หรือกำลังก่อสร้างเพื่อขาย</h3></div><div class="subsection-body prose"><p>กลุ่มนี้จัดเป็น <code>สินค้าคงเหลือ (Inventory)</code> ไม่ใช่ <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>กิจการถือไว้เพื่อขาย</li>
+<li>ประโยชน์เชิงเศรษฐกิจจะเกิดจากการขายสินค้า ไม่ใช่ค่าเช่าหรือการถือรอราคาขึ้นแบบการลงทุน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>4.2 อสังหาริมทรัพย์ที่กิจการใช้งานเอง ( Owner-occupied property )</h3></div><div class="subsection-body prose"><p>เช่น</p><ul>
+<li>อาคารสำนักงานใหญ่</li>
+<li>โรงงาน</li>
+<li>สำนักงานสาขา</li>
+<li>อาคารที่เตรียมไว้ใช้เองในอนาคต</li>
+<li>อาคารที่รอพัฒนาเพื่อนำมาใช้เอง</li>
+<li>ที่พักพนักงาน</li>
+</ul><p>กลุ่มนี้จัดเป็น <code>PPE</code></p><p>เหตุผล:</p><ul>
+<li>ประโยชน์จากทรัพย์ถูกผูกกับการดำเนินงานหลักของกิจการ</li>
+<li>กระแสเงินสดไม่ได้เกิดจากตัวทรัพย์โดยตรง</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>4.3 อสังหาริมทรัพย์ที่ปล่อยเช่าแบบสัญญาเช่าการเงิน ( Finance lease )</h3></div><div class="subsection-body prose"><p>ในมุมผู้ให้เช่า ทรัพย์ลักษณะนี้ไม่ถือเป็น <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>เมื่อทำ <code>Finance lease</code> แล้ว ในเชิงสาระกิจการไม่ได้ถือทรัพย์เพื่อรับค่าเช่าแบบปกติอีกต่อไป</li>
+<li>รายการจะเปลี่ยนจากตัวทรัพย์เป็น <code>ลูกหนี้ตามสัญญาเช่า (Lease Receivable)</code></li>
+<li>รายได้ที่รับรู้ต่อไปจะเป็น <code>รายได้ดอกเบี้ย</code> และการตัดเงินต้น ไม่ใช่ <code>รายได้ค่าเช่า</code></li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="8-ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ" data-title="8) ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 08</p><h2>ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ที่ดินซื้อมาเพื่อสร้างสาขาสำนักงาน</h3></div><div class="subsection-body prose"><p>คำตอบ: ไม่ใช่ <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>จุดประสงค์คือใช้เพื่อการบริหาร</li>
+<li>จึงเป็น <code>PPE</code></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>อาคารสำนักงานที่ปล่อยเช่าแบบสัญญาเช่าดำเนินงาน</h3></div><div class="subsection-body prose"><p>คำตอบ: เป็น <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>ถือไว้เพื่อหารายได้ค่าเช่า</li>
+</ul><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="recognition-cost" data-group-title="Recognition และต้นทุน">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 02</p>
+<p class="group-kicker">5 sections</p>
+</div>
+<h2>Recognition และต้นทุน</h2>
+<p class="group-description">ต่อด้วยการรับรู้รายการ การวัดมูลค่าเมื่อเริ่มแรก และการแยก replacement ออกจาก day-to-day servicing</p>
+<nav class="group-nav" aria-label="Recognition และต้นทุน"><a href="#9-การรับรู้รายการ-recognition" class="group-link" title="9) การรับรู้รายการ ( Recognition )">Recognition</a><a href="#10-การวัดมูลค่าเมื่อเริ่มแรก-measurement-at-recognition" class="group-link" title="10) การวัดมูลค่าเมื่อเริ่มแรก ( Measurement at recognition )">Initial Cost</a><a href="#11-ต้นทุนภายหลังการรับรู้-subsequent-costs" class="group-link" title="11) ต้นทุนภายหลังการรับรู้ ( Subsequent costs )">Subsequent</a><a href="#12-replacement" class="group-link" title="12) Replacement">Replacement</a><a href="#13-day-to-day-servicing" class="group-link" title="13) Day-to-day servicing">Day-to-day servici</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="9-การรับรู้รายการ-recognition" data-title="9) การรับรู้รายการ ( Recognition )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 09</p><h2>การรับรู้รายการ ( Recognition )</h2></header>
+<div class="section-intro prose"><p>จะรับรู้เป็นสินทรัพย์ได้เมื่อเข้า 2 เงื่อนไขพร้อมกัน</p><ol>
+<li>มีความเป็นไปได้ค่อนข้างแน่ว่ากิจการจะได้รับประโยชน์เชิงเศรษฐกิจในอนาคต</li>
+<li>สามารถวัดมูลค่าต้นทุนได้อย่างน่าเชื่อถือ</li>
+</ol><p>ตัวอย่างของข้อ 1:</p><ul>
+<li>มั่นใจว่าจะได้ค่าเช่า</li>
+<li>หรือคาดว่าจะได้ประโยชน์จากการเพิ่มขึ้นของมูลค่า</li>
+</ul><p>ตัวอย่างของข้อ 2:</p><ul>
+<li>สามารถระบุราคาซื้อและค่าใช้จ่ายที่เกี่ยวข้องได้อย่างน่าเชื่อถือ</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ต้นทุนที่ต้องพิจารณา</h3></div><div class="subsection-body prose"><p>มาตรฐานให้ประเมินต้นทุนทั้งหมด ณ เวลาที่เกิดรายการ โดยรวมทั้ง</p><ul>
+<li><code>ต้นทุนเริ่มแรก (Costs incurred initially)</code></li>
+<li><code>ต้นทุนภายหลัง (Costs incurred subsequently)</code></li>
+</ul><p>เช่น</p><ul>
+<li>การต่อเติม</li>
+<li>การเปลี่ยนชิ้นส่วน</li>
+<li>การให้บริการเกี่ยวกับสินทรัพย์</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขยายความ Recognition Criteria แบบที่ต้นฉบับอธิบาย</h3></div><div class="subsection-body prose"><p>ต้นฉบับอธิบายว่าเรื่อง <code>Recognition</code> เป็นเหมือนด่านคัดกรองก่อนที่รายจ่ายก้อนหนึ่งจะได้สถานะเป็น “สินทรัพย์” ในงบแสดงฐานะการเงิน</p><p>ดังนั้น คำถามที่นักบัญชีต้องถามไม่ใช่เพียงว่า</p><ul>
+<li>ทรัพย์นี้เป็น <code>Investment Property</code> หรือไม่</li>
+</ul><p>แต่ต้องถามต่อด้วยว่า</p><ul>
+<li>ต้นทุนของทรัพย์นี้พร้อมหรือยังที่จะถูกตั้งเป็นสินทรัพย์</li>
+</ul><p>ถ้าขาดเงื่อนไขข้อใดข้อหนึ่งไป ก็ยังไม่ควรรับรู้เป็นสินทรัพย์</p><p>ตัวอย่างแนวคิดจากต้นฉบับ:</p><ul>
+<li>ถ้าคิดว่าทรัพย์น่าจะทำเงินได้ แต่ยังไม่รู้ต้นทุนจริงอย่างน่าเชื่อถือ ก็ยังตั้งเป็นสินทรัพย์ไม่ได้</li>
+<li>ถ้ารู้ต้นทุนชัด แต่ยังไม่มีความเป็นไปได้ค่อนข้างแน่ว่าจะได้ประโยชน์เชิงเศรษฐกิจในอนาคต ก็ยังไม่ควรรับรู้เช่นกัน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>Applying the Principle</h3></div><div class="subsection-body prose"><p>ต้นฉบับขยายเพิ่มว่า กฎ 2 ข้อนี้ต้องใช้กับ “ต้นทุนทุกก้อน ณ เวลาที่ต้นทุนนั้นเกิดขึ้น”</p><p>แปลว่า</p><ul>
+<li>ไม่ใช่ผ่านด่านครั้งเดียวตอนซื้อแล้วจบ</li>
+<li>แต่ต้องใช้หลักเดียวกันนี้กับต้นทุนภายหลังทุกก้อนด้วย</li>
+</ul><p>จุดนี้เชื่อมตรงกับบท <code>Replacement</code> และ <code>Day-to-day servicing</code><br/>
+เพราะต้นทุนภายหลังไม่ได้ถูกบวกเข้าทรัพย์โดยอัตโนมัติทุกกรณี</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="10-การวัดมูลค่าเมื่อเริ่มแรก-measurement-at-recognition" data-title="10) การวัดมูลค่าเมื่อเริ่มแรก ( Measurement at recognition )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 10</p><h2>การวัดมูลค่าเมื่อเริ่มแรก ( Measurement at recognition )</h2></header>
+<div class="section-intro prose"><p>วันแรกที่รับรู้รายการ ต้องวัดด้วย <code>ราคาทุน (Cost)</code> เท่านั้น</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ราคาทุนประกอบด้วย</h3></div><div class="subsection-body prose"><ul>
+<li>ราคาซื้อ (<code>Purchase price</code>)</li>
+<li>ค่าใช้จ่ายทางตรงอื่น ๆ ที่เกี่ยวข้อง (<code>Directly attributable expenditure</code>)</li>
+</ul><p>ตัวอย่างค่าใช้จ่ายทางตรง</p><ul>
+<li>ค่าธรรมเนียมวิชาชีพด้านกฎหมาย</li>
+<li>ภาษีการโอนกรรมสิทธิ์</li>
+<li>ต้นทุนในการทำรายการอื่น ๆ (<code>Transaction costs</code>)</li>
+</ul><p>หลักจำ:</p><blockquote>
+<p>ค่าใช้จ่ายใดที่จำเป็นเพื่อให้ได้ทรัพย์มา และทำให้ทรัพย์อยู่ในสภาพพร้อมใช้เพื่อหาประโยชน์จากค่าเช่าหรือการลงทุน ให้รวมเป็นราคาทุน</p>
+</blockquote><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="11-ต้นทุนภายหลังการรับรู้-subsequent-costs" data-title="11) ต้นทุนภายหลังการรับรู้ ( Subsequent costs )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 11</p><h2>ต้นทุนภายหลังการรับรู้ ( Subsequent costs )</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับแบ่งชัดเจนเป็น 2 กลุ่มใหญ่</p><ol>
+<li><code>Replacement</code></li>
+<li><code>Day-to-day servicing</code></li>
+</ol><p>นี่เป็นจุดที่สับสนบ่อยมาก</p><hr/></div>
+</section>
+<section class="sheet-section theme-default" id="12-replacement" data-title="12) Replacement">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 12</p><h2>Replacement</h2></header>
+<div class="section-intro prose"><p>ถ้าเป็นการเปลี่ยนชิ้นส่วนสำคัญของทรัพย์ เช่น ระบบลิฟต์ ผนังภายใน หรือองค์ประกอบหลักอื่น</p><p>และต้นทุนนั้นเข้าเงื่อนไขการรับรู้รายการ</p><p>ให้ทำ 2 อย่างพร้อมกัน</p><ol>
+<li>รับรู้ต้นทุนของชิ้นส่วนใหม่เป็นส่วนหนึ่งของมูลค่าตามบัญชี</li>
+<li>ตัดรายการของชิ้นส่วนเก่าที่ถูกเปลี่ยนออก</li>
+</ol></div>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เหตุผล</h3></div><div class="subsection-body prose"><p>งบการเงินต้องสะท้อนความเป็นจริงทางเศรษฐกิจ</p><ul>
+<li>ของใหม่เข้ามาเพิ่มประโยชน์ในอนาคต</li>
+<li>ของเก่าถูกถอดหรือทุบทิ้งไปแล้ว จึงไม่ควรค้างอยู่ในงบ</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>ลิฟต์ใหม่ 2,000,000</li>
+<li>ลิฟต์เก่าราคาทุน 1,500,000</li>
+<li>ค่าเสื่อมสะสมของลิฟต์เก่า 1,200,000</li>
+<li>มูลค่าตามบัญชีของลิฟต์เก่า 300,000</li>
+</ul><p>รับรู้ของใหม่</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      2,000,000
+    Cr. Cash / Bank                                         2,000,000
+</code></pre><p>ตัดของเก่าออก</p><pre class="ledger-block"><code class="language-text">Dr. Accumulated Depreciation - IP           1,200,000
+Dr. Loss on Disposal                          300,000
+    Cr. Investment Property                                  1,500,000
+</code></pre><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="13-day-to-day-servicing" data-title="13) Day-to-day servicing">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 13</p><h2>Day-to-day servicing</h2></header>
+<div class="section-intro prose"><p>หมายถึงค่าใช้จ่ายยิบย่อยที่เกิดขึ้นเป็นประจำเพื่อดูแลสินทรัพย์ให้อยู่ในสภาพเดิม</p><p>ตัวอย่าง:</p><ul>
+<li>ค่าแรงซ่อมเล็ก ๆ</li>
+<li>ค่าวัสดุสิ้นเปลือง</li>
+<li>ค่าเปลี่ยนอะไหล่เล็กน้อย</li>
+<li>ค่าทำความสะอาด</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>วิธีรับรู้</h3></div><div class="subsection-body prose"><ul>
+<li>ห้ามบวกเพิ่มในมูลค่าตามบัญชีของ <code>Investment Property</code></li>
+<li>ให้รับรู้เป็นค่าใช้จ่ายในงบกำไรขาดทุนทันที</li>
+</ul></div></article>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เหตุผล</h3></div><div class="subsection-body prose"><p>เพราะค่าใช้จ่ายกลุ่มนี้เป็นเพียงการรักษาสภาพเดิมของสินทรัพย์<br/>
+ไม่ได้เพิ่มประโยชน์เชิงเศรษฐกิจในอนาคตเกินกว่าที่เคยคาดไว้เดิม</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>ค่าซ่อมท่อน้ำและทำความสะอาด 15,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Repairs and Maintenance Expense            15,000
+    Cr. Cash / Bank                                              15,000
+</code></pre></div></article>
+<article class="subsection summary"><div class="subsection-head"><span class="subsection-label">SUMMARY</span><h3>หลักจำ</h3></div><div class="subsection-body prose"><ul>
+<li><code>Replacement</code> = capitalize + derecognize ของเก่า</li>
+<li><code>Day-to-day servicing</code> = expense ทันที</li>
+</ul><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="measurement-models" data-group-title="การวัดมูลค่าและนโยบาย">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 03</p>
+<p class="group-kicker">6 sections</p>
+</div>
+<h2>การวัดมูลค่าและนโยบาย</h2>
+<p class="group-description">จัด Cost model และ Fair value model ไว้ด้วยกัน รวมทั้งผู้ประเมินราคาและเงื่อนไขการเปลี่ยนนโยบาย</p>
+<nav class="group-nav" aria-label="การวัดมูลค่าและนโยบาย"><a href="#14-การวัดมูลค่าภายหลังการรับรู้-measurement-after-recognition" class="group-link" title="14) การวัดมูลค่าภายหลังการรับรู้ ( Measurement after recognition )">After Recognition</a><a href="#15-cost-model" class="group-link" title="15) Cost Model">Cost Model</a><a href="#16-fair-value-model" class="group-link" title="16) Fair Value Model">Fair Value</a><a href="#19-ตารางเทียบ-cost-model-กับ-fair-value-model" class="group-link" title="19) ตารางเทียบ Cost model กับ Fair value model">ตารางเทียบ Cost mo</a><a href="#17-การใช้ผู้ประเมินราคาอิสระ" class="group-link" title="17) การใช้ผู้ประเมินราคาอิสระ">การใช้ผู้ประเมินรา</a><a href="#18-ทำไมการเปลี่ยนจาก-fair-value-กลับไป-cost-จึง-เป็นไปได้ยากมาก" class="group-link" title="18) ทำไมการเปลี่ยนจาก Fair Value กลับไป Cost จึง “เป็นไปได้ยากมาก”">ทำไมการเปลี่ยนจาก </a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="14-การวัดมูลค่าภายหลังการรับรู้-measurement-after-recognition" data-title="14) การวัดมูลค่าภายหลังการรับรู้ ( Measurement after recognition )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 14</p><h2>การวัดมูลค่าภายหลังการรับรู้ ( Measurement after recognition )</h2></header>
+<div class="section-intro prose"><p>หลังรับรู้ครั้งแรกแล้ว กิจการต้องเลือกนโยบายบัญชีเพียง 1 วิธี และต้องใช้กับ <code>Investment Property ทุกรายการ</code></p><p>ทางเลือกคือ</p><ol>
+<li><code>Cost model</code></li>
+<li><code>Fair value model</code></li>
+</ol></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กฎสำคัญมาก</h3></div><div class="subsection-body prose"><p>ห้ามเลือกสลับรายสินทรัพย์</p><p>ตัวอย่างที่ผิด:</p><ul>
+<li>ตึก A ใช้ <code>Cost model</code></li>
+<li>ตึก B ใช้ <code>Fair value model</code></li>
+</ul><p>ถ้าทั้งสองเป็น <code>Investment Property</code> ของกิจการเดียวกัน มาตรฐานไม่ให้ทำแบบนี้</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="15-cost-model" data-title="15) Cost Model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 15</p><h2>Cost Model</h2></header>
+<div class="section-intro prose"><p>ถ้าเลือก <code>Cost model</code></p><ul>
+<li>การวัดมูลค่าภายหลังจะคล้าย <code>PPE</code></li>
+<li>มีการคิดค่าเสื่อมราคา</li>
+<li>พิจารณาการด้อยค่าเมื่อเข้าเงื่อนไข</li>
+</ul><p>ทรัพย์จะถูกแสดงด้วย</p><ul>
+<li>ราคาทุน</li>
+<li>หักค่าเสื่อมราคาสะสม</li>
+<li>หักผลขาดทุนจากการด้อยค่า (ถ้ามี)</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ข้อยกเว้นเรื่องการคิดค่าเสื่อม</h3></div><div class="subsection-body prose"><p>ต้นฉบับระบุไว้ด้วยว่า หากสินทรัพย์นั้นถูกจัดประเภทเป็น <code>Held for sale</code><br/>
+ตามมาตรฐานที่เกี่ยวข้อง<br/>
+กิจการจะหยุดคิดค่าเสื่อมราคา</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ข้อสำคัญที่คนชอบลืม</h3></div><div class="subsection-body prose"><p>แม้กิจการใช้ <code>Cost model</code></p><p>ก็ยังต้องเปิดเผย <code>Fair value</code> ของ <code>Investment Property</code> ในหมายเหตุประกอบงบการเงิน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="16-fair-value-model" data-title="16) Fair Value Model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 16</p><h2>Fair Value Model</h2></header>
+<div class="section-intro prose"><p>ถ้าเลือก <code>Fair value model</code></p><ul>
+<li>ต้องวัดมูลค่ายุติธรรมทุกวันสิ้นรอบบัญชี</li>
+<li>ไม่คิดค่าเสื่อมราคา</li>
+<li>ส่วนต่างจากการเปลี่ยนแปลงมูลค่ายุติธรรมรับรู้ใน <code>P&amp;L</code> ทันที</li>
+</ul></div>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>แนวคิดเบื้องหลัง</h3></div><div class="subsection-body prose"><p>ธรรมชาติของ <code>Investment Property</code> คือกิจการถือไว้เพื่อ</p><ul>
+<li>รับค่าเช่า</li>
+<li>หรือรอมูลค่าที่เพิ่มขึ้น</li>
+</ul><p>ดังนั้นข้อมูลที่มีประโยชน์ต่อผู้ใช้งบมากที่สุดคือ “มูลค่าปัจจุบัน”</p><p>ถ้าทรัพย์มีราคาขึ้น งบควรสะท้อนภาพนั้นทันทีภายใต้โมเดลนี้</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชีเมื่อมูลค่าเพิ่ม</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>มูลค่าตามบัญชีก่อนปรับ 15,000,000</li>
+<li>มูลค่ายุติธรรมปลายปี 16,200,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      1,200,000
+    Cr. Gain from Fair Value Adjustment                     1,200,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชีเมื่อมูลค่าลด</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>มูลค่าตามบัญชีก่อนปรับ 15,000,000</li>
+<li>มูลค่ายุติธรรมปลายปี 14,400,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Loss from Fair Value Adjustment            600,000
+    Cr. Investment Property                                      600,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ข้อห้ามสำคัญของ Fair Value Model</h3></div><div class="subsection-body prose"><p>ต้นฉบับย้ำไว้ชัดว่ามีข้อสำคัญที่ต้องจำ</p><ol>
+<li>ห้ามคิดค่าเสื่อมราคา</li>
+<li>ในการหามูลค่ายุติธรรม ห้ามหักค่าใช้จ่ายในการขายออกจากราคา</li>
+</ol><p>กล่าวคือ หากประเมินราคาตลาดได้เท่าไร ให้ใช้ราคาตลาดนั้นตรง ๆ<br/>
+ไม่ใช่ราคาตลาดสุทธิหลังหักค่านายหน้า หรือค่าใช้จ่ายในการขาย</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>Case เปรียบเทียบ Cost model กับ Fair Value model แบบเต็ม</h3></div><div class="subsection-body prose"><p>ต้นฉบับมีโจทย์เปรียบเทียบที่สำคัญมากดังนี้</p><ul>
+<li>วันที่ 1 ม.ค. 25X1 ซื้ออาคาร 100 ล้านบาท</li>
+<li>อายุการใช้งาน 10 ปี</li>
+<li>นำไปปล่อยเช่า</li>
+<li>ณ 31 ธ.ค. 25X1 มูลค่ายุติธรรม = 120 ล้านบาท</li>
+<li>ณ 31 ธ.ค. 25X2 มูลค่ายุติธรรม = 90 ล้านบาท</li>
+</ul><h4>ถ้าใช้ Cost model</h4><p>วิธีนี้ไม่ใช้ราคาตลาดมาบันทึกบัญชีโดยตรง แต่คิดค่าเสื่อมตามอายุการใช้งาน</p><p>ค่าเสื่อมต่อปี = 100 / 10 = 10 ล้านบาท</p><p>วันซื้อ</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                    100,000,000
+    Cr. Cash / Bank                                        100,000,000
+</code></pre><p>สิ้นปี 25X1</p><pre class="ledger-block"><code class="language-text">Dr. Depreciation Expense                    10,000,000
+    Cr. Accumulated Depreciation - IP                       10,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X1 = 90 ล้านบาท</p><p>สิ้นปี 25X2</p><pre class="ledger-block"><code class="language-text">Dr. Depreciation Expense                    10,000,000
+    Cr. Accumulated Depreciation - IP                       10,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X2 = 80 ล้านบาท</p><h4>ถ้าใช้ Fair Value model</h4><p>วิธีนี้ไม่คิดค่าเสื่อม แต่ปรับมูลค่าตามตลาดทุกสิ้นปี</p><p>วันซื้อ</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                    100,000,000
+    Cr. Cash / Bank                                        100,000,000
+</code></pre><p>สิ้นปี 25X1 ราคาขึ้นจาก 100 เป็น 120 ล้านบาท</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                     20,000,000
+    Cr. Gain from Fair Value Adjustment                      20,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X1 = 120 ล้านบาท</p><p>สิ้นปี 25X2 ราคาลดจาก 120 เหลือ 90 ล้านบาท</p><pre class="ledger-block"><code class="language-text">Dr. Loss from Fair Value Adjustment         30,000,000
+    Cr. Investment Property                                   30,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X2 = 90 ล้านบาท</p></div></article>
+<article class="subsection summary"><div class="subsection-head"><span class="subsection-label">SUMMARY</span><h3>ข้อสรุปจาก case นี้</h3></div><div class="subsection-body prose"><ul>
+<li><code>Cost model</code> ทำให้งบกำไรขาดทุนค่อนข้างนิ่งกว่า แต่ตัวเลขมูลค่าทรัพย์อาจห่างจากราคาตลาดจริง</li>
+<li><code>Fair Value model</code> ทำให้งบกำไรขาดทุนผันผวนตามตลาด แต่สะท้อนมูลค่าปัจจุบันชัดกว่า</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักการหามูลค่ายุติธรรม</h3></div><div class="subsection-body prose"><p>ต้นฉบับอธิบายว่า fair value ต้องสะท้อน <code>มุมมองของตลาด ณ ปัจจุบัน</code></p><p>นั่นหมายถึง</p><ul>
+<li>ต้องสะท้อนรายได้ค่าเช่าตามสัญญาที่มีอยู่จริง</li>
+<li>ต้องใช้สมมติฐานที่ <code>Market participants</code> จะใช้</li>
+</ul><p>ไม่ใช่ใช้ความเห็นส่วนตัวของผู้บริหารล้วน ๆ</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กฎห้ามนับซ้ำ ( No double-counting )</h3></div><div class="subsection-body prose"><p>ต้นฉบับเตือนชัดมากว่า ในการตีราคา ห้ามนับมูลค่าของสินทรัพย์หรือองค์ประกอบที่บันทึกแยกแล้วซ้ำอีก</p><p>ตัวอย่าง:</p><ul>
+<li>ลิฟต์</li>
+<li>ระบบปรับอากาศ</li>
+<li>เฟอร์นิเจอร์ที่รวมอยู่ในมูลค่าประเมินของออฟฟิศให้เช่าแล้ว</li>
+</ul><p>ต้นฉบับอธิบายเพิ่มว่า รายการอย่างลิฟต์หรือระบบปรับอากาศมักเป็น <code>Integral part of a building</code><br/>
+จึงถูกสะท้อนอยู่ในราคาของอาคารอยู่แล้ว</p><p>ถ้ามูลค่าตึกประเมินรวมสิ่งเหล่านี้อยู่แล้ว ห้ามตั้งสินทรัพย์แยกซ้ำอีก เพราะจะทำให้เกิดการนับซ้ำในงบ</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เมื่อไม่สามารถวัด Fair value ได้อย่างน่าเชื่อถือ</h3></div><div class="subsection-body prose"><p>ต้นฉบับยกนี่เป็นกรณีฉุกเฉิน เช่น</p><ul>
+<li>ตลาดในพื้นที่พังจนไม่มี <code>Active market</code></li>
+<li>ไม่มีข้อมูลเปรียบเทียบ</li>
+<li>หา <code>observable inputs</code> ที่เชื่อถือได้ไม่ได้</li>
+</ul><p>ถ้าฝืนตั้ง fair value จากตัวเลขสมมติล้วน ๆ อาจทำให้งบ “ไม่น่าเชื่อถือมากกว่าเดิม”</p><p>ในบริบทสุดโต่งเช่นนี้ การกลับไปยืนบนฐานของ</p><ul>
+<li>ราคาทุน</li>
+<li>ค่าเสื่อมราคา</li>
+<li>ค่าเผื่อการด้อยค่า</li>
+</ul><p>อาจให้ข้อมูลที่ <code>Reliable</code> มากกว่า</p><p>ถ้อยคำที่ต้นฉบับโยงไว้ตรง ๆ คือ <code>Inability to measure fair value reliably</code></p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="19-ตารางเทียบ-cost-model-กับ-fair-value-model" data-title="19) ตารางเทียบ Cost model กับ Fair value model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 17</p><h2>ตารางเทียบ Cost model กับ Fair value model</h2></header>
+<div class="section-intro prose"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ประเด็น</th>
+<th>Cost model</th>
+<th>Fair value model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ฐานการวัดมูลค่า</td>
+<td>ราคาทุน</td>
+<td>มูลค่ายุติธรรม</td>
+</tr>
+<tr>
+<td>ค่าเสื่อมราคา</td>
+<td>มี</td>
+<td>ไม่มี</td>
+</tr>
+<tr>
+<td>ส่วนต่างจากราคาตลาด</td>
+<td>ไม่รับรู้ทุกงวดโดยตรง</td>
+<td>รับรู้ใน <code>P&amp;L</code> ทันที</td>
+</tr>
+<tr>
+<td>ความสดใหม่ของข้อมูล</td>
+<td>ต่ำกว่า</td>
+<td>สูงกว่า</td>
+</tr>
+<tr>
+<td>Disclosure เรื่อง fair value</td>
+<td>ต้องเปิดเผย</td>
+<td>เป็นตัวเลขสำคัญในงบ/หมายเหตุ</td>
+</tr>
+</tbody>
+</table></div><hr/></div>
+</section>
+<section class="sheet-section theme-default" id="17-การใช้ผู้ประเมินราคาอิสระ" data-title="17) การใช้ผู้ประเมินราคาอิสระ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 18</p><h2>การใช้ผู้ประเมินราคาอิสระ</h2></header>
+<div class="section-intro prose"><p>มาตรฐาน “สนับสนุน” ให้ใช้ <code>ผู้ประเมินราคาอิสระ (Independent valuer)</code></p><p>คุณสมบัติที่ต้นฉบับกล่าวถึงคือ</p><ul>
+<li>มีคุณวุฒิวิชาชีพที่ได้รับการยอมรับ</li>
+<li>มีประสบการณ์ล่าสุดเกี่ยวกับทำเลและประเภทของทรัพย์ที่ประเมิน</li>
+</ul><p>เช่น</p><ul>
+<li>ถ้าประเมินคอนโดทำเลรถไฟฟ้า ก็ควรใช้ผู้ประเมินที่เชี่ยวชาญตลาดลักษณะนั้น</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าไม่ได้ใช้ผู้ประเมินอิสระ</h3></div><div class="subsection-body prose"><p>กิจการต้องเปิดเผยข้อเท็จจริงนี้ในหมายเหตุประกอบงบการเงินอย่างตรงไปตรงมา</p><p>เหตุผล:</p><ul>
+<li>เพื่อให้ผู้ใช้งบประเมินความน่าเชื่อถือของตัวเลขเองได้</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="18-ทำไมการเปลี่ยนจาก-fair-value-กลับไป-cost-จึง-เป็นไปได้ยากมาก" data-title="18) ทำไมการเปลี่ยนจาก Fair Value กลับไป Cost จึง “เป็นไปได้ยากมาก”">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 19</p><h2>ทำไมการเปลี่ยนจาก Fair Value กลับไป Cost จึง “เป็นไปได้ยากมาก”</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับอธิบายเหตุผลไว้ชัดว่า</p><ul>
+<li><code>Fair value</code> สะท้อนความจริงในปัจจุบัน</li>
+<li><code>Cost</code> สะท้อนต้นทุนในอดีต</li>
+</ul><p>ถ้าธรรมชาติของทรัพย์คือถือไว้เพื่อค่าเช่าหรือเก็งกำไร<br/>
+ข้อมูลที่ผู้ใช้งบอยากรู้ที่สุดคือ “ตอนนี้ทรัพย์มีมูลค่าเท่าไร”</p><p>ดังนั้น การเปลี่ยนจากวิธีที่สะท้อนปัจจุบัน กลับไปใช้วิธีที่อิงอดีต มักไม่ทำให้ข้อมูลดีขึ้น</p></div>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เปรียบเทียบเชิงแนวคิด</h3></div><div class="subsection-body prose"><h4>Fair Value</h4><ul>
+<li>อัปเดตราคาตลาดให้เป็นปัจจุบัน</li>
+<li>แสดงความมั่งคั่งที่แท้จริงของกิจการได้ดีกว่า</li>
+</ul><h4>Cost Model</h4><ul>
+<li>ใช้ราคาซื้อในอดีตเป็นหลัก</li>
+<li>แม้ราคาตลาดปัจจุบันจะเปลี่ยนไปมาก งบก็อาจยังแสดงมูลค่าที่ล้าสมัย</li>
+</ul></div></article>
+<article class="subsection summary"><div class="subsection-head"><span class="subsection-label">SUMMARY</span><h3>บทสรุป</h3></div><div class="subsection-body prose"><p>เพราะมาตรฐานกำหนดให้การเปลี่ยนนโยบายบัญชีต้องทำให้ข้อมูล “เกี่ยวข้องและเหมาะสมกว่าเดิม”<br/>
+การเปลี่ยนจาก <code>Fair value</code> กลับไป <code>Cost</code> จึงถูกมองว่าเป็นการลดคุณภาพข้อมูลในหลายกรณี</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กรณีสุดโต่งที่ต้นฉบับใช้ช่วยคิด</h3></div><div class="subsection-body prose"><p>ต้นฉบับยกตัวอย่างเชิงเหตุผลไว้ด้วยว่า คำว่า <code>Highly unlikely</code><br/>
+ไม่ได้แปลว่า “ไม่มีทางเกิด”<br/>
+แต่หมายถึง “ยากมากและต้องมีเหตุผลหนักแน่นจริง”</p><h4>กรณีที่ 1 นโยบายกลุ่มบริษัทแม่</h4><p>ถ้าบริษัทลูกถูกซื้อโดยบริษัทแม่ที่มี <code>Group accounting policy</code><br/>
+ให้ทุกบริษัทในเครือใช้ <code>Cost model</code><br/>
+เพื่อให้งบการเงินรวมทั้งกลุ่มอยู่บนฐานนโยบายเดียวกัน</p><p>ในบางบริบท บริษัทลูกอาจพยายามอธิบายว่าการเปลี่ยนนโยบายช่วยให้ข้อมูลสอดคล้องกับผู้ใช้งบหลักของกลุ่มมากขึ้น</p><p>ต้นฉบับใช้คำว่า <code>Consolidated Financial Statements</code><br/>
+เพื่อชี้ให้เห็นว่าการบังคับใช้ <code>Cost model</code> อาจมาจากความต้องการให้การจัดทำงบการเงินรวมของทั้งกลุ่มเป็นมาตรฐานเดียวกัน</p><h4>กรณีที่ 2 ตลาดพังอย่างถาวร</h4><p>เช่น</p><ul>
+<li>เกิดสงครามรุนแรง</li>
+<li>เกิดวิกฤตจนไม่มีตลาดซื้อขายที่คล่องแคล่วอีก</li>
+<li>หา <code>observable inputs</code> ไม่ได้จริง</li>
+</ul><p>ในสถานการณ์สุดโต่งแบบนี้ การฝืนตั้ง fair value อาจทำให้งบไม่น่าเชื่อถือกว่าใช้ cost</p><p>ต้นฉบับใช้กรณีนี้เพื่ออธิบายว่า ทำไมจึงพูดว่า <code>Highly unlikely</code><br/>
+แทนที่จะใช้คำว่า “เป็นไปไม่ได้โดยเด็ดขาด”</p><p>ต้นฉบับยังเรียกสถานการณ์ลักษณะนี้ว่า <code>Permanent Market Failure</code></p><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="transfers" data-group-title="Transfers และกรณีโอนซับซ้อน">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 04</p>
+<p class="group-kicker">8 sections</p>
+</div>
+<h2>Transfers และกรณีโอนซับซ้อน</h2>
+<p class="group-description">รวม change in use, evidence, การวัดมูลค่าเมื่อโอน และกรณี PPE -> IP ที่ออกสอบบ่อย</p>
+<nav class="group-nav" aria-label="Transfers และกรณีโอนซับซ้อน"><a href="#20-การโอนเปลี่ยนประเภท-transfers" class="group-link" title="20) การโอนเปลี่ยนประเภท ( Transfers )">Transfers</a><a href="#21-ตัวอย่างหลักฐานของการโอน" class="group-link" title="21) ตัวอย่างหลักฐานของการโอน">ตัวอย่างหลักฐานของ</a><a href="#22-หลุมพรางเรื่อง-transfers-ที่ต้นฉบับเตือน" class="group-link" title="22) หลุมพรางเรื่อง Transfers ที่ต้นฉบับเตือน">หลุมพรางเรื่อง Tra</a><a href="#23-การวัดมูลค่าเมื่อมีการโอน-ถ้าใช้-cost-model" class="group-link" title="23) การวัดมูลค่าเมื่อมีการโอน: ถ้าใช้ Cost model">การวัดมูลค่าเมื่อม</a><a href="#24-การวัดมูลค่าเมื่อมีการโอน-กรณีที่เกี่ยวข้องกับ-fair-value" class="group-link" title="24) การวัดมูลค่าเมื่อมีการโอน: กรณีที่เกี่ยวข้องกับ Fair value">การวัดมูลค่าเมื่อม</a><a href="#25-กรณีซับซ้อนที่สุด-โอนจาก-ppe-ไปเป็น-ip-ที่ใช้-fair-value" class="group-link" title="25) กรณีซับซ้อนที่สุด: โอนจาก PPE ไปเป็น IP ที่ใช้ Fair value">กรณีซับซ้อนที่สุด:</a><a href="#26-ทำไมกรณี-ppe-ip-fair-value-ถึงต้องให้ส่วนเพิ่มไป-oci" class="group-link" title="26) ทำไมกรณี PPE -> IP (Fair value) ถึงต้องให้ส่วนเพิ่มไป OCI">ทำไมกรณี PPE -> IP</a><a href="#27-ตัวอย่างแนวบันทึกบัญชี-ppe-ip-fair-value" class="group-link" title="27) ตัวอย่างแนวบันทึกบัญชี: PPE -> IP (Fair value)">ตัวอย่างแนวบันทึกบ</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="20-การโอนเปลี่ยนประเภท-transfers" data-title="20) การโอนเปลี่ยนประเภท ( Transfers )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 20</p><h2>การโอนเปลี่ยนประเภท ( Transfers )</h2></header>
+<div class="section-intro prose"><p>นี่เป็นส่วนที่ไฟล์ต้นฉบับอธิบายละเอียดมาก</p></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>กฎเหล็ก</h3></div><div class="subsection-body prose"><p>จะโอนเข้าหรือออกจาก <code>Investment Property</code> ได้ก็ต่อเมื่อมี</p><ul>
+<li><code>การเปลี่ยนแปลงการใช้งานจริง (Change in use)</code></li>
+<li>และมี <code>หลักฐาน (Evidence)</code></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>สิ่งที่ “ไม่พอ”</h3></div><div class="subsection-body prose"><p>แค่ผู้บริหารเปลี่ยนใจหรือเปลี่ยนความตั้งใจ</p><p>ยังโอนไม่ได้</p><p>ต้องมีการเปลี่ยนการใช้งานจริงรองรับ</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="21-ตัวอย่างหลักฐานของการโอน" data-title="21) ตัวอย่างหลักฐานของการโอน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 21</p><h2>ตัวอย่างหลักฐานของการโอน</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก IP ไป PPE</h3></div><div class="subsection-body prose"><ul>
+<li>เริ่มนำอาคารมาใช้งานเอง</li>
+<li>เช่น ย้ายพนักงานเข้าไปทำงาน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก IP ไป Inventory</h3></div><div class="subsection-body prose"><ul>
+<li>เริ่มพัฒนาเพื่อขาย</li>
+<li>เช่น เปลี่ยนจากถือไว้ลงทุนมาเป็นโครงการที่จะขาย</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก PPE ไป IP</h3></div><div class="subsection-body prose"><ul>
+<li>เลิกใช้งานเอง</li>
+<li>ย้ายพนักงานออก</li>
+<li>เปลี่ยนไปปล่อยเช่า</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก Inventory ไป IP</h3></div><div class="subsection-body prose"><ul>
+<li>จากเดิมสร้างไว้ขาย</li>
+<li>แต่เปลี่ยนมาปล่อยเช่าแทน</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="22-หลุมพรางเรื่อง-transfers-ที่ต้นฉบับเตือน" data-title="22) หลุมพรางเรื่อง Transfers ที่ต้นฉบับเตือน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 22</p><h2>หลุมพรางเรื่อง Transfers ที่ต้นฉบับเตือน</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>22.1 แค่ติดป้ายขาย ยังไม่พอ</h3></div><div class="subsection-body prose"><p>ถ้ากิจการเพียง</p><ul>
+<li>ติดป้ายประกาศขาย</li>
+<li>หรือสั่งนายหน้าให้หาคนซื้อ</li>
+</ul><p>แต่ยังไม่มีการเริ่มพัฒนาเพื่อขายจริง</p><p>ทรัพย์ยังคงเป็น <code>Investment Property</code> ต่อไป</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>22.2 ทรัพย์ที่กำลังก่อสร้างเพื่อปล่อยเช่า</h3></div><div class="subsection-body prose"><p>ถ้าตอนสร้างมีจุดหมายชัดเจนว่าจะปล่อยเช่าในอนาคต</p><p>ให้ถือเป็น <code>Investment Property</code> ได้เลย</p><p>ไม่จำเป็นต้องพักเป็น <code>PPE</code> ก่อน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="23-การวัดมูลค่าเมื่อมีการโอน-ถ้าใช้-cost-model" data-title="23) การวัดมูลค่าเมื่อมีการโอน: ถ้าใช้ Cost model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 23</p><h2>การวัดมูลค่าเมื่อมีการโอน: ถ้าใช้ Cost model</h2></header>
+<div class="section-intro prose"><p>ถ้ากิจการใช้ <code>Cost model</code> อยู่แล้ว การโอนระหว่าง</p><ul>
+<li>IP</li>
+<li>PPE</li>
+<li>Inventory</li>
+</ul><p>จะไม่ทำให้เกิดกำไรหรือขาดทุนจากการโอน</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักปฏิบัติ</h3></div><div class="subsection-body prose"><p>ใช้ <code>Carrying amount ณ วันโอน</code> เป็นมูลค่าในหมวดใหม่ได้เลย</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="24-การวัดมูลค่าเมื่อมีการโอน-กรณีที่เกี่ยวข้องกับ-fair-value" data-title="24) การวัดมูลค่าเมื่อมีการโอน: กรณีที่เกี่ยวข้องกับ Fair value">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 24</p><h2>การวัดมูลค่าเมื่อมีการโอน: กรณีที่เกี่ยวข้องกับ Fair value</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>24.1 โอนจาก IP (ที่ใช้ fair value) ไป PPE หรือ Inventory</h3></div><div class="subsection-body prose"><p>ให้ใช้ <code>Fair value ณ วันโอน</code> เป็น <code>Deemed cost</code> ของสินทรัพย์ใหม่</p><p>แนวคิดคือ</p><ul>
+<li>ณ วันที่โอน ทรัพย์ถูกวัดด้วย fair value อยู่แล้ว</li>
+<li>จึงนำมูลค่านั้นไปตั้งต้นเป็นราคาทุนสมมติของหมวดใหม่</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>24.2 โอนจาก Inventory ไปเป็น IP ที่ใช้ Fair value</h3></div><div class="subsection-body prose"><p>ให้รับรู้ส่วนต่างระหว่าง</p><ul>
+<li>มูลค่าตามบัญชีเดิม</li>
+<li>กับ fair value ณ วันโอน</li>
+</ul><p>เข้า <code>P&amp;L</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>Inventory 7,000,000</li>
+<li>Fair value ณ วันโอน 7,800,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      7,800,000
+    Cr. Inventory                                            7,000,000
+    Cr. Gain on Transfer to IP                                 800,000
+</code></pre><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="25-กรณีซับซ้อนที่สุด-โอนจาก-ppe-ไปเป็น-ip-ที่ใช้-fair-value" data-title="25) กรณีซับซ้อนที่สุด: โอนจาก PPE ไปเป็น IP ที่ใช้ Fair value">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 25</p><h2>กรณีซับซ้อนที่สุด: โอนจาก PPE ไปเป็น IP ที่ใช้ Fair value</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับอธิบายว่านี่เป็นจุดที่ “ปราบเซียน” มากที่สุด</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักการสำคัญ</h3></div><div class="subsection-body prose"><p>ก่อนที่ทรัพย์จะเปลี่ยนสถานะเป็น <code>Investment Property</code><br/>
+ต้องจัดการตามกติกาของ <code>PPE</code> ก่อน</p><p>แล้วค่อยปรับให้เท่ากับ <code>Fair value</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>วิธีคิดเป็นลำดับ</h3></div><div class="subsection-body prose"><ol>
+<li>ใช้มาตรฐานของ PPE จนถึงวันโอน</li>
+<li>ปรับมูลค่าให้เท่ากับ fair value ณ วันนั้น</li>
+<li>รับรู้ส่วนต่างแบบเดียวกับการตีราคา PPE</li>
+<li>จากนั้นจึงโอนไปเป็น <code>Investment Property</code></li>
+</ol></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าราคาตลาดลดลง</h3></div><div class="subsection-body prose"><ul>
+<li>รับรู้ขาดทุนใน <code>P&amp;L</code></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าราคาตลาดเพิ่มขึ้น</h3></div><div class="subsection-body prose"><p>มาตรฐานไม่ให้โยนเข้า <code>P&amp;L</code> ทั้งหมดทันที</p><p>ต้องคิดเป็น 2 ขยัก</p><h4>ขยักแรก</h4><p>ถ้าในอดีตทรัพย์เคยมีการรับรู้ขาดทุนจากการด้อยค่า</p><ul>
+<li>ให้ส่วนที่เพิ่มขึ้นไปตีกลับขาดทุนเดิมก่อน</li>
+<li>รับรู้เข้า <code>P&amp;L</code> ได้ไม่เกินจำนวนขาดทุนเดิม</li>
+</ul><h4>ขยักสอง</h4><p>ส่วนที่เพิ่มเกินจากการตีกลับขาดทุนเดิม</p><ul>
+<li>ให้รับรู้ใน <code>OCI</code></li>
+<li>และแสดงเป็น <code>Revaluation surplus</code> ในส่วนของเจ้าของ</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="26-ทำไมกรณี-ppe-ip-fair-value-ถึงต้องให้ส่วนเพิ่มไป-oci" data-title="26) ทำไมกรณี PPE -> IP (Fair value) ถึงต้องให้ส่วนเพิ่มไป OCI">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 26</p><h2>ทำไมกรณี PPE -> IP (Fair value) ถึงต้องให้ส่วนเพิ่มไป OCI</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับอธิบายเหตุผลไว้ชัดมากว่า เพื่อป้องกัน <code>Earnings management</code></p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าไม่มีกฎนี้จะเกิดอะไรขึ้น</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>บริษัทมีตึกสำนักงานใหญ่เก่า</li>
+<li>มูลค่าตามบัญชีเหลือ 10 ล้าน</li>
+<li>ราคาตลาดจริงพุ่งเป็น 100 ล้าน</li>
+</ul><p>ถ้ามาตรฐานยอมให้แค่ย้ายตึกจาก <code>PPE</code> ไป <code>IP</code><br/>
+แล้วรับกำไร 90 ล้านเข้า <code>P&amp;L</code> ทันที</p><p>ผู้บริหารก็สามารถ “สร้างกำไรทิพย์” ได้ง่ายมาก</p><ul>
+<li>แค่ย้ายพนักงานออก</li>
+<li>ประกาศว่าจะปล่อยเช่า</li>
+<li>แล้วกำไรจำนวนมหาศาลจะโผล่ในงบ ทั้งที่ยังไม่ได้ขายจริงและยังไม่ได้รับเงินสดจริง</li>
+</ul><p>ดังนั้น มาตรฐานจึงบังคับให้ส่วนเกินจากการตีราคาของ PPE ไปอยู่ใน <code>OCI</code> ตามกติกา PPE ก่อน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-accounting" id="27-ตัวอย่างแนวบันทึกบัญชี-ppe-ip-fair-value" data-title="27) ตัวอย่างแนวบันทึกบัญชี: PPE -> IP (Fair value)">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 27</p><h2>ตัวอย่างแนวบันทึกบัญชี: PPE -> IP (Fair value)</h2></header>
+<div class="section-intro prose"><p>สมมติ</p><ul>
+<li>ราคาทุน PPE 10,000,000</li>
+<li>ค่าเสื่อมราคาสะสม 4,000,000</li>
+<li>มูลค่าตามบัญชี 6,000,000</li>
+<li>Fair value ณ วันโอน 9,000,000</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขั้นที่ 1 ล้างค่าเสื่อมสะสม</h3></div><div class="subsection-body prose"><pre class="ledger-block"><code class="language-text">Dr. Accumulated Depreciation - PPE           4,000,000
+    Cr. PPE                                                    4,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขั้นที่ 2 ปรับเป็น fair value</h3></div><div class="subsection-body prose"><pre class="ledger-block"><code class="language-text">Dr. PPE                                      3,000,000
+    Cr. Revaluation Surplus (OCI)                             3,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขั้นที่ 3 โอนเข้า Investment Property</h3></div><div class="subsection-body prose"><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      9,000,000
+    Cr. PPE                                                    9,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าเดิม PPE ใช้ Revaluation model อยู่แล้ว</h3></div><div class="subsection-body prose"><p>ต้นฉบับบอกว่าหลักการยังเหมือนเดิม คือ ณ วันโอนต้องทำตามกติกาของ <code>PPE</code> ก่อน</p><p>ความต่างคือ ถ้ามี <code>Revaluation surplus</code> เดิมค้างอยู่แล้ว<br/>
+ยอดนั้นจะยังคงอยู่ในส่วนของเจ้าของต่อไป</p><p>ตัวอย่างจากต้นฉบับ:</p><ul>
+<li>Book value เดิม 10,000,000</li>
+<li>มี OCI เดิมค้างอยู่ 2,000,000</li>
+<li>Fair value ณ วันโอน 15,000,000</li>
+</ul><p>ส่วนต่างจากการประเมินครั้งสุดท้าย 5,000,000<br/>
+ยังต้องเข้า <code>OCI</code> ตามกติกา PPE ก่อน</p><p>หลังโอนจะมียอดส่วนเกินทุนจากการตีราคาสะสมรวมกันอยู่ในทุน</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ชะตากรรมของ OCI หลังโอน</h3></div><div class="subsection-body prose"><p>ต้นฉบับอธิบายเพิ่มไว้อย่างละเอียดว่า</p><h4>ถ้ายังเป็น PPE</h4><p>ถ้าใช้ <code>Revaluation model</code> กับ PPE<br/>
+กิจการอาจทยอยโอนส่วนเกินทุนจากการตีราคาไป <code>Retained earnings</code><br/>
+ตามส่วนต่างของค่าเสื่อมที่เพิ่มขึ้นได้</p><h4>แต่ถ้าโอนมาเป็น IP ที่ใช้ Fair Value แล้ว</h4><p>สถานการณ์เปลี่ยนทันที เพราะ</p><ul>
+<li><code>Investment Property</code> แบบ <code>Fair value model</code> ห้ามคิดค่าเสื่อมราคา</li>
+</ul><p>ดังนั้นยอด OCI ก้อนเดิมจะถูก “แช่แข็ง” (<code>Frozen</code>)</p><ul>
+<li>ห้ามทยอยโอนเข้ากำไรสะสมระหว่างทาง</li>
+<li>โดยหลักจะไปเคลียร์ได้เมื่อจำหน่ายหรือตัดรายการทรัพย์นั้นแล้ว</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ราคาตลาดในปีถัดไปหลังโอนรับรู้ที่ไหน</h3></div><div class="subsection-body prose"><p>ต้นฉบับย้ำว่าหลังทรัพย์กลายเป็น <code>Investment Property</code> แบบ <code>Fair value model</code> แล้ว</p><ul>
+<li>กำไรหรือขาดทุนจากราคาตลาดปีต่อ ๆ ไป</li>
+<li>ต้องรับรู้เข้า <code>P&amp;L</code> ทันทีทั้งหมด</li>
+</ul><p>ห้ามนำไปหักกลบกับ OCI ก้อนเดิมที่ถูกแช่แข็งไว้</p><p>นี่เป็นจุดที่คนทำข้อสอบพลาดบ่อยมาก</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตารางเปรียบเทียบการโอนแบบต่าง ๆ</h3></div><div class="subsection-body prose"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>รูปแบบการโอน</th>
+<th>มูลค่าที่ใช้ ณ วันโอน</th>
+<th>ส่วนต่างรับรู้ที่ไหน</th>
+<th>แนวคิดจำง่าย</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPE -&gt; IP</code></td>
+<td>Fair value</td>
+<td>ราคาขึ้นมักไป <code>OCI</code>, ราคาลงไป <code>P&amp;L</code> ตามกติกา PPE</td>
+<td>ทิ้งทวนแบบ PPE</td>
+</tr>
+<tr>
+<td><code>Inventory -&gt; IP</code></td>
+<td>Fair value</td>
+<td>ส่วนต่างทั้งหมดเข้า <code>P&amp;L</code></td>
+<td>คล้ายขายสินค้าแล้วตั้งทรัพย์ใหม่</td>
+</tr>
+<tr>
+<td><code>IP -&gt; PPE</code></td>
+<td>Fair value ณ วันโอนเป็น <code>Deemed cost</code></td>
+<td>โดยปกติไม่มีส่วนต่างพิเศษ ณ วันโอน เพราะ IP ถูกปรับมูลค่ามาก่อนแล้ว</td>
+<td>ย้ายจากโลก IP ไปตั้งต้นเป็น PPE</td>
+</tr>
+<tr>
+<td><code>IP -&gt; Inventory</code></td>
+<td>Fair value ณ วันโอนเป็น <code>Deemed cost</code></td>
+<td>ใช้หลักเดียวกับ <code>IP -&gt; PPE</code></td>
+<td>ย้ายไปหมวดขาย</td>
+</tr>
+</tbody>
+</table></div><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="ending-and-disclosure" data-group-title="ปลายทางของรายการ">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 05</p>
+<p class="group-kicker">7 sections</p>
+</div>
+<h2>ปลายทางของรายการ</h2>
+<p class="group-description">ดูเรื่อง compensation, disposal, และ disclosure ให้จบเป็นก้อนเดียว</p>
+<nav class="group-nav" aria-label="ปลายทางของรายการ"><a href="#28-การรับเงินชดเชย-compensation" class="group-link" title="28) การรับเงินชดเชย ( Compensation )">การรับเงินชดเชย ( </a><a href="#29-การตัดรายการ-จำหน่าย-disposals" class="group-link" title="29) การตัดรายการ / จำหน่าย ( Disposals )">Disposals</a><a href="#30-ตัวอย่างจำหน่ายภายใต้-cost-model" class="group-link" title="30) ตัวอย่างจำหน่ายภายใต้ Cost model">ตัวอย่างจำหน่ายภาย</a><a href="#31-ตัวอย่างจำหน่ายภายใต้-fair-value-model" class="group-link" title="31) ตัวอย่างจำหน่ายภายใต้ Fair value model">ตัวอย่างจำหน่ายภาย</a><a href="#32-การเปิดเผยข้อมูล-disclosure" class="group-link" title="32) การเปิดเผยข้อมูล ( Disclosure )">Disclosure</a><a href="#33-disclosure-นโยบายและผู้ประเมิน" class="group-link" title="33) Disclosure: นโยบายและผู้ประเมิน">Disclosure: นโยบาย</a><a href="#34-disclosure-ตัวเลขในงบกำไรขาดทุน" class="group-link" title="34) Disclosure: ตัวเลขในงบกำไรขาดทุน">Disclosure: ตัวเลข</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-ending" id="28-การรับเงินชดเชย-compensation" data-title="28) การรับเงินชดเชย ( Compensation )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 28</p><h2>การรับเงินชดเชย ( Compensation )</h2></header>
+<div class="section-intro prose"><p>กรณีที่ทรัพย์</p><ul>
+<li>ไฟไหม้</li>
+<li>น้ำท่วม</li>
+<li>ถูกเวนคืน</li>
+<li>สูญหาย</li>
+<li>หรือเสียหายจนต้องเลิกใช้</li>
+</ul><p>แล้วกิจการได้รับเงินชดเชยจาก</p><ul>
+<li>บริษัทประกัน</li>
+<li>หรือบุคคลที่สาม</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักการรับรู้</h3></div><div class="subsection-body prose"><p>เงินชดเชยให้รับรู้เป็นรายได้ใน <code>P&amp;L</code><br/>
+ในงวดที่กิจการมีสิทธิได้รับเงินอย่างแน่นอน (<code>Receivable</code>)</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักสำคัญที่ต้นฉบับย้ำ</h3></div><div class="subsection-body prose"><p>ห้ามหักกลบเหตุการณ์ต่าง ๆ เข้าด้วยกัน</p><p>เพราะเหตุการณ์เหล่านี้เป็น <code>Separate economic events</code></p><ul>
+<li>การเสียหายของทรัพย์</li>
+<li>การรับเงินชดเชย</li>
+<li>การสร้างหรือซื้อทรัพย์ใหม่</li>
+</ul><p>ต้องบันทึกแยกกัน</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>เมื่อมีสิทธิรับเงินชดเชย 2,500,000</p><pre class="ledger-block"><code class="language-text">Dr. Insurance Receivable                     2,500,000
+    Cr. Compensation Income                                   2,500,000
+</code></pre><p>เมื่อได้รับเงิน</p><pre class="ledger-block"><code class="language-text">Dr. Cash / Bank                              2,500,000
+    Cr. Insurance Receivable                                 2,500,000
+</code></pre><hr/></div></article>
+</section>
+<section class="sheet-section theme-ending" id="29-การตัดรายการ-จำหน่าย-disposals" data-title="29) การตัดรายการ / จำหน่าย ( Disposals )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 29</p><h2>การตัดรายการ / จำหน่าย ( Disposals )</h2></header>
+<div class="section-intro prose"><p>จะตัด <code>Investment Property</code> ออกจากงบได้เมื่อ</p><ul>
+<li>จำหน่ายแล้ว</li>
+<li>หรือยกเลิกการใช้อย่างถาวร</li>
+<li>และคาดว่าจะไม่ได้รับประโยชน์เชิงเศรษฐกิจในอนาคตจากการจำหน่ายอีก</li>
+</ul><p>เช่น</p><ul>
+<li>ขายออกไปแล้ว</li>
+<li>ตึกพังเสียหายจนใช้ประโยชน์ไม่ได้อีก</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>การคำนวณกำไรหรือขาดทุน</h3></div><div class="subsection-body prose"><p><code>กำไรหรือขาดทุน = จำนวนเงินสุทธิที่ได้รับจากการจำหน่าย - มูลค่าตามบัญชีของสินทรัพย์</code></p><p>ผลต่างนี้รับรู้ใน <code>P&amp;L</code> ทันทีในงวดที่ขายหรือตัดรายการ</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-ending" id="30-ตัวอย่างจำหน่ายภายใต้-cost-model" data-title="30) ตัวอย่างจำหน่ายภายใต้ Cost model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 30</p><h2>ตัวอย่างจำหน่ายภายใต้ Cost model</h2></header>
+<div class="section-intro prose"><p>สมมติ</p><ul>
+<li>ราคาทุนเดิม 20,000,000</li>
+<li>ค่าเสื่อมราคาสะสม 8,000,000</li>
+<li>มูลค่าตามบัญชี 12,000,000</li>
+<li>เงินสดสุทธิที่ได้รับ 15,000,000</li>
+</ul><p>กำไร = 15,000,000 - 12,000,000 = 3,000,000</p><pre class="ledger-block"><code class="language-text">Dr. Cash / Bank                             15,000,000
+Dr. Accumulated Depreciation - IP            8,000,000
+    Cr. Investment Property                                 20,000,000
+    Cr. Gain on Disposal of IP                               3,000,000
+</code></pre><hr/></div>
+</section>
+<section class="sheet-section theme-ending" id="31-ตัวอย่างจำหน่ายภายใต้-fair-value-model" data-title="31) ตัวอย่างจำหน่ายภายใต้ Fair value model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 31</p><h2>ตัวอย่างจำหน่ายภายใต้ Fair value model</h2></header>
+<div class="section-intro prose"><p>สมมติ</p><ul>
+<li>มูลค่าตามบัญชี ณ วันขาย 16,000,000</li>
+<li>เงินสดสุทธิที่ได้รับ 15,000,000</li>
+</ul><p>ขาดทุน = 15,000,000 - 16,000,000 = 1,000,000</p><pre class="ledger-block"><code class="language-text">Dr. Cash / Bank                             15,000,000
+Dr. Loss on Disposal of IP                   1,000,000
+    Cr. Investment Property                                 16,000,000
+</code></pre></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>การแสดงผลในงบกำไรขาดทุน</h3></div><div class="subsection-body prose"><p>ต้นฉบับชี้เพิ่มว่า บัญชี <code>กำไร/ขาดทุนจากการจำหน่าย...</code><br/>
+มักถูกนำไปแสดงเป็นรายได้หรือค่าใช้จ่ายในลักษณะ <code>Other Income / Other Expenses</code><br/>
+ในงบกำไรขาดทุนของงวดนั้น</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-disclosure" id="32-การเปิดเผยข้อมูล-disclosure" data-title="32) การเปิดเผยข้อมูล ( Disclosure )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 32</p><h2>การเปิดเผยข้อมูล ( Disclosure )</h2></header>
+<div class="section-intro prose"><p>ไฟล์ต้นฉบับแบ่ง disclosure เป็น 2 ส่วนใหญ่</p><ol>
+<li>เรื่องนโยบายและผู้ประเมิน</li>
+<li>ตัวเลขในงบกำไรขาดทุน</li>
+</ol><hr/></div>
+</section>
+<section class="sheet-section theme-disclosure" id="33-disclosure-นโยบายและผู้ประเมิน" data-title="33) Disclosure: นโยบายและผู้ประเมิน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 33</p><h2>Disclosure: นโยบายและผู้ประเมิน</h2></header>
+<div class="section-intro prose"><p>กิจการต้องเปิดเผยว่า</p><ul>
+<li>เลือกใช้ <code>Cost model</code> หรือ <code>Fair value model</code></li>
+<li>มูลค่ายุติธรรมที่ใช้มาจากผู้ประเมินราคาอิสระหรือไม่</li>
+</ul><p>ถ้าใช้ผู้ประเมินราคาอิสระ</p><ul>
+<li>ควรเป็นผู้มีคุณวุฒิและมีประสบการณ์เหมาะสม</li>
+</ul><p>ถ้าไม่ได้ใช้</p><ul>
+<li>ต้องเปิดเผยข้อเท็จจริงนี้ให้ผู้ใช้งบทราบอย่างชัดเจน</li>
+</ul><hr/></div>
+</section>
+<section class="sheet-section theme-disclosure" id="34-disclosure-ตัวเลขในงบกำไรขาดทุน" data-title="34) Disclosure: ตัวเลขในงบกำไรขาดทุน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 34</p><h2>Disclosure: ตัวเลขในงบกำไรขาดทุน</h2></header>
+<div class="section-intro prose"><p>กิจการต้องเปิดเผยอย่างน้อยเรื่องต่อไปนี้</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>34.1 รายได้ค่าเช่า ( Rental income )</h3></div><div class="subsection-body prose"><p>รายได้ที่ได้รับจาก <code>Investment Property</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>34.2 ค่าใช้จ่ายในการดำเนินงานทางตรง ( Direct operating expenses )</h3></div><div class="subsection-body prose"><p>เช่น ค่าซ่อมแซมและบำรุงรักษา</p><p>โดยต้องแยกเป็น 2 บรรทัดให้ชัด</p><ol>
+<li>ค่าใช้จ่ายของทรัพย์ที่ “ก่อให้เกิดรายได้ค่าเช่า” ในงวดนั้น</li>
+<li>ค่าใช้จ่ายของทรัพย์ที่ “ไม่ได้ก่อให้เกิดรายได้ค่าเช่า” ในงวดนั้น</li>
+</ol><p>ตัวอย่างจากต้นฉบับ</p><ul>
+<li>ค่าซ่อมแอร์ในห้องที่มีคนเช่าอยู่แล้ว = กลุ่มที่ก่อให้เกิดรายได้ค่าเช่า</li>
+<li>ค่าทำความสะอาดตึกร้างที่ยังหาผู้เช่าไม่ได้ = กลุ่มที่ไม่ก่อให้เกิดรายได้ค่าเช่า</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>34.3 มูลค่ายุติธรรม ( Fair value )</h3></div><div class="subsection-body prose"><p>กิจการต้องเปิดเผยมูลค่ายุติธรรมของ <code>Investment Property</code></p><p>แม้กิจการจะเลือกใช้ <code>Cost model</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ทำไม Disclosure ส่วนนี้จึงสำคัญ</h3></div><div class="subsection-body prose"><p>ต้นฉบับชี้ให้เห็นว่า <code>Disclosure</code> ไม่ใช่ส่วนย่อยที่อ่านผ่านได้<br/>
+แต่เป็นส่วนที่ช่วยให้ผู้ใช้งบ “เห็นความจริงหลังตัวเลข”</p><p>ตัวอย่างเช่น</p><ul>
+<li>ถ้าใช้ <code>Cost model</code> งบแสดงมูลค่าตามราคาทุนหักค่าเสื่อม</li>
+<li>แต่ disclosure เรื่อง <code>Fair value</code> จะช่วยให้คนอ่านเห็นมูลค่าตลาดปัจจุบันด้วย</li>
+</ul><p>ส่วน <code>Direct operating expenses</code><br/>
+ก็ไม่ใช่แค่บอกยอดรวม<br/>
+แต่การแยกว่าทรัพย์ใดสร้างรายได้ค่าเช่าหรือยังไม่สร้างรายได้<br/>
+ช่วยให้ผู้ใช้งบประเมินประสิทธิภาพการบริหารทรัพย์ได้ดีขึ้น</p><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="exam-wrap-up" data-group-title="วงจรชีวิต Investment Property (IP)">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 06</p>
+<p class="group-kicker">1 sections</p>
+</div>
+<h2>วงจรชีวิต Investment Property (IP)</h2>
+<p class="group-description">สรุป phase ทั้งวงจรตั้งแต่คัดกรอง บันทึก วัดมูลค่า โอน จำหน่าย จนถึง disclosure ใช้ทวนก่อนสอบได้ในหน้าเดียว</p>
+<nav class="group-nav" aria-label="วงจรชีวิต Investment Property (IP)"><a href="#ip-lifecycle-summary" class="group-link" title="วงจรชีวิต Investment Property (IP)">วงจร IP</a></nav>
+</div>
+<div class="group-body">
+
+<section class="sheet-section theme-review" id="ip-lifecycle-summary" data-title="วงจรชีวิต Investment Property (IP)">
+  <div class="section-rule"></div>
+  <header class="section-head">
+    <p class="section-kicker">Part 35</p>
+    <h2>วงจรชีวิต Investment Property (IP) สรุปจบในหน้าเดียว</h2>
+  </header>
+  <div class="section-intro prose">
+    <p>ใช้ทวนทั้งบทแบบมองเป็นลำดับตั้งแต่คัดกรองรายการ จนถึงการจำหน่ายและการเปิดเผยข้อมูล โดยคง logic หลักที่มักออกสอบไว้ครบในหน้าเดียว</p>
+  </div>
+
+  <article class="subsection summary">
+    <div class="subsection-head"><span class="subsection-label">PHASE 1</span><h3>คัดกรองจุดยืน (ใช่ หรือ ไม่ใช่ IP?)</h3></div>
+    <div class="subsection-body prose">
+      <ul>
+        <li><strong>ใช่ IP:</strong> ถือไว้เพื่อรับค่าเช่า หรือ รอราคาขึ้น เช่น อพาร์ตเมนต์ หรือที่ดินว่างเปล่า</li>
+        <li><strong>ไม่ใช่ IP:</strong> ใช้งานเอง หรือมีบริการเสริมเยอะ จัดเป็น <code>PPE</code> เช่น โรงแรม หรือออฟฟิศบริษัท</li>
+        <li><strong>ไม่ใช่ IP:</strong> มีไว้เพื่อขายตามปกติธุรกิจ จัดเป็น <code>Inventory</code> เช่น หมู่บ้านจัดสรร</li>
+        <li><strong>ไม่ใช่ IP:</strong> ถ้าปล่อยเช่าแบบโอนความเสี่ยงไปแล้ว เป็น <code>Finance Lease</code> และตัดตึกออกจากงบ</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection alert">
+    <div class="subsection-head"><span class="subsection-label">PHASE 2</span><h3>วันแรกที่เข้าบ้าน (Initial Recognition)</h3></div>
+    <div class="subsection-body prose">
+      <p><strong>กฎเหล็ก:</strong> วันแรกต้องบันทึกด้วย <code>ราคาทุน (Cost)</code> เสมอ</p>
+    </div>
+  </article>
+
+  <article class="subsection note">
+    <div class="subsection-head"><span class="subsection-label">PHASE 3</span><h3>การดูแลระหว่างทาง (Subsequent Costs)</h3></div>
+    <div class="subsection-body prose">
+      <ul>
+        <li><strong>เปลี่ยนชิ้นใหญ่ (Replacement):</strong> บวกทุนใหม่เข้าไป แล้วตัดมูลค่าบัญชีของเก่าทิ้ง</li>
+        <li><strong>ซ่อมแซมรายวัน (Day-to-day servicing):</strong> รับรู้เป็น <code>ค่าใช้จ่าย (Expense)</code> ของงวด ห้ามบวกเข้าตึก</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection example">
+    <div class="subsection-head"><span class="subsection-label">PHASE 4</span><h3>ประเมินค่าสิ้นปี (Subsequent Measurement)</h3></div>
+    <div class="subsection-body prose">
+      <p>ต้องเลือกใช้วิธีใดวิธีหนึ่ง และบังคับใช้กับ <strong>IP ทุกชิ้นทั้งกลุ่ม</strong></p>
+      <ul>
+        <li><strong>สาย Cost Model:</strong> คิดค่าเสื่อมราคาปกติ แต่ยังต้องหา <code>Fair Value</code> มาเปิดเผยในหมายเหตุประกอบงบเสมอ</li>
+        <li><strong>สาย Fair Value Model:</strong> ห้ามคิดค่าเสื่อมราคาเด็ดขาด และส่วนต่างราคาตลาดที่ขึ้นหรือลงให้รับรู้เข้า <code>P&amp;L</code> ทันที</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection trap">
+    <div class="subsection-head"><span class="subsection-label">PHASE 5</span><h3>เปลี่ยนใจย้ายหมวด (Transfers)</h3></div>
+    <div class="subsection-body prose">
+      <p><strong>กฎการโอน:</strong> จะโอนได้ต้องมี <code>การเปลี่ยนการใช้งานจริง + มีหลักฐาน</code> เท่านั้น แค่ผู้บริหารคิดเปลี่ยนใจเองยังโอนไม่ได้</p>
+      <blockquote>จุดสลบปราบเซียน: โอน <code>PPE</code> เปลี่ยนเป็น <code>IP (Fair Value)</code></blockquote>
+      <ul>
+        <li><strong>ก่อนโอน:</strong> ต้องตีราคาแบบทิ้งทวนด้วยกฎของ <code>PPE</code> ก่อน ถ้าราคาขึ้นให้เอากำไรไปไว้ใน <code>OCI / Revaluation surplus</code></li>
+        <li><strong>หลังโอน:</strong> เมื่อกลายเป็น <code>IP</code> แล้ว ราคาที่ขึ้นหรือลงหลังจากนั้นจึงค่อยวิ่งเข้า <code>P&amp;L</code></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection default">
+    <div class="subsection-head"><span class="subsection-label">PHASE 6</span><h3>ขายทิ้ง / พังทลาย (Disposals)</h3></div>
+    <div class="subsection-body prose">
+      <p><strong>สูตรคำนวณ:</strong> <code>เงินที่ได้สุทธิ (Proceeds) - มูลค่าบัญชี (Carrying amount) = กำไร/ขาดทุน</code></p>
+      <p>ส่วนต่างนี้ให้รับรู้เข้า <code>P&amp;L</code> ทันที</p>
+    </div>
+  </article>
+
+  <article class="subsection note">
+    <div class="subsection-head"><span class="subsection-label">PHASE 7</span><h3>เล่าให้นักลงทุนฟัง (Disclosure)</h3></div>
+    <div class="subsection-body prose">
+      <ul>
+        <li>ต้องเปิดเผยนโยบายที่ใช้ว่าเป็น <code>Cost</code> หรือ <code>Fair Value</code> และบอกมูลค่ายุติธรรม</li>
+        <li>ต้องแยก <code>Rental income</code> และ <code>Direct operating expenses</code> ให้ชัด</li>
+        <li>ต้องแยกค่าใช้จ่ายของ <strong>ตึกที่มีคนเช่า</strong> ออกจาก <strong>ตึกที่ว่างเปล่า</strong> ด้วย</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection alert">
+    <div class="subsection-head"><span class="subsection-label">EXAM TRICK</span><h3>ทริคในห้องสอบ</h3></div>
+    <div class="subsection-body prose">
+      <p>ถ้าเจอโจทย์หลอก ให้ท่องไว้เสมอว่า <strong>Fair Value ของบทนี้ห้ามคิดค่าเสื่อม และกำไร/ขาดทุนวิ่งเข้า <code>P&amp;L</code> ล้วน ๆ</strong> ยกเว้นตอนโอนมาจาก <code>PPE</code></p>
+    </div>
+  </article>
+</section>
+
+</div>
+</section>
+    </main>
+
+    <p class="footer-note">หน้าเดียวนี้ใช้ข้อมูลจากไฟล์สรุปที่ผู้ใช้อัปโหลดเป็นฐานหลักทั้งหมด และจัดใหม่ให้อ่านแบบชีทก่อนสอบในรูปแบบเว็บ</p>
+  </div>
+
+  <script>
+    const sections = [...document.querySelectorAll('.sheet-section')];
+    const groups = [...document.querySelectorAll('.sheet-group')];
+    const navLinks = [...document.querySelectorAll('.mini-link')];
+    const groupLinks = [...document.querySelectorAll('.group-link')];
+    const byId = Object.fromEntries(navLinks.map(link => [link.dataset.target, link]));
+    const groupById = Object.fromEntries(groupLinks.map(link => [link.getAttribute('href').slice(1), link]));
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+        const localLink = groupById[entry.target.id];
+        if (localLink && entry.isIntersecting) {
+          groupLinks.forEach(item => item.classList.remove('is-current'));
+          localLink.classList.add('is-current');
+        }
+      });
+    }, { threshold: 0.18 });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(item => item.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+    groups.forEach(group => navObserver.observe(group));
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(item => item.classList.remove('is-active'));
+        link.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+</html>

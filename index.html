@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AC311 Cheat Sheet Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f4efe6;
+      --paper:#fffdf8;
+      --paper-soft:#fbf6ee;
+      --ink:#2b2118;
+      --ink-strong:#1f1711;
+      --muted:#766858;
+      --line:#ded2bf;
+      --line-strong:#cbb899;
+      --accent:#8b6238;
+      --accent-soft:#efe2cf;
+      --olive:#7c8160;
+      --note:#fbf3e8;
+      --shadow:0 18px 42px rgba(52,41,28,.08);
+      --radius-lg:22px;
+      --radius-md:16px;
+      --content:1040px;
+      --font-sans:"Google Sans Text","Google Sans","Product Sans","Noto Sans Thai",sans-serif;
+      --font-mono:"Google Sans Code","SFMono-Regular",Consolas,monospace;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family:var(--font-sans);
+      color:var(--ink);
+      line-height:1.75;
+      letter-spacing:-.01em;
+      text-rendering:optimizeLegibility;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(139,98,56,.09), transparent 26%),
+        linear-gradient(90deg, rgba(139,98,56,.035) 1px, transparent 1px),
+        linear-gradient(180deg,#faf6ee 0%,var(--bg) 100%);
+      background-size:auto, 28px 28px, auto;
+    }
+    a { color:inherit; }
+    .page {
+      width:min(calc(100% - 36px), var(--content));
+      margin:0 auto;
+      padding:42px 0 72px;
+    }
+    .masthead {
+      padding:28px 0 24px;
+      border-bottom:1px solid var(--line);
+    }
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      margin-bottom:16px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:#754c23;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+    h1,h2,h3,p { margin:0; }
+    h1,h2,h3,.eyebrow,.chapter-number,.chapter-link,.chip,.note-label { font-family:var(--font-sans); }
+    h1 {
+      max-width:12ch;
+      color:#36261c;
+      font-size:clamp(2.55rem, 7vw, 5.6rem);
+      line-height:.96;
+      letter-spacing:-.06em;
+      font-weight:700;
+    }
+    .lead {
+      max-width:66ch;
+      margin-top:18px;
+      color:#44372a;
+      font-size:18px;
+      line-height:1.85;
+    }
+    .subject-line {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .subject-line span {
+      padding:7px 11px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.34);
+    }
+    .library {
+      display:grid;
+      gap:18px;
+      margin-top:34px;
+    }
+    .section-heading {
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin:0 0 8px;
+      padding-bottom:12px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-heading h2 {
+      color:var(--ink-strong);
+      font-size:clamp(24px, 3vw, 34px);
+      line-height:1.2;
+      letter-spacing:-.02em;
+    }
+    .section-heading p {
+      max-width:42ch;
+      color:var(--muted);
+      font-size:14px;
+      text-align:right;
+    }
+    .chapter-list {
+      display:grid;
+      gap:14px;
+    }
+    .chapter-row {
+      position:relative;
+      display:grid;
+      grid-template-columns:90px minmax(0,1fr) auto;
+      gap:20px;
+      align-items:center;
+      min-height:132px;
+      padding:20px 22px;
+      overflow:hidden;
+      border:1px solid rgba(139,98,56,.18);
+      border-radius:var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255,253,248,.94), rgba(251,246,238,.88)),
+        repeating-linear-gradient(180deg, transparent 0, transparent 30px, rgba(87,69,47,.045) 30px, rgba(87,69,47,.045) 31px);
+      box-shadow:0 10px 26px rgba(52,41,28,.05);
+      text-decoration:none;
+      transform:translateY(10px);
+      opacity:0;
+      transition:opacity .55s ease, transform .55s ease, border-color .18s ease, background-color .18s ease;
+    }
+    .chapter-row::before {
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:5px;
+      background:var(--accent);
+      opacity:.82;
+    }
+    .chapter-row.is-visible { transform:translateY(0); opacity:1; }
+    .chapter-row:hover,
+    .chapter-row:focus-visible {
+      border-color:var(--line-strong);
+      outline:none;
+      background:
+        linear-gradient(180deg, rgba(255,250,241,.98), rgba(247,238,223,.94)),
+        repeating-linear-gradient(180deg, transparent 0, transparent 30px, rgba(87,69,47,.05) 30px, rgba(87,69,47,.05) 31px);
+    }
+    .chapter-number {
+      color:#8b6238;
+      font-size:38px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-.04em;
+    }
+    .chapter-copy { display:grid; gap:8px; }
+    .chapter-copy h3 {
+      color:var(--ink-strong);
+      font-size:clamp(21px, 2.4vw, 28px);
+      line-height:1.25;
+      letter-spacing:-.025em;
+    }
+    .chapter-copy p {
+      max-width:62ch;
+      color:#4b3a29;
+      font-size:15px;
+    }
+    .chips {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:2px;
+    }
+    .chip {
+      display:inline-flex;
+      align-items:center;
+      min-height:28px;
+      padding:4px 9px;
+      border:1px solid rgba(124,129,96,.28);
+      border-radius:999px;
+      background:#f3f1e7;
+      color:#555b3b;
+      font-size:12px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .chapter-link {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:86px;
+      min-height:40px;
+      padding:8px 14px;
+      border:1px solid #d3bd99;
+      border-radius:999px;
+      background:#f0e4d1;
+      color:#3d2916;
+      font-size:14px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .notes {
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      margin-top:34px;
+    }
+    .note {
+      padding:18px 20px;
+      border:1px solid var(--line);
+      border-left:5px solid var(--accent);
+      border-radius:var(--radius-lg);
+      background:var(--note);
+    }
+    .note-label {
+      display:inline-flex;
+      margin-bottom:8px;
+      color:#754c23;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+    }
+    .note p {
+      color:#4b3a29;
+      font-size:14px;
+    }
+    .footer-note {
+      margin-top:42px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media (max-width:760px) {
+      body { background-size:auto, 22px 22px, auto; }
+      .page {
+        width:min(calc(100% - 28px), var(--content));
+        padding:28px 0 48px;
+      }
+      .masthead { padding-top:16px; }
+      h1 { max-width:10ch; font-size:42px; }
+      .lead { font-size:16px; line-height:1.8; }
+      .section-heading {
+        display:grid;
+        gap:6px;
+        align-items:start;
+      }
+      .section-heading p { text-align:left; }
+      .chapter-row {
+        grid-template-columns:1fr;
+        gap:12px;
+        min-height:0;
+        padding:18px 18px 18px 20px;
+      }
+      .chapter-number { font-size:28px; }
+      .chapter-link {
+        justify-self:start;
+        width:100%;
+      }
+      .notes { grid-template-columns:1fr; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { transition:none !important; animation:none !important; }
+      .chapter-row { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="eyebrow">AC311 Intermediate Accounting 1</div>
+      <h1>Exam Sheet Library</h1>
+      <p class="lead">หน้ารวมสำหรับเลือกอ่านชีทแต่ละบท เปิดจากไฟล์นี้หรือจาก GitHub Pages ได้ทันที เหมาะสำหรับทวนก่อนสอบแบบอ่านต่อเนื่อง.</p>
+      <div class="subject-line">
+        <span>Clean student notebook</span>
+        <span>Chapter 6-8</span>
+        <span>HTML ready</span>
+      </div>
+    </header>
+
+    <section class="library" aria-labelledby="library-title">
+      <div class="section-heading">
+        <h2 id="library-title">เลือกบทที่ต้องการอ่าน</h2>
+        <p>เรียงตามลำดับเนื้อหาเรียน: PPE measurement, impairment, investment property.</p>
+      </div>
+
+      <div class="chapter-list">
+        <a class="chapter-row" href="chapter-06-notes.html">
+          <span class="chapter-number">06</span>
+          <span class="chapter-copy">
+            <h3>Chapter 6: PPE Subsequent Measurement</h3>
+            <p>Cost model, revaluation model, sufficient regularity, depreciation after revaluation, transfer of surplus, and disposal logic.</p>
+            <span class="chips"><span class="chip">TAS 16</span><span class="chip">Cost / Revaluation</span><span class="chip">Dr./Cr.</span></span>
+          </span>
+          <span class="chapter-link">เปิดอ่าน</span>
+        </a>
+
+        <a class="chapter-row" href="chapter-07-notes.html">
+          <span class="chapter-number">07</span>
+          <span class="chapter-copy">
+            <h3>Chapter 7: Impairment of Assets</h3>
+            <p>Indicator-first logic, recoverable amount, impairment loss, reversal, ceiling rule, revalued-asset exception, and goodwill boundary.</p>
+            <span class="chips"><span class="chip">TAS 36</span><span class="chip">Indicator-first</span><span class="chip">Dr./Cr.</span></span>
+          </span>
+          <span class="chapter-link">เปิดอ่าน</span>
+        </a>
+
+        <a class="chapter-row" href="chapter-08-notes.html">
+          <span class="chapter-number">08</span>
+          <span class="chapter-copy">
+            <h3>Chapter 8: Investment Property</h3>
+            <p>Classification, initial recognition, subsequent costs, cost model, fair value model, transfers, disposals, and disclosure points.</p>
+            <span class="chips"><span class="chip">TAS 40</span><span class="chip">Investment Property</span><span class="chip">Lifecycle</span></span>
+          </span>
+          <span class="chapter-link">เปิดอ่าน</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes" aria-label="Reading notes">
+      <div class="note">
+        <span class="note-label">Reading Order</span>
+        <p>เริ่มจากบท 6 เพื่อจับ logic ของ PPE ก่อน ต่อด้วยบท 7 เรื่อง impairment แล้วปิดด้วยบท 8 ที่ต้องแยก Investment Property ออกจาก PPE และ Inventory ให้แม่น.</p>
+      </div>
+      <div class="note">
+        <span class="note-label">GitHub Pages</span>
+        <p>เมื่อ push ขึ้น repo แล้ว สามารถเปิดหน้าแรกผ่าน `index.html` และลิงก์ไปแต่ละบทด้วย relative path เดียวกัน.</p>
+      </div>
+    </section>
+
+    <p class="footer-note">AC311 cheat sheet library. Built as static HTML for local reading and GitHub Pages.</p>
+  </main>
+
+  <script>
+    const rows = document.querySelectorAll(".chapter-row");
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          reveal.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    rows.forEach((row, index) => {
+      row.style.transitionDelay = `${index * 80}ms`;
+      reveal.observe(row);
+    });
+  </script>
+</body>
+</html>
