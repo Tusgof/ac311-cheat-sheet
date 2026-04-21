@@ -68,7 +68,7 @@
       text-transform:uppercase;
     }
     h1,h2,h3,p { margin:0; }
-    h1,h2,h3,.eyebrow,.chapter-number,.chapter-link,.chip,.note-label { font-family:var(--font-sans); }
+    h1,h2,h3,.eyebrow,.chapter-number,.chapter-link,.chip { font-family:var(--font-sans); }
     h1 {
       max-width:12ch;
       color:#36261c;
@@ -216,39 +216,6 @@
       font-weight:800;
       white-space:nowrap;
     }
-    .notes {
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
-      margin-top:34px;
-    }
-    .note {
-      padding:18px 20px;
-      border:1px solid var(--line);
-      border-left:5px solid var(--accent);
-      border-radius:var(--radius-lg);
-      background:var(--note);
-    }
-    .note-label {
-      display:inline-flex;
-      margin-bottom:8px;
-      color:#754c23;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.07em;
-      text-transform:uppercase;
-    }
-    .note p {
-      color:#4b3a29;
-      font-size:14px;
-    }
-    .footer-note {
-      margin-top:42px;
-      padding-top:18px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
-    }
     @media (max-width:760px) {
       body { background-size:auto, 22px 22px, auto; }
       .page {
@@ -275,7 +242,6 @@
         justify-self:start;
         width:100%;
       }
-      .notes { grid-template-columns:1fr; }
     }
     @media (prefers-reduced-motion:reduce) {
       html { scroll-behavior:auto; }
@@ -289,18 +255,14 @@
     <header class="masthead">
       <div class="eyebrow">AC311 Intermediate Accounting 1</div>
       <h1>Exam Sheet Library</h1>
-      <p class="lead">หน้ารวมสำหรับเลือกอ่านชีทแต่ละบท เปิดจากไฟล์นี้หรือจาก GitHub Pages ได้ทันที เหมาะสำหรับทวนก่อนสอบแบบอ่านต่อเนื่อง.</p>
       <div class="subject-line">
         <span>Clean student notebook</span>
-        <span>Chapter 6-8</span>
-        <span>HTML ready</span>
       </div>
     </header>
 
     <section class="library" aria-labelledby="library-title">
       <div class="section-heading">
         <h2 id="library-title">เลือกบทที่ต้องการอ่าน</h2>
-        <p>เรียงตามลำดับเนื้อหาเรียน: PPE measurement, impairment, investment property.</p>
       </div>
 
       <div class="chapter-list">
@@ -336,18 +298,6 @@
       </div>
     </section>
 
-    <section class="notes" aria-label="Reading notes">
-      <div class="note">
-        <span class="note-label">Reading Order</span>
-        <p>เริ่มจากบท 6 เพื่อจับ logic ของ PPE ก่อน ต่อด้วยบท 7 เรื่อง impairment แล้วปิดด้วยบท 8 ที่ต้องแยก Investment Property ออกจาก PPE และ Inventory ให้แม่น.</p>
-      </div>
-      <div class="note">
-        <span class="note-label">GitHub Pages</span>
-        <p>เมื่อ push ขึ้น repo แล้ว สามารถเปิดหน้าแรกผ่าน `index.html` และลิงก์ไปแต่ละบทด้วย relative path เดียวกัน.</p>
-      </div>
-    </section>
-
-    <p class="footer-note">AC311 cheat sheet library. Built as static HTML for local reading and GitHub Pages.</p>
   </main>
 
 </body>
