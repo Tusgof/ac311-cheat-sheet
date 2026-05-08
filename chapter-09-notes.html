@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>AC311 | เธเธ—เธ—เธตเน 9: IAS 37 - เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เนเธฅเธฐเธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</title>
+<meta content="?????????????? AC311 ?????? IAS 37 ??????????????????????? ????????????????????? ??????????????????????? ???????????????????????????????" name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --bg: #f4ede1;
+      --paper: rgba(255, 250, 242, 0.92);
+      --paper-strong: #fffaf2;
+      --ink: #3b2c21;
+      --muted: #6b5d50;
+      --line: rgba(119, 96, 74, 0.16);
+      --line-strong: rgba(119, 96, 74, 0.3);
+      --accent: #7b8564;
+      --accent-soft: rgba(123, 133, 100, 0.12);
+      --shadow: 0 16px 32px rgba(76, 56, 37, 0.05);
+      --font-sans: "Google Sans Text", "Google Sans", "Product Sans", "Noto Sans Thai", sans-serif;
+      --font-mono: "Google Sans Code", "SFMono-Regular", Consolas, monospace;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--font-sans);
+      background:
+        linear-gradient(90deg, transparent 0, transparent 72px, rgba(160, 122, 88, 0.07) 72px, rgba(160, 122, 88, 0.07) 74px, transparent 74px),
+        repeating-linear-gradient(180deg, transparent 0, transparent 38px, rgba(120, 99, 78, 0.06) 38px, rgba(120, 99, 78, 0.06) 39px),
+        radial-gradient(circle at top left, rgba(255,255,255,0.42), transparent 34%),
+        var(--bg);
+      line-height: 1.78;
+      letter-spacing: -0.01em;
+    }
+    :target {
+      scroll-margin-top: 92px;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: radial-gradient(rgba(90, 67, 47, 0.18) 0.45px, transparent 0.45px);
+      background-size: 9px 9px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 35%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 28px 0 80px; }
+    .masthead {
+      padding: 18px 0 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 12px;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 28px;
+      align-items: end;
+      padding: 18px 0 16px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 5.6vw, 4.45rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: #36261c;
+    }
+    .hero p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1rem; }
+    .subject-line { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; color: var(--muted); font-size:0.95rem; }
+    .subject-line span { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.28); }
+    .formula-strip {
+      display:grid; gap:12px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,250,241,0.88), rgba(252,246,236,0.72));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .formula-strip h2 { margin:0; font-size:0.98rem; color: var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
+    .formula-item { display:grid; gap:4px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
+    .formula-item:last-child { border-bottom:none; padding-bottom:0; }
+    .formula-item span { color: var(--muted); font-size:0.9rem; }
+    .formula-item strong { font-size:1rem; line-height:1.45; }
+    .mini-nav-shell { position: sticky; top: 0; z-index: 30; padding: 10px 0 18px; background: linear-gradient(180deg, rgba(245,239,228,0.96), rgba(245,239,228,0.78), rgba(245,239,228,0)); backdrop-filter: blur(8px); }
+    .mini-nav {
+      display:flex; gap:10px; overflow:auto; padding: 10px 4px 10px 2px; scrollbar-width:none;
+    }
+    .mini-nav::-webkit-scrollbar { display:none; }
+    .mini-link {
+      white-space:nowrap; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line);
+      color: var(--muted); background: rgba(255,250,241,0.78); transition: 180ms ease;
+      font-size: 0.95rem;
+    }
+    .mini-link:hover, .mini-link:focus-visible { border-color: var(--line-strong); color: var(--ink); transform: translateY(-1px); }
+    .mini-link.is-active { background: #efe4cf; border-color: rgba(124,137,96,0.4); color: #2f271f; }
+    .content { display:grid; gap: 22px; }
+    .sheet-group {
+      display: grid;
+      gap: 16px;
+      padding-top: 4px;
+    }
+    .group-head {
+      padding: 17px 20px 15px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,250,241,0.86), rgba(250,244,233,0.7));
+      box-shadow: 0 10px 20px rgba(76, 56, 37, 0.03);
+      position: relative;
+    }
+    .group-head::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(123,133,100,0.16), rgba(123,133,100,0));
+    }
+    .group-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 16px;
+      align-items: baseline;
+    }
+    .group-kicker {
+      margin: 0;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .group-head h2 {
+      margin: 0;
+      font-size: clamp(1.55rem, 2.2vw, 2.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: #2f2219;
+    }
+    .group-description {
+      margin: 10px 0 0;
+      max-width: 68ch;
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.68;
+    }
+    .group-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 2px;
+    }
+    .group-link {
+      padding: 9px 11px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,241,0.6);
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.35;
+      transition: 180ms ease;
+    }
+    .group-link:hover, .group-link:focus-visible {
+      color: var(--ink);
+      border-color: var(--line-strong);
+      background: rgba(255,250,241,0.88);
+    }
+    .group-link.is-current {
+      color: #2f271f;
+      background: rgba(123, 133, 100, 0.12);
+      border-color: rgba(123, 133, 100, 0.26);
+    }
+    .group-body {
+      display: grid;
+      gap: 18px;
+    }
+    .sheet-section {
+      position: relative; padding: 26px clamp(18px, 2vw, 28px) 28px 26px; border: 1px solid var(--line);
+      border-radius: 24px; background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(255,248,236,0.8));
+      box-shadow: 0 14px 28px rgba(76, 56, 37, 0.045); overflow: clip;
+    }
+    .sheet-section.theme-accounting {
+      background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(248,241,230,0.84));
+    }
+    .sheet-section.theme-disclosure {
+      background: linear-gradient(180deg, rgba(255,250,241,0.9), rgba(244,240,230,0.8));
+    }
+    .sheet-section.theme-review {
+      background: linear-gradient(180deg, rgba(255,250,241,0.9), rgba(245,244,236,0.84));
+    }
+    .sheet-section::before {
+      content: ""; position:absolute; inset:0; pointer-events:none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45), transparent 24%);
+    }
+    .section-rule { position:absolute; left:0; top:0; bottom:0; width:10px; background: linear-gradient(180deg, rgba(124,137,96,0.16), rgba(124,137,96,0.02)); }
+    .section-head { position:relative; padding-left: 8px; margin-bottom: 14px; }
+    .section-kicker { margin:0 0 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; }
+    .section-head h2 { margin:0; font-size: clamp(1.4rem, 2vw, 2rem); line-height:1.15; letter-spacing: -0.03em; }
+    .section-head + .section-intro > p:first-child {
+      font-size: 1.02rem;
+      color: #4a392d;
+      line-height: 1.74;
+    }
+    .section-intro { margin-bottom: 12px; }
+    .prose p { margin: 0 0 11px; }
+    .prose ul, .prose ol { margin: 0 0 12px 0; padding-left: 1.05rem; }
+    .prose li { margin-bottom: 7px; padding-left: 2px; line-height: 1.7; }
+    .prose td, .prose th, .prose p, .prose li {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    .prose h4 {
+      margin: 18px 0 10px;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      color: #4a392d;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .prose code {
+      font-family: var(--font-sans); font-size: 0.95em; font-weight: 700; color: #4f3a2b;
+      padding: 0.14rem 0.42rem; border-radius: 8px; background: rgba(124, 137, 96, 0.08); border: 1px solid rgba(124, 137, 96, 0.18);
+      transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
+    }
+    .sheet-section.in-view .prose code { background: rgba(124, 137, 96, 0.16); border-color: rgba(124, 137, 96, 0.28); box-shadow: inset 0 -0.55em 0 rgba(124,137,96,0.12); }
+    .prose strong { color:#2f231b; }
+    .subsection, details.subsection {
+      margin-top: 16px; padding: 17px; border-top: 1px solid var(--line);
+      background: rgba(255,252,246,0.5);
+    }
+    .subsection-head { display:flex; align-items:baseline; flex-wrap:wrap; gap: 9px 10px; margin-bottom: 11px; }
+    .subsection-label { color: var(--muted); letter-spacing:0.14em; text-transform:uppercase; font-size:0.7rem; font-weight:800; }
+    .subsection h3, details.subsection summary h3 { margin:0; font-size:1.08rem; line-height:1.35; }
+    .subsection.trap { background: linear-gradient(180deg, rgba(154,93,67,0.08), rgba(255,252,246,0.52)); border-left: 3px solid rgba(154,93,67,0.46); padding-left: 16px; }
+    .subsection.alert { background: linear-gradient(180deg, rgba(124,137,96,0.12), rgba(255,252,246,0.52)); border-left: 3px solid rgba(124,137,96,0.48); padding-left: 16px; }
+    .subsection.summary { background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,252,246,0.52)); }
+    .subsection.example { background: linear-gradient(180deg, rgba(98,86,73,0.08), rgba(255,252,246,0.52)); }
+    .subsection.note { background: linear-gradient(180deg, rgba(197,172,126,0.12), rgba(255,252,246,0.52)); }
+    details.subsection { border-radius: 16px; border: 1px dashed var(--line); padding: 0; overflow: hidden; }
+    details.subsection summary { list-style:none; cursor:pointer; display:flex; gap:12px; align-items:baseline; padding: 17px 18px; background: rgba(255,252,246,0.84); }
+    details.subsection summary::-webkit-details-marker { display:none; }
+    details.subsection[open] summary { border-bottom: 1px dashed var(--line); }
+    details.subsection .subsection-body { padding: 17px 18px 18px; }
+    .table-wrap { overflow:auto; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.52); position: relative; }
+    .table-wrap::after {
+      content: "";
+      position: sticky;
+      right: 0;
+      top: 0;
+      float: right;
+      width: 18px;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(244,237,225,0.92));
+    }
+    table { width:100%; border-collapse:collapse; min-width: 640px; font-size: 0.94rem; line-height: 1.58; font-variant-numeric: tabular-nums; }
+    th, td { padding: 12px 14px; vertical-align: top; border-bottom: 1px solid rgba(120,99,78,0.12); }
+    th { text-align:left; background: rgba(124,137,96,0.08); font-weight: 700; position: sticky; top: 0; z-index: 2; backdrop-filter: blur(2px); }
+    tbody tr:nth-child(even) td { background: rgba(255,252,246,0.42); }
+    tr:hover td { background: rgba(124,137,96,0.06); }
+    .ledger-block {
+      margin: 12px 0 16px; padding: 15px 16px; background: #f7f0e6; border: 1px solid var(--line);
+      border-radius: 18px; overflow:auto;
+    }
+    .ledger-block code { font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.7; white-space: pre; display:block; color:#2f241d; }
+    .quick-review { padding: 22px 24px; border:1px solid var(--line); border-radius: 24px; background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,250,241,0.82)); }
+    .quick-review h2 { margin:0 0 8px; font-size: 1.45rem; }
+    .check-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px 18px; }
+    .check-item { padding: 10px 12px; border-bottom: 1px dashed var(--line); line-height: 1.62; }
+    blockquote { margin: 14px 0; padding: 12px 16px; border-left: 3px solid rgba(124,137,96,0.35); background: rgba(255,255,255,0.34); color: var(--muted); }
+    .footer-note { color: var(--muted); font-size: 0.95rem; padding: 20px 0 0; }
+    .sheet-section:target {
+      border-color: rgba(123, 133, 100, 0.34);
+      box-shadow: 0 0 0 1px rgba(123, 133, 100, 0.1), 0 14px 28px rgba(76, 56, 37, 0.045);
+    }
+    details.subsection summary::after {
+      content: "+";
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+    details.subsection[open] summary::after {
+      content: "-";
+    }
+    .sheet-group, .sheet-section, .group-head, .quick-review, .formula-strip {
+      scroll-margin-top: 96px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+    }
+    @media (max-width: 900px) {
+      .page { width: min(calc(100% - 18px), var(--max)); padding-top: 12px; }
+      .hero { grid-template-columns: 1fr; gap:18px; }
+      .group-head { padding: 15px 15px 13px; border-radius: 20px; }
+      .group-description { margin-top: 8px; font-size: 0.94rem; }
+      .group-nav { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+      .sheet-section { padding: 21px 15px 22px 18px; border-radius: 22px; }
+      .section-rule { width: 8px; }
+      .check-grid { grid-template-columns: 1fr; }
+      table { min-width: 560px; font-size:0.91rem; }
+      th, td { padding: 11px 12px; }
+      .table-wrap { margin: 11px -2px 15px; border-radius: 14px; }
+    }
+    @media (max-width: 560px) {
+      body { line-height: 1.66; }
+      .hero h1 { font-size: 2.15rem; }
+      .hero p { font-size: 0.96rem; }
+      .content { gap: 18px; }
+      .mini-nav { gap: 8px; padding: 8px 2px 8px 0; }
+      .mini-link { padding: 8px 11px; font-size: 0.88rem; }
+      .mini-nav-shell { padding: 8px 0 14px; }
+      .group-head { padding: 14px 14px 12px; border-radius: 18px; }
+      .group-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        gap: 7px;
+        margin-top: 10px;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+      .group-nav::-webkit-scrollbar { display: none; }
+      .group-link { font-size: 0.8rem; padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
+      .sheet-section { padding: 19px 13px 20px 16px; border-radius: 20px; }
+      .section-head { padding-left: 6px; margin-bottom: 12px; }
+      .section-kicker { font-size: 0.69rem; }
+      .section-head h2 { font-size: 1.25rem; }
+      .section-head + .section-intro > p:first-child { font-size: 0.98rem; line-height: 1.68; }
+      .section-intro { margin-bottom: 10px; }
+      .prose p { margin-bottom: 10px; }
+      .prose ul, .prose ol { padding-left: 0.95rem; margin-bottom: 11px; }
+      .prose li { margin-bottom: 6px; }
+      .subsection, details.subsection { margin-top: 14px; padding: 15px 14px; }
+      details.subsection summary { padding: 15px 14px; gap: 10px; }
+      details.subsection .subsection-body { padding: 15px 14px 16px; }
+      .table-wrap { border-radius: 12px; margin: 10px -2px 14px; }
+      table { min-width: 520px; font-size: 0.87rem; line-height: 1.5; }
+      th, td { padding: 10px 11px; }
+      .ledger-block { padding: 12px 13px; border-radius: 12px; }
+      .ledger-block code { font-size: 0.9rem; line-height: 1.62; }
+      .quick-review { padding: 18px 16px; border-radius: 20px; }
+      .quick-review h2 { font-size: 1.2rem; }
+      .check-item { padding: 9px 10px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+<header class="masthead">
+<p class="eyebrow">AC311 เธเธฒเธฃเธเธฑเธเธเธตเธเธฑเนเธเธเธฅเธฒเธ</p>
+<div class="hero">
+<div>
+<h1>เธเธ—เธ—เธตเน 9: IAS 37 - เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เนเธฅเธฐเธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h1>
+<p>เธญเนเธฒเธเธ•เธฒเธกเธฅเธณเธ”เธฑเธ: เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธซเธฃเธทเธญเนเธกเน -&gt; เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธเธซเธฃเธทเธญเนเธกเน -&gt; เธเธฃเธฐเธกเธฒเธ“เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเธซเธฃเธทเธญเนเธกเน -&gt; เธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃ / เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</p>
+<div class="subject-line"><span>IAS 37</span><span>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ / เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ / เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</span><span>เธเธฒเธฃเธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃ + เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</span><span>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</span></div>
+</div>
+<aside aria-label="quick formulae" class="formula-strip">
+<h2>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</h2>
+<div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 1</span><strong>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธเธฒเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธซเธฃเธทเธญเนเธกเน</strong></div><div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 2</span><strong>เธ–เนเธฒเธกเธต เนเธซเนเธ–เธฒเธกเธ•เนเธญเธงเนเธฒเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธเธซเธฃเธทเธญเนเธกเน</strong></div><div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 3</span><strong>เธ–เนเธฒเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ เธ•เนเธญเธเธเธฃเธฐเธกเธฒเธ“เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเนเธ”เน</strong></div><div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 4</span><strong>เธ–เนเธฒเธขเธฑเธเนเธกเนเธฃเธฑเธเธฃเธนเน เนเธซเนเธ•เธฑเธ”เธชเธดเธเธ•เนเธญเธงเนเธฒเธเธฐเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธฃเธทเธญเนเธกเนเธ•เนเธญเธเธ—เธณเธญเธฐเนเธฃ</strong></div>
+</aside>
+</div>
+</header>
+<div class="mini-nav-shell">
+<nav aria-label="เธชเธฒเธฃเธเธฑเธเธขเนเธญ" class="mini-nav">
+<a class="mini-link" data-target="obligation-logic" href="#obligation-logic" title="เน€เธฃเธดเนเธกเธเธฒเธเธ เธฒเธเธฃเธงเธก เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ ???????????????????? ??????????????? เนเธฅเธฐ onerous contract เน€เธเธทเนเธญเนเธซเนเนเธขเธเธ เธฒเธฃเธฐเนเธ”เนเธ–เธนเธเธเนเธญเธเธเนเธญเธขเธ•เธฑเธ”เธชเธดเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเน">01 เธซเธฅเธฑเธเธเธดเธ”</a><a class="mini-link" data-target="recognition-flow" href="#recognition-flow" title="เธฃเธงเธกเธเธงเธฒเธกเธซเธกเธฒเธขเธเธญเธ provision เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเนเน€เธเธ“เธ‘เน เนเธฅเธฐเธฅเธณเธ”เธฑเธเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเนเนเธซเนเธญเธขเธนเนเนเธเธเนเธงเธเน€เธ”เธตเธขเธงเธเธฑเธ">02 เธฃเธฑเธเธฃเธนเน</a><a class="mini-link" data-target="measurement-cases" href="#measurement-cases" title="เธ•เนเธญเธ”เนเธงเธขเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ” best estimate เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธธเธเธฑเธ decommissioning เนเธฅเธฐเธเธเน€เธซเธฅเนเธเธ—เธตเนเธเธญเธเธญเธญเธเธชเธญเธเนเธเธชเนเธงเธเธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ">03 เธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</a><a class="mini-link" data-target="contingencies-disclosure" href="#contingencies-disclosure" title="เธญเนเธฒเธ contingent liabilities เนเธฅเธฐ contingent assets เธเธนเนเธเธฑเธ เนเธฅเนเธงเธเธดเธ”เธ”เนเธงเธข asymmetry เนเธฅเธฐ disclosure requirements เธ—เธตเนเนเธเนเธ•เธญเธเธเนเธญเธชเธญเธเธเธฅเธฒเธขเธเธ—">04 เธฃเธฒเธขเธเธฒเธฃเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</a><a class="mini-link" data-target="exam-wrap" href="#exam-wrap" title="เน€เธเนเธ decision tree probability matrix เธเธณเธจเธฑเธเธ—เนเธ—เธตเนเธ•เนเธญเธเนเธเน เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เธเธธเธ”เธฃเธฐเธงเธฑเธ เนเธฅเธฐเธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเนเธงเนเน€เธเนเธเธเธธเธ”เธ—เธงเธเธฃเธญเธเธ—เนเธฒเธข">05 เธ—เธเธ—เธงเธ</a>
+</nav>
+</div>
+<main class="content">
+<section class="sheet-group" data-group-title="เธ•เธฑเนเธเธเธฒเธเธเนเธญเธเธ•เธฑเธ”เธชเธดเธ" id="obligation-logic">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 01</p>
+<p class="group-kicker">5 sections</p>
+</div>
+<h2>เธ•เธฑเนเธเธเธฒเธเธเนเธญเธเธ•เธฑเธ”เธชเธดเธ</h2>
+<p class="group-description">เน€เธฃเธดเนเธกเธเธฒเธเธ เธฒเธเธฃเธงเธก เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ• เนเธฅเธฐเธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน เน€เธเธทเนเธญเนเธซเนเนเธขเธเธ เธฒเธฃเธฐเนเธ”เนเธ–เธนเธเธเนเธญเธเธเนเธญเธขเธ•เธฑเธ”เธชเธดเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเน</p>
+<nav aria-label="เธ•เธฑเนเธเธเธฒเธเธเนเธญเธเธ•เธฑเธ”เธชเธดเธ" class="group-nav"><a class="group-link" href="#เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—" title="เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—">เธ เธฒเธเธฃเธงเธก</a><a class="group-link" href="#1-เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ-liability" title="1. เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ (Liability)">Liability</a><a class="group-link" href="#2-present-obligation-เธเธทเธญเธญเธฐเนเธฃ" title="2. ???????????????????? เธเธทเธญเธญเธฐเนเธฃ">Present obligation</a><a class="group-link" href="#3" title="3. ??????????????????????????????????????">Decision tree</a><a class="group-link" href="#4" title="4. ??????????????????????????????">Decision tree</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" data-title="เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—" id="เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 01</p><h2>เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—</h2></header>
+<div class="section-intro prose"><p>เธเธ—เธเธตเนเธเธนเธเธฒเธเธเธดเธขเธฒเธกเธเธญเธ <strong>เธซเธเธตเนเธชเธดเธ (Liability)</strong> เนเธเธชเธนเนเธเธฒเธฃเนเธขเธ <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong>, <strong>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong>, เนเธฅเธฐ <strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong> เธเธฃเนเธญเธกเน€เธเธ“เธ‘เนเธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃ เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ เธเธฒเธฃเธเธดเธเธฒเธฃเธ“เธฒเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธซเธฅเธฑเธเธฃเธญเธเธฃเธฐเธขเธฐเน€เธงเธฅเธฒเธฃเธฒเธขเธเธฒเธ เนเธฅเธฐเธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเนเธเธซเธกเธฒเธขเน€เธซเธ•เธธเธเธฃเธฐเธเธญเธเธเธเธเธฒเธฃเน€เธเธดเธ</p><p>เธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธเธ—เธฒเธเธเธฑเธเธเธตเนเธเธเธ—เธเธตเนเธ•เนเธญเธเธ•เธญเธเธเธณเธ–เธฒเธกเนเธซเนเธเธฃเธเธ•เธฒเธกเธฅเธณเธ”เธฑเธ:</p><ol>
+<li>เธกเธต <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธเธฒเธ <strong>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
+<li>เธกเธต <strong>เธซเธเธตเนเธชเธดเธ / เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
+<li>เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธ <strong>???????????</strong> เธซเธฃเธทเธญเนเธกเน</li>
+<li>เธ–เนเธฒเธฃเธฑเธเธฃเธนเนเนเธกเนเนเธ”เน เธญเธขเนเธฒเธเธเนเธญเธขเธ•เนเธญเธ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
+</ol></div>
+</section>
+<section class="sheet-section theme-default" data-title="1. เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ (Liability)" id="1-เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ-liability">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 02</p><h2>เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ (Liability)</h2></header>
+<div class="section-intro prose"><p>เธซเธเธตเนเธชเธดเธเธ•เธฒเธก IAS 37 เธกเธตเธญเธเธเนเธเธฃเธฐเธเธญเธ 3 เธเนเธญ:</p><ol>
+<li>เน€เธเนเธ <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ (Present obligation)</strong></li>
+<li>เน€เธเธดเธ”เธเธฒเธ <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ• (Past events)</strong></li>
+<li>เธเธฒเธ”เธงเนเธฒเธเธฐเธ—เธณเนเธซเนเน€เธเธดเธ” <strong>เธเธฒเธฃเธชเธนเธเน€เธชเธตเธขเธ—เธฃเธฑเธเธขเธฒเธเธฃเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธ (Outflow of resources embodying economic benefits)</strong></li>
+</ol></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธฃเธฐเน€เธ”เนเธเธ—เธตเนเธ•เนเธญเธเธเธณ</h3></div><div class="subsection-body prose"><ul>
+<li>เธซเธเธตเนเธชเธดเธ <strong>เนเธกเนเธเธณเน€เธเนเธเธ•เนเธญเธเธเธณเธฃเธฐเน€เธเนเธเน€เธเธดเธเธชเธ”เน€เธชเธกเธญเนเธ</strong></li>
+<li>เธเธฒเธฃเธเธณเธฃเธฐเธญเธฒเธเน€เธเธดเธ”เธเธฒเธเน€เธเธดเธเธชเธ” เธชเธดเธเธ—เธฃเธฑเธเธขเนเธญเธทเนเธ เธเธฒเธฃเนเธซเนเธเธฃเธดเธเธฒเธฃ เธซเธฃเธทเธญเนเธกเนเนเธ•เนเธเธฒเธฃเธญเธญเธเธซเธธเนเธ</li>
+<li>เธเธดเธขเธฒเธกเธเธตเนเธญเนเธฒเธเธญเธดเธ IAS 37 เนเธฅเธฐเธขเธฑเธเนเธกเนเนเธ”เนเธเธฃเธฑเธเธ•เธฒเธก conceptual framework เธ—เธตเนเธเธฃเธฑเธเนเธซเธกเนเนเธเธเธต 2018</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-default" data-title="2. ???????????????????? เธเธทเธญเธญเธฐเนเธฃ" id="2-present-obligation-เธเธทเธญเธญเธฐเนเธฃ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 03</p><h2>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธเธทเธญเธญเธฐเนเธฃ</h2></header>
+<div class="section-intro prose"><p>เนเธเนเธเธเธญเธเธเธณเธงเนเธฒ <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธเธทเธญเธ เธฒเธฃเธฐเธ—เธตเนเธเธดเธเธเธฒเธฃ <strong>เธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เน (Unavoidable)</strong> เนเธฅเธฐเนเธกเนเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธญเธทเนเธเธ—เธตเนเธชเธกเน€เธซเธ•เธธเธชเธกเธเธฅเธเธญเธเธเธฒเธเธ•เนเธญเธเธเธเธดเธเธฑเธ•เธด</p></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>2.1 เธเธฃเธฐเน€เธ เธ—เธเธญเธเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</h3></div><div class="subsection-body prose"><ol>
+<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข (เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข)</strong><br/>
+   เน€เธเธดเธ”เธเธฒเธเธเธเธซเธกเธฒเธข เธชเธฑเธเธเธฒ เธซเธฃเธทเธญเธเนเธญเธเธฑเธเธเธฑเธเธ—เธตเนเธกเธตเธเธฅเธเธนเธเธเธฑเธเธเธฑเธ”เน€เธเธ</li>
+<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข (เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข)</strong><br/>
+   เนเธกเนเนเธ”เนเธ–เธนเธเธเธฑเธเธเธฑเธเนเธ”เธขเธเธเธซเธกเธฒเธขเนเธ”เธขเธ•เธฃเธ เนเธ•เนเน€เธเธดเธ”เธเธฒเธเธเธฒเธฃเธเธฃเธฐเธ—เธณเธเธญเธเธเธดเธเธเธฒเธฃเน€เธญเธเธเธเธ—เธณเนเธซเนเธเธนเนเธญเธทเนเธเธเธฒเธ”เธซเธงเธฑเธเธงเนเธฒเธเธดเธเธเธฒเธฃเธเธฐเธฃเธฑเธเธเธดเธ”เธเธญเธ</li>
+</ol></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>2.2 เน€เธเธทเนเธญเธเนเธเธเธญเธเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</h3></div><div class="subsection-body prose"><p>เธ•เนเธญเธเธกเธตเธ—เธฑเนเธ 2 เธเนเธญ:</p><ol>
+<li>เธเธดเธเธเธฒเธฃเธชเนเธเธชเธฑเธเธเธฒเธ“เธฃเธฑเธเธเธดเธ”เธเธญเธเธ•เนเธญเธเธนเนเธญเธทเนเธ<br/>
+   เน€เธเนเธ<br/>
+   - <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong><br/>
+   - <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</strong><br/>
+   - <strong>เธเนเธงเธเธเธฅเธฅเธฑเธเธเนเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เน€เธ—เนเธฒเธเธฑเธ</strong></li>
+<li>เธเธนเนเธญเธทเนเธเน€เธเธดเธ” <strong>เธ•เนเธเธ—เธธเธเนเธเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธงเนเธฒเธเธดเธเธเธฒเธฃเธเธฐเธ—เธณเธ•เธฒเธกเธเธฑเนเธเนเธเนเธเธญเธ</li>
+</ol></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเธ—เธตเนเนเธเนเธขเนเธณ</h3></div><div class="subsection-body prose"><ul>
+<li>เธเธฃเธดเธฉเธฑเธ—เน€เธเธขเธเธทเธเน€เธเธดเธเนเธซเนเธฅเธนเธเธเนเธฒเธกเธฒเธ•เธฅเธญเธ” 5 เธเธต เนเธกเนเนเธกเนเธกเธตเธเนเธญเธเธเธซเธกเธฒเธขเธเธฑเธเธเธฑเธ</li>
+<li>เธซเธฒเธเธฅเธนเธเธเนเธฒเธเธทเนเธญเธชเธดเธเธเนเธฒเธเนเธญเธเธงเธฑเธเธ—เธตเนเธเธดเธเธเธฒเธฃเธเธฃเธฐเธเธฒเธจเธขเธเน€เธฅเธดเธเธเนเธขเธเธฒเธขเธเธทเธเน€เธเธดเธ เธเธฒเธฃเธเธทเนเธญเธเธฒเธขเธเธฑเนเธเธขเธฑเธเธญเธขเธนเนเธ เธฒเธขเนเธ•เนเนเธเธงเธเธเธดเธเธฑเธ•เธดเธ—เธตเนเธเนเธฒเธเธกเธฒเน€เธ”เธดเธก เธเธถเธเธญเธฒเธเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธเนเธ”เน</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-review" data-title="3. ??????????????????????????????????????" id="3">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 04</p><h2>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</h2></header>
+<div class="section-intro prose"><p>เธซเธเธตเนเธชเธดเธเธเธฐเนเธกเนเน€เธเธดเธ”เธฅเธญเธข เน เธ•เนเธญเธเธกเธต <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</strong> เนเธฅเธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธเธฑเนเธเธ•เนเธญเธเธ—เธณเนเธซเนเธเธดเธเธเธฒเธฃ <strong>เนเธกเนเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธญเธทเนเธเธ—เธตเนเธชเธกเน€เธซเธ•เธธเธชเธกเธเธฅ (เนเธกเนเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธญเธทเนเธเธ—เธตเนเธชเธกเน€เธซเธ•เธธเธชเธกเธเธฅ)</strong> เธเธญเธเธเธฒเธเธเธณเธฃเธฐเธ เธฒเธฃเธฐ</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธฃเธฐเน€เธ”เนเธเธชเธณเธเธฑเธ</h3></div><div class="subsection-body prose"><ul>
+<li>เธชเธณเธซเธฃเธฑเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเนเนเธเธเธงเธ”เธเธฑเธเธเธธเธเธฑเธ เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ•เนเธเน€เธฃเธทเนเธญเธเธ•เนเธญเธเน€เธเธดเธ” <strong>เธ เธฒเธขเนเธเธซเธฃเธทเธญเธเนเธญเธเธงเธฑเธเธชเธดเนเธเธเธงเธ”</strong></li>
+<li>เธเธฒเธเธเธฃเธฑเนเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเน€เธเธดเธ”เธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ”เน€เธเนเธเน€เธเธตเธขเธ <strong>เธซเธฅเธฑเธเธเธฒเธเธขเธทเธเธขเธฑเธ</strong> เธ เธฒเธฃเธฐเธ—เธตเนเธกเธตเธญเธขเธนเนเนเธฅเนเธง เนเธกเนเนเธเนเธเธธเธ”เน€เธฃเธดเนเธกเธ•เนเธเธเธญเธเธ เธฒเธฃเธฐ</li>
+</ul></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฃเธฐเธเธญเธ</h3></div><div class="subsection-body prose"><ul>
+<li><strong>เธชเธฒเธฃเน€เธเธกเธตเธฃเธฑเนเธงเนเธซเธฅ</strong>: เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธเธทเธญเธเธฒเธฃเธฃเธฑเนเธงเนเธซเธฅ เนเธกเนเนเธเนเธงเธฑเธเธเธฃเธฐเธเธธเธกเธเธญเธฃเนเธ”เธญเธเธธเธกเธฑเธ•เธดเธเธเธเธทเนเธเธเธน</li>
+<li><strong>เน€เธเธฃเธทเนเธญเธเธเธฑเธเธฃเธกเธตเธ•เธณเธซเธเธด</strong>: เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธเธทเธญเธเธฒเธฃเธเธฒเธขเธชเธดเธเธเนเธฒเธ—เธตเนเธกเธตเธเธฑเธเธซเธฒ เนเธกเนเนเธเนเธงเธฑเธเธ—เธตเนเธฅเธนเธเธเนเธฒเน€เธเธดเนเธเธ•เธฃเธงเธเธเธเธ เธฒเธขเธซเธฅเธฑเธ</li>
+<li><strong>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</strong>: เธเธฒเธฃเน€เธเนเธเธชเธฑเธเธเธฒเน€เธเนเธเธญเธ”เธตเธ• เนเธฅเธฐเน€เธกเธทเนเธญเธชเธ–เธฒเธเธเธฒเธฃเธ“เนเน€เธเธฅเธตเนเธขเธเธเธเธชเธฑเธเธเธฒเธเธฅเธฒเธขเน€เธเนเธเธ เธฒเธฃเธฐ เธเนเธญเธฒเธเน€เธเธดเธ”เธซเธเธตเนเธชเธดเธเนเธ”เนเนเธเธเธงเธ”เธเธฑเธเธเธธเธเธฑเธ</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-review" data-title="4. ??????????????????????????????" id="4">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 05</p><h2>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</h2></header>
+<div class="section-intro prose"><p><strong>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</strong> เธเธทเธญเธชเธฑเธเธเธฒเธ—เธตเน <strong>เธ•เนเธเธ—เธธเธเธ—เธตเนเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เนเนเธเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธชเธนเธเธเธงเนเธฒ <strong>เธเธฃเธฐเนเธขเธเธเนเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเนเธ”เนเธฃเธฑเธ</strong></p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธเธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</h3></div><div class="subsection-body prose"><p>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธญเธ เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน เนเธซเนเนเธเนเธกเธนเธฅเธเนเธฒเธ—เธตเน <strong>เธ•เนเธณเธเธงเนเธฒ</strong> เธฃเธฐเธซเธงเนเธฒเธ:</p><ol>
+<li><strong>เธ•เนเธเธ—เธธเธเนเธเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธชเธฑเธเธเธฒ</li>
+<li><strong>เธเนเธฒเธเธฃเธฑเธเธเธฒเธเธเธฒเธฃเนเธกเนเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธซเธฃเธทเธญเธเนเธฒเธเธฃเธฑเธเธซเธฒเธเธขเธเน€เธฅเธดเธ/เธเธดเธ”เธชเธฑเธเธเธฒ</li>
+</ol><p>เนเธเธงเธเธดเธ”เธเธทเธญเธเธฑเธเธเธตเธเธฐเน€เธฅเธทเธญเธเธ—เธฒเธเธ—เธตเนเน€เธเนเธเธ•เธฑเธงเธเนเธญเธขเธ—เธตเนเธชเธธเธ”เธเธถเนเธเธเธดเธเธเธฒเธฃเธเนเธฒเธเธฐเนเธเนเธเธฃเธดเธ</p></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธ</h3></div><div class="subsection-body prose"><ul>
+<li>เน€เธเนเธฒเน€เธเธดเธฃเนเธเน€เธงเธญเธฃเนเธซเธฃเธทเธญเธญเธญเธเธเธดเธจเธฃเธฐเธขเธฐเธขเธฒเธงเนเธงเน เนเธ•เนเน€เธ—เธเนเธเนเธฅเธขเธตเน€เธเธฅเธตเนเธขเธเธซเธฃเธทเธญเนเธกเนเนเธ”เนเนเธเนเธเธฒเธเนเธฅเนเธง</li>
+<li>เธ–เนเธฒเธเนเธฒเธขเธเนเธฒเน€เธเนเธฒเธ•เนเธญเธ–เธนเธเธเธงเนเธฒเธเนเธฒเธเธฃเธฑเธเธขเธเน€เธฅเธดเธเธชเธฑเธเธเธฒ เนเธซเนเธ•เธฑเนเธเธเธฒเธเธเนเธฒเน€เธเนเธฒเธ—เธตเนเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เน</li>
+</ul></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" data-group-title="Provision เนเธฅเธฐ ????????????????????" id="recognition-flow">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 02</p>
+<p class="group-kicker">4 sections</p>
+</div>
+<h2>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเนเธฅเธฐเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</h2>
+<p class="group-description">เธฃเธงเธกเธเธงเธฒเธกเธซเธกเธฒเธขเธเธญเธ provision เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเนเน€เธเธ“เธ‘เน เนเธฅเธฐเธฅเธณเธ”เธฑเธเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเนเนเธซเนเธญเธขเธนเนเนเธเธเนเธงเธเน€เธ”เธตเธขเธงเธเธฑเธ</p>
+<nav aria-label="Provision เนเธฅเธฐ ????????????????????" class="group-nav"><a class="group-link" href="#5-provision-เธเธทเธญเธญเธฐเนเธฃ" title="5. Provision เธเธทเธญเธญเธฐเนเธฃ">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#6-เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน-provision" title="6. เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน Provision">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#7-เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน-recognition-criteria" title="7. เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน recognition criteria">Criteria use</a><a class="group-link" href="#8-เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน" title="8. เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน">Question flow</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" data-title="5. Provision เธเธทเธญเธญเธฐเนเธฃ" id="5-provision-เธเธทเธญเธญเธฐเนเธฃ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 06</p><h2>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธทเธญเธญเธฐเนเธฃ</h2></header>
+<div class="section-intro prose"><p>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธทเธญ <strong>เธซเธเธตเนเธชเธดเธเธเธฃเธฐเน€เธ เธ—เธซเธเธถเนเธ</strong> เธ—เธตเนเธกเธต <strong>เธเธงเธฒเธกเนเธกเนเนเธเนเธเธญเธเน€เธฃเธทเนเธญเธเน€เธงเธฅเธฒ (timing) เธซเธฃเธทเธญเธเธณเธเธงเธเน€เธเธดเธ (amount)</strong></p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>5.1 เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เน€เธเนเธ subset เธเธญเธ liability</h3></div><div class="subsection-body prose"><p>เธเธฃเธฐเน€เธ”เนเธเธชเธณเธเธฑเธเธเธทเธญ:</p><ul>
+<li><strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธ—เธธเธเธ•เธฑเธงเธเธทเธญ Liability</strong></li>
+<li><strong>เนเธ•เน Liability เนเธกเนเนเธเน เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธ—เธธเธเธ•เธฑเธง</strong></li>
+</ul><p>เน€เธซเธ•เธธเธเธฅเธเธทเธญ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธขเธฑเธเธกเธต DNA เธเธญเธเธซเธเธตเนเธชเธดเธเธเธฃเธเธ—เธฑเนเธ 3 เธเนเธญ เนเธ•เนเธกเธตเธกเธดเธ•เธดเธเธญเธ <strong>uncertainty</strong> เน€เธเธดเนเธกเน€เธเนเธฒเธกเธฒ</p></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>5.2 เธ•เธฑเธงเธญเธขเนเธฒเธ provision</h3></div><div class="subsection-body prose"><ul>
+<li><strong>???????</strong></li>
+<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</strong></li>
+<li><strong>เธเนเธฒเนเธเนเธเนเธฒเธขเนเธเธเธฒเธฃเธเธทเนเธเธเธนเธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธขเธ•เนเธญเธชเธดเนเธเนเธงเธ”เธฅเนเธญเธก</strong></li>
+<li><strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>5.3 เธ•เนเธฒเธเธเธฒเธเน€เธเนเธฒเธซเธเธตเนเธเธฒเธฃเธเนเธฒเนเธฅเธฐเธเนเธฒเนเธเนเธเนเธฒเธขเธเนเธฒเธเธเนเธฒเธขเธญเธขเนเธฒเธเนเธฃ</h3></div><div class="subsection-body prose"><ul>
+<li><strong>Trade payables / Accruals</strong><br/>
+  เธฃเธนเนเธขเธญเธ”เนเธฅเธฐเธฃเธนเนเธเธณเธซเธเธ”เธเนเธฒเธขเธเนเธญเธเธเนเธฒเธเธเธฑเธ”</li>
+<li><strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong><br/>
+  เธฃเธนเนเธงเนเธฒเธ•เนเธญเธเธเนเธฒเธข เนเธ•เนเธขเธฑเธเนเธกเนเธฃเธนเนเธขเธญเธ”เน€เธเนเธฐเธซเธฃเธทเธญเธขเธฑเธเนเธกเนเธฃเธนเนเธงเธฑเธเธเนเธฒเธขเนเธเนเธเธญเธ</li>
+</ul></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเน€เธเธฃเธตเธขเธเน€เธ—เธตเธขเธ</h3></div><div class="subsection-body prose"><ul>
+<li>เธเธฒเธเธเนเธญเธก/เธเนเธฒเธเธเธนเนเธฃเธฑเธเน€เธซเธกเธฒเน€เธชเธฃเนเธเนเธฅเนเธง เธ•เธเธฅเธเธฃเธฒเธเธฒ 15,000 เธเธฑเธ”เน€เธเธ เนเธ•เนเนเธเนเธเนเธเธซเธเธตเนเธขเธฑเธเนเธกเนเธกเธฒ = <strong>Accrual/Trade payable</strong></li>
+<li>เธเธฒเธขเธชเธดเธเธเนเธฒเธเธฃเนเธญเธกเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธซเธฃเธทเธญเธเธทเธเน€เธเธดเธ เนเธ”เธขเธขเธฑเธเนเธกเนเธฃเธนเนเธงเนเธฒเธเธฐเธกเธตเธฅเธนเธเธเนเธฒเธเธเนเธซเธเธกเธฒเน€เธเธฅเธกเน€เธกเธทเนเธญเนเธฃ = <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong></li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-default" data-title="6. เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน Provision" id="6-เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน-provision">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 07</p><h2>เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</h2></header>
+<div class="section-intro prose"><p>เธ•เนเธญเธเธเธฃเธเธ—เธฑเนเธ 3 เธเนเธญ:</p><ol>
+<li>เธกเธต <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธเธฒเธ <strong>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong></li>
+<li>เธกเธต <strong>เธเนเธญเธเธณเธซเธเธ”เธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</strong> เธเธญเธเธ—เธฃเธฑเธเธขเธฒเธเธฃเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธ</li>
+<li>เธชเธฒเธกเธฒเธฃเธ–เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธ <strong>??????????? เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ</strong></li>
+</ol><p>เธซเธฒเธเธเธฒเธ”เธเนเธญเนเธ”เธเนเธญเธซเธเธถเนเธ:<br/>
+- <strong>เธซเนเธฒเธก ???????????? provision</strong><br/>
+- เธญเธฒเธเธเธเธ—เธตเน <strong>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong><br/>
+- เธซเธฃเธทเธญเธเธฒเธเธเธฃเธ“เธต <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธดเธขเธฒเธกเธเธญเธ ????????????? (Probable)</h3></div><div class="subsection-body prose"><p>เธชเธฃเธธเธเนเธ”เนเธงเนเธฒ <strong>????????????? (Probable) = more likely than not = เนเธญเธเธฒเธชเธกเธฒเธเธเธงเนเธฒ 50%</strong></p><p>เธ–เนเธฒเนเธกเนเธ–เธถเธ ?????????????:<br/>
+- เนเธ”เธขเธ—เธฑเนเธงเนเธเนเธซเน <strong>????????????? เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong><br/>
+- เนเธ•เนเธ–เนเธฒเนเธญเธเธฒเธชเธ•เนเธณเธกเธฒเธเธเธเน€เธเนเธ <strong>remote</strong> เนเธซเน <strong>เนเธกเนเธ•เนเธญเธเธ—เธณเธญเธฐเนเธฃเน€เธฅเธข</strong></p></div></article>
+</section>
+<section class="sheet-section theme-default" data-title="7. เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน recognition criteria" id="7-เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน-recognition-criteria">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 08</p><h2>เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน recognition criteria</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>7.1 เธเนเธขเธเธฒเธขเธเธทเธเน€เธเธดเธ</h3></div><div class="subsection-body prose"><ul>
+<li>เธ เธฒเธฃเธฐเน€เธเธดเธ”เธเธฒเธ <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong></li>
+<li>??????????????? เธเธทเธญ <strong>เธเธฒเธฃเธเธฒเธขเธชเธดเธเธเนเธฒ</strong></li>
+<li>เน€เธกเธทเนเธญเธฅเธนเธเธเนเธฒเธกเธต ?????????????????????????? เธงเนเธฒเธเธทเธเนเธ”เน เนเธฅเธฐเธกเธตเนเธญเธเธฒเธชเธ•เนเธญเธเธเธทเธเธเธฃเธดเธ เธเธดเธเธเธฒเธฃเธ•เนเธญเธเธ•เธฑเนเธ provision</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>7.2 เธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒ</h3></div><div class="subsection-body prose"><ul>
+<li>เธ เธฒเธฃเธฐเน€เธเธดเธ”เธเธฒเธ <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong></li>
+<li>??????????????? เธเธทเธญ <strong>เธเธฒเธฃเธเธฒเธขเธชเธดเธเธเนเธฒเธเธฃเนเธญเธกเนเธเธฃเธฑเธเธเธฃเธฐเธเธฑเธ</strong></li>
+<li>เธซเธฒเธเธเธฒเธเธชเธ–เธดเธ•เธดเธเธฒเธ”เธงเนเธฒเธ•เนเธญเธเธเนเธญเธกเธซเธฃเธทเธญเน€เธเธฅเธตเนเธขเธเธเธฒเธเธชเนเธงเธ เนเธซเน ???????????? provision</li>
+</ul></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>7.3 เธชเธดเนเธเนเธงเธ”เธฅเนเธญเธกเนเธฅเธฐ ??????????????????</h3></div><div class="subsection-body prose"><ul>
+<li>เธซเธฒเธเนเธกเนเธกเธตเธเธเธซเธกเธฒเธข เนเธ•เนเธเธดเธเธเธฒเธฃเธเธฃเธฐเธเธฒเธจเธเนเธขเธเธฒเธขเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธเธ•เนเธญเธชเธดเนเธเนเธงเธ”เธฅเนเธญเธกเนเธงเนเธเธฑเธ”เน€เธเธ</li>
+<li>เน€เธกเธทเนเธญเน€เธเธดเธ”เน€เธซเธ•เธธเธฃเธฑเนเธงเนเธซเธฅเธซเธฃเธทเธญเธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธข ??????????????? + ?????????????????? เธญเธฒเธเธ—เธณเนเธซเนเน€เธเธดเธ” ??????????????????? เนเธ”เน</li>
+</ul></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>7.4 เธซเธฒเธเนเธกเนเธกเธต ??????????????????? เนเธฅเธฐเนเธกเนเธกเธต ???????????????????</h3></div><div class="subsection-body prose"><ul>
+<li>เนเธกเนเธเธนเนเธเธฃเธดเธซเธฒเธฃ โ€เธเธฒเธ”เธงเนเธฒเธญเธฒเธเธ•เนเธญเธเธเนเธฒเธขโ€ เธเนเธขเธฑเธเนเธกเนเธเธญ</li>
+<li>เธ–เนเธฒเนเธกเนเธกเธต ???????????????????? เธเนเธญเธ เธซเนเธฒเธกเธเธฃเธฐเนเธ”เธ”เนเธเธ•เธฑเนเธ provision</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-default" data-title="8. เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน" id="8-เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 09</p><h2>เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน</h2></header>
+<div class="section-intro prose"><p>เนเธซเนเธเธดเธ”เธ•เธฒเธกเธฅเธณเธ”เธฑเธเธเธตเน:</p><ol>
+<li>เธกเธต <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
+<li>เธ–เนเธฒเธกเธต เธ เธฒเธฃเธฐเธเธฑเนเธเธ—เธณเนเธซเนเน€เธเธดเธ” <strong>เธเนเธญเธเธณเธซเธเธ”เธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</strong> เธซเธฃเธทเธญเนเธกเน</li>
+<li>เธ–เนเธฒเธกเธต เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เน <strong>เธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</strong> เธซเธฃเธทเธญเนเธกเน</li>
+</ol></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเธฅเธฅเธฑเธเธเนเธเธฅเธฒเธขเธ—เธฒเธ</h3></div><div class="subsection-body prose"><ul>
+<li>เนเธกเนเธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ -&gt; เนเธกเนเธ•เนเธญเธเธ—เธณเธญเธฐเนเธฃ เธซเธฃเธทเธญเธเธดเธเธฒเธฃเธ“เธฒเธงเนเธฒเน€เธเนเธเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ—เธตเนเธญเธฒเธเธกเธตเธญเธขเธนเน</li>
+<li>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเนเธกเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ + เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ เนเธ•เนเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธกเนเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li>เธกเธตเธเธฃเธ 3 เธเนเธญ -&gt; provision</li>
+</ul></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" data-group-title="???????????? เนเธฅเธฐเธเธฃเธ“เธตเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ" id="measurement-cases">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 03</p>
+<p class="group-kicker">5 sections</p>
+</div>
+<h2>เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธฅเธฐเธเธฃเธ“เธตเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเธชเธณเธเธฑเธ</h2>
+<p class="group-description">เธ•เนเธญเธ”เนเธงเธขเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ” best เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธธเธเธฑเธ decommissioning เนเธฅเธฐเธเธเน€เธซเธฅเนเธเธ—เธตเนเธเธญเธเธญเธญเธเธชเธญเธเนเธเธชเนเธงเธเธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</p>
+<nav aria-label="???????????? เนเธฅเธฐเธเธฃเธ“เธตเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ" class="group-nav"><a class="group-link" href="#9-tas-10" title="9. TAS 10: ?????????????????????????????????">TAS 10</a><a class="group-link" href="#10-measurement-เธเธญเธ-provision" title="10. ???????????? เธเธญเธ Provision">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#11-time-value-of-money-เนเธฅเธฐ-long-term-provision" title="11. ???????????????????? เนเธฅเธฐ Long-term Provision">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#12-decommissioning-restoration-เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ-ppe" title="12. Decommissioning, Restoration เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ PPE">Decommissioning</a><a class="group-link" href="#13-5-เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ" title="13. 5 เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ">5 pitfalls</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-review" data-title="9. TAS 10: ?????????????????????????????????" id="9-tas-10">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 10</p><h2>TAS 10: เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ เธฒเธขเธซเธฅเธฑเธเธฃเธญเธเธฃเธฐเธขเธฐเน€เธงเธฅเธฒเธฃเธฒเธขเธเธฒเธ</h2></header>
+<div class="section-intro prose"><p>เนเธเธเธฒเธฃเธเธฃเธฐเน€เธกเธดเธ provision เธ•เนเธญเธเธ”เธนเธเนเธญเธกเธนเธฅเธ–เธถเธ <strong>เธงเธฑเธเธ—เธตเนเธเธเธเธฒเธฃเน€เธเธดเธเนเธ”เนเธฃเธฑเธเธญเธเธธเธกเธฑเธ•เธดเนเธซเนเธญเธญเธ (authorized for issue)</strong> เนเธกเนเนเธเนเธซเธขเธธเธ”เธ—เธตเนเธงเธฑเธเธชเธดเนเธเธเธงเธ”</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>9.1 เธเธฃเธฐเน€เธ เธ—เธเธญเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เน</h3></div><div class="subsection-body prose"><ol>
+<li><strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเธ•เนเธญเธเธเธฃเธฑเธเธเธฃเธธเธเธฃเธฒเธขเธเธฒเธฃ (Adjusting events)</strong><br/>
+   เนเธซเนเธซเธฅเธฑเธเธเธฒเธเน€เธเธดเนเธกเน€เธ•เธดเธกเน€เธเธตเนเธขเธงเธเธฑเธเธชเธ–เธฒเธเธฐเธ—เธตเนเธกเธตเธญเธขเธนเนเนเธฅเนเธง เธ“ เธงเธฑเธเธชเธดเนเธเธเธงเธ”</li>
+<li><strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเนเธกเนเธ•เนเธญเธเธเธฃเธฑเธเธเธฃเธธเธเธฃเธฒเธขเธเธฒเธฃ (Non-adjusting events)</strong><br/>
+   เน€เธเนเธเธชเธ–เธฒเธเธเธฒเธฃเธ“เนเนเธซเธกเนเธ—เธตเนเน€เธเธดเนเธเน€เธเธดเธ”เธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ”</li>
+</ol></div></article>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>9.2 เธ•เธฒเธฃเธฒเธ logic เธ—เธตเนเธ–เธญเธ”เธเธฒเธเธชเนเธฅเธ”เน</h3></div><div class="subsection-body prose"><p>เธชเธกเธกเธ•เธดเธงเธฑเธเธญเธเธธเธกเธฑเธ•เธดเธเธเธเธทเธญ 1 เธกเธตเธเธฒเธเธก 20X3</p><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Past event</th>
+<th>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ (Probable)</th>
+<th>Reliable เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ</th>
+<th>เธเธฅเธฅเธฑเธเธเนเนเธเธเธ 20X2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12 เธ.เธ. 20X2</td>
+<td>25 เธ.เธ. 20X2</td>
+<td>26 เธก.เธ. 20X3</td>
+<td>เธ•เธฑเนเธ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
+</tr>
+<tr>
+<td>12 เธ.เธ. 20X2</td>
+<td>18 เธก.เธ. 20X3</td>
+<td>26 เธก.เธ. 20X3</td>
+<td>เธ•เธฑเนเธ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
+</tr>
+<tr>
+<td>3 เธก.เธ. 20X3</td>
+<td>3 เธก.เธ. 20X3</td>
+<td>11 เธก.เธ. 20X3</td>
+<td>เธซเนเธฒเธกเธ•เธฑเนเธเนเธเธเธต 20X2</td>
+</tr>
+<tr>
+<td>23 เธ.เธ. 20X2</td>
+<td>24 เธ.เธ. 20X3</td>
+<td>15 เธกเธต.เธ. 20X3</td>
+<td>เธ•เธฑเนเธเนเธเธเธต 20X2 เนเธกเนเนเธ”เน เน€เธเธฃเธฒเธฐ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ เธกเธฒเธเนเธฒเธเธงเนเธฒเธงเธฑเธเธญเธเธธเธกเธฑเธ•เธดเธเธ เธเธถเธเธเธเธ—เธตเน เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</td>
+</tr>
+</tbody>
+</table></div></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>9.3 เธ•เธฑเธงเธญเธขเนเธฒเธเธขเนเธณเธเธฒเธเธเธ—เธชเธเธ—เธเธฒ</h3></div><div class="subsection-body prose"><ul>
+<li><strong>Centaur</strong>: เธเธฒเธขเน€เธเธฃเธทเนเธญเธเธเธฑเธเธฃเธเธฅเธฒเธขเธเธต 25X1, เธฅเธนเธเธเนเธฒเธเธเธเธฑเธเธซเธฒ เธก.เธ. 25X2, เธเธฃเธฐเน€เธกเธดเธเธเนเธฒเนเธเนเธเนเธฒเธขเนเธ”เนเธเนเธญเธเธงเธฑเธเธญเธญเธเธเธ -&gt; เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธเธทเธญเธเธฒเธฃเธเธฒเธขเนเธเธเธต 25X1 เนเธฅเธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เน เธก.เธ. เน€เธเนเธ adjusting evidence -&gt; เธ•เธฑเนเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเนเธเธเธ 25X1</li>
+<li><strong>Griffin</strong>: เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธเนเธฅเนเธง เนเธ•เนเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธ—เธตเนเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเธกเธฒเนเธกเนเธ—เธฑเธเธงเธฑเธเธญเธญเธเธเธ -&gt; เธเธเธเธตเน€เธ”เธดเธกเธ•เธฑเนเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเนเธกเนเนเธ”เน -&gt; เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li><strong>Phoenix</strong>: เนเธญเธเธฒเธชเนเธเนเธเธ”เธตเน€เธเธฅเธตเนเธขเธเธเธฒเธ 30% เน€เธเนเธ 80% เธเนเธญเธเธงเธฑเธเธญเธเธธเธกเธฑเธ•เธดเธเธ เน€เธเธฃเธฒเธฐเธกเธตเธซเธฅเธฑเธเธเธฒเธเนเธซเธกเน -&gt; เน€เธเนเธ adjusting event -&gt; เธขเนเธญเธเธเธฅเธฑเธเนเธเธ•เธฑเนเธ provision เนเธเธเธเธเธตเน€เธ”เธดเธก</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-accounting" data-title="10. ???????????? เธเธญเธ Provision" id="10-measurement-เธเธญเธ-provision">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 11</p><h2>เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเธเธญเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</h2></header>
+<div class="section-intro prose"><p>เธเธเธซเธฅเธฑเธเธเธทเธญเนเธเน <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธ—เธตเนเธ”เธตเธ—เธตเนเธชเธธเธ” (Best estimate)</strong> เธเธญเธเธฃเธฒเธขเธเนเธฒเธขเธ—เธตเนเธ•เนเธญเธเนเธเนเธเธณเธฃเธฐเธ เธฒเธฃเธฐ เธ“ เธงเธฑเธเธชเธดเนเธเธเธงเธ”</p><p>เธซเนเธฒเธก:<br/>
+- เน€เธ”เธฒเธ•เธฑเธงเน€เธฅเธเธฅเธญเธข เน<br/>
+- เนเธเนเธขเธญเธ”เธ—เธตเนเธเธนเนเธเธฃเธ“เธตเน€เธฃเธตเธขเธเธฃเนเธญเธเนเธ”เธขเธญเธฑเธ•เนเธเธกเธฑเธ•เธด</p><p>เธ•เนเธญเธเธญเธฒเธจเธฑเธข:<br/>
+- เธชเธ–เธดเธ•เธด<br/>
+- เธเนเธญเธกเธนเธฅเนเธเธญเธ”เธตเธ•<br/>
+- เธเธงเธฒเธกเน€เธซเนเธเธเธนเนเน€เธเธตเนเธขเธงเธเธฒเธ เน€เธเนเธ เธ—เธเธฒเธข เธงเธดเธจเธงเธเธฃ</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>10.1 เธงเธดเธเธตเน€เธฅเธทเธญเธเธ•เธฑเธงเน€เธฅเธ 4 เธเธฃเธ“เธต</h3></div><div class="subsection-body prose"><ol>
+<li><strong>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong><br/>
+   เนเธเน <strong>เธกเธนเธฅเธเนเธฒเธเธฒเธ”เธซเธงเธฑเธ (Expected value)</strong></li>
+<li><strong>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong><br/>
+   เนเธเน <strong>เธเธฅเธฅเธฑเธเธเนเธฃเธฒเธขเธเธฃเธ“เธตเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เธกเธฒเธเธ—เธตเนเธชเธธเธ”</strong></li>
+<li><strong>เธเนเธงเธเธเธฅเธฅเธฑเธเธเนเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เน€เธ—เนเธฒเธเธฑเธ</strong><br/>
+   เนเธเน <strong>เธเนเธฒเธเธถเนเธเธเธฅเธฒเธ (Midpoint)</strong></li>
+<li><strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong><br/>
+   เนเธเน <strong>เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธธเธเธฑเธ (Present Value: PV)</strong> เธซเธฒเธเธเธฅเธเธญเธ time value of money เธกเธตเธชเธฒเธฃเธฐเธชเธณเธเธฑเธ</li>
+</ol></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>10.2 เธ•เธฑเธงเธญเธขเนเธฒเธเธเธณเธเธงเธ“</h3></div><div class="subsection-body prose"><h4>เธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒเนเธเธเธเธฃเธฐเธเธฒเธเธฃเธเธณเธเธงเธเธกเธฒเธ</h4><p>เธ–เนเธฒเธเธฒเธขเธชเธดเธเธเนเธฒเนเธฅเธฐเธกเธตเธชเธ–เธดเธ•เธด:<br/>
+- 75% เนเธกเนเน€เธชเธตเธข<br/>
+- 20% เน€เธชเธตเธขเน€เธฅเนเธเธเนเธญเธข เธเนเธฒเนเธเนเธเนเธฒเธข 1,000,000<br/>
+- 5% เน€เธชเธตเธขเธกเธฒเธ เธเนเธฒเนเธเนเธเนเธฒเธข 4,000,000</p><p>เธเธณเธเธงเธ“:</p><pre class="ledger-block"><code class="language-text">เธ•เนเธเธ—เธธเธเธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒ
+= (75% x 0) + (20% x 1,000,000) + (5% x 4,000,000)
+= 400,000
+</code></pre><p>เธฃเธฒเธขเธเธฒเธฃเธเธฑเธเธ—เธถเธเธเธฑเธเธเธต:</p><pre class="ledger-block"><code class="language-text">Dr เธเนเธฒเนเธเนเธเนเธฒเธขเธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธ 400,000
+Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธเธฒเธเธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธ 400,000
+</code></pre><h4>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</h4><ul>
+<li>เธเธ”เธตเธเธงเธฒเธกเน€เธ”เธตเธขเธง เธ–เนเธฒเธ—เธเธฒเธขเธเธฃเธฐเน€เธกเธดเธเธงเนเธฒเนเธเนเนเธเนเนเธฅเธฐเธขเธญเธ”เน€เธซเธกเธฒเธฐเธชเธกเธเธทเธญ 900,000 -&gt; เนเธเน 900,000</li>
+<li>เธ–เนเธฒเธเธนเนเธเธฃเธ“เธตเน€เธฃเธตเธขเธ 1,000,000 เนเธ•เน best เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ เธ•เธฒเธกเธ—เธเธฒเธขเธเธทเธญ 500,000 -&gt; เนเธเน 500,000 เนเธกเนเนเธเนเธขเธญเธ” claim</li>
+</ul><h4>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเนเธกเนเธ•เนเธญเธเธเธฃเธฑเธเธเธฃเธธเธเธฃเธฒเธขเธเธฒเธฃ</h4><ul>
+<li>เธซเธฒเธเธ•เนเธเธ—เธธเธเธญเธขเธนเนเนเธเธเนเธงเธ 2,000-4,000 เนเธฅเธฐเธ—เธธเธเธเธธเธ”เธกเธตเนเธญเธเธฒเธชเน€เธ—เนเธฒเธเธฑเธ</li>
+<li>เนเธเน <strong>midpoint = 3,000</strong></li>
+</ul><h4>เธ•เธฑเธงเธญเธขเนเธฒเธเธเธชเธก large population + midpoint</h4><p>เธเธฃเธ“เธตเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒ 100,000 เธเธดเนเธ:<br/>
+- 80% เนเธกเนเน€เธชเธตเธข<br/>
+- 15% เน€เธชเธตเธขเน€เธฅเนเธเธเนเธญเธข เธเนเธฒเนเธเนเธเนเธฒเธข 500 เธ•เนเธญเธเธดเนเธ<br/>
+- 5% เน€เธชเธตเธขเธฃเธธเธเนเธฃเธ เธเนเธฒเนเธเนเธเนเธฒเธขเธ•เนเธญเธเธดเนเธเธญเธขเธนเนเนเธเธเนเธงเธ 2,000-4,000 เนเธเธ equally likely</p><p>เธชเธกเธกเธ•เธดเนเธเน:<br/>
+- midpoint เธเธญเธเธเธฃเธ“เธตเน€เธชเธตเธขเธฃเธธเธเนเธฃเธ = 3,000<br/>
+- expected cost เธ•เนเธญเธซเธเนเธงเธข = <code>(0.80 x 0) + (0.15 x 500) + (0.05 x 3000) = 225</code><br/>
+- total provision = <code>225 x 100,000 = 22,500,000</code></p></div></article>
+<article class="subsection trap"><div class="subsection-head"><span class="subsection-label">TRAP</span><h3>10.3 Single obligation เธซเนเธฒเธกเนเธเน expected value เนเธเธเธเธดเธ”เธเธฃเธ“เธต</h3></div><div class="subsection-body prose"><p>เธ–เนเธฒเธเธ”เธตเน€เธ”เธตเธขเธงเธกเธตเธชเธญเธเธเธฅเธฅเธฑเธเธเน:<br/>
+- 65% เธเนเธฒเธข 3,000,000<br/>
+- 35% เธเนเธฒเธข 5,000,000</p><p>เธเธฃเธ“เธตเธเธตเน <strong>เนเธกเนเนเธเน expected value</strong><br/>
+เนเธ•เนเนเธเน <strong>most likely outcome = 3,000,000</strong></p></div></article>
+</section>
+<section class="sheet-section theme-accounting" data-title="11. ???????????????????? เนเธฅเธฐ Long-term Provision" id="11-time-value-of-money-เนเธฅเธฐ-long-term-provision">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 12</p><h2>เธกเธนเธฅเธเนเธฒเธเธญเธเน€เธเธดเธเธ•เธฒเธกเน€เธงเธฅเธฒ เนเธฅเธฐเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธฃเธฐเธขเธฐเธขเธฒเธง</h2></header>
+<div class="section-intro prose"><p>เธ–เนเธฒเธ เธฒเธฃเธฐเน€เธเธดเธ”เนเธเธฃเธฐเธขเธฐเธขเธฒเธงเนเธฅเธฐเธเธฅเธเธญเธเน€เธงเธฅเธฒเน€เธเนเธเธชเธฒเธฃเธฐเธชเธณเธเธฑเธ เธ•เนเธญเธเนเธเน <strong>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong></p></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธซเธฅเธฑเธเธ—เธตเนเธ•เนเธญเธเธเธณ</h3></div><div class="subsection-body prose"><ul>
+<li>เนเธเน <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เนเธกเนเนเธเนเธขเธญเธ”เธ—เธตเนเธเธธเธกเธเธเธซเธฃเธทเธญเธเธนเนเธเธฃเธ“เธตเน€เธฃเธตเธขเธเธฃเนเธญเธ</li>
+<li>เน€เธกเธทเนเธญเน€เธงเธฅเธฒเธเนเธฒเธเนเธ เธกเธนเธฅเธเนเธฒเธซเธเธตเนเธชเธดเธเธเธฐเธเนเธญเธข เน เน€เธเธดเนเธกเธเธถเนเธเธเธฒเธเธเธฒเธฃ <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</strong></li>
+<li>เธเธฒเธฃเน€เธเธดเนเธกเธเธถเนเธเธเธตเนเธ•เนเธญเธเธเธฑเธเธ—เธถเธเน€เธเนเธ <strong>เธ”เธญเธเน€เธเธตเนเธขเธเนเธฒเธข / เธ•เนเธเธ—เธธเธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธ</strong></li>
+<li>เนเธ”เธขเธ—เธฑเนเธงเนเธ provision เธฃเธฐเธขเธฐเธขเธฒเธงเธเธฐเธญเธขเธนเนเนเธ <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong> เธเธเธเธงเนเธฒเธเธฐเน€เธซเธฅเธทเธญเธญเธฒเธขเธธเธเนเธญเธขเธเธงเนเธฒ 1 เธเธต</li>
+</ul></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธ: เน€เธซเธกเธทเธญเธเนเธฃเน</h3></div><div class="subsection-body prose"><ul>
+<li>เธเธธเธกเธเธเน€เธฃเธตเธขเธเธฃเนเธญเธ 100 เธฅเนเธฒเธเธเธฒเธ—</li>
+<li>เธเนเธฒเธขเธงเธดเธจเธงเธเธฃเธเธฃเธฐเน€เธกเธดเธเธงเนเธฒเธเนเธฒเนเธเนเธเนเธฒเธขเธเธฃเธดเธเธ—เธตเนเธ”เธตเธ—เธตเนเธชเธธเธ”เธเธทเธญ 40 เธฅเนเธฒเธเธเธฒเธ—</li>
+<li>เธเธถเธเธ•เนเธญเธเนเธเน <strong>40 เธฅเนเธฒเธเธเธฒเธ—</strong> เน€เธเนเธเธ•เนเธเธ—เธฒเธ เนเธฅเนเธงเธเธดเธ”เธฅเธ”เน€เธเนเธ PV</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-accounting" data-title="12. Decommissioning, Restoration เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ PPE" id="12-decommissioning-restoration-เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ-ppe">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 13</p><h2>Decommissioning, Restoration เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ PPE</h2></header>
+<div class="section-intro prose"><p><strong>เธเนเธฒเธฃเธทเนเธญเธ–เธญเธเธซเธฃเธทเธญเธเธทเนเธเธเธนเธชเธ–เธฒเธเธ—เธตเน</strong> เนเธ•เธเธ•เนเธฒเธเธเธฒเธ provision เธเธฃเธฐเน€เธ เธ—เธญเธทเนเธ เน€เธเธฃเธฒเธฐเธกเธตเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ <strong>TAS 16: PPE</strong></p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.1 เธ—เธณเนเธกเธ•เนเธเธเธงเธ”เธ•เนเธญเธเน€เธ”เธเธดเธ•เน€เธเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน</h3></div><div class="subsection-body prose"><p>เน€เธซเธ•เธธเธเธฅ:</p><ol>
+<li>เธเนเธฒเธฃเธทเนเธญเธ–เธญเธเน€เธเนเธเธ•เนเธเธ—เธธเธเธ—เธตเนเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เนเน€เธเธทเนเธญเนเธซเนเนเธ”เนเธกเธฒเธเธถเนเธเธชเธดเธ—เธเธดเนเธเนเธชเธดเธเธ—เธฃเธฑเธเธขเน</li>
+<li>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธเธฑเนเธเธชเธฃเนเธฒเธเธเธฃเธฐเนเธขเธเธเนเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธเธซเธฅเธฒเธขเธเธต</li>
+<li>เธเธถเธเธ•เนเธญเธ capitalize เน€เธเนเธเธ•เนเธเธ—เธธเธเธเธญเธ PPE เนเธฅเนเธงเธ—เธขเธญเธขเธ•เธฑเธ”เน€เธเนเธเธเนเธฒเน€เธชเธทเนเธญเธกเธฃเธฒเธเธฒ</li>
+</ol></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.2 เธ—เธณเนเธก provision เธเธฒเธเธเธเธดเธ”เธฅเธเน€เธเนเธ expense เธ—เธฑเธเธ—เธต</h3></div><div class="subsection-body prose"><ul>
+<li><strong>Lawsuit</strong> เนเธกเนเธชเธฃเนเธฒเธเธเธฃเธฐเนเธขเธเธเนเธญเธเธฒเธเธ• -&gt; เธฃเธฑเธเธฃเธนเนเน€เธเนเธ loss/expense</li>
+<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</strong> เน€เธเนเธเธ•เนเธเธ—เธธเธเธ—เธตเนเธเธนเธเธเธฑเธเธฃเธฒเธขเนเธ”เนเนเธเธญเธ”เธตเธ• -&gt; เธฃเธฑเธเธฃเธนเนเน€เธเนเธ warranty expense</li>
+<li><strong>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</strong> เนเธกเนเธเนเธญเธเธฃเธฐเนเธขเธเธเนเธญเธเธฒเธเธ• -&gt; เธฃเธฑเธเธฃเธนเน loss</li>
+</ul></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>12.3 เธ•เธฑเธงเธญเธขเนเธฒเธ Eco-Plant</h3></div><div class="subsection-body prose"><p>เธเนเธญเธกเธนเธฅ:<br/>
+- เธเนเธฒเนเธเนเธเนเธฒเธขเธฃเธทเนเธญเธ–เธญเธเนเธเธญเธตเธ 4 เธเธต = 10,000,000<br/>
+- เธญเธฑเธ•เธฃเธฒเธเธดเธ”เธฅเธ” 5%<br/>
+- PV factor 4 เธเธต = 0.8227</p><p>Initial measurement:</p><pre class="ledger-block"><code class="language-text">PV = 10,000,000 x 0.8227 = 8,227,000
+</code></pre><p>Initial journal entry:</p><pre class="ledger-block"><code class="language-text">Dr เธชเนเธงเธเธเธฃเธฑเธเธเธฃเธธเธเนเธฃเธเธเธฒเธ / PPE     8,227,000
+Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ for decommissioning 8,227,000
+</code></pre><p>Unwinding of discount เธเธตเธ—เธตเน 1:</p><pre class="ledger-block"><code class="language-text">Interest = 8,227,000 x 5% = 411,350
+
+Dr Interest expense             411,350
+Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ for decommissioning 411,350
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.4 เธงเธเธเธฃเธเธตเธงเธดเธ•เธเธญเธเธฃเธฒเธขเธเธฒเธฃ</h3></div><div class="subsection-body prose"><p>เธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน:<br/>
+- PPE เธ—เธตเน capitalize เนเธงเนเธเธฐเธ–เธนเธเธเธดเธ”เธเนเธฒเน€เธชเธทเนเธญเธก เน€เธเนเธ <code>8,227,000 / 4 = 2,056,750</code> เธ•เนเธญเธเธตเนเธเธเน€เธชเนเธเธ•เธฃเธ</p><p>เธเธฑเนเธเธซเธเธตเนเธชเธดเธ:<br/>
+- เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธฐเน€เธเธดเนเธกเธเธถเนเธเน€เธฃเธทเนเธญเธข เน เธเธฒเธ unwinding of discount เธเธเธ–เธถเธเธขเธญเธ”เธ—เธตเนเธ•เนเธญเธเธเนเธฒเธขเธเธฃเธดเธ</p><p>เธเธฅเธฒเธขเธ—เธฒเธ:<br/>
+- เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ–เธนเธเธ•เธฑเธ”เธเนเธฒเน€เธชเธทเนเธญเธกเธเธเน€เธซเธฅเธทเธญเธจเธนเธเธขเน<br/>
+- เธซเธเธตเนเธชเธดเธเน€เธ•เธดเธเนเธ•เธเธเนเธ•เธฐ 10,000,000<br/>
+- เน€เธกเธทเนเธญเธเนเธฒเธขเธเธฃเธดเธ:</p><pre class="ledger-block"><code class="language-text">Dr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ 10,000,000
+Cr Cash      10,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.5 เธซเธฒเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธเนเธฒเธฃเธทเนเธญเธ–เธญเธเน€เธเธฅเธตเนเธขเธเนเธเธญเธเธฒเธเธ•</h3></div><div class="subsection-body prose"><p>เธซเธฒเธเน€เธเนเธ decommissioning provision เธ—เธตเนเธเธนเธเธเธฑเธ PPE เนเธฅเนเธงเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเน€เธเธดเนเธกเธเธถเนเธเธ เธฒเธขเธซเธฅเธฑเธ:</p><ul>
+<li><strong>เนเธกเนเนเธขเธเธชเนเธงเธเน€เธเธดเนเธกเน€เธเนเธฒเธเธฒเธ”เธ—เธธเธเธ—เธฑเธเธ—เธต</strong></li>
+<li>เนเธ•เนเนเธซเนเธเธณเธชเนเธงเธเน€เธเธดเนเธก <strong>เนเธเธเธฃเธฑเธเธกเธนเธฅเธเนเธฒเธชเธดเธเธ—เธฃเธฑเธเธขเน (PPE)</strong> เนเธฅเนเธงเธเธณเธเธงเธ“เธเนเธฒเน€เธชเธทเนเธญเธกเนเธซเธกเนเนเธเธญเธฒเธขเธธเธ—เธตเนเน€เธซเธฅเธทเธญ</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-default" data-title="13. 5 เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ" id="13-5-เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 14</p><h2>5 เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ</h2></header>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.1 เธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเนเธเธญเธเธฒเธเธ•</h3></div><div class="subsection-body prose"><ul>
+<li>เธซเนเธฒเธกเธ•เธฑเนเธ provision เธชเธณเธซเธฃเธฑเธเธเธฅเธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเนเธเธญเธเธฒเธเธ•</li>
+<li>เน€เธซเธ•เธธเธเธฅ: เธขเธฑเธเนเธกเนเธกเธต ???????????????????? เธเธฒเธ ??????????????? เนเธฅเธฐเธเธดเธเธเธฒเธฃเธขเธฑเธเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธ”เน</li>
+</ul></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.2 เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธเธฒเธเธเธฒเธฃเธเธฃเธฑเธเนเธเธฃเธเธชเธฃเนเธฒเธเธเธธเธฃเธเธดเธ</h3></div><div class="subsection-body prose"><p>เธเธฐเธ•เธฑเนเธเนเธ”เนเธเนเธ•เนเธญเน€เธกเธทเนเธญเธเธฃเธเธ—เธฑเนเธ 2 เธเนเธญ:</p><ol>
+<li>เธกเธตเนเธเธ restructuring เธญเธขเนเธฒเธเน€เธเนเธเธ—เธฒเธเธเธฒเธฃเนเธฅเธฐเธเธฑเธ”เน€เธเธ</li>
+<li>เนเธ”เนเธเธฃเธฐเธเธฒเธจเนเธเธเธเธฑเนเธเนเธเนเธเธนเนเนเธ”เนเธฃเธฑเธเธเธฅเธเธฃเธฐเธ—เธเนเธฅเนเธง เธเธเน€เธเธดเธ” ???????????????????</li>
+</ol><p>เธซเนเธฒเธกเธฃเธงเธก:<br/>
+- <strong>Retraining</strong><br/>
+- <strong>Relocation</strong></p><p>เน€เธเธฃเธฒเธฐเธ–เธทเธญเน€เธเนเธเธฃเธฒเธขเธเนเธฒเธขเน€เธเธทเนเธญเธชเธฃเนเธฒเธเธเธฃเธฐเนเธขเธเธเนเนเธเธญเธเธฒเธเธ• เนเธกเนเนเธเนเธ เธฒเธฃเธฐเธเธฒเธเธญเธ”เธตเธ•</p></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.3 เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</h3></div><div class="subsection-body prose"><p>เธงเธฑเธ”เธ—เธตเนเธกเธนเธฅเธเนเธฒเธ•เนเธณเธเธงเนเธฒเธฃเธฐเธซเธงเนเธฒเธ cost of fulfilling เธเธฑเธ penalty to exit</p></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.4 เน€เธเธดเธเธเธ”เน€เธเธขเธ—เธตเนเธเธฐเนเธ”เนเธฃเธฑเธเธเธทเธ</h3></div><div class="subsection-body prose"><p>เธ–เนเธฒเธกเธตเธเธธเธเธเธฅเธ—เธตเนเธชเธฒเธกเธเธฐเธเธ”เน€เธเธข เน€เธเนเธ เธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเธ เธฑเธข:</p><ul>
+<li>เนเธเธเธเธ”เธธเธฅ <strong>เธซเนเธฒเธกเธซเธฑเธเธเธฅเธ</strong></li>
+<li>เธ•เนเธญเธเนเธชเธ”เธ <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong> เนเธฅเธฐ <strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธข</strong> เนเธขเธเธเธฑเธ</li>
+<li>เธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเนเธฃเธฑเธเธฃเธนเนเนเธ”เนเธเนเธ•เนเธญเน€เธกเธทเนเธญ <strong>เนเธ—เธเธเธฐเนเธเนเธเธญเธ (virtually certain)</strong> เธงเนเธฒเธเธฐเนเธ”เนเธฃเธฑเธเธเธ”เน€เธเธข</li>
+<li>เนเธเธเธเธเธณเนเธฃเธเธฒเธ”เธ—เธธเธ เธชเธฒเธกเธฒเธฃเธ–เนเธชเธ”เธเน€เธเนเธ <strong>เธเนเธฒเนเธเนเธเนเธฒเธขเธชเธธเธ—เธเธด</strong> เนเธ”เน</li>
+</ul><h4>เธเธฃเธ“เธตเธกเธตเธเนเธฒเน€เธชเธตเธขเธซเธฒเธขเธชเนเธงเธเนเธฃเธ (Deductible clause)</h4><p>เนเธซเนเธเธดเธ”เนเธเธ <strong>เธ•เธฑเนเธเธซเธเธตเนเธชเธดเธเน€เธ•เนเธกเธเธณเธเธงเธ เนเธ•เนเธฃเธฑเธเธฃเธนเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธขเน€เธเธเธฒเธฐเธชเนเธงเธเธ—เธตเนเธเธฃเธฐเธเธฑเธเธเธฐเธเนเธฒเธขเธเธฃเธดเธ</strong></p><ol>
+<li>เธ•เธฑเนเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเน€เธ•เนเธกเธเธณเธเธงเธเธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธข</li>
+<li>เธฃเธฑเธเธฃเธนเนเธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธขเนเธ”เนเน€เธเธเธฒเธฐเธขเธญเธ”เธ—เธตเนเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเธเธฐเธเนเธฒเธขเธเธฃเธดเธ</li>
+<li>เธ”เธฑเธเธเธฑเนเธเธเนเธฒเนเธเนเธเนเธฒเธขเธชเธธเธ—เธเธดเนเธเธเธเธเธณเนเธฃเธเธฒเธ”เธ—เธธเธเธเธฐเน€เธ—เนเธฒเธเธฑเธเธเนเธฒเน€เธชเธตเธขเธซเธฒเธขเธชเนเธงเธเนเธฃเธเธ—เธตเนเธเธดเธเธเธฒเธฃเธ•เนเธญเธเธฃเธฑเธเธ เธฒเธฃเธฐเน€เธญเธ</li>
+</ol><p><strong>เธ•เธฑเธงเธญเธขเนเธฒเธ:</strong> เธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธขเธฃเธงเธก 500,000 เธเธฒเธ—, เธเนเธฒเน€เธชเธตเธขเธซเธฒเธขเธชเนเธงเธเนเธฃเธ 50,000 เธเธฒเธ—, เธงเธเน€เธเธดเธเธเธธเนเธกเธเธฃเธญเธเน€เธเธตเธขเธเธเธญ เนเธฅเธฐเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเธขเธทเธเธขเธฑเธเธงเนเธฒเธเธฐเธเนเธฒเธข เธเธถเธเธฃเธฑเธเธฃเธนเนเธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธข 450,000 เธเธฒเธ—</p><pre><code>Dr เธเธฅเธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธ”เธตเธเธงเธฒเธก                         500,000
+Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธเธฒเธเธเธ”เธตเธเธงเธฒเธก                 500,000
+
+Dr เธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธขเธเธฒเธเธเธฃเธฐเธเธฑเธเธ เธฑเธข          450,000
+Cr เธเธฅเธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธ”เธตเธเธงเธฒเธก                         450,000</code></pre><ul>
+<li><strong>เธเธเนเธชเธ”เธเธเธฒเธเธฐเธเธฒเธฃเน€เธเธดเธ:</strong> เนเธชเธ”เธเธชเธดเธเธ—เธฃเธฑเธเธขเน 450,000 เนเธฅเธฐเธซเธเธตเนเธชเธดเธ 500,000 เนเธขเธเธเธฑเธ</li>
+<li><strong>เธเธเธเธณเนเธฃเธเธฒเธ”เธ—เธธเธ:</strong> เนเธชเธ”เธเธเธฅเธเธฒเธ”เธ—เธธเธเธชเธธเธ—เธเธด 50,000 เธเธฒเธ—</li>
+<li>เน€เธซเธ•เธธเธเธฅเธ—เธตเนเธซเนเธฒเธกเธซเธฑเธเธเธฅเธเนเธเธเธเธ”เธธเธฅ: เน€เธเนเธฒเธซเธเธตเนเธเธนเนเน€เธชเธตเธขเธซเธฒเธขเธเธฑเธเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเน€เธเนเธเธเธเธฅเธฐเธเธนเนเธชเธฑเธเธเธฒ เนเธกเนเธเธฃเธฐเธเธฑเธเธขเธฑเธเนเธกเนเธเนเธฒเธข เธเธดเธเธเธฒเธฃเธเนเธขเธฑเธเธกเธตเธ เธฒเธฃเธฐเน€เธ•เนเธกเธเธณเธเธงเธ</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>13.5 เธเธฒเธฃเน€เธเธฅเธตเนเธขเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธเธญเธ decommissioning liability</h3></div><div class="subsection-body prose"><ul>
+<li>เธซเธฒเธ liability เธ—เธตเนเธเธนเธเธเธฑเธ PPE เน€เธเธฅเธตเนเธขเธ เนเธซเนเธเธฃเธฑเธเธ—เธตเน PPE เธเนเธญเธ เนเธกเนเนเธเนเธฅเธ loss เธ—เธฑเธเธ—เธต</li>
+</ul></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" data-group-title="???????????????????? เนเธฅเธฐ Disclosure" id="contingencies-disclosure">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 04</p>
+<p class="group-kicker">4 sections</p>
+</div>
+<h2>เธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธเนเธฅเธฐเธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</h2>
+<p class="group-description">เธญเนเธฒเธ contingent liabilities เนเธฅเธฐ เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธs เธเธนเนเธเธฑเธ เนเธฅเนเธงเธเธดเธ”เธ”เนเธงเธข asymmetry เนเธฅเธฐ disclosure requirements เธ—เธตเนเนเธเนเธ•เธญเธเธเนเธญเธชเธญเธเธเธฅเธฒเธขเธเธ—</p>
+<nav aria-label="???????????????????? เนเธฅเธฐ Disclosure" class="group-nav"><a class="group-link" href="#14" title="14. ?????????????????????">Decision tree</a><a class="group-link" href="#15" title="15. ???????????????????????">Decision tree</a><a class="group-link" href="#16-asymmetry-เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน" title="16. Asymmetry เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน">Asymmetry</a><a class="group-link" href="#17" title="17. ????????????????????????">Decision tree</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-review" data-title="14. ?????????????????????" id="14">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 15</p><h2>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h2></header>
+<div class="section-intro prose"><p>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เธเธดเธขเธฒเธกเนเธ”เน 2 เนเธเธ</p></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>14.1 เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ—เธตเนเธญเธฒเธเธกเธตเธญเธขเธนเน</h3></div><div class="subsection-body prose"><p>เน€เธเธดเธ”เธเธฒเธเธญเธ”เธตเธ• เนเธ•เนเธขเธฑเธเนเธกเนเธฃเธนเนเนเธเนเธงเนเธฒเธเธดเธเธเธฒเธฃเธกเธตเธซเธเธตเนเธเธฃเธดเธเธซเธฃเธทเธญเนเธกเน เธ•เนเธญเธเธฃเธญเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธญเธเธฒเธเธ•เธกเธฒเธเธญเธเน€เธเธดเธฃเนเธก</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>14.2 Present obligation เธ—เธตเนเนเธกเนเธฃเธฑเธเธฃเธนเน</h3></div><div class="subsection-body prose"><p>เธฃเธนเนเนเธฅเนเธงเธงเนเธฒเธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเธ•เธฑเนเธ provision เนเธกเนเนเธ”เนเน€เธเธฃเธฒเธฐ:</p><ol>
+<li><strong>เนเธกเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></li>
+<li><strong>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</strong></li>
+</ol></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเธเธซเธฅเธฑเธ</h3></div><div class="subsection-body prose"><ul>
+<li><strong>No recognition</strong></li>
+<li>เนเธซเน <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></li>
+<li>เธขเธเน€เธงเนเธเธเธฃเธ“เธต <strong>remote</strong> -&gt; ?????????????</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธงเธฒเธกเนเธ•เธเธ•เนเธฒเธเธ—เธตเนเธ•เนเธญเธเนเธขเธเนเธซเนเธเธฑเธ”</h3></div><div class="subsection-body prose"><h4>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ—เธตเนเธญเธฒเธเธกเธตเธญเธขเธนเน (Possible obligation)</h4><ul>
+<li>เธขเธฑเธเน€เธ–เธตเธขเธเธเธฑเธเธญเธขเธนเนเน€เธฅเธขเธงเนเธฒ โ€เธเธดเธเธเธฒเธฃเน€เธเนเธเธเธนเนเธฃเธฑเธเธเธดเธ”เธเธฃเธดเธเนเธซเธกโ€</li>
+<li>เธจเธฒเธฅเธซเธฃเธทเธญเธเธฒเธฃเธชเธทเธเธชเธงเธเธเธณเธฅเธฑเธเธเธดเธเธฒเธฃเธ“เธฒเธเธฒเธฃเธกเธตเธญเธขเธนเนเธเธญเธเธ เธฒเธฃเธฐ</li>
+</ul><h4>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเธขเธฑเธเนเธกเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</h4><ul>
+<li>เธฃเธนเนเนเธเนเนเธฅเนเธงเธงเนเธฒเธเธดเธเธเธฒเธฃเน€เธเธตเนเธขเธงเธเนเธญเธ/เธฃเธฑเธเธเธดเธ”</li>
+<li>เนเธ•เนเธขเธฑเธเธชเธนเนเธเธ”เธตเธซเธฃเธทเธญเธกเธตเธเนเธญเธเธเธซเธกเธฒเธขเธ—เธตเนเธ—เธณเนเธซเนเนเธญเธเธฒเธชเธเนเธฒเธขเน€เธเธดเธเธ•เนเธณเธเธงเนเธฒ 50%</li>
+</ul><h4>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเธขเธฑเธเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธกเนเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</h4><ul>
+<li>เธฃเธนเนเธงเนเธฒเธ•เนเธญเธเธเนเธฒเธขเนเธเนเธซเธฃเธทเธญเธกเธตเนเธญเธเธฒเธชเธชเธนเธเธกเธฒเธ</li>
+<li>เนเธ•เนเธเธฃเธฐเน€เธกเธดเธเน€เธเนเธเธ•เธฑเธงเน€เธฅเธเธ—เธตเนเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเนเธกเนเนเธ”เน</li>
+<li>เธเธฃเธ“เธตเธเธตเนเธ–เธทเธญเธงเนเธฒ <strong>rare / extremely rare</strong></li>
+</ul></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธณเธเธฑเธ</h3></div><div class="subsection-body prose"><ul>
+<li><strong>เธเธ”เธตเธญเธฒเธซเธฒเธฃเน€เธเนเธเธเธดเธฉ</strong></li>
+<li>เธเธต 20X0 เธ—เธเธฒเธขเน€เธซเนเธเธงเนเธฒเธเนเธฒเธเธเธฐ -&gt; เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li>เธเธต 20X1 เธซเธฅเธฑเธเธเธฒเธเน€เธเธฅเธตเนเธขเธเนเธฅเธฐเธเนเธฒเธเธฐเนเธเน -&gt; เธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</li>
+<li><strong>เธฃเธ–เธเธเธซเธฃเธทเธญเธเธงเธฒเธกเธเธดเธ”เธเธฑเธ” เนเธ•เนเนเธญเธเธฒเธชเธฃเธญเธ”เธเนเธฒเธขเธชเธนเธ</strong></li>
+<li>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธกเธตเนเธฅเนเธง</li>
+<li>เนเธ•เนเธซเธฒเธเนเธญเธเธฒเธชเธเนเธฒเธข &lt; 50% -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li><strong>เธชเธฒเธฃเน€เธเธกเธตเธเธเธดเธ”เนเธซเธกเนเธฃเธฑเนเธงเนเธซเธฅเนเธฅเธฐเธเธฃเธฐเน€เธกเธดเธเธเนเธฒเธเธทเนเธเธเธนเนเธกเนเนเธ”เน</strong></li>
+<li>outflow 100%</li>
+<li>เนเธ•เนเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธ—เธตเนเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเนเธกเนเธกเธต -&gt; เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+</ul></div></article>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เธเธฒเธฃเธเธฃเธฐเน€เธกเธดเธเธเนเธณ</h3></div><div class="subsection-body prose"><p>เธ•เนเธญเธ reassess เธ—เธธเธเธชเธดเนเธเธเธงเธ”</p><p>เธฃเธฒเธขเธเธฒเธฃเธชเธฒเธกเธฒเธฃเธ–เน€เธเธฅเธตเนเธขเธเธชเธ–เธฒเธเธฐเนเธ”เน:<br/>
+- เธเธฒเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ -&gt; provision<br/>
+- เธซเธฃเธทเธญเธเธฅเธฑเธเธเธฑเธเธซเธฒเธเธเนเธญเธกเธนเธฅเนเธซเธกเนเน€เธเธฅเธตเนเธขเธ</p></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเนเธญเธเธณเธซเธเธ”เธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</h3></div><div class="subsection-body prose"><p>เธเธฒเธฃเธเธฑเธ”เธเธฃเธฐเน€เธ เธ— current/non-current เนเธซเนเธ”เธน <strong>เธฃเธฐเธขเธฐเน€เธงเธฅเธฒเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเธเนเธฒเธข</strong></p></div></article>
+</section>
+<section class="sheet-section theme-review" data-title="15. ???????????????????????" id="15">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 16</p><h2>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h2></header>
+<div class="section-intro prose"><p>Contingent asset เธเธทเธญ <strong>possible asset</strong> เธ—เธตเนเน€เธเธดเธ”เธเธฒเธ ??????????????? เนเธ•เนเธเธฒเธฃเธกเธตเธญเธขเธนเนเธเธฃเธดเธเธขเธฑเธเธเธถเนเธเธเธฑเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธญเธเธฒเธเธ•เธ—เธตเนเนเธกเนเนเธเนเธเธญเธเนเธฅเธฐเธเธดเธเธเธฒเธฃเธเธงเธเธเธธเธกเนเธกเนเนเธ”เนเธ—เธฑเนเธเธซเธกเธ”</p></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเธเธซเธฅเธฑเธ</h3></div><div class="subsection-body prose"><ul>
+<li><strong>เธซเนเธฒเธก ???????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong></li>
+<li>เธ—เธณเนเธ”เนเน€เธเธตเธขเธ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong> เน€เธกเธทเนเธญเนเธญเธเธฒเธชเนเธ”เนเธฃเธฑเธเธเธฅเธเธฃเธฐเนเธขเธเธเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></li>
+</ul></div></article>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เน€เธซเธ•เธธเธเธฅเน€เธเธดเธเธเธฃเธฑเธเธเธฒ</h3></div><div class="subsection-body prose"><p>เนเธเธงเธเธดเธ”เธเธตเนเธญเธเธดเธเธฒเธขเธเธเธเธฒเธเธเธญเธ <strong>prudence / conservatism</strong></p><p>เธ–เนเธฒเธฃเธตเธเธฃเธฑเธเธฃเธนเนเธชเธดเธเธ—เธฃเธฑเธเธขเนเธซเธฃเธทเธญเธฃเธฒเธขเนเธ”เนเน€เธฃเนเธงเน€เธเธดเธเนเธ:<br/>
+- เธเธเธญเธฒเธเนเธชเธ”เธเธฃเธฒเธขเนเธ”เนเธ—เธตเนเนเธกเนเธกเธตเธงเธฑเธเน€เธเธดเธ”เธเธถเนเธเธเธฃเธดเธ<br/>
+- เธเธนเนเนเธเนเธเธเธญเธฒเธเธซเธฅเธเน€เธเธทเนเธญเธงเนเธฒเธเธดเธเธเธฒเธฃเธกเธตเธเธณเนเธฃเธกเธฒเธเธเธงเนเธฒเธเธงเธฒเธกเน€เธเนเธเธเธฃเธดเธ</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธฒเธฃเน€เธเธฅเธตเนเธขเธเธเนเธฒเธเธเธญเธเธชเธ–เธฒเธเธฐ</h3></div><div class="subsection-body prose"><p>เนเธซเนเธเธณเธฅเธณเธ”เธฑเธเธชเธ–เธฒเธเธฐเธ”เธฑเธเธเธตเน:</p><ul>
+<li><strong>??????????? (Possible) (&lt; 50%)</strong> -&gt; ?????????????</li>
+<li><strong>????????????? (Probable) (&gt; 50%)</strong> -&gt; ????????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li><strong>Virtually certain</strong> -&gt; เนเธกเนเน€เธเนเธ เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เธญเธตเธเธ•เนเธญเนเธ เนเธฅเธฐเธ•เนเธญเธ ???????????? เน€เธเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเนเธเธเธ•เธด</li>
+</ul></div></article>
+<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธ Atlas</h3></div><div class="subsection-body prose"><ul>
+<li>เธเธต 25X1 เนเธญเธเธฒเธชเธเธเธฐ 40% -&gt; ?????????????</li>
+<li>เธเธต 25X2 เนเธญเธเธฒเธชเธเธเธฐ 85% -&gt; ????????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<li>เธเธต 25X3 เธจเธฒเธฅเธเธตเธเธฒเธ•เธฑเธ”เธชเธดเธเน€เธ”เนเธ”เธเธฒเธ”เนเธฅเธฐเธเธฐเธฃเธฑเธเน€เธเธดเธเนเธเนเธเธญเธ -&gt; ???????????? normal asset เน€เธเนเธ เธฅเธนเธเธซเธเธตเน + เธฃเธฒเธขเนเธ”เน</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-default" data-title="16. Asymmetry เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน" id="16-asymmetry-เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 17</p><h2>Asymmetry เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน</h2></header>
+<div class="section-intro prose"><p>เธเธตเนเธเธทเธญเนเธเนเธเธเธญเธเธเธ—เธเธตเน</p><p>เธ–เนเธฒเธเธงเธฒเธกเธเนเธฒเธเธฐเน€เธเนเธเน€เธ—เนเธฒเธเธฑเธ เน€เธเนเธ 75%:<br/>
+- เธเธฑเนเธ <strong>Liability</strong> -&gt; ???????????? provision<br/>
+- เธเธฑเนเธ <strong>Asset</strong> -&gt; เนเธเน ????????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</p><p>เน€เธซเธ•เธธเธเธฅ:<br/>
+- เธกเธฒเธ•เธฃเธเธฒเธเน€เธเนเธกเธเธงเธ”เธเธฑเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเน โ€เธเธณเนเธฃเธ—เธตเนเธญเธฒเธเนเธกเนเน€เธเธดเธ”เธเธฃเธดเธโ€<br/>
+- เนเธ•เนเธขเธญเธกเนเธซเนเธฃเธฑเธเธฃเธนเน โ€เธ เธฒเธฃเธฐเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเน€เธเธดเธ”โ€ เนเธ”เนเน€เธฃเนเธงเธเธงเนเธฒเน€เธเธทเนเธญเธเธเธเนเธญเธเธเธนเนเนเธเนเธเธ</p></div>
+</section>
+<section class="sheet-section theme-review" data-title="17. ????????????????????????" id="17">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 18</p><h2>เน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเนเธงเธขเธ•เธฑเธ”เธชเธดเธเนเธ</h2></header>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>17.1 ????????????????</h3></div><div class="subsection-body prose"><p>เธ•เนเธญเธเธกเธต <strong>???????????</strong></p><p>เธญเธเธเนเธเธฃเธฐเธเธญเธ:<br/>
+- เธขเธญเธ”เธขเธเธกเธฒ<br/>
+- เธเธงเธ provision เธ—เธตเนเธ•เธฑเนเธเน€เธเธดเนเธก<br/>
+- เธฃเธงเธกเธเธฅเธเธญเธ <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</strong><br/>
+- เธซเธฑเธเธเธณเธเธงเธเธ—เธตเนเนเธเนเธเธณเธฃเธฐเธเธฃเธดเธ<br/>
+- เธซเธฑเธเธเธณเธเธงเธเธ—เธตเนเนเธญเธเธเธฅเธฑเธเน€เธเธฃเธฒเธฐเนเธกเนเนเธ”เนเนเธเน<br/>
+- เธขเธญเธ”เธขเธเนเธ</p><p>เนเธฅเธฐเธ•เนเธญเธเธญเธเธดเธเธฒเธข:<br/>
+- เธฅเธฑเธเธฉเธ“เธฐเธเธญเธเธ เธฒเธฃเธฐ<br/>
+- เธเนเธงเธเน€เธงเธฅเธฒเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเธเนเธฒเธข<br/>
+- เธเธงเธฒเธกเนเธกเนเนเธเนเธเธญเธ<br/>
+- เธเธณเธเธงเธเน€เธเธดเธเธเธ”เน€เธเธขเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเนเธ”เนเธฃเธฑเธ</p></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>17.2 ?????????????????????</h3></div><div class="subsection-body prose"><p>เนเธกเนเธ•เนเธญเธเธ—เธณ reconciliation เนเธ•เนเธ•เนเธญเธเน€เธเธดเธ”เน€เธเธข:<br/>
+- เธฅเธฑเธเธฉเธ“เธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เน<br/>
+- เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธเธฅเธเธฃเธฐเธ—เธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเธ–เนเธฒเธเธญเธ—เธณเนเธ”เน<br/>
+- เธเนเธญเธเนเธเธเธตเนเธ–เธถเธเธเธงเธฒเธกเนเธกเนเนเธเนเธเธญเธ</p><p>เธ–เนเธฒเธเธฃเธฐเธกเธฒเธ“เนเธกเนเนเธ”เน เธ•เนเธญเธเธเธญเธเธ•เธฃเธ เน เธงเนเธฒ <strong>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธเธฃเธฐเธกเธฒเธ“เธเธฅเธเธฃเธฐเธ—เธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</strong></p></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>17.3 ???????????????????????</h3></div><div class="subsection-body prose"><p>เน€เธเธดเธ”เน€เธเธขเธชเธฑเนเธ เน เน€เธกเธทเนเธญเธญเธขเธนเนเธฃเธฐเธ”เธฑเธ ?????????????:<br/>
+- เธฅเธฑเธเธฉเธ“เธฐเธเธญเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เน<br/>
+- เธเธฅเธเธฃเธฐเธ—เธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเธ–เนเธฒเธ—เธณเนเธ”เนเนเธเธ—เธฒเธเธเธเธดเธเธฑเธ•เธด</p></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" data-group-title="?????????????????????? เนเธฅเธฐเธ—เธงเธเธเนเธญเธเธชเธญเธ" id="exam-wrap">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 05</p>
+<p class="group-kicker">6 sections</p>
+</div>
+<h2>เน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเนเธงเธขเธ•เธฑเธ”เธชเธดเธเนเธเนเธฅเธฐเธ—เธงเธเธเนเธญเธเธชเธญเธ</h2>
+<p class="group-description">เน€เธเนเธ decision tree probability matrix เธเธณเธจเธฑเธเธ—เนเธ—เธตเนเธ•เนเธญเธเนเธเน เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เธเธธเธ”เธฃเธฐเธงเธฑเธ เนเธฅเธฐเธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเนเธงเนเน€เธเนเธเธเธธเธ”เธ—เธงเธเธฃเธญเธเธ—เนเธฒเธข</p>
+<nav aria-label="?????????????????????? เนเธฅเธฐเธ—เธงเธเธเนเธญเธเธชเธญเธ" class="group-nav"><a class="group-link" href="#18" title="18. ??????????????">Decision tree</a><a class="group-link" href="#19" title="19. ???????????????????????">Decision tree</a><a class="group-link" href="#20-เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ" title="20. เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ">Wording</a><a class="group-link" href="#21-เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ-เน-เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”" title="21. เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เน เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”">Mini cases</a><a class="group-link" href="#22-เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ" title="22. เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ">Warnings</a><a class="group-link" href="#23-เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—" title="23. เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—">Final recap</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-review" data-title="18. ??????????????" id="18">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 19</p><h2>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</h2></header>
+<div class="section-intro prose"><p>flow เธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธเธชเธฃเธธเธเนเธ”เนเธ”เธฑเธเธเธตเน</p><ol>
+<li>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธเธฒเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธซเธฃเธทเธญเนเธกเน<br/>
+   - Yes -&gt; เนเธเธเนเธญ 2<br/>
+   - ??????????? (Possible) -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ<br/>
+   - No -&gt; ?????????????</li>
+<li>เธกเธต ????????????????????????? เธซเธฃเธทเธญเนเธกเน<br/>
+   - Yes -&gt; เนเธเธเนเธญ 3<br/>
+   - No -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ<br/>
+   - ??????????????? (Remote) -&gt; ?????????????</li>
+<li>เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เน ???????????????? เธซเธฃเธทเธญเนเธกเน<br/>
+   - Yes -&gt; provision<br/>
+   - No -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+</ol></div>
+</section>
+<section class="sheet-section theme-review" data-title="19. ???????????????????????" id="19">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 20</p><h2>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h2></header>
+<div class="section-intro prose"><p>เธชเธฃเธธเธเน€เธเนเธ tier เธ”เธฑเธเธเธตเน</p><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>เธฃเธฐเธ”เธฑเธเธเธงเธฒเธกเธเนเธฒเธเธฐเน€เธเนเธ</th>
+<th>Liability</th>
+<th>Asset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>??????????? (Virtually certain) (90%-100%)</strong></td>
+<td>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
+<td>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</td>
+</tr>
+<tr>
+<td><strong>????????????? (Probable) (&gt;50% เนเธ•เนเธขเธฑเธเนเธกเนเธ–เธถเธ virtually certain)</strong></td>
+<td>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
+<td>เธเธฅเธฅเธฑเธเธเนเธฃเธฒเธขเธเธฃเธ“เธตเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เธกเธฒเธเธ—เธตเนเธชเธธเธ”</td>
+</tr>
+<tr>
+<td><strong>??????????? (Possible) (เธเธฃเธฐเธกเธฒเธ“ 5%-50%)</strong></td>
+<td>??????????????????????????????????</td>
+<td>Do nothing</td>
+</tr>
+<tr>
+<td><strong>??????????????? (Remote) (&lt;5%)</strong></td>
+<td>Do nothing</td>
+<td>Do nothing</td>
+</tr>
+</tbody>
+</table></div></div>
+</section>
+<section class="sheet-section theme-default" data-title="20. เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ" id="20-เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 21</p><h2>เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ</h2></header>
+<div class="section-intro prose"><p>เธเธธเธ”เธเธตเนเธ•เนเธญเธเนเธเนเธเธณเนเธซเนเนเธกเนเธ:</p><ul>
+<li><strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong> = เนเธเนเธเธณเธงเนเธฒ <strong>???????????? / เธเธฑเธเธ—เธถเธเธฃเธฑเธเธฃเธนเน</strong></li>
+<li><strong>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong> = เนเธเนเธเธณเธงเนเธฒ <strong>????????????? / เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</strong></li>
+<li><strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong> = เนเธเนเธเธณเธงเนเธฒ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong> เน€เธกเธทเนเธญ ?????????????, เนเธฅเธฐ <strong>????????????</strong> เนเธ”เนเธ•เนเธญเน€เธกเธทเนเธญ virtually certain เธเธเธซเธฅเธธเธ”เธเธฒเธเธเธงเธฒเธกเน€เธเนเธ contingent</li>
+</ul><p>เธซเนเธฒเธกเนเธเนเธเธณเธงเนเธฒ โ€เธเธฑเธเธ—เธถเธเน€เธเนเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธโ€ เธ–เนเธฒเธขเธฑเธเนเธกเนเนเธ”เนเนเธชเนเธ•เธฑเธงเน€เธฅเธเธฅเธเธเธ</p></div>
+</section>
+<section class="sheet-section theme-default" data-title="21. เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เน เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”" id="21-เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ-เน-เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">??????? 22</p><h2>เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เน เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>??????????????????? เธเธฒเธ เนเธเธงเธเธเธดเธเธฑเธ•เธดเธ—เธตเนเธเนเธฒเธเธกเธฒ</h3></div><div class="subsection-body prose"><ul>
+<li>เธฃเนเธฒเธเน€เธเธขเธเธทเธเน€เธเธดเธเนเธซเนเธฅเธนเธเธเนเธฒเธกเธฒเธ•เธฅเธญเธ”</li>
+<li>เธฅเธนเธเธเนเธฒเธเธทเนเธญเธเนเธญเธเธงเธฑเธเธขเธเน€เธฅเธดเธเธเนเธขเธเธฒเธข</li>
+<li>?????????????????????????? เน€เธเธดเธ”เนเธฅเนเธง -&gt; เธญเธฒเธเธ•เนเธญเธเธ•เธฑเนเธ provision</li>
+</ul></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเนเธฒเธเธฃเธฑเธเธเธฒเธเธเธฒเธฃเนเธกเนเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</h3></div><div class="subsection-body prose"><ul>
+<li>เธชเธฑเธเธเธฒเน€เธเนเธฒเน€เธเธดเธฃเนเธเน€เธงเธญเธฃเน 3 เธเธตเธ—เธตเนเธขเธเน€เธฅเธดเธเนเธกเนเนเธ”เน</li>
+<li>เน€เธ—เธเนเธเนเธฅเธขเธตเน€เธเธฅเธตเนเธขเธเธเธเนเธเนเธ•เนเธญเนเธกเนเธเธธเนเธก</li>
+<li>เธ เธฒเธฃเธฐเธ•เธฒเธกเธชเธฑเธเธเธฒเธขเธฑเธเธญเธขเธนเน -&gt; ???????????? liability/provision</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>Published policy เธ”เนเธฒเธเธชเธดเนเธเนเธงเธ”เธฅเนเธญเธก</h3></div><div class="subsection-body prose"><ul>
+<li>เธเธฃเธฐเน€เธ—เธจเนเธกเนเธกเธตเธเธเธซเธกเธฒเธขเธเธฑเธเธเธฑเธ</li>
+<li>เนเธ•เนเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฒเธจเธฃเธฑเธเธเธดเธ”เธเธญเธ 100%</li>
+<li>เน€เธกเธทเนเธญเน€เธเธดเธ”เธเธฒเธฃเธฃเธฑเนเธงเนเธซเธฅ -&gt; ??????????????????? เธญเธฒเธเน€เธเธดเธ”เธ—เธฑเธเธ—เธต</li>
+</ul></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>????????????????????????????????????????????</h3></div><div class="subsection-body prose"><ul>
+<li>เธฃเธนเนเธฃเธฒเธเธฒเนเธเน เนเธ•เนเธขเธฑเธเนเธกเนเธญเธญเธเธเธดเธฅ -&gt; accrual/trade payable</li>
+<li>เธฃเธนเนเธงเนเธฒเธ•เนเธญเธเน€เธเธฅเธกเธเธฒเธเธชเนเธงเธ เนเธ•เนเนเธกเนเธฃเธนเนเธฅเธนเธเธเนเธฒเธเธเนเธซเธเนเธฅเธฐเน€เธกเธทเนเธญเนเธฃ -&gt; provision</li>
+</ul></div></article>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>???????????????????????????</h3></div><div class="subsection-body prose"><ul>
+<li>เธ–เนเธฒเนเธเนเธขเธทเธเธขเธฑเธเธชเธ เธฒเธเธ—เธตเนเธกเธตเธญเธขเธนเนเนเธฅเนเธง -&gt; adjusting event</li>
+<li>เธ–เนเธฒเธชเธฃเนเธฒเธเน€เธซเธ•เธธเนเธซเธกเนเธซเธฅเธฑเธเธเธตเธเธดเธ” -&gt; non-adjusting event</li>
+</ul></div></article>
+</section>
+<section class="sheet-section theme-review" data-title="22. เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ" id="22-เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">??????? 23</p><h2>เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ</h2></header>
+<div class="section-intro prose"><ul>
+<li>เธเนเธงเธเน€เธเธญเธฃเนเน€เธเนเธเธ•เนเนเธเธ <strong>90%-100%, &gt;50%, 5%-50%, &lt;5%</strong> เน€เธเนเธ <strong>เธ•เธฒเธฃเธฒเธเธชเธฃเธธเธเนเธเธเธฑเนเธเน€เธฃเธตเธขเธ</strong> เธชเธณเธซเธฃเธฑเธเธเธณเธ เธฒเธเธฃเธงเธกเธเธญเธ matrix เนเธฅเธฐ decision rule</li>
+<li>เนเธกเนเธเธเธเธงเธฒเธกเธเธฑเธ”เนเธขเนเธเน€เธเธดเธเน€เธเธทเนเธญเธซเธฒเธชเธฒเธฃเธฐเธฃเธฐเธซเธงเนเธฒเธเธเนเธงเธเธ•เนเธฒเธ เน เธเธญเธเธเธ—เธชเธเธ—เธเธฒ เนเธ•เนเธกเธตเธเธฒเธฃเธขเนเธณเน€เธฃเธทเนเธญเธเน€เธ”เธดเธกเธซเธฅเธฒเธขเธฃเธญเธเธ”เนเธงเธขเธ•เธฑเธงเธญเธขเนเธฒเธเธ•เนเธฒเธเธเธฑเธ เธเธถเธเธฃเธงเธกเนเธงเนเนเธเนเธเนเธ•เธเธเธฑเธเธเธตเนเน€เธเนเธเธเธเธฃเนเธงเธกเนเธฅเธฐเธ•เธฑเธงเธญเธขเนเธฒเธเนเธ—เธ</li>
+</ul></div>
+</section>
+<section class="sheet-section theme-review" data-title="23. เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—" id="23-เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">??????? 24</p><h2>เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—</h2></header>
+<div class="section-intro prose"><p>เธ–เนเธฒเธเธฐเธเธณเธเธ—เธเธตเนเนเธซเนเนเธกเนเธเธ—เธตเนเธชเธธเธ” เนเธซเนเธเธณเน€เธเนเธเธฅเธณเธ”เธฑเธเธ”เธฑเธเธเธตเน:</p><ol>
+<li>เน€เธฃเธดเนเธกเธเธฒเธเธ–เธฒเธกเธงเนเธฒ <strong>เธกเธต ???????????????????? เธเธฒเธ ??????????????? เธซเธฃเธทเธญเธขเธฑเธ</strong></li>
+<li>เธ–เนเธฒเธกเธต เนเธซเนเธ–เธฒเธกเธ•เนเธญเธงเนเธฒ <strong>????????????? เนเธซเธก</strong></li>
+<li>เธ–เนเธฒ ????????????? เนเธซเนเธ–เธฒเธกเธ•เนเธญเธงเนเธฒ <strong>??????????????????????????????? เนเธ”เนเนเธซเธก</strong></li>
+<li>เธ–เนเธฒเน€เธเนเธเธซเธเธตเนเธฃเธฐเธขเธฐเธขเธฒเธง เนเธซเนเธ–เธฒเธกเน€เธเธดเนเธกเธงเนเธฒ <strong>เธ•เนเธญเธเธเธดเธ”เธฅเธ”เน€เธเนเธ PV เธซเธฃเธทเธญเนเธกเน</strong></li>
+<li>เธ–เนเธฒเธฃเธฑเธเธฃเธนเนเนเธกเนเนเธ”เน เธญเธขเนเธฒเธฅเธทเธกเธ–เธฒเธกเธงเนเธฒ <strong>เธ•เนเธญเธ ????????????? เธซเธฃเธทเธญ ?????????????</strong></li>
+<li>เธเธณเนเธซเนเธเธถเนเธเนเธเธงเนเธฒ <strong>เธเธฑเธเธเธตเธฃเธฐเธงเธฑเธเธเธฑเนเธเธฃเธฒเธขเนเธ”เนเธกเธฒเธเธเธงเนเธฒเธเธฑเนเธเธเธฒเธ”เธ—เธธเธ</strong> เธเธถเธเน€เธเธดเธ”เธเธงเธฒเธกเนเธกเนเธชเธกเธกเธฒเธ•เธฃเธฃเธฐเธซเธงเนเธฒเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เธเธฑเธ เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+</ol></div>
+</section>
+</div>
+</section>
+</main>
+<p class="footer-note">เธเธฑเธ”เธซเธเนเธฒเนเธซเธกเนเธเธฒเธเธชเธฃเธธเธ Chapter 09 เน€เธ”เธดเธกเน€เธเธทเนเธญเนเธเนเธ—เธงเธเธเนเธญเธเธชเธญเธ เนเธ”เธขเธเธเธชเธฒเธฃเธฐเธเธฒเธเธ•เนเธเธเธเธฑเธเนเธงเนเนเธเธฃเธนเธเนเธเธเธญเนเธฒเธเธเนเธฒเธขเธเธเธซเธเนเธฒเน€เธงเนเธ</p>
+</div>
+<script>
+    const sections = [...document.querySelectorAll('.sheet-section')];
+    const groups = [...document.querySelectorAll('.sheet-group')];
+    const navLinks = [...document.querySelectorAll('.mini-link')];
+    const groupLinks = [...document.querySelectorAll('.group-link')];
+    const byId = Object.fromEntries(navLinks.map(link => [link.dataset.target, link]));
+    const groupById = Object.fromEntries(groupLinks.map(link => [link.getAttribute('href').slice(1), link]));
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+        const localLink = groupById[entry.target.id];
+        if (localLink && entry.isIntersecting) {
+          groupLinks.forEach(item => item.classList.remove('is-current'));
+          localLink.classList.add('is-current');
+        }
+      });
+    }, { threshold: 0.18 });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(item => item.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+    groups.forEach(group => navObserver.observe(group));
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(item => item.classList.remove('is-active'));
+        link.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+﻿# AC311 Chapter 6 Master Notes
+
+## Run Mode
+
+- Workflow mode: strict on-demand loop
+- Chapter: 6
+- Append order completed: 01 -> 02 -> 03 -> 04
+
+## Refined Segment 01
+
+### Core rule
+
+หลังจากรับรู้ PPE ครั้งแรกแล้ว กิจการเลือก subsequent measurement ได้ 2 แบบ
+
+- `Cost model`
+- `Revaluation model`
+
+การเลือกนี้ต้องใช้กับ `entire class of PPE`
+
+### Cost model
+
+`Carrying amount = Cost - Accumulated depreciation - Accumulated impairment losses`
+
+ประเด็นสอบ:
+
+- ยืนบนฐานต้นทุนเดิม
+- ลดด้วยค่าเสื่อมและ impairment
+- ไม่ใช่ถือไว้ที่ cost เฉย ๆ
+
+### Revaluation model
+
+ใช้ได้เมื่อ `fair value can be measured reliably`
+
+`Carrying amount = Fair value at revaluation date - Subsequent accumulated depreciation - Subsequent accumulated impairment losses`
+
+ประเด็นสอบ:
+
+- fair value เป็นฐานใหม่ในวันตีราคา
+- หลังจากนั้นยังต้องคิด depreciation และ impairment ต่อ
+- ต้อง revalue ด้วย `sufficient regularity`
+
+### Memory hook
+
+`cost model = cost net`
+
+`revaluation model = fair value reset, then depreciate again`
+
+## Refined Segment 02
+
+### Revaluation increase
+
+หลักทั่วไป:
+
+`Increase -> OCI -> Revaluation surplus`
+
+ข้อยกเว้น:
+
+ถ้าเคยมี prior loss ของสินทรัพย์ตัวเดียวกันใน P/L increase รอบใหม่ต้อง reverse P/L ก่อน
+
+### Revaluation decrease
+
+หลักทั่วไป:
+
+`Decrease -> Profit or loss`
+
+ข้อยกเว้น:
+
+ถ้ามี existing revaluation surplus ของสินทรัพย์ตัวเดียวกัน decrease รอบใหม่ต้องใช้ surplus เดิมก่อน
+
+### Sequence effect
+
+| รูปแบบ | วิธีคิด |
+| --- | --- |
+| ขึ้นก่อน แล้วลงทีหลัง | ใช้ surplus เดิมก่อน แล้วส่วนเกินลง P/L |
+| ลงก่อน แล้วขึ้นทีหลัง | reverse loss เดิมใน P/L ก่อน แล้วส่วนเกินไป OCI |
+
+### Memory hook
+
+`reverse where it came from`
+
+## Refined Segment 03
+
+### Core target
+
+เมื่อ PPE ที่เสื่อมราคาได้ถูก revalue เป้าหมายคือ
+
+`net carrying amount after revaluation = revalued amount`
+
+### Eliminate method
+
+- ล้าง accumulated depreciation ออกก่อน
+- จากนั้นค่อยปรับยอดสินทรัพย์ให้ถึง revalued amount
+
+จำแบบเร็ว:
+
+`remove AD first -> adjust net amount`
+
+### Restated method
+
+- ปรับทั้ง gross amount และ accumulated depreciation ให้เป็นสัดส่วนใหม่
+- หา ratio จาก `fair value / old carrying amount`
+
+จำแบบเร็ว:
+
+`rescale gross amount and AD together`
+
+### Key exam point
+
+สองวิธีต่างกันที่ `mechanics` ไม่ใช่ผลลัพธ์สุทธิ
+
+## Refined Segment 04
+
+### Depreciation after revaluation
+
+`(Revalued carrying amount - Residual value) / Remaining useful life`
+
+จำแบบเร็ว:
+
+`new amount -> new useful life -> new depreciation`
+
+### Transfer of revaluation surplus
+
+- โอนเมื่อจำหน่ายสินทรัพย์ได้
+- โอนทยอยตามการใช้งานได้
+- เป็น `equity to equity transfer`
+- ไม่ผ่าน `profit or loss`
+
+### Disposal sequence
+
+1. Depreciation to date
+2. Carrying amount at disposal date
+3. Gain or loss on sale
+4. Transfer of remaining revaluation surplus
+
+### Key exam point
+
+ห้ามปน `gain on sale` กับ `transfer of revaluation surplus`
+
+## Cumulative Exam Watch
+
+- แยก `measurement basis` ออกจาก `recognition location`
+- ติดตาม history ของ `same asset`
+- ในโจทย์หลายปีให้คิดทีละปี ทีละรอบ ไม่รวบ logic
+- ถ้าเป็นสินทรัพย์เสื่อมราคาได้ ให้ถามต่อเสมอว่า accumulated depreciation จะจัดการอย่างไร
+- หลัง revaluation ให้ถามต่อเสมอว่า depreciation ใหม่คิดจากฐานไหน
+
