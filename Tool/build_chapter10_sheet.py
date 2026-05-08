@@ -10,9 +10,8 @@ from bs4 import BeautifulSoup, Tag
 
 
 ROOT = Path(r"D:\Fogust\Workspace\College\AC311\Cheat Sheet")
-SRC_TXT = ROOT / "Chapter10" / "Data.txt"
+SRC_MD = ROOT / "Chapter10" / "Data.md"
 DEDUCTIBLE_MD = ROOT / "Chapter10" / "13.4-deductible-clause.md"
-OUT_MD = ROOT / "Chapter10" / "Data.md"
 OUT_HTML = ROOT / "chapter-10-notes.html"
 
 
@@ -264,6 +263,9 @@ def deductible_fragment() -> str:
 
 
 def insert_deductible(md: str) -> str:
+    if "Deductible clause" in md or "ค่าเสียหายส่วนแรก" in md:
+        return md
+
     fragment = deductible_fragment().strip()
     if fragment in md:
         return md
@@ -285,10 +287,9 @@ def insert_deductible(md: str) -> str:
 
 
 def build_markdown() -> str:
-    source = normalize_source(SRC_TXT.read_text(encoding="utf-8"))
-    converted_lines = [convert_line(line) for line in source.splitlines()]
-    massaged_lines = massage_markdown_lines(converted_lines)
-    md = "# Chapter 10: Provision\n\n" + "\n".join(massaged_lines).strip() + "\n"
+    md = SRC_MD.read_text(encoding="utf-8")
+    if not md.lstrip().startswith("#"):
+        md = "# Chapter 10: Provision\n\n" + md.strip() + "\n"
     md = insert_deductible(md)
     md = re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"
     return md
@@ -312,6 +313,8 @@ def section_theme(title: str) -> str:
 
 def classify_group(title: str) -> str:
     if any(token in title for token in [
+        "ภาพรวมของหนี้สิน",
+        "ตัวอย่างวิเคราะห์นิยามหนี้สิน",
         "หนี้สินคืออะไร",
         "ภาระผูกพันในปัจจุบัน",
         "เหตุการณ์ในอดีต",
@@ -324,6 +327,7 @@ def classify_group(title: str) -> str:
 
     if any(token in title for token in [
         "ประมาณการหนี้สิน",
+        "ตัวอย่างการรับรู้ Provision",
         "เกณฑ์การรับรู้รายการ",
         "Probable",
         "โอกาสแพ้คดี",
@@ -339,6 +343,9 @@ def classify_group(title: str) -> str:
         return "recognition-timing"
 
     if any(token in title for token in [
+        "การวัดมูลค่า Provision",
+        "ภาระรื้อถอน",
+        "ประเด็นเฉพาะของ Provision",
         "กฎเหล็กของการวัดมูลค่า",
         "เทคนิคการเลือกตัวเลข",
         "แกะรอยโจทย์คำนวณ",
@@ -1223,7 +1230,6 @@ def build_html(md_text: str) -> str:
 
 def main() -> None:
     md_text = build_markdown()
-    OUT_MD.write_text(md_text, encoding="utf-8")
     html_text = build_html(md_text)
     OUT_HTML.write_text(html_text, encoding="utf-8")
     print(OUT_HTML)
