@@ -457,6 +457,16 @@ Dr Loss from Revaluation 2,000
           <tr><td>ลงก่อน แล้วขึ้นทีหลัง</td><td>reverse prior loss ใน P/L ก่อน แล้วส่วนเกินค่อยไป OCI</td></tr>
         </tbody>
       </table>
+      <div class="callout">
+        <h3>Asymmetry ที่ต้องเข้าใจ</h3>
+        <ul>
+          <li>กำไรจากการตีราคาเพิ่มขึ้นถูกมองเป็น <strong>unrealized gain</strong> จึงพักไว้ใน <strong>OCI -&gt; Revaluation Surplus</strong></li>
+          <li>ขาดทุนจากการตีราคาลดลงถูกมองแบบระมัดระวัง จึงลง <strong>profit or loss</strong> ทันที</li>
+          <li>ฝั่งกำไรมีบัญชีพักของตัวเอง แต่ฝั่งขาดทุนไม่มีบัญชีสะสมลักษณะเดียวกัน</li>
+          <li>ผลคือ revaluation loss จะไปกระทบ <strong>retained earnings</strong> ผ่าน P/L ตั้งแต่ปีแรก</li>
+        </ul>
+        <div class="formula"><strong>Memory hook: gain is parked in surplus, but loss hits P/L immediately</strong></div>
+      </div>
       <pre>Case 1: 400,000 -&gt; 450,000 -&gt; 380,000
 Dr Revaluation Surplus 50,000
 Dr Loss from Revaluation 20,000
@@ -592,6 +602,17 @@ Dr Equipment 20,000
       <div class="formula"><strong>Depreciation after revaluation = (Revalued carrying amount - Residual value) / Remaining useful life</strong></div>
       <p>ตัวอย่างเดิม: revalued amount = 72,000 และอายุคงเหลือ 3 ปี ดังนั้น depreciation ใหม่ต่อปี = 24,000 จุดสำคัญคือห้ามกลับไปใช้ต้นทุนเดิมเป็นฐานคิดค่าเสื่อม</p>
       <p>เหตุผลเชิงตรรกะคือ เมื่อกิจการ reset carrying amount ไปแล้ว ค่าเสื่อมในอนาคตก็ต้องสะท้อนฐานใหม่ด้วย ไม่เช่นนั้นงบจะใช้มูลค่าหลัง revaluation แต่ยังตัดค่าเสื่อมจากฐานเดิม ซึ่งขัดกันเอง</p>
+      <div class="callout">
+        <h3>ถ้าเคยตีราคาลดลงมาก่อน</h3>
+        <p>สำหรับสินทรัพย์เสื่อมราคาได้ การตีราคาลดลงไม่ได้จบแค่ปีที่รับรู้ขาดทุน เพราะฐานค่าเสื่อมใหม่จะต่ำลง ทำให้ค่าเสื่อมในปีถัด ๆ ไปต่ำลงตาม</p>
+        <ul>
+          <li>ค่าใช้จ่ายลดลง</li>
+          <li>กำไรสุทธิสูงขึ้นเมื่อเทียบกับกรณีที่ไม่เคยตีราคาลดลง</li>
+          <li>กำไรสะสมจึงค่อย ๆ ฟื้นตัวกลับมาทางอ้อมผ่าน P/L</li>
+        </ul>
+        <p>การฟื้นตัวนี้ <strong>ไม่ใช่</strong> การโอนบัญชีขาดทุนโดยตรง เพราะฝั่งขาดทุนไม่มีบัญชีสะสมแบบ revaluation surplus</p>
+        <div class="formula"><strong>Memory hook: loss recovers indirectly through lower depreciation</strong></div>
+      </div>
 
       <h3>Transfer of Revaluation Surplus</h3>
       <p>Revaluation surplus อยู่ใน <strong>equity</strong> และสามารถโอนไป <strong>retained earnings</strong> ได้ แต่ก่อนจำวิธีโอน ต้องเข้าใจก่อนว่าทำไมมาตรฐานจึงยอมให้โอนได้</p>
@@ -615,6 +636,23 @@ Dr Equipment 20,000
 Dr Revaluation Surplus 4,000
    Cr Retained Earnings 4,000</pre>
       <p>รายการนี้เป็นเพียง <strong>equity to equity transfer</strong> ไม่มีผลกระทบต่อ <strong>profit or loss</strong> ของงวดนั้น และโดยสาระแล้วควรสะท้อนผ่าน <strong>statement of changes in equity</strong> โดยตรง ไม่ใช่วิ่งผ่านหน้า P&amp;L</p>
+      <div class="callout">
+        <h3>Contrast with loss case</h3>
+        <ul>
+          <li>ฝั่ง <strong>revaluation surplus</strong> ต้องมีรายการโอนตรง <strong>Dr Revaluation Surplus / Cr Retained Earnings</strong> ถ้ากิจการเลือกโอนทยอยหรือโอนเมื่อจำหน่าย</li>
+          <li>ฝั่ง <strong>revaluation loss</strong> ไม่มีรายการโอนลักษณะเดียวกัน</li>
+          <li>เหตุผลคือ surplus ถูกพักอยู่นอก P/L ตั้งแต่ต้น แต่ loss ลง P/L ไปแล้วตั้งแต่วันแรก</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <h3>Ceiling on reversal สำหรับสินทรัพย์เสื่อมราคาได้</h3>
+        <p>เมื่อมูลค่าสินทรัพย์ฟื้นกลับขึ้นมา อย่าคิดว่าขาดทุนเดิมทั้งก้อนยังรอ reverse อยู่ครบทุกบาท เพราะกิจการอาจได้ประโยชน์จากค่าเสื่อมที่ลดลงไปแล้วบางส่วน</p>
+        <ul>
+          <li>ถ้าค่าเสื่อมต่ำลง ส่วนนี้ถือว่าเป็นการชดเชยขาดทุนทางอ้อมแล้ว</li>
+          <li>ดังนั้นยอดที่กลับเข้า P/L ได้จริงจะค่อย ๆ แคบลงตามเวลา</li>
+          <li>วิธีเช็กในข้อสอบคือ carrying amount หลังกลับรายการต้องไม่สูงกว่ามูลค่าตามบัญชีที่ควรจะเป็น หากไม่เคยตีราคาลดลงมาก่อน</li>
+        </ul>
+      </div>
       <div class="callout">
         <h3>Statement Effect ที่ต้องแยกให้ออก</h3>
         <ul>

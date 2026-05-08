@@ -74,9 +74,18 @@
 | ขึ้นก่อน แล้วลงทีหลัง | ใช้ surplus เดิมก่อน แล้วส่วนเกินลง P/L |
 | ลงก่อน แล้วขึ้นทีหลัง | reverse loss เดิมใน P/L ก่อน แล้วส่วนเกินไป OCI |
 
+### Asymmetry ที่ต้องเข้าใจ
+
+- `Increase` ปกติไป `OCI -> Revaluation surplus`
+- `Decrease` ปกติไป `Profit or loss`
+- ฝั่งกำไรมีบัญชีพักของตัวเองคือ `revaluation surplus`
+- ฝั่งขาดทุนไม่มีบัญชีพักลักษณะเดียวกัน จึงกระทบ `retained earnings` ผ่าน P/L ทันที
+
 ### Memory hook
 
 `reverse where it came from`
+
+`gain is parked in surplus, but loss hits P/L immediately`
 
 ## Refined Segment 03
 
@@ -118,12 +127,28 @@
 
 `new amount -> new useful life -> new depreciation`
 
+### If there was a prior revaluation loss
+
+- สินทรัพย์เสื่อมราคาได้ที่ถูกตีราคาลดลงจะมีฐานค่าเสื่อมใหม่ต่ำลง
+- ค่าเสื่อมอนาคตจึงต่ำลง และกำไรสะสมจะค่อย ๆ ฟื้นตัวทางอ้อมผ่าน P/L
+- ไม่มีการโอนตรงจากบัญชีขาดทุนไป `retained earnings`
+
 ### Transfer of revaluation surplus
 
 - โอนเมื่อจำหน่ายสินทรัพย์ได้
 - โอนทยอยตามการใช้งานได้
 - เป็น `equity to equity transfer`
 - ไม่ผ่าน `profit or loss`
+
+### Contrast with loss case
+
+- ฝั่ง `surplus` ต้องโอนตรง `Dr Revaluation Surplus / Cr Retained Earnings`
+- ฝั่ง `loss` ไม่ต้องมีรายการโอน เพราะระบบจะชดเชยผ่านค่าเสื่อมที่ลดลงเอง
+
+### Ceiling on reversal
+
+- สำหรับสินทรัพย์เสื่อมราคาได้ prior loss ที่ reverse กลับเข้า P/L ได้จะค่อย ๆ ลดลงเมื่อกิจการได้ประโยชน์จากค่าเสื่อมที่ต่ำลงไปแล้ว
+- เช็กเพดานโดยดูว่า carrying amount หลัง reversal ต้องไม่เกิน carrying amount ที่ควรจะเป็น หากไม่เคยตีราคาลดลงมาก่อน
 
 ### Disposal sequence
 
@@ -143,4 +168,5 @@
 - ในโจทย์หลายปีให้คิดทีละปี ทีละรอบ ไม่รวบ logic
 - ถ้าเป็นสินทรัพย์เสื่อมราคาได้ ให้ถามต่อเสมอว่า accumulated depreciation จะจัดการอย่างไร
 - หลัง revaluation ให้ถามต่อเสมอว่า depreciation ใหม่คิดจากฐานไหน
+- ถ้าเคยมี `revaluation loss` มาก่อน อย่าลืมถามต่อว่า loss ก้อนนั้นถูกชดเชยทางอ้อมผ่านค่าเสื่อมที่ลดลงไปแล้วเท่าไร
 
