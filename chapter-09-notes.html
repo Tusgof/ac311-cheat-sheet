@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="th">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>AC311 | เธเธ—เธ—เธตเน 9: IAS 37 - เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เนเธฅเธฐเธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</title>
-<meta content="?????????????? AC311 ?????? IAS 37 ??????????????????????? ????????????????????? ??????????????????????? ???????????????????????????????" name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AC311 | Investment Property</title>
+  <meta name="description" content="ชีทอ่านสอบวิชา AC311 เรื่อง Investment Property แบบหน้าเดียว พร้อม Dr./Cr. และตารางเปรียบเทียบ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
     :root {
       --bg: #f4ede1;
       --paper: rgba(255, 250, 242, 0.92);
@@ -26,9 +25,17 @@
       --max: 1160px;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       margin: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
       color: var(--ink);
       font-family: var(--font-sans);
       background:
@@ -53,11 +60,13 @@
       mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent 35%);
     }
     a { color: inherit; text-decoration: none; }
-    .page { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 28px 0 80px; }
+    .page { width: min(calc(100% - 32px), var(--max)); max-width: 100%; margin: 0 auto; padding: 28px 0 80px; }
     .masthead {
       padding: 18px 0 8px;
       border-bottom: 1px solid var(--line);
       margin-bottom: 12px;
+      min-width: 0;
+      max-width: 100%;
     }
     .eyebrow {
       margin: 0 0 10px;
@@ -73,7 +82,10 @@
       gap: 28px;
       align-items: end;
       padding: 18px 0 16px;
+      min-width: 0;
+      max-width: 100%;
     }
+    .hero > * { min-width: 0; max-width: 100%; }
     .hero h1 {
       margin: 0;
       font-size: clamp(2.25rem, 5.6vw, 4.45rem);
@@ -81,9 +93,9 @@
       letter-spacing: -0.05em;
       color: #36261c;
     }
-    .hero p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1rem; }
+    .hero p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1rem; overflow-wrap: anywhere; }
     .subject-line { display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; color: var(--muted); font-size:0.95rem; }
-    .subject-line span { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.28); }
+    .subject-line span { min-width: 0; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.28); }
     .formula-strip {
       display:grid; gap:12px;
       padding: 18px;
@@ -91,15 +103,19 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       box-shadow: var(--shadow);
+      min-width: 0;
+      max-width: 100%;
     }
     .formula-strip h2 { margin:0; font-size:0.98rem; color: var(--muted); letter-spacing:0.06em; text-transform:uppercase; }
     .formula-item { display:grid; gap:4px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
     .formula-item:last-child { border-bottom:none; padding-bottom:0; }
     .formula-item span { color: var(--muted); font-size:0.9rem; }
     .formula-item strong { font-size:1rem; line-height:1.45; }
-    .mini-nav-shell { position: sticky; top: 0; z-index: 30; padding: 10px 0 18px; background: linear-gradient(180deg, rgba(245,239,228,0.96), rgba(245,239,228,0.78), rgba(245,239,228,0)); backdrop-filter: blur(8px); }
+    .mini-nav-shell { position: sticky; top: 0; z-index: 30; max-width: 100%; overflow: hidden; padding: 10px 0 18px; background: linear-gradient(180deg, rgba(245,239,228,0.96), rgba(245,239,228,0.78), rgba(245,239,228,0)); backdrop-filter: blur(8px); }
     .mini-nav {
-      display:flex; gap:10px; overflow:auto; padding: 10px 4px 10px 2px; scrollbar-width:none;
+      display:flex; gap:10px; max-width: 100%; overflow:auto; padding: 10px 4px 10px 2px; scrollbar-width:none;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
     }
     .mini-nav::-webkit-scrollbar { display:none; }
     .mini-link {
@@ -109,11 +125,13 @@
     }
     .mini-link:hover, .mini-link:focus-visible { border-color: var(--line-strong); color: var(--ink); transform: translateY(-1px); }
     .mini-link.is-active { background: #efe4cf; border-color: rgba(124,137,96,0.4); color: #2f271f; }
-    .content { display:grid; gap: 22px; }
+    .content { display:grid; gap: 22px; min-width: 0; max-width: 100%; }
     .sheet-group {
       display: grid;
       gap: 16px;
       padding-top: 4px;
+      min-width: 0;
+      max-width: 100%;
     }
     .group-head {
       padding: 17px 20px 15px;
@@ -122,6 +140,8 @@
       background: linear-gradient(180deg, rgba(255,250,241,0.86), rgba(250,244,233,0.7));
       box-shadow: 0 10px 20px rgba(76, 56, 37, 0.03);
       position: relative;
+      min-width: 0;
+      max-width: 100%;
     }
     .group-head::after {
       content: "";
@@ -167,6 +187,8 @@
       gap: 8px;
       margin-top: 12px;
       padding-top: 2px;
+      min-width: 0;
+      max-width: 100%;
     }
     .group-link {
       padding: 9px 11px;
@@ -191,11 +213,15 @@
     .group-body {
       display: grid;
       gap: 18px;
+      min-width: 0;
+      max-width: 100%;
     }
     .sheet-section {
       position: relative; padding: 26px clamp(18px, 2vw, 28px) 28px 26px; border: 1px solid var(--line);
       border-radius: 24px; background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(255,248,236,0.8));
       box-shadow: 0 14px 28px rgba(76, 56, 37, 0.045); overflow: clip;
+      min-width: 0;
+      max-width: 100%;
     }
     .sheet-section.theme-accounting {
       background: linear-gradient(180deg, rgba(255,250,241,0.92), rgba(248,241,230,0.84));
@@ -213,7 +239,7 @@
     .section-rule { position:absolute; left:0; top:0; bottom:0; width:10px; background: linear-gradient(180deg, rgba(124,137,96,0.16), rgba(124,137,96,0.02)); }
     .section-head { position:relative; padding-left: 8px; margin-bottom: 14px; }
     .section-kicker { margin:0 0 7px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 700; }
-    .section-head h2 { margin:0; font-size: clamp(1.4rem, 2vw, 2rem); line-height:1.15; letter-spacing: -0.03em; }
+    .section-head h2 { margin:0; font-size: clamp(1.4rem, 2vw, 2rem); line-height:1.15; letter-spacing: -0.03em; overflow-wrap: anywhere; }
     .section-head + .section-intro > p:first-child {
       font-size: 1.02rem;
       color: #4a392d;
@@ -239,16 +265,20 @@
       font-family: var(--font-sans); font-size: 0.95em; font-weight: 700; color: #4f3a2b;
       padding: 0.14rem 0.42rem; border-radius: 8px; background: rgba(124, 137, 96, 0.08); border: 1px solid rgba(124, 137, 96, 0.18);
       transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .sheet-section.in-view .prose code { background: rgba(124, 137, 96, 0.16); border-color: rgba(124, 137, 96, 0.28); box-shadow: inset 0 -0.55em 0 rgba(124,137,96,0.12); }
     .prose strong { color:#2f231b; }
     .subsection, details.subsection {
       margin-top: 16px; padding: 17px; border-top: 1px solid var(--line);
       background: rgba(255,252,246,0.5);
+      min-width: 0;
+      max-width: 100%;
     }
     .subsection-head { display:flex; align-items:baseline; flex-wrap:wrap; gap: 9px 10px; margin-bottom: 11px; }
     .subsection-label { color: var(--muted); letter-spacing:0.14em; text-transform:uppercase; font-size:0.7rem; font-weight:800; }
-    .subsection h3, details.subsection summary h3 { margin:0; font-size:1.08rem; line-height:1.35; }
+    .subsection h3, details.subsection summary h3 { margin:0; font-size:1.08rem; line-height:1.35; overflow-wrap: anywhere; }
     .subsection.trap { background: linear-gradient(180deg, rgba(154,93,67,0.08), rgba(255,252,246,0.52)); border-left: 3px solid rgba(154,93,67,0.46); padding-left: 16px; }
     .subsection.alert { background: linear-gradient(180deg, rgba(124,137,96,0.12), rgba(255,252,246,0.52)); border-left: 3px solid rgba(124,137,96,0.48); padding-left: 16px; }
     .subsection.summary { background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,252,246,0.52)); }
@@ -259,7 +289,7 @@
     details.subsection summary::-webkit-details-marker { display:none; }
     details.subsection[open] summary { border-bottom: 1px dashed var(--line); }
     details.subsection .subsection-body { padding: 17px 18px 18px; }
-    .table-wrap { overflow:auto; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.52); position: relative; }
+    .table-wrap { overflow:auto; max-width: 100%; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,0.52); position: relative; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
     .table-wrap::after {
       content: "";
       position: sticky;
@@ -278,7 +308,7 @@
     tr:hover td { background: rgba(124,137,96,0.06); }
     .ledger-block {
       margin: 12px 0 16px; padding: 15px 16px; background: #f7f0e6; border: 1px solid var(--line);
-      border-radius: 18px; overflow:auto;
+      border-radius: 18px; overflow:auto; max-width: 100%; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
     }
     .ledger-block code { font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.7; white-space: pre; display:block; color:#2f241d; }
     .quick-review { padding: 22px 24px; border:1px solid var(--line); border-radius: 24px; background: linear-gradient(180deg, rgba(124,137,96,0.08), rgba(255,250,241,0.82)); }
@@ -311,6 +341,7 @@
     @media (max-width: 900px) {
       .page { width: min(calc(100% - 18px), var(--max)); padding-top: 12px; }
       .hero { grid-template-columns: 1fr; gap:18px; }
+      .formula-strip { min-width: 0; max-width: 100%; }
       .group-head { padding: 15px 15px 13px; border-radius: 20px; }
       .group-description { margin-top: 8px; font-size: 0.94rem; }
       .group-nav { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
@@ -324,7 +355,7 @@
     @media (max-width: 560px) {
       body { line-height: 1.66; }
       .hero h1 { font-size: 2.15rem; }
-      .hero p { font-size: 0.96rem; }
+      .hero p { width: 100%; max-width: 34ch; font-size: 0.96rem; white-space: normal; word-break: break-word; }
       .content { gap: 18px; }
       .mini-nav { gap: 8px; padding: 8px 2px 8px 0; }
       .mini-link { padding: 8px 11px; font-size: 0.88rem; }
@@ -337,10 +368,14 @@
         gap: 7px;
         margin-top: 10px;
         padding-bottom: 2px;
+        max-width: 100%;
         scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
       }
       .group-nav::-webkit-scrollbar { display: none; }
-      .group-link { font-size: 0.8rem; padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
+      .group-link { flex: 0 0 auto; max-width: min(72vw, 260px); overflow: hidden; text-overflow: ellipsis; font-size: 0.8rem; padding: 7px 10px; border-radius: 999px; white-space: nowrap; }
+      .subject-line span { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
       .sheet-section { padding: 19px 13px 20px 16px; border-radius: 20px; }
       .section-head { padding-left: 6px; margin-bottom: 12px; }
       .section-kicker { font-size: 0.69rem; }
@@ -365,636 +400,965 @@
   </style>
 </head>
 <body>
-<div class="page">
-<header class="masthead">
-<p class="eyebrow">AC311 เธเธฒเธฃเธเธฑเธเธเธตเธเธฑเนเธเธเธฅเธฒเธ</p>
-<div class="hero">
-<div>
-<h1>เธเธ—เธ—เธตเน 9: IAS 37 - เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เนเธฅเธฐเธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h1>
-<p>เธญเนเธฒเธเธ•เธฒเธกเธฅเธณเธ”เธฑเธ: เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธซเธฃเธทเธญเนเธกเน -&gt; เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธเธซเธฃเธทเธญเนเธกเน -&gt; เธเธฃเธฐเธกเธฒเธ“เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเธซเธฃเธทเธญเนเธกเน -&gt; เธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃ / เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</p>
-<div class="subject-line"><span>IAS 37</span><span>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ / เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ / เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</span><span>เธเธฒเธฃเธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃ + เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</span><span>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</span></div>
-</div>
-<aside aria-label="quick formulae" class="formula-strip">
-<h2>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</h2>
-<div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 1</span><strong>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธเธฒเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธซเธฃเธทเธญเนเธกเน</strong></div><div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 2</span><strong>เธ–เนเธฒเธกเธต เนเธซเนเธ–เธฒเธกเธ•เนเธญเธงเนเธฒเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธเธซเธฃเธทเธญเนเธกเน</strong></div><div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 3</span><strong>เธ–เนเธฒเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ เธ•เนเธญเธเธเธฃเธฐเธกเธฒเธ“เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเนเธ”เน</strong></div><div class="formula-item"><span>เธเธฑเนเธเธ—เธตเน 4</span><strong>เธ–เนเธฒเธขเธฑเธเนเธกเนเธฃเธฑเธเธฃเธนเน เนเธซเนเธ•เธฑเธ”เธชเธดเธเธ•เนเธญเธงเนเธฒเธเธฐเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธฃเธทเธญเนเธกเนเธ•เนเธญเธเธ—เธณเธญเธฐเนเธฃ</strong></div>
-</aside>
-</div>
-</header>
-<div class="mini-nav-shell">
-<nav aria-label="เธชเธฒเธฃเธเธฑเธเธขเนเธญ" class="mini-nav">
-<a class="mini-link" data-target="obligation-logic" href="#obligation-logic" title="เน€เธฃเธดเนเธกเธเธฒเธเธ เธฒเธเธฃเธงเธก เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ ???????????????????? ??????????????? เนเธฅเธฐ onerous contract เน€เธเธทเนเธญเนเธซเนเนเธขเธเธ เธฒเธฃเธฐเนเธ”เนเธ–เธนเธเธเนเธญเธเธเนเธญเธขเธ•เธฑเธ”เธชเธดเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเน">01 เธซเธฅเธฑเธเธเธดเธ”</a><a class="mini-link" data-target="recognition-flow" href="#recognition-flow" title="เธฃเธงเธกเธเธงเธฒเธกเธซเธกเธฒเธขเธเธญเธ provision เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเนเน€เธเธ“เธ‘เน เนเธฅเธฐเธฅเธณเธ”เธฑเธเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเนเนเธซเนเธญเธขเธนเนเนเธเธเนเธงเธเน€เธ”เธตเธขเธงเธเธฑเธ">02 เธฃเธฑเธเธฃเธนเน</a><a class="mini-link" data-target="measurement-cases" href="#measurement-cases" title="เธ•เนเธญเธ”เนเธงเธขเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ” best estimate เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธธเธเธฑเธ decommissioning เนเธฅเธฐเธเธเน€เธซเธฅเนเธเธ—เธตเนเธเธญเธเธญเธญเธเธชเธญเธเนเธเธชเนเธงเธเธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ">03 เธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</a><a class="mini-link" data-target="contingencies-disclosure" href="#contingencies-disclosure" title="เธญเนเธฒเธ contingent liabilities เนเธฅเธฐ contingent assets เธเธนเนเธเธฑเธ เนเธฅเนเธงเธเธดเธ”เธ”เนเธงเธข asymmetry เนเธฅเธฐ disclosure requirements เธ—เธตเนเนเธเนเธ•เธญเธเธเนเธญเธชเธญเธเธเธฅเธฒเธขเธเธ—">04 เธฃเธฒเธขเธเธฒเธฃเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</a><a class="mini-link" data-target="exam-wrap" href="#exam-wrap" title="เน€เธเนเธ decision tree probability matrix เธเธณเธจเธฑเธเธ—เนเธ—เธตเนเธ•เนเธญเธเนเธเน เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เธเธธเธ”เธฃเธฐเธงเธฑเธ เนเธฅเธฐเธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเนเธงเนเน€เธเนเธเธเธธเธ”เธ—เธงเธเธฃเธญเธเธ—เนเธฒเธข">05 เธ—เธเธ—เธงเธ</a>
-</nav>
-</div>
-<main class="content">
-<section class="sheet-group" data-group-title="เธ•เธฑเนเธเธเธฒเธเธเนเธญเธเธ•เธฑเธ”เธชเธดเธ" id="obligation-logic">
+  <div class="page">
+    <header class="masthead">
+      <p class="eyebrow">AC311 Intermediate Accounting</p>
+      <div class="hero">
+        <div>
+          <h1>Investment Property</h1>
+          <p>อ่านตามลำดับ: แยกประเภท -> รับรู้<br>วัดมูลค่า -> โอน -> จำหน่าย/เปิดเผย</p>
+          <div class="subject-line"><span>TAS 40</span><span>Cost / FV</span><span>Transfer / Disclosure</span></div>
+        </div>
+        <aside class="formula-strip" aria-label="quick formulae">
+          <h2>Quick Frame</h2>
+          <div class="formula-item"><span>วันแรก</span><strong>รับรู้ด้วย Cost</strong></div><div class="formula-item"><span>หลังจากนั้น</span><strong>เลือก Cost หรือ Fair Value และใช้ทั้งกลุ่ม</strong></div><div class="formula-item"><span>โอน</span><strong>ต้องมี change in use + evidence</strong></div><div class="formula-item"><span>จำหน่าย</span><strong>proceeds - carrying amount -> P&L</strong></div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="mini-nav-shell">
+      <nav class="mini-nav" aria-label="สารบัญย่อ">
+        <a href="#foundations" class="mini-link" data-target="foundations" title="เริ่มจากนิยาม ขอบเขต และตัวอย่างที่มักใช้แยกว่าเป็นหรือไม่เป็น Investment Property">01 Basics</a><a href="#recognition-cost" class="mini-link" data-target="recognition-cost" title="ต่อด้วยการรับรู้รายการ การวัดมูลค่าเมื่อเริ่มแรก และการแยก replacement ออกจาก day-to-day servicing">02 Recognition</a><a href="#measurement-models" class="mini-link" data-target="measurement-models" title="จัด Cost model และ Fair value model ไว้ด้วยกัน รวมทั้งผู้ประเมินราคาและเงื่อนไขการเปลี่ยนนโยบาย">03 Models</a><a href="#transfers" class="mini-link" data-target="transfers" title="รวม change in use, evidence, การวัดมูลค่าเมื่อโอน และกรณี PPE -> IP ที่ออกสอบบ่อย">04 Transfers</a><a href="#ending-and-disclosure" class="mini-link" data-target="ending-and-disclosure" title="ดูเรื่อง compensation, disposal, และ disclosure ให้จบเป็นก้อนเดียว">05 Closing</a><a href="#exam-wrap-up" class="mini-link" data-target="exam-wrap-up" title="สรุป phase ทั้งวงจรตั้งแต่คัดกรอง บันทึก วัดมูลค่า โอน จำหน่าย จนถึง disclosure ใช้ทวนก่อนสอบได้ในหน้าเดียว">06 Lifecycle</a>
+      </nav>
+    </div>
+
+    <main class="content">
+      <section class="sheet-group" id="foundations" data-group-title="ภาพรวมและการแยกประเภท">
 <div class="group-head">
 <div class="group-meta">
 <p class="group-kicker">Module 01</p>
-<p class="group-kicker">5 sections</p>
+<p class="group-kicker">8 sections</p>
 </div>
-<h2>เธ•เธฑเนเธเธเธฒเธเธเนเธญเธเธ•เธฑเธ”เธชเธดเธ</h2>
-<p class="group-description">เน€เธฃเธดเนเธกเธเธฒเธเธ เธฒเธเธฃเธงเธก เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ• เนเธฅเธฐเธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน เน€เธเธทเนเธญเนเธซเนเนเธขเธเธ เธฒเธฃเธฐเนเธ”เนเธ–เธนเธเธเนเธญเธเธเนเธญเธขเธ•เธฑเธ”เธชเธดเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเน</p>
-<nav aria-label="เธ•เธฑเนเธเธเธฒเธเธเนเธญเธเธ•เธฑเธ”เธชเธดเธ" class="group-nav"><a class="group-link" href="#เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—" title="เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—">เธ เธฒเธเธฃเธงเธก</a><a class="group-link" href="#1-เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ-liability" title="1. เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ (Liability)">Liability</a><a class="group-link" href="#2-present-obligation-เธเธทเธญเธญเธฐเนเธฃ" title="2. ???????????????????? เธเธทเธญเธญเธฐเนเธฃ">Present obligation</a><a class="group-link" href="#3" title="3. ??????????????????????????????????????">Decision tree</a><a class="group-link" href="#4" title="4. ??????????????????????????????">Decision tree</a></nav>
-</div>
-<div class="group-body">
-<section class="sheet-section theme-default" data-title="เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—" id="เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 01</p><h2>เธ เธฒเธเธฃเธงเธกเธเธญเธเธเธ—</h2></header>
-<div class="section-intro prose"><p>เธเธ—เธเธตเนเธเธนเธเธฒเธเธเธดเธขเธฒเธกเธเธญเธ <strong>เธซเธเธตเนเธชเธดเธ (Liability)</strong> เนเธเธชเธนเนเธเธฒเธฃเนเธขเธ <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong>, <strong>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong>, เนเธฅเธฐ <strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong> เธเธฃเนเธญเธกเน€เธเธ“เธ‘เนเธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃ เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ เธเธฒเธฃเธเธดเธเธฒเธฃเธ“เธฒเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธซเธฅเธฑเธเธฃเธญเธเธฃเธฐเธขเธฐเน€เธงเธฅเธฒเธฃเธฒเธขเธเธฒเธ เนเธฅเธฐเธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเนเธเธซเธกเธฒเธขเน€เธซเธ•เธธเธเธฃเธฐเธเธญเธเธเธเธเธฒเธฃเน€เธเธดเธ</p><p>เธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธเธ—เธฒเธเธเธฑเธเธเธตเนเธเธเธ—เธเธตเนเธ•เนเธญเธเธ•เธญเธเธเธณเธ–เธฒเธกเนเธซเนเธเธฃเธเธ•เธฒเธกเธฅเธณเธ”เธฑเธ:</p><ol>
-<li>เธกเธต <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธเธฒเธ <strong>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
-<li>เธกเธต <strong>เธซเธเธตเนเธชเธดเธ / เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
-<li>เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธ <strong>???????????</strong> เธซเธฃเธทเธญเนเธกเน</li>
-<li>เธ–เนเธฒเธฃเธฑเธเธฃเธนเนเนเธกเนเนเธ”เน เธญเธขเนเธฒเธเธเนเธญเธขเธ•เนเธญเธ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
-</ol></div>
-</section>
-<section class="sheet-section theme-default" data-title="1. เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ (Liability)" id="1-เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ-liability">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 02</p><h2>เธเธดเธขเธฒเธกเธซเธเธตเนเธชเธดเธ (Liability)</h2></header>
-<div class="section-intro prose"><p>เธซเธเธตเนเธชเธดเธเธ•เธฒเธก IAS 37 เธกเธตเธญเธเธเนเธเธฃเธฐเธเธญเธ 3 เธเนเธญ:</p><ol>
-<li>เน€เธเนเธ <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ (Present obligation)</strong></li>
-<li>เน€เธเธดเธ”เธเธฒเธ <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ• (Past events)</strong></li>
-<li>เธเธฒเธ”เธงเนเธฒเธเธฐเธ—เธณเนเธซเนเน€เธเธดเธ” <strong>เธเธฒเธฃเธชเธนเธเน€เธชเธตเธขเธ—เธฃเธฑเธเธขเธฒเธเธฃเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธ (Outflow of resources embodying economic benefits)</strong></li>
-</ol></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธฃเธฐเน€เธ”เนเธเธ—เธตเนเธ•เนเธญเธเธเธณ</h3></div><div class="subsection-body prose"><ul>
-<li>เธซเธเธตเนเธชเธดเธ <strong>เนเธกเนเธเธณเน€เธเนเธเธ•เนเธญเธเธเธณเธฃเธฐเน€เธเนเธเน€เธเธดเธเธชเธ”เน€เธชเธกเธญเนเธ</strong></li>
-<li>เธเธฒเธฃเธเธณเธฃเธฐเธญเธฒเธเน€เธเธดเธ”เธเธฒเธเน€เธเธดเธเธชเธ” เธชเธดเธเธ—เธฃเธฑเธเธขเนเธญเธทเนเธ เธเธฒเธฃเนเธซเนเธเธฃเธดเธเธฒเธฃ เธซเธฃเธทเธญเนเธกเนเนเธ•เนเธเธฒเธฃเธญเธญเธเธซเธธเนเธ</li>
-<li>เธเธดเธขเธฒเธกเธเธตเนเธญเนเธฒเธเธญเธดเธ IAS 37 เนเธฅเธฐเธขเธฑเธเนเธกเนเนเธ”เนเธเธฃเธฑเธเธ•เธฒเธก conceptual framework เธ—เธตเนเธเธฃเธฑเธเนเธซเธกเนเนเธเธเธต 2018</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-default" data-title="2. ???????????????????? เธเธทเธญเธญเธฐเนเธฃ" id="2-present-obligation-เธเธทเธญเธญเธฐเนเธฃ">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 03</p><h2>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธเธทเธญเธญเธฐเนเธฃ</h2></header>
-<div class="section-intro prose"><p>เนเธเนเธเธเธญเธเธเธณเธงเนเธฒ <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธเธทเธญเธ เธฒเธฃเธฐเธ—เธตเนเธเธดเธเธเธฒเธฃ <strong>เธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เน (Unavoidable)</strong> เนเธฅเธฐเนเธกเนเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธญเธทเนเธเธ—เธตเนเธชเธกเน€เธซเธ•เธธเธชเธกเธเธฅเธเธญเธเธเธฒเธเธ•เนเธญเธเธเธเธดเธเธฑเธ•เธด</p></div>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>2.1 เธเธฃเธฐเน€เธ เธ—เธเธญเธเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</h3></div><div class="subsection-body prose"><ol>
-<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข (เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข)</strong><br/>
-   เน€เธเธดเธ”เธเธฒเธเธเธเธซเธกเธฒเธข เธชเธฑเธเธเธฒ เธซเธฃเธทเธญเธเนเธญเธเธฑเธเธเธฑเธเธ—เธตเนเธกเธตเธเธฅเธเธนเธเธเธฑเธเธเธฑเธ”เน€เธเธ</li>
-<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข (เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ•เธฒเธกเธเธเธซเธกเธฒเธข)</strong><br/>
-   เนเธกเนเนเธ”เนเธ–เธนเธเธเธฑเธเธเธฑเธเนเธ”เธขเธเธเธซเธกเธฒเธขเนเธ”เธขเธ•เธฃเธ เนเธ•เนเน€เธเธดเธ”เธเธฒเธเธเธฒเธฃเธเธฃเธฐเธ—เธณเธเธญเธเธเธดเธเธเธฒเธฃเน€เธญเธเธเธเธ—เธณเนเธซเนเธเธนเนเธญเธทเนเธเธเธฒเธ”เธซเธงเธฑเธเธงเนเธฒเธเธดเธเธเธฒเธฃเธเธฐเธฃเธฑเธเธเธดเธ”เธเธญเธ</li>
-</ol></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>2.2 เน€เธเธทเนเธญเธเนเธเธเธญเธเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</h3></div><div class="subsection-body prose"><p>เธ•เนเธญเธเธกเธตเธ—เธฑเนเธ 2 เธเนเธญ:</p><ol>
-<li>เธเธดเธเธเธฒเธฃเธชเนเธเธชเธฑเธเธเธฒเธ“เธฃเธฑเธเธเธดเธ”เธเธญเธเธ•เนเธญเธเธนเนเธญเธทเนเธ<br/>
-   เน€เธเนเธ<br/>
-   - <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong><br/>
-   - <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</strong><br/>
-   - <strong>เธเนเธงเธเธเธฅเธฅเธฑเธเธเนเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เน€เธ—เนเธฒเธเธฑเธ</strong></li>
-<li>เธเธนเนเธญเธทเนเธเน€เธเธดเธ” <strong>เธ•เนเธเธ—เธธเธเนเธเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธงเนเธฒเธเธดเธเธเธฒเธฃเธเธฐเธ—เธณเธ•เธฒเธกเธเธฑเนเธเนเธเนเธเธญเธ</li>
-</ol></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเธ—เธตเนเนเธเนเธขเนเธณ</h3></div><div class="subsection-body prose"><ul>
-<li>เธเธฃเธดเธฉเธฑเธ—เน€เธเธขเธเธทเธเน€เธเธดเธเนเธซเนเธฅเธนเธเธเนเธฒเธกเธฒเธ•เธฅเธญเธ” 5 เธเธต เนเธกเนเนเธกเนเธกเธตเธเนเธญเธเธเธซเธกเธฒเธขเธเธฑเธเธเธฑเธ</li>
-<li>เธซเธฒเธเธฅเธนเธเธเนเธฒเธเธทเนเธญเธชเธดเธเธเนเธฒเธเนเธญเธเธงเธฑเธเธ—เธตเนเธเธดเธเธเธฒเธฃเธเธฃเธฐเธเธฒเธจเธขเธเน€เธฅเธดเธเธเนเธขเธเธฒเธขเธเธทเธเน€เธเธดเธ เธเธฒเธฃเธเธทเนเธญเธเธฒเธขเธเธฑเนเธเธขเธฑเธเธญเธขเธนเนเธ เธฒเธขเนเธ•เนเนเธเธงเธเธเธดเธเธฑเธ•เธดเธ—เธตเนเธเนเธฒเธเธกเธฒเน€เธ”เธดเธก เธเธถเธเธญเธฒเธเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธเนเธ”เน</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-review" data-title="3. ??????????????????????????????????????" id="3">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 04</p><h2>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</h2></header>
-<div class="section-intro prose"><p>เธซเธเธตเนเธชเธดเธเธเธฐเนเธกเนเน€เธเธดเธ”เธฅเธญเธข เน เธ•เนเธญเธเธกเธต <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</strong> เนเธฅเธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธเธฑเนเธเธ•เนเธญเธเธ—เธณเนเธซเนเธเธดเธเธเธฒเธฃ <strong>เนเธกเนเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธญเธทเนเธเธ—เธตเนเธชเธกเน€เธซเธ•เธธเธชเธกเธเธฅ (เนเธกเนเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธญเธทเนเธเธ—เธตเนเธชเธกเน€เธซเธ•เธธเธชเธกเธเธฅ)</strong> เธเธญเธเธเธฒเธเธเธณเธฃเธฐเธ เธฒเธฃเธฐ</p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธฃเธฐเน€เธ”เนเธเธชเธณเธเธฑเธ</h3></div><div class="subsection-body prose"><ul>
-<li>เธชเธณเธซเธฃเธฑเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเนเนเธเธเธงเธ”เธเธฑเธเธเธธเธเธฑเธ เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ•เนเธเน€เธฃเธทเนเธญเธเธ•เนเธญเธเน€เธเธดเธ” <strong>เธ เธฒเธขเนเธเธซเธฃเธทเธญเธเนเธญเธเธงเธฑเธเธชเธดเนเธเธเธงเธ”</strong></li>
-<li>เธเธฒเธเธเธฃเธฑเนเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเน€เธเธดเธ”เธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ”เน€เธเนเธเน€เธเธตเธขเธ <strong>เธซเธฅเธฑเธเธเธฒเธเธขเธทเธเธขเธฑเธ</strong> เธ เธฒเธฃเธฐเธ—เธตเนเธกเธตเธญเธขเธนเนเนเธฅเนเธง เนเธกเนเนเธเนเธเธธเธ”เน€เธฃเธดเนเธกเธ•เนเธเธเธญเธเธ เธฒเธฃเธฐ</li>
-</ul></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฃเธฐเธเธญเธ</h3></div><div class="subsection-body prose"><ul>
-<li><strong>เธชเธฒเธฃเน€เธเธกเธตเธฃเธฑเนเธงเนเธซเธฅ</strong>: เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธเธทเธญเธเธฒเธฃเธฃเธฑเนเธงเนเธซเธฅ เนเธกเนเนเธเนเธงเธฑเธเธเธฃเธฐเธเธธเธกเธเธญเธฃเนเธ”เธญเธเธธเธกเธฑเธ•เธดเธเธเธเธทเนเธเธเธน</li>
-<li><strong>เน€เธเธฃเธทเนเธญเธเธเธฑเธเธฃเธกเธตเธ•เธณเธซเธเธด</strong>: เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธเธทเธญเธเธฒเธฃเธเธฒเธขเธชเธดเธเธเนเธฒเธ—เธตเนเธกเธตเธเธฑเธเธซเธฒ เนเธกเนเนเธเนเธงเธฑเธเธ—เธตเนเธฅเธนเธเธเนเธฒเน€เธเธดเนเธเธ•เธฃเธงเธเธเธเธ เธฒเธขเธซเธฅเธฑเธ</li>
-<li><strong>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</strong>: เธเธฒเธฃเน€เธเนเธเธชเธฑเธเธเธฒเน€เธเนเธเธญเธ”เธตเธ• เนเธฅเธฐเน€เธกเธทเนเธญเธชเธ–เธฒเธเธเธฒเธฃเธ“เนเน€เธเธฅเธตเนเธขเธเธเธเธชเธฑเธเธเธฒเธเธฅเธฒเธขเน€เธเนเธเธ เธฒเธฃเธฐ เธเนเธญเธฒเธเน€เธเธดเธ”เธซเธเธตเนเธชเธดเธเนเธ”เนเนเธเธเธงเธ”เธเธฑเธเธเธธเธเธฑเธ</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-review" data-title="4. ??????????????????????????????" id="4">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 05</p><h2>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</h2></header>
-<div class="section-intro prose"><p><strong>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</strong> เธเธทเธญเธชเธฑเธเธเธฒเธ—เธตเน <strong>เธ•เนเธเธ—เธธเธเธ—เธตเนเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เนเนเธเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธชเธนเธเธเธงเนเธฒ <strong>เธเธฃเธฐเนเธขเธเธเนเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเนเธ”เนเธฃเธฑเธ</strong></p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธเธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</h3></div><div class="subsection-body prose"><p>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธญเธ เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน เนเธซเนเนเธเนเธกเธนเธฅเธเนเธฒเธ—เธตเน <strong>เธ•เนเธณเธเธงเนเธฒ</strong> เธฃเธฐเธซเธงเนเธฒเธ:</p><ol>
-<li><strong>เธ•เนเธเธ—เธธเธเนเธเธเธฒเธฃเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธชเธฑเธเธเธฒ</li>
-<li><strong>เธเนเธฒเธเธฃเธฑเธเธเธฒเธเธเธฒเธฃเนเธกเนเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</strong> เธซเธฃเธทเธญเธเนเธฒเธเธฃเธฑเธเธซเธฒเธเธขเธเน€เธฅเธดเธ/เธเธดเธ”เธชเธฑเธเธเธฒ</li>
-</ol><p>เนเธเธงเธเธดเธ”เธเธทเธญเธเธฑเธเธเธตเธเธฐเน€เธฅเธทเธญเธเธ—เธฒเธเธ—เธตเนเน€เธเนเธเธ•เธฑเธงเธเนเธญเธขเธ—เธตเนเธชเธธเธ”เธเธถเนเธเธเธดเธเธเธฒเธฃเธเนเธฒเธเธฐเนเธเนเธเธฃเธดเธ</p></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธ</h3></div><div class="subsection-body prose"><ul>
-<li>เน€เธเนเธฒเน€เธเธดเธฃเนเธเน€เธงเธญเธฃเนเธซเธฃเธทเธญเธญเธญเธเธเธดเธจเธฃเธฐเธขเธฐเธขเธฒเธงเนเธงเน เนเธ•เนเน€เธ—เธเนเธเนเธฅเธขเธตเน€เธเธฅเธตเนเธขเธเธซเธฃเธทเธญเนเธกเนเนเธ”เนเนเธเนเธเธฒเธเนเธฅเนเธง</li>
-<li>เธ–เนเธฒเธเนเธฒเธขเธเนเธฒเน€เธเนเธฒเธ•เนเธญเธ–เธนเธเธเธงเนเธฒเธเนเธฒเธเธฃเธฑเธเธขเธเน€เธฅเธดเธเธชเธฑเธเธเธฒ เนเธซเนเธ•เธฑเนเธเธเธฒเธเธเนเธฒเน€เธเนเธฒเธ—เธตเนเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เน</li>
-</ul></div></article>
-</section>
-</div>
-</section>
-<section class="sheet-group" data-group-title="Provision เนเธฅเธฐ ????????????????????" id="recognition-flow">
-<div class="group-head">
-<div class="group-meta">
-<p class="group-kicker">Module 02</p>
-<p class="group-kicker">4 sections</p>
-</div>
-<h2>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเนเธฅเธฐเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</h2>
-<p class="group-description">เธฃเธงเธกเธเธงเธฒเธกเธซเธกเธฒเธขเธเธญเธ provision เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเนเน€เธเธ“เธ‘เน เนเธฅเธฐเธฅเธณเธ”เธฑเธเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเนเนเธซเนเธญเธขเธนเนเนเธเธเนเธงเธเน€เธ”เธตเธขเธงเธเธฑเธ</p>
-<nav aria-label="Provision เนเธฅเธฐ ????????????????????" class="group-nav"><a class="group-link" href="#5-provision-เธเธทเธญเธญเธฐเนเธฃ" title="5. Provision เธเธทเธญเธญเธฐเนเธฃ">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#6-เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน-provision" title="6. เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน Provision">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#7-เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน-recognition-criteria" title="7. เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน recognition criteria">Criteria use</a><a class="group-link" href="#8-เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน" title="8. เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน">Question flow</a></nav>
+<h2>ภาพรวมและการแยกประเภท</h2>
+<p class="group-description">เริ่มจากนิยาม ขอบเขต และตัวอย่างที่มักใช้แยกว่าเป็นหรือไม่เป็น Investment Property</p>
+<nav class="group-nav" aria-label="ภาพรวมและการแยกประเภท"><a href="#1-ภาพรวมของบท" class="group-link" title="1) ภาพรวมของบท">ภาพรวมของบท</a><a href="#2-คำนิยามของ-investment-property" class="group-link" title="2) คำนิยามของ Investment Property">คำนิยามของ Investm</a><a href="#5-owner-occupied-property-คืออะไร" class="group-link" title="5) Owner-occupied property คืออะไร">Owner-occupied pro</a><a href="#6-operating-lease-vs-finance-lease-ในมุมผู้ให้เช่า" class="group-link" title="6) Operating Lease vs Finance Lease ในมุมผู้ให้เช่า">Operating Lease vs</a><a href="#7-การแยกประเภทโดยดู-บริการเสริม-ancillary-services" class="group-link" title="7) การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )">บริการเสริม</a><a href="#3-ตัวอย่างที่-เป็น-investment-property-พร้อมเหตุผล" class="group-link" title="3) ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล">ตัวอย่างที่ “เป็น”</a><a href="#4-ตัวอย่างที่-ไม่เป็น-investment-property" class="group-link" title="4) ตัวอย่างที่ “ไม่เป็น” Investment Property">ตัวอย่างที่ “ไม่เป</a><a href="#8-ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ" class="group-link" title="8) ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ">ตัวอย่างคำถามแยกปร</a></nav>
 </div>
 <div class="group-body">
-<section class="sheet-section theme-default" data-title="5. Provision เธเธทเธญเธญเธฐเนเธฃ" id="5-provision-เธเธทเธญเธญเธฐเนเธฃ">
+<section class="sheet-section theme-default" id="1-ภาพรวมของบท" data-title="1) ภาพรวมของบท">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 06</p><h2>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธทเธญเธญเธฐเนเธฃ</h2></header>
-<div class="section-intro prose"><p>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธทเธญ <strong>เธซเธเธตเนเธชเธดเธเธเธฃเธฐเน€เธ เธ—เธซเธเธถเนเธ</strong> เธ—เธตเนเธกเธต <strong>เธเธงเธฒเธกเนเธกเนเนเธเนเธเธญเธเน€เธฃเธทเนเธญเธเน€เธงเธฅเธฒ (timing) เธซเธฃเธทเธญเธเธณเธเธงเธเน€เธเธดเธ (amount)</strong></p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>5.1 เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เน€เธเนเธ subset เธเธญเธ liability</h3></div><div class="subsection-body prose"><p>เธเธฃเธฐเน€เธ”เนเธเธชเธณเธเธฑเธเธเธทเธญ:</p><ul>
-<li><strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธ—เธธเธเธ•เธฑเธงเธเธทเธญ Liability</strong></li>
-<li><strong>เนเธ•เน Liability เนเธกเนเนเธเน เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธ—เธธเธเธ•เธฑเธง</strong></li>
-</ul><p>เน€เธซเธ•เธธเธเธฅเธเธทเธญ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธขเธฑเธเธกเธต DNA เธเธญเธเธซเธเธตเนเธชเธดเธเธเธฃเธเธ—เธฑเนเธ 3 เธเนเธญ เนเธ•เนเธกเธตเธกเธดเธ•เธดเธเธญเธ <strong>uncertainty</strong> เน€เธเธดเนเธกเน€เธเนเธฒเธกเธฒ</p></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>5.2 เธ•เธฑเธงเธญเธขเนเธฒเธ provision</h3></div><div class="subsection-body prose"><ul>
-<li><strong>???????</strong></li>
-<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</strong></li>
-<li><strong>เธเนเธฒเนเธเนเธเนเธฒเธขเนเธเธเธฒเธฃเธเธทเนเธเธเธนเธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธขเธ•เนเธญเธชเธดเนเธเนเธงเธ”เธฅเนเธญเธก</strong></li>
-<li><strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong></li>
-</ul></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>5.3 เธ•เนเธฒเธเธเธฒเธเน€เธเนเธฒเธซเธเธตเนเธเธฒเธฃเธเนเธฒเนเธฅเธฐเธเนเธฒเนเธเนเธเนเธฒเธขเธเนเธฒเธเธเนเธฒเธขเธญเธขเนเธฒเธเนเธฃ</h3></div><div class="subsection-body prose"><ul>
-<li><strong>Trade payables / Accruals</strong><br/>
-  เธฃเธนเนเธขเธญเธ”เนเธฅเธฐเธฃเธนเนเธเธณเธซเธเธ”เธเนเธฒเธขเธเนเธญเธเธเนเธฒเธเธเธฑเธ”</li>
-<li><strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong><br/>
-  เธฃเธนเนเธงเนเธฒเธ•เนเธญเธเธเนเธฒเธข เนเธ•เนเธขเธฑเธเนเธกเนเธฃเธนเนเธขเธญเธ”เน€เธเนเธฐเธซเธฃเธทเธญเธขเธฑเธเนเธกเนเธฃเธนเนเธงเธฑเธเธเนเธฒเธขเนเธเนเธเธญเธ</li>
-</ul></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเน€เธเธฃเธตเธขเธเน€เธ—เธตเธขเธ</h3></div><div class="subsection-body prose"><ul>
-<li>เธเธฒเธเธเนเธญเธก/เธเนเธฒเธเธเธนเนเธฃเธฑเธเน€เธซเธกเธฒเน€เธชเธฃเนเธเนเธฅเนเธง เธ•เธเธฅเธเธฃเธฒเธเธฒ 15,000 เธเธฑเธ”เน€เธเธ เนเธ•เนเนเธเนเธเนเธเธซเธเธตเนเธขเธฑเธเนเธกเนเธกเธฒ = <strong>Accrual/Trade payable</strong></li>
-<li>เธเธฒเธขเธชเธดเธเธเนเธฒเธเธฃเนเธญเธกเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธซเธฃเธทเธญเธเธทเธเน€เธเธดเธ เนเธ”เธขเธขเธฑเธเนเธกเนเธฃเธนเนเธงเนเธฒเธเธฐเธกเธตเธฅเธนเธเธเนเธฒเธเธเนเธซเธเธกเธฒเน€เธเธฅเธกเน€เธกเธทเนเธญเนเธฃ = <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong></li>
-</ul></div></article>
+<header class="section-head"><p class="section-kicker">Part 01</p><h2>ภาพรวมของบท</h2></header>
+<div class="section-intro prose"><p>ไฟล์นี้จัดระเบียบจาก <code>08 Investment Property.txt</code> โดยตั้งใจเก็บสาระหลักให้ครบที่สุด ไม่ทำเป็นสรุปย่อแบบตัดทอนแรง เน้นเอาเนื้อหาเดิมที่กระจายอยู่ในบทสนทนามารวมใหม่ให้อ่านต่อเนื่องก่อนสอบ</p><hr/><p>บทนี้ครอบคลุมตั้งแต่</p><ul>
+<li>คำนิยาม (<code>Definitions</code>)</li>
+<li>การรับรู้รายการ (<code>Recognition</code>)</li>
+<li>การวัดมูลค่า (<code>Measurement</code>) ทั้งวันแรกและภายหลัง</li>
+<li>การโอนเปลี่ยนประเภท (<code>Transfers</code>)</li>
+<li>การตัดรายการ (<code>Disposals</code>)</li>
+<li>การเปิดเผยข้อมูล (<code>Disclosure</code>)</li>
+</ul><p>ในงบการเงิน <code>Investment Property</code> ถูกแสดงเป็น <code>สินทรัพย์ไม่หมุนเวียน</code> และแยกจาก <code>ที่ดิน อาคาร และอุปกรณ์ (PPE)</code> ที่กิจการถือไว้ใช้เอง</p><hr/></div>
 </section>
-<section class="sheet-section theme-default" data-title="6. เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน Provision" id="6-เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน-provision">
+<section class="sheet-section theme-default" id="2-คำนิยามของ-investment-property" data-title="2) คำนิยามของ Investment Property">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 07</p><h2>เน€เธเธ“เธ‘เนเธเธฒเธฃเธฃเธฑเธเธฃเธนเน เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</h2></header>
-<div class="section-intro prose"><p>เธ•เนเธญเธเธเธฃเธเธ—เธฑเนเธ 3 เธเนเธญ:</p><ol>
-<li>เธกเธต <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธเธฒเธ <strong>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong></li>
-<li>เธกเธต <strong>เธเนเธญเธเธณเธซเธเธ”เธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</strong> เธเธญเธเธ—เธฃเธฑเธเธขเธฒเธเธฃเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธ</li>
-<li>เธชเธฒเธกเธฒเธฃเธ–เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธ <strong>??????????? เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ</strong></li>
-</ol><p>เธซเธฒเธเธเธฒเธ”เธเนเธญเนเธ”เธเนเธญเธซเธเธถเนเธ:<br/>
-- <strong>เธซเนเธฒเธก ???????????? provision</strong><br/>
-- เธญเธฒเธเธเธเธ—เธตเน <strong>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong><br/>
-- เธซเธฃเธทเธญเธเธฒเธเธเธฃเธ“เธต <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธดเธขเธฒเธกเธเธญเธ ????????????? (Probable)</h3></div><div class="subsection-body prose"><p>เธชเธฃเธธเธเนเธ”เนเธงเนเธฒ <strong>????????????? (Probable) = more likely than not = เนเธญเธเธฒเธชเธกเธฒเธเธเธงเนเธฒ 50%</strong></p><p>เธ–เนเธฒเนเธกเนเธ–เธถเธ ?????????????:<br/>
-- เนเธ”เธขเธ—เธฑเนเธงเนเธเนเธซเน <strong>????????????? เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong><br/>
-- เนเธ•เนเธ–เนเธฒเนเธญเธเธฒเธชเธ•เนเธณเธกเธฒเธเธเธเน€เธเนเธ <strong>remote</strong> เนเธซเน <strong>เนเธกเนเธ•เนเธญเธเธ—เธณเธญเธฐเนเธฃเน€เธฅเธข</strong></p></div></article>
+<header class="section-head"><p class="section-kicker">Part 02</p><h2>คำนิยามของ Investment Property</h2></header>
+<div class="section-intro prose"><p><code>Investment Property</code> คืออสังหาริมทรัพย์ ซึ่งอาจเป็น</p><ul>
+<li>ที่ดิน</li>
+<li>อาคาร</li>
+<li>ส่วนของอาคาร</li>
+<li>หรือทั้งที่ดินและอาคารรวมกัน</li>
+</ul><p>กิจการอาจถือทรัพย์นี้ในฐานะ</p><ul>
+<li>เจ้าของ</li>
+<li>หรือผู้เช่าที่ถือครองในรูปสินทรัพย์สิทธิการใช้</li>
+</ul><p>จุดสำคัญคือวัตถุประสงค์ของการถือครองต้องเป็นอย่างใดอย่างหนึ่งต่อไปนี้</p><ul>
+<li>เพื่อหารายได้ค่าเช่า (<code>Earn rentals</code>)</li>
+<li>เพื่อรอรับมูลค่าที่เพิ่มขึ้น (<code>Capital appreciation</code>)</li>
+<li>หรือทั้งสองอย่าง</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>สิ่งที่ไม่เข้าคำนิยาม</h3></div><div class="subsection-body prose"><p>ถ้าถือครองเพื่อวัตถุประสงค์ต่อไปนี้ จะไม่ใช่ <code>Investment Property</code></p><ul>
+<li>ใช้ในการผลิต</li>
+<li>ใช้จัดหาสินค้าหรือบริการ</li>
+<li>ใช้เพื่อการบริหารงาน</li>
+<li>มีไว้เพื่อขายตามปกติของธุรกิจ</li>
+</ul><p>สรุปสั้นที่สุด:</p><ul>
+<li>ถ้าทรัพย์ “ทำเงินด้วยตัวมันเอง” จากค่าเช่าหรือราคาที่ขึ้น มักเป็น <code>Investment Property</code></li>
+<li>ถ้าทรัพย์เป็นส่วนหนึ่งของการดำเนินงานหลักของธุรกิจ มักไม่ใช่ <code>Investment Property</code></li>
+</ul><hr/></div></article>
 </section>
-<section class="sheet-section theme-default" data-title="7. เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน recognition criteria" id="7-เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน-recognition-criteria">
+<section class="sheet-section theme-default" id="5-owner-occupied-property-คืออะไร" data-title="5) Owner-occupied property คืออะไร">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 08</p><h2>เธ•เธฑเธงเธญเธขเนเธฒเธเธเธฒเธฃเนเธเน recognition criteria</h2></header>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>7.1 เธเนเธขเธเธฒเธขเธเธทเธเน€เธเธดเธ</h3></div><div class="subsection-body prose"><ul>
-<li>เธ เธฒเธฃเธฐเน€เธเธดเธ”เธเธฒเธ <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong></li>
-<li>??????????????? เธเธทเธญ <strong>เธเธฒเธฃเธเธฒเธขเธชเธดเธเธเนเธฒ</strong></li>
-<li>เน€เธกเธทเนเธญเธฅเธนเธเธเนเธฒเธกเธต ?????????????????????????? เธงเนเธฒเธเธทเธเนเธ”เน เนเธฅเธฐเธกเธตเนเธญเธเธฒเธชเธ•เนเธญเธเธเธทเธเธเธฃเธดเธ เธเธดเธเธเธฒเธฃเธ•เนเธญเธเธ•เธฑเนเธ provision</li>
-</ul></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>7.2 เธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒ</h3></div><div class="subsection-body prose"><ul>
-<li>เธ เธฒเธฃเธฐเน€เธเธดเธ”เธเธฒเธ <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong></li>
-<li>??????????????? เธเธทเธญ <strong>เธเธฒเธฃเธเธฒเธขเธชเธดเธเธเนเธฒเธเธฃเนเธญเธกเนเธเธฃเธฑเธเธเธฃเธฐเธเธฑเธ</strong></li>
-<li>เธซเธฒเธเธเธฒเธเธชเธ–เธดเธ•เธดเธเธฒเธ”เธงเนเธฒเธ•เนเธญเธเธเนเธญเธกเธซเธฃเธทเธญเน€เธเธฅเธตเนเธขเธเธเธฒเธเธชเนเธงเธ เนเธซเน ???????????? provision</li>
-</ul></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>7.3 เธชเธดเนเธเนเธงเธ”เธฅเนเธญเธกเนเธฅเธฐ ??????????????????</h3></div><div class="subsection-body prose"><ul>
-<li>เธซเธฒเธเนเธกเนเธกเธตเธเธเธซเธกเธฒเธข เนเธ•เนเธเธดเธเธเธฒเธฃเธเธฃเธฐเธเธฒเธจเธเนเธขเธเธฒเธขเธเธงเธฒเธกเธฃเธฑเธเธเธดเธ”เธเธญเธเธ•เนเธญเธชเธดเนเธเนเธงเธ”เธฅเนเธญเธกเนเธงเนเธเธฑเธ”เน€เธเธ</li>
-<li>เน€เธกเธทเนเธญเน€เธเธดเธ”เน€เธซเธ•เธธเธฃเธฑเนเธงเนเธซเธฅเธซเธฃเธทเธญเธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธข ??????????????? + ?????????????????? เธญเธฒเธเธ—เธณเนเธซเนเน€เธเธดเธ” ??????????????????? เนเธ”เน</li>
-</ul></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>7.4 เธซเธฒเธเนเธกเนเธกเธต ??????????????????? เนเธฅเธฐเนเธกเนเธกเธต ???????????????????</h3></div><div class="subsection-body prose"><ul>
-<li>เนเธกเนเธเธนเนเธเธฃเธดเธซเธฒเธฃ โ€เธเธฒเธ”เธงเนเธฒเธญเธฒเธเธ•เนเธญเธเธเนเธฒเธขโ€ เธเนเธขเธฑเธเนเธกเนเธเธญ</li>
-<li>เธ–เนเธฒเนเธกเนเธกเธต ???????????????????? เธเนเธญเธ เธซเนเธฒเธกเธเธฃเธฐเนเธ”เธ”เนเธเธ•เธฑเนเธ provision</li>
-</ul></div></article>
+<header class="section-head"><p class="section-kicker">Part 03</p><h2>Owner-occupied property คืออะไร</h2></header>
+<div class="section-intro prose"><p><code>Owner-occupied property</code> คืออสังหาริมทรัพย์ที่กิจการถือไว้เพื่อ</p><ul>
+<li>ใช้ในการผลิต</li>
+<li>ใช้จัดหาสินค้าและบริการ</li>
+<li>ใช้เป็นสำนักงานเพื่อการบริหาร</li>
+</ul><p>หัวใจสำคัญคือ <code>แหล่งที่มาของกระแสเงินสด</code></p><ul>
+<li>ถ้าเป็น <code>Investment Property</code> กระแสเงินสดจะมาจากตัวทรัพย์โดยตรง</li>
+<li>ถ้าเป็น <code>Owner-occupied property</code> กระแสเงินสดจะมาจากกิจกรรมทางธุรกิจที่ใช้ทรัพย์นั้นเป็นส่วนประกอบ</li>
+</ul><p>ตัวอย่าง:</p><ul>
+<li>โรงงานผลิตเสื้อผ้าให้รายได้จากการขายเสื้อผ้า ไม่ได้มาจากตัวอาคารโรงงานโดยตรง</li>
+</ul><p>ดังนั้น ทรัพย์ที่ใช้งานเองจะไปอยู่ภายใต้มาตรฐานของ <code>PPE</code></p><hr/></div>
 </section>
-<section class="sheet-section theme-default" data-title="8. เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน" id="8-เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน">
+<section class="sheet-section theme-default" id="6-operating-lease-vs-finance-lease-ในมุมผู้ให้เช่า" data-title="6) Operating Lease vs Finance Lease ในมุมผู้ให้เช่า">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 09</p><h2>เธฅเธณเธ”เธฑเธเธเธฒเธฃเธเธดเธ”เน€เธงเธฅเธฒเน€เธเธญเนเธเธ—เธขเน</h2></header>
-<div class="section-intro prose"><p>เนเธซเนเธเธดเธ”เธ•เธฒเธกเธฅเธณเธ”เธฑเธเธเธตเน:</p><ol>
-<li>เธกเธต <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เธซเธฃเธทเธญเนเธกเน</li>
-<li>เธ–เนเธฒเธกเธต เธ เธฒเธฃเธฐเธเธฑเนเธเธ—เธณเนเธซเนเน€เธเธดเธ” <strong>เธเนเธญเธเธณเธซเธเธ”เธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</strong> เธซเธฃเธทเธญเนเธกเน</li>
-<li>เธ–เนเธฒเธกเธต เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เน <strong>เธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</strong> เธซเธฃเธทเธญเนเธกเน</li>
-</ol></div>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเธฅเธฅเธฑเธเธเนเธเธฅเธฒเธขเธ—เธฒเธ</h3></div><div class="subsection-body prose"><ul>
-<li>เนเธกเนเธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ -&gt; เนเธกเนเธ•เนเธญเธเธ—เธณเธญเธฐเนเธฃ เธซเธฃเธทเธญเธเธดเธเธฒเธฃเธ“เธฒเธงเนเธฒเน€เธเนเธเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ—เธตเนเธญเธฒเธเธกเธตเธญเธขเธนเน</li>
-<li>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเนเธกเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ + เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ เนเธ•เนเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธกเนเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li>เธกเธตเธเธฃเธ 3 เธเนเธญ -&gt; provision</li>
-</ul></div></article>
-</section>
-</div>
-</section>
-<section class="sheet-group" data-group-title="???????????? เนเธฅเธฐเธเธฃเธ“เธตเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ" id="measurement-cases">
-<div class="group-head">
-<div class="group-meta">
-<p class="group-kicker">Module 03</p>
-<p class="group-kicker">5 sections</p>
-</div>
-<h2>เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธฅเธฐเธเธฃเธ“เธตเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเธชเธณเธเธฑเธ</h2>
-<p class="group-description">เธ•เนเธญเธ”เนเธงเธขเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ” best เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธธเธเธฑเธ decommissioning เนเธฅเธฐเธเธเน€เธซเธฅเนเธเธ—เธตเนเธเธญเธเธญเธญเธเธชเธญเธเนเธเธชเนเธงเธเธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ</p>
-<nav aria-label="???????????? เนเธฅเธฐเธเธฃเธ“เธตเธงเธฑเธ”เธกเธนเธฅเธเนเธฒ" class="group-nav"><a class="group-link" href="#9-tas-10" title="9. TAS 10: ?????????????????????????????????">TAS 10</a><a class="group-link" href="#10-measurement-เธเธญเธ-provision" title="10. ???????????? เธเธญเธ Provision">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#11-time-value-of-money-เนเธฅเธฐ-long-term-provision" title="11. ???????????????????? เนเธฅเธฐ Long-term Provision">เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</a><a class="group-link" href="#12-decommissioning-restoration-เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ-ppe" title="12. Decommissioning, Restoration เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ PPE">Decommissioning</a><a class="group-link" href="#13-5-เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ" title="13. 5 เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ">5 pitfalls</a></nav>
-</div>
-<div class="group-body">
-<section class="sheet-section theme-review" data-title="9. TAS 10: ?????????????????????????????????" id="9-tas-10">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 10</p><h2>TAS 10: เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ เธฒเธขเธซเธฅเธฑเธเธฃเธญเธเธฃเธฐเธขเธฐเน€เธงเธฅเธฒเธฃเธฒเธขเธเธฒเธ</h2></header>
-<div class="section-intro prose"><p>เนเธเธเธฒเธฃเธเธฃเธฐเน€เธกเธดเธ provision เธ•เนเธญเธเธ”เธนเธเนเธญเธกเธนเธฅเธ–เธถเธ <strong>เธงเธฑเธเธ—เธตเนเธเธเธเธฒเธฃเน€เธเธดเธเนเธ”เนเธฃเธฑเธเธญเธเธธเธกเธฑเธ•เธดเนเธซเนเธญเธญเธ (authorized for issue)</strong> เนเธกเนเนเธเนเธซเธขเธธเธ”เธ—เธตเนเธงเธฑเธเธชเธดเนเธเธเธงเธ”</p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>9.1 เธเธฃเธฐเน€เธ เธ—เธเธญเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เน</h3></div><div class="subsection-body prose"><ol>
-<li><strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเธ•เนเธญเธเธเธฃเธฑเธเธเธฃเธธเธเธฃเธฒเธขเธเธฒเธฃ (Adjusting events)</strong><br/>
-   เนเธซเนเธซเธฅเธฑเธเธเธฒเธเน€เธเธดเนเธกเน€เธ•เธดเธกเน€เธเธตเนเธขเธงเธเธฑเธเธชเธ–เธฒเธเธฐเธ—เธตเนเธกเธตเธญเธขเธนเนเนเธฅเนเธง เธ“ เธงเธฑเธเธชเธดเนเธเธเธงเธ”</li>
-<li><strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเนเธกเนเธ•เนเธญเธเธเธฃเธฑเธเธเธฃเธธเธเธฃเธฒเธขเธเธฒเธฃ (Non-adjusting events)</strong><br/>
-   เน€เธเนเธเธชเธ–เธฒเธเธเธฒเธฃเธ“เนเนเธซเธกเนเธ—เธตเนเน€เธเธดเนเธเน€เธเธดเธ”เธซเธฅเธฑเธเธงเธฑเธเธชเธดเนเธเธเธงเธ”</li>
-</ol></div></article>
-<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>9.2 เธ•เธฒเธฃเธฒเธ logic เธ—เธตเนเธ–เธญเธ”เธเธฒเธเธชเนเธฅเธ”เน</h3></div><div class="subsection-body prose"><p>เธชเธกเธกเธ•เธดเธงเธฑเธเธญเธเธธเธกเธฑเธ•เธดเธเธเธเธทเธญ 1 เธกเธตเธเธฒเธเธก 20X3</p><div class="table-wrap"><table>
+<header class="section-head"><p class="section-kicker">Part 04</p><h2>Operating Lease vs Finance Lease ในมุมผู้ให้เช่า</h2></header>
+<div class="section-intro prose"><div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Past event</th>
-<th>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ (Probable)</th>
-<th>Reliable เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ</th>
-<th>เธเธฅเธฅเธฑเธเธเนเนเธเธเธ 20X2</th>
+<th>ประเด็น</th>
+<th>Operating Lease</th>
+<th>Finance Lease</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>12 เธ.เธ. 20X2</td>
-<td>25 เธ.เธ. 20X2</td>
-<td>26 เธก.เธ. 20X3</td>
-<td>เธ•เธฑเนเธ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
+<td>เนื้อหาทางเศรษฐกิจ</td>
+<td>ให้เช่าใช้พื้นที่/สินทรัพย์</td>
+<td>คล้ายการให้สินเชื่อหรือขายผ่อน</td>
 </tr>
 <tr>
-<td>12 เธ.เธ. 20X2</td>
-<td>18 เธก.เธ. 20X3</td>
-<td>26 เธก.เธ. 20X3</td>
-<td>เธ•เธฑเนเธ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
+<td>ความเสี่ยงและผลตอบแทน</td>
+<td>ส่วนใหญ่ยังอยู่กับผู้ให้เช่า</td>
+<td>โอนไปยังผู้เช่าเกือบทั้งหมด</td>
 </tr>
 <tr>
-<td>3 เธก.เธ. 20X3</td>
-<td>3 เธก.เธ. 20X3</td>
-<td>11 เธก.เธ. 20X3</td>
-<td>เธซเนเธฒเธกเธ•เธฑเนเธเนเธเธเธต 20X2</td>
+<td>การจัดประเภทสินทรัพย์</td>
+<td>ยังแสดงตัวทรัพย์อยู่</td>
+<td>ตัดตัวทรัพย์ออกและรับรู้เป็นลูกหนี้</td>
 </tr>
 <tr>
-<td>23 เธ.เธ. 20X2</td>
-<td>24 เธ.เธ. 20X3</td>
-<td>15 เธกเธต.เธ. 20X3</td>
-<td>เธ•เธฑเนเธเนเธเธเธต 20X2 เนเธกเนเนเธ”เน เน€เธเธฃเธฒเธฐ เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ เธกเธฒเธเนเธฒเธเธงเนเธฒเธงเธฑเธเธญเธเธธเธกเธฑเธ•เธดเธเธ เธเธถเธเธเธเธ—เธตเน เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</td>
-</tr>
-</tbody>
-</table></div></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>9.3 เธ•เธฑเธงเธญเธขเนเธฒเธเธขเนเธณเธเธฒเธเธเธ—เธชเธเธ—เธเธฒ</h3></div><div class="subsection-body prose"><ul>
-<li><strong>Centaur</strong>: เธเธฒเธขเน€เธเธฃเธทเนเธญเธเธเธฑเธเธฃเธเธฅเธฒเธขเธเธต 25X1, เธฅเธนเธเธเนเธฒเธเธเธเธฑเธเธซเธฒ เธก.เธ. 25X2, เธเธฃเธฐเน€เธกเธดเธเธเนเธฒเนเธเนเธเนเธฒเธขเนเธ”เนเธเนเธญเธเธงเธฑเธเธญเธญเธเธเธ -&gt; เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธเธทเธญเธเธฒเธฃเธเธฒเธขเนเธเธเธต 25X1 เนเธฅเธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เน เธก.เธ. เน€เธเนเธ adjusting evidence -&gt; เธ•เธฑเนเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเนเธเธเธ 25X1</li>
-<li><strong>Griffin</strong>: เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธเนเธฅเนเธง เนเธ•เนเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธ—เธตเนเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเธกเธฒเนเธกเนเธ—เธฑเธเธงเธฑเธเธญเธญเธเธเธ -&gt; เธเธเธเธตเน€เธ”เธดเธกเธ•เธฑเนเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเนเธกเนเนเธ”เน -&gt; เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li><strong>Phoenix</strong>: เนเธญเธเธฒเธชเนเธเนเธเธ”เธตเน€เธเธฅเธตเนเธขเธเธเธฒเธ 30% เน€เธเนเธ 80% เธเนเธญเธเธงเธฑเธเธญเธเธธเธกเธฑเธ•เธดเธเธ เน€เธเธฃเธฒเธฐเธกเธตเธซเธฅเธฑเธเธเธฒเธเนเธซเธกเน -&gt; เน€เธเนเธ adjusting event -&gt; เธขเนเธญเธเธเธฅเธฑเธเนเธเธ•เธฑเนเธ provision เนเธเธเธเธเธตเน€เธ”เธดเธก</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-accounting" data-title="10. ???????????? เธเธญเธ Provision" id="10-measurement-เธเธญเธ-provision">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 11</p><h2>เธเธฒเธฃเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเธเธญเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</h2></header>
-<div class="section-intro prose"><p>เธเธเธซเธฅเธฑเธเธเธทเธญเนเธเน <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธ—เธตเนเธ”เธตเธ—เธตเนเธชเธธเธ” (Best estimate)</strong> เธเธญเธเธฃเธฒเธขเธเนเธฒเธขเธ—เธตเนเธ•เนเธญเธเนเธเนเธเธณเธฃเธฐเธ เธฒเธฃเธฐ เธ“ เธงเธฑเธเธชเธดเนเธเธเธงเธ”</p><p>เธซเนเธฒเธก:<br/>
-- เน€เธ”เธฒเธ•เธฑเธงเน€เธฅเธเธฅเธญเธข เน<br/>
-- เนเธเนเธขเธญเธ”เธ—เธตเนเธเธนเนเธเธฃเธ“เธตเน€เธฃเธตเธขเธเธฃเนเธญเธเนเธ”เธขเธญเธฑเธ•เนเธเธกเธฑเธ•เธด</p><p>เธ•เนเธญเธเธญเธฒเธจเธฑเธข:<br/>
-- เธชเธ–เธดเธ•เธด<br/>
-- เธเนเธญเธกเธนเธฅเนเธเธญเธ”เธตเธ•<br/>
-- เธเธงเธฒเธกเน€เธซเนเธเธเธนเนเน€เธเธตเนเธขเธงเธเธฒเธ เน€เธเนเธ เธ—เธเธฒเธข เธงเธดเธจเธงเธเธฃ</p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>10.1 เธงเธดเธเธตเน€เธฅเธทเธญเธเธ•เธฑเธงเน€เธฅเธ 4 เธเธฃเธ“เธต</h3></div><div class="subsection-body prose"><ol>
-<li><strong>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong><br/>
-   เนเธเน <strong>เธกเธนเธฅเธเนเธฒเธเธฒเธ”เธซเธงเธฑเธ (Expected value)</strong></li>
-<li><strong>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong><br/>
-   เนเธเน <strong>เธเธฅเธฅเธฑเธเธเนเธฃเธฒเธขเธเธฃเธ“เธตเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เธกเธฒเธเธ—เธตเนเธชเธธเธ”</strong></li>
-<li><strong>เธเนเธงเธเธเธฅเธฅเธฑเธเธเนเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เน€เธ—เนเธฒเธเธฑเธ</strong><br/>
-   เนเธเน <strong>เธเนเธฒเธเธถเนเธเธเธฅเธฒเธ (Midpoint)</strong></li>
-<li><strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong><br/>
-   เนเธเน <strong>เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธธเธเธฑเธ (Present Value: PV)</strong> เธซเธฒเธเธเธฅเธเธญเธ time value of money เธกเธตเธชเธฒเธฃเธฐเธชเธณเธเธฑเธ</li>
-</ol></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>10.2 เธ•เธฑเธงเธญเธขเนเธฒเธเธเธณเธเธงเธ“</h3></div><div class="subsection-body prose"><h4>เธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒเนเธเธเธเธฃเธฐเธเธฒเธเธฃเธเธณเธเธงเธเธกเธฒเธ</h4><p>เธ–เนเธฒเธเธฒเธขเธชเธดเธเธเนเธฒเนเธฅเธฐเธกเธตเธชเธ–เธดเธ•เธด:<br/>
-- 75% เนเธกเนเน€เธชเธตเธข<br/>
-- 20% เน€เธชเธตเธขเน€เธฅเนเธเธเนเธญเธข เธเนเธฒเนเธเนเธเนเธฒเธข 1,000,000<br/>
-- 5% เน€เธชเธตเธขเธกเธฒเธ เธเนเธฒเนเธเนเธเนเธฒเธข 4,000,000</p><p>เธเธณเธเธงเธ“:</p><pre class="ledger-block"><code class="language-text">เธ•เนเธเธ—เธธเธเธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒ
-= (75% x 0) + (20% x 1,000,000) + (5% x 4,000,000)
-= 400,000
-</code></pre><p>เธฃเธฒเธขเธเธฒเธฃเธเธฑเธเธ—เธถเธเธเธฑเธเธเธต:</p><pre class="ledger-block"><code class="language-text">Dr เธเนเธฒเนเธเนเธเนเธฒเธขเธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธ 400,000
-Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธเธฒเธเธเธฒเธฃเธฃเธฑเธเธเธฃเธฐเธเธฑเธ 400,000
-</code></pre><h4>เธเธฃเธญเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</h4><ul>
-<li>เธเธ”เธตเธเธงเธฒเธกเน€เธ”เธตเธขเธง เธ–เนเธฒเธ—เธเธฒเธขเธเธฃเธฐเน€เธกเธดเธเธงเนเธฒเนเธเนเนเธเนเนเธฅเธฐเธขเธญเธ”เน€เธซเธกเธฒเธฐเธชเธกเธเธทเธญ 900,000 -&gt; เนเธเน 900,000</li>
-<li>เธ–เนเธฒเธเธนเนเธเธฃเธ“เธตเน€เธฃเธตเธขเธ 1,000,000 เนเธ•เน best เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃ เธ•เธฒเธกเธ—เธเธฒเธขเธเธทเธญ 500,000 -&gt; เนเธเน 500,000 เนเธกเนเนเธเนเธขเธญเธ” claim</li>
-</ul><h4>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธ—เธตเนเนเธกเนเธ•เนเธญเธเธเธฃเธฑเธเธเธฃเธธเธเธฃเธฒเธขเธเธฒเธฃ</h4><ul>
-<li>เธซเธฒเธเธ•เนเธเธ—เธธเธเธญเธขเธนเนเนเธเธเนเธงเธ 2,000-4,000 เนเธฅเธฐเธ—เธธเธเธเธธเธ”เธกเธตเนเธญเธเธฒเธชเน€เธ—เนเธฒเธเธฑเธ</li>
-<li>เนเธเน <strong>midpoint = 3,000</strong></li>
-</ul><h4>เธ•เธฑเธงเธญเธขเนเธฒเธเธเธชเธก large population + midpoint</h4><p>เธเธฃเธ“เธตเธฃเธฑเธเธเธฃเธฐเธเธฑเธเธชเธดเธเธเนเธฒ 100,000 เธเธดเนเธ:<br/>
-- 80% เนเธกเนเน€เธชเธตเธข<br/>
-- 15% เน€เธชเธตเธขเน€เธฅเนเธเธเนเธญเธข เธเนเธฒเนเธเนเธเนเธฒเธข 500 เธ•เนเธญเธเธดเนเธ<br/>
-- 5% เน€เธชเธตเธขเธฃเธธเธเนเธฃเธ เธเนเธฒเนเธเนเธเนเธฒเธขเธ•เนเธญเธเธดเนเธเธญเธขเธนเนเนเธเธเนเธงเธ 2,000-4,000 เนเธเธ equally likely</p><p>เธชเธกเธกเธ•เธดเนเธเน:<br/>
-- midpoint เธเธญเธเธเธฃเธ“เธตเน€เธชเธตเธขเธฃเธธเธเนเธฃเธ = 3,000<br/>
-- expected cost เธ•เนเธญเธซเธเนเธงเธข = <code>(0.80 x 0) + (0.15 x 500) + (0.05 x 3000) = 225</code><br/>
-- total provision = <code>225 x 100,000 = 22,500,000</code></p></div></article>
-<article class="subsection trap"><div class="subsection-head"><span class="subsection-label">TRAP</span><h3>10.3 Single obligation เธซเนเธฒเธกเนเธเน expected value เนเธเธเธเธดเธ”เธเธฃเธ“เธต</h3></div><div class="subsection-body prose"><p>เธ–เนเธฒเธเธ”เธตเน€เธ”เธตเธขเธงเธกเธตเธชเธญเธเธเธฅเธฅเธฑเธเธเน:<br/>
-- 65% เธเนเธฒเธข 3,000,000<br/>
-- 35% เธเนเธฒเธข 5,000,000</p><p>เธเธฃเธ“เธตเธเธตเน <strong>เนเธกเนเนเธเน expected value</strong><br/>
-เนเธ•เนเนเธเน <strong>most likely outcome = 3,000,000</strong></p></div></article>
-</section>
-<section class="sheet-section theme-accounting" data-title="11. ???????????????????? เนเธฅเธฐ Long-term Provision" id="11-time-value-of-money-เนเธฅเธฐ-long-term-provision">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 12</p><h2>เธกเธนเธฅเธเนเธฒเธเธญเธเน€เธเธดเธเธ•เธฒเธกเน€เธงเธฅเธฒ เนเธฅเธฐเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธฃเธฐเธขเธฐเธขเธฒเธง</h2></header>
-<div class="section-intro prose"><p>เธ–เนเธฒเธ เธฒเธฃเธฐเน€เธเธดเธ”เนเธเธฃเธฐเธขเธฐเธขเธฒเธงเนเธฅเธฐเธเธฅเธเธญเธเน€เธงเธฅเธฒเน€เธเนเธเธชเธฒเธฃเธฐเธชเธณเธเธฑเธ เธ•เนเธญเธเนเธเน <strong>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</strong></p></div>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธซเธฅเธฑเธเธ—เธตเนเธ•เนเธญเธเธเธณ</h3></div><div class="subsection-body prose"><ul>
-<li>เนเธเน <strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ</strong> เนเธกเนเนเธเนเธขเธญเธ”เธ—เธตเนเธเธธเธกเธเธเธซเธฃเธทเธญเธเธนเนเธเธฃเธ“เธตเน€เธฃเธตเธขเธเธฃเนเธญเธ</li>
-<li>เน€เธกเธทเนเธญเน€เธงเธฅเธฒเธเนเธฒเธเนเธ เธกเธนเธฅเธเนเธฒเธซเธเธตเนเธชเธดเธเธเธฐเธเนเธญเธข เน เน€เธเธดเนเธกเธเธถเนเธเธเธฒเธเธเธฒเธฃ <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</strong></li>
-<li>เธเธฒเธฃเน€เธเธดเนเธกเธเธถเนเธเธเธตเนเธ•เนเธญเธเธเธฑเธเธ—เธถเธเน€เธเนเธ <strong>เธ”เธญเธเน€เธเธตเนเธขเธเนเธฒเธข / เธ•เนเธเธ—เธธเธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธ</strong></li>
-<li>เนเธ”เธขเธ—เธฑเนเธงเนเธ provision เธฃเธฐเธขเธฐเธขเธฒเธงเธเธฐเธญเธขเธนเนเนเธ <strong>เธเนเธขเธเธฒเธขเธ—เธตเนเธเธฃเธฐเธเธฒเธจเนเธงเน</strong> เธเธเธเธงเนเธฒเธเธฐเน€เธซเธฅเธทเธญเธญเธฒเธขเธธเธเนเธญเธขเธเธงเนเธฒ 1 เธเธต</li>
-</ul></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธ: เน€เธซเธกเธทเธญเธเนเธฃเน</h3></div><div class="subsection-body prose"><ul>
-<li>เธเธธเธกเธเธเน€เธฃเธตเธขเธเธฃเนเธญเธ 100 เธฅเนเธฒเธเธเธฒเธ—</li>
-<li>เธเนเธฒเธขเธงเธดเธจเธงเธเธฃเธเธฃเธฐเน€เธกเธดเธเธงเนเธฒเธเนเธฒเนเธเนเธเนเธฒเธขเธเธฃเธดเธเธ—เธตเนเธ”เธตเธ—เธตเนเธชเธธเธ”เธเธทเธญ 40 เธฅเนเธฒเธเธเธฒเธ—</li>
-<li>เธเธถเธเธ•เนเธญเธเนเธเน <strong>40 เธฅเนเธฒเธเธเธฒเธ—</strong> เน€เธเนเธเธ•เนเธเธ—เธฒเธ เนเธฅเนเธงเธเธดเธ”เธฅเธ”เน€เธเนเธ PV</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-accounting" data-title="12. Decommissioning, Restoration เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ PPE" id="12-decommissioning-restoration-เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ-ppe">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 13</p><h2>Decommissioning, Restoration เนเธฅเธฐเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ PPE</h2></header>
-<div class="section-intro prose"><p><strong>เธเนเธฒเธฃเธทเนเธญเธ–เธญเธเธซเธฃเธทเธญเธเธทเนเธเธเธนเธชเธ–เธฒเธเธ—เธตเน</strong> เนเธ•เธเธ•เนเธฒเธเธเธฒเธ provision เธเธฃเธฐเน€เธ เธ—เธญเธทเนเธ เน€เธเธฃเธฒเธฐเธกเธตเธเธงเธฒเธกเน€เธเธทเนเธญเธกเธเธฑเธ <strong>TAS 16: PPE</strong></p></div>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.1 เธ—เธณเนเธกเธ•เนเธเธเธงเธ”เธ•เนเธญเธเน€เธ”เธเธดเธ•เน€เธเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน</h3></div><div class="subsection-body prose"><p>เน€เธซเธ•เธธเธเธฅ:</p><ol>
-<li>เธเนเธฒเธฃเธทเนเธญเธ–เธญเธเน€เธเนเธเธ•เนเธเธ—เธธเธเธ—เธตเนเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธกเนเนเธ”เนเน€เธเธทเนเธญเนเธซเนเนเธ”เนเธกเธฒเธเธถเนเธเธชเธดเธ—เธเธดเนเธเนเธชเธดเธเธ—เธฃเธฑเธเธขเน</li>
-<li>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธเธฑเนเธเธชเธฃเนเธฒเธเธเธฃเธฐเนเธขเธเธเนเน€เธเธดเธเน€เธจเธฃเธฉเธเธเธดเธเธซเธฅเธฒเธขเธเธต</li>
-<li>เธเธถเธเธ•เนเธญเธ capitalize เน€เธเนเธเธ•เนเธเธ—เธธเธเธเธญเธ PPE เนเธฅเนเธงเธ—เธขเธญเธขเธ•เธฑเธ”เน€เธเนเธเธเนเธฒเน€เธชเธทเนเธญเธกเธฃเธฒเธเธฒ</li>
-</ol></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.2 เธ—เธณเนเธก provision เธเธฒเธเธเธเธดเธ”เธฅเธเน€เธเนเธ expense เธ—เธฑเธเธ—เธต</h3></div><div class="subsection-body prose"><ul>
-<li><strong>Lawsuit</strong> เนเธกเนเธชเธฃเนเธฒเธเธเธฃเธฐเนเธขเธเธเนเธญเธเธฒเธเธ• -&gt; เธฃเธฑเธเธฃเธนเนเน€เธเนเธ loss/expense</li>
-<li><strong>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธ”เธขเธญเธเธธเธกเธฒเธ</strong> เน€เธเนเธเธ•เนเธเธ—เธธเธเธ—เธตเนเธเธนเธเธเธฑเธเธฃเธฒเธขเนเธ”เนเนเธเธญเธ”เธตเธ• -&gt; เธฃเธฑเธเธฃเธนเนเน€เธเนเธ warranty expense</li>
-<li><strong>เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</strong> เนเธกเนเธเนเธญเธเธฃเธฐเนเธขเธเธเนเธญเธเธฒเธเธ• -&gt; เธฃเธฑเธเธฃเธนเน loss</li>
-</ul></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>12.3 เธ•เธฑเธงเธญเธขเนเธฒเธ Eco-Plant</h3></div><div class="subsection-body prose"><p>เธเนเธญเธกเธนเธฅ:<br/>
-- เธเนเธฒเนเธเนเธเนเธฒเธขเธฃเธทเนเธญเธ–เธญเธเนเธเธญเธตเธ 4 เธเธต = 10,000,000<br/>
-- เธญเธฑเธ•เธฃเธฒเธเธดเธ”เธฅเธ” 5%<br/>
-- PV factor 4 เธเธต = 0.8227</p><p>Initial measurement:</p><pre class="ledger-block"><code class="language-text">PV = 10,000,000 x 0.8227 = 8,227,000
-</code></pre><p>Initial journal entry:</p><pre class="ledger-block"><code class="language-text">Dr เธชเนเธงเธเธเธฃเธฑเธเธเธฃเธธเธเนเธฃเธเธเธฒเธ / PPE     8,227,000
-Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ for decommissioning 8,227,000
-</code></pre><p>Unwinding of discount เธเธตเธ—เธตเน 1:</p><pre class="ledger-block"><code class="language-text">Interest = 8,227,000 x 5% = 411,350
-
-Dr Interest expense             411,350
-Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ for decommissioning 411,350
-</code></pre></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.4 เธงเธเธเธฃเธเธตเธงเธดเธ•เธเธญเธเธฃเธฒเธขเธเธฒเธฃ</h3></div><div class="subsection-body prose"><p>เธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน:<br/>
-- PPE เธ—เธตเน capitalize เนเธงเนเธเธฐเธ–เธนเธเธเธดเธ”เธเนเธฒเน€เธชเธทเนเธญเธก เน€เธเนเธ <code>8,227,000 / 4 = 2,056,750</code> เธ•เนเธญเธเธตเนเธเธเน€เธชเนเธเธ•เธฃเธ</p><p>เธเธฑเนเธเธซเธเธตเนเธชเธดเธ:<br/>
-- เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ เธเธฐเน€เธเธดเนเธกเธเธถเนเธเน€เธฃเธทเนเธญเธข เน เธเธฒเธ unwinding of discount เธเธเธ–เธถเธเธขเธญเธ”เธ—เธตเนเธ•เนเธญเธเธเนเธฒเธขเธเธฃเธดเธ</p><p>เธเธฅเธฒเธขเธ—เธฒเธ:<br/>
-- เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ–เธนเธเธ•เธฑเธ”เธเนเธฒเน€เธชเธทเนเธญเธกเธเธเน€เธซเธฅเธทเธญเธจเธนเธเธขเน<br/>
-- เธซเธเธตเนเธชเธดเธเน€เธ•เธดเธเนเธ•เธเธเนเธ•เธฐ 10,000,000<br/>
-- เน€เธกเธทเนเธญเธเนเธฒเธขเธเธฃเธดเธ:</p><pre class="ledger-block"><code class="language-text">Dr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ 10,000,000
-Cr Cash      10,000,000
-</code></pre></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>12.5 เธซเธฒเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธเนเธฒเธฃเธทเนเธญเธ–เธญเธเน€เธเธฅเธตเนเธขเธเนเธเธญเธเธฒเธเธ•</h3></div><div class="subsection-body prose"><p>เธซเธฒเธเน€เธเนเธ decommissioning provision เธ—เธตเนเธเธนเธเธเธฑเธ PPE เนเธฅเนเธงเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเน€เธเธดเนเธกเธเธถเนเธเธ เธฒเธขเธซเธฅเธฑเธ:</p><ul>
-<li><strong>เนเธกเนเนเธขเธเธชเนเธงเธเน€เธเธดเนเธกเน€เธเนเธฒเธเธฒเธ”เธ—เธธเธเธ—เธฑเธเธ—เธต</strong></li>
-<li>เนเธ•เนเนเธซเนเธเธณเธชเนเธงเธเน€เธเธดเนเธก <strong>เนเธเธเธฃเธฑเธเธกเธนเธฅเธเนเธฒเธชเธดเธเธ—เธฃเธฑเธเธขเน (PPE)</strong> เนเธฅเนเธงเธเธณเธเธงเธ“เธเนเธฒเน€เธชเธทเนเธญเธกเนเธซเธกเนเนเธเธญเธฒเธขเธธเธ—เธตเนเน€เธซเธฅเธทเธญ</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-default" data-title="13. 5 เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ" id="13-5-เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 14</p><h2>5 เธเธเน€เธซเธฅเนเธเนเธฅเธฐเธซเธฅเธธเธกเธเธฃเธฒเธเธชเธณเธเธฑเธ</h2></header>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.1 เธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเนเธเธญเธเธฒเธเธ•</h3></div><div class="subsection-body prose"><ul>
-<li>เธซเนเธฒเธกเธ•เธฑเนเธ provision เธชเธณเธซเธฃเธฑเธเธเธฅเธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธฒเธฃเธ”เธณเน€เธเธดเธเธเธฒเธเนเธเธญเธเธฒเธเธ•</li>
-<li>เน€เธซเธ•เธธเธเธฅ: เธขเธฑเธเนเธกเนเธกเธต ???????????????????? เธเธฒเธ ??????????????? เนเธฅเธฐเธเธดเธเธเธฒเธฃเธขเธฑเธเธกเธตเธ—เธฒเธเน€เธฅเธทเธญเธเธซเธฅเธตเธเน€เธฅเธตเนเธขเธเนเธ”เน</li>
-</ul></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.2 เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธเธฒเธเธเธฒเธฃเธเธฃเธฑเธเนเธเธฃเธเธชเธฃเนเธฒเธเธเธธเธฃเธเธดเธ</h3></div><div class="subsection-body prose"><p>เธเธฐเธ•เธฑเนเธเนเธ”เนเธเนเธ•เนเธญเน€เธกเธทเนเธญเธเธฃเธเธ—เธฑเนเธ 2 เธเนเธญ:</p><ol>
-<li>เธกเธตเนเธเธ restructuring เธญเธขเนเธฒเธเน€เธเนเธเธ—เธฒเธเธเธฒเธฃเนเธฅเธฐเธเธฑเธ”เน€เธเธ</li>
-<li>เนเธ”เนเธเธฃเธฐเธเธฒเธจเนเธเธเธเธฑเนเธเนเธเนเธเธนเนเนเธ”เนเธฃเธฑเธเธเธฅเธเธฃเธฐเธ—เธเนเธฅเนเธง เธเธเน€เธเธดเธ” ???????????????????</li>
-</ol><p>เธซเนเธฒเธกเธฃเธงเธก:<br/>
-- <strong>Retraining</strong><br/>
-- <strong>Relocation</strong></p><p>เน€เธเธฃเธฒเธฐเธ–เธทเธญเน€เธเนเธเธฃเธฒเธขเธเนเธฒเธขเน€เธเธทเนเธญเธชเธฃเนเธฒเธเธเธฃเธฐเนเธขเธเธเนเนเธเธญเธเธฒเธเธ• เนเธกเนเนเธเนเธ เธฒเธฃเธฐเธเธฒเธเธญเธ”เธตเธ•</p></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.3 เธชเธฑเธเธเธฒเธ—เธตเนเธกเธตเธ เธฒเธฃเธฐเน€เธเธดเธเธเธงเนเธฒเธเธฃเธฐเนเธขเธเธเน</h3></div><div class="subsection-body prose"><p>เธงเธฑเธ”เธ—เธตเนเธกเธนเธฅเธเนเธฒเธ•เนเธณเธเธงเนเธฒเธฃเธฐเธซเธงเนเธฒเธ cost of fulfilling เธเธฑเธ penalty to exit</p></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>13.4 เน€เธเธดเธเธเธ”เน€เธเธขเธ—เธตเนเธเธฐเนเธ”เนเธฃเธฑเธเธเธทเธ</h3></div><div class="subsection-body prose"><p>เธ–เนเธฒเธกเธตเธเธธเธเธเธฅเธ—เธตเนเธชเธฒเธกเธเธฐเธเธ”เน€เธเธข เน€เธเนเธ เธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเธ เธฑเธข:</p><ul>
-<li>เนเธเธเธเธ”เธธเธฅ <strong>เธซเนเธฒเธกเธซเธฑเธเธเธฅเธ</strong></li>
-<li>เธ•เนเธญเธเนเธชเธ”เธ <strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong> เนเธฅเธฐ <strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธข</strong> เนเธขเธเธเธฑเธ</li>
-<li>เธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเนเธฃเธฑเธเธฃเธนเนเนเธ”เนเธเนเธ•เนเธญเน€เธกเธทเนเธญ <strong>เนเธ—เธเธเธฐเนเธเนเธเธญเธ (virtually certain)</strong> เธงเนเธฒเธเธฐเนเธ”เนเธฃเธฑเธเธเธ”เน€เธเธข</li>
-<li>เนเธเธเธเธเธณเนเธฃเธเธฒเธ”เธ—เธธเธ เธชเธฒเธกเธฒเธฃเธ–เนเธชเธ”เธเน€เธเนเธ <strong>เธเนเธฒเนเธเนเธเนเธฒเธขเธชเธธเธ—เธเธด</strong> เนเธ”เน</li>
-</ul><h4>เธเธฃเธ“เธตเธกเธตเธเนเธฒเน€เธชเธตเธขเธซเธฒเธขเธชเนเธงเธเนเธฃเธ (Deductible clause)</h4><p>เนเธซเนเธเธดเธ”เนเธเธ <strong>เธ•เธฑเนเธเธซเธเธตเนเธชเธดเธเน€เธ•เนเธกเธเธณเธเธงเธ เนเธ•เนเธฃเธฑเธเธฃเธนเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธขเน€เธเธเธฒเธฐเธชเนเธงเธเธ—เธตเนเธเธฃเธฐเธเธฑเธเธเธฐเธเนเธฒเธขเธเธฃเธดเธ</strong></p><ol>
-<li>เธ•เธฑเนเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเน€เธ•เนเธกเธเธณเธเธงเธเธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธข</li>
-<li>เธฃเธฑเธเธฃเธนเนเธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธขเนเธ”เนเน€เธเธเธฒเธฐเธขเธญเธ”เธ—เธตเนเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเธเธฐเธเนเธฒเธขเธเธฃเธดเธ</li>
-<li>เธ”เธฑเธเธเธฑเนเธเธเนเธฒเนเธเนเธเนเธฒเธขเธชเธธเธ—เธเธดเนเธเธเธเธเธณเนเธฃเธเธฒเธ”เธ—เธธเธเธเธฐเน€เธ—เนเธฒเธเธฑเธเธเนเธฒเน€เธชเธตเธขเธซเธฒเธขเธชเนเธงเธเนเธฃเธเธ—เธตเนเธเธดเธเธเธฒเธฃเธ•เนเธญเธเธฃเธฑเธเธ เธฒเธฃเธฐเน€เธญเธ</li>
-</ol><p><strong>เธ•เธฑเธงเธญเธขเนเธฒเธ:</strong> เธเธงเธฒเธกเน€เธชเธตเธขเธซเธฒเธขเธฃเธงเธก 500,000 เธเธฒเธ—, เธเนเธฒเน€เธชเธตเธขเธซเธฒเธขเธชเนเธงเธเนเธฃเธ 50,000 เธเธฒเธ—, เธงเธเน€เธเธดเธเธเธธเนเธกเธเธฃเธญเธเน€เธเธตเธขเธเธเธญ เนเธฅเธฐเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเธขเธทเธเธขเธฑเธเธงเนเธฒเธเธฐเธเนเธฒเธข เธเธถเธเธฃเธฑเธเธฃเธนเนเธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธข 450,000 เธเธฒเธ—</p><pre><code>Dr เธเธฅเธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธ”เธตเธเธงเธฒเธก                         500,000
-Cr เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธเธเธฒเธเธเธ”เธตเธเธงเธฒเธก                 500,000
-
-Dr เธชเธดเธเธ—เธฃเธฑเธเธขเนเธชเธดเธ—เธเธดเธฃเธฑเธเธเธ”เน€เธเธขเธเธฒเธเธเธฃเธฐเธเธฑเธเธ เธฑเธข          450,000
-Cr เธเธฅเธเธฒเธ”เธ—เธธเธเธเธฒเธเธเธ”เธตเธเธงเธฒเธก                         450,000</code></pre><ul>
-<li><strong>เธเธเนเธชเธ”เธเธเธฒเธเธฐเธเธฒเธฃเน€เธเธดเธ:</strong> เนเธชเธ”เธเธชเธดเธเธ—เธฃเธฑเธเธขเน 450,000 เนเธฅเธฐเธซเธเธตเนเธชเธดเธ 500,000 เนเธขเธเธเธฑเธ</li>
-<li><strong>เธเธเธเธณเนเธฃเธเธฒเธ”เธ—เธธเธ:</strong> เนเธชเธ”เธเธเธฅเธเธฒเธ”เธ—เธธเธเธชเธธเธ—เธเธด 50,000 เธเธฒเธ—</li>
-<li>เน€เธซเธ•เธธเธเธฅเธ—เธตเนเธซเนเธฒเธกเธซเธฑเธเธเธฅเธเนเธเธเธเธ”เธธเธฅ: เน€เธเนเธฒเธซเธเธตเนเธเธนเนเน€เธชเธตเธขเธซเธฒเธขเธเธฑเธเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฑเธเน€เธเนเธเธเธเธฅเธฐเธเธนเนเธชเธฑเธเธเธฒ เนเธกเนเธเธฃเธฐเธเธฑเธเธขเธฑเธเนเธกเนเธเนเธฒเธข เธเธดเธเธเธฒเธฃเธเนเธขเธฑเธเธกเธตเธ เธฒเธฃเธฐเน€เธ•เนเธกเธเธณเธเธงเธ</li>
-</ul></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>13.5 เธเธฒเธฃเน€เธเธฅเธตเนเธขเธเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธเธญเธ decommissioning liability</h3></div><div class="subsection-body prose"><ul>
-<li>เธซเธฒเธ liability เธ—เธตเนเธเธนเธเธเธฑเธ PPE เน€เธเธฅเธตเนเธขเธ เนเธซเนเธเธฃเธฑเธเธ—เธตเน PPE เธเนเธญเธ เนเธกเนเนเธเนเธฅเธ loss เธ—เธฑเธเธ—เธต</li>
-</ul></div></article>
-</section>
-</div>
-</section>
-<section class="sheet-group" data-group-title="???????????????????? เนเธฅเธฐ Disclosure" id="contingencies-disclosure">
-<div class="group-head">
-<div class="group-meta">
-<p class="group-kicker">Module 04</p>
-<p class="group-kicker">4 sections</p>
-</div>
-<h2>เธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธเนเธฅเธฐเธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</h2>
-<p class="group-description">เธญเนเธฒเธ contingent liabilities เนเธฅเธฐ เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธs เธเธนเนเธเธฑเธ เนเธฅเนเธงเธเธดเธ”เธ”เนเธงเธข asymmetry เนเธฅเธฐ disclosure requirements เธ—เธตเนเนเธเนเธ•เธญเธเธเนเธญเธชเธญเธเธเธฅเธฒเธขเธเธ—</p>
-<nav aria-label="???????????????????? เนเธฅเธฐ Disclosure" class="group-nav"><a class="group-link" href="#14" title="14. ?????????????????????">Decision tree</a><a class="group-link" href="#15" title="15. ???????????????????????">Decision tree</a><a class="group-link" href="#16-asymmetry-เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน" title="16. Asymmetry เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน">Asymmetry</a><a class="group-link" href="#17" title="17. ????????????????????????">Decision tree</a></nav>
-</div>
-<div class="group-body">
-<section class="sheet-section theme-review" data-title="14. ?????????????????????" id="14">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 15</p><h2>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h2></header>
-<div class="section-intro prose"><p>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เธเธดเธขเธฒเธกเนเธ”เน 2 เนเธเธ</p></div>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>14.1 เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ—เธตเนเธญเธฒเธเธกเธตเธญเธขเธนเน</h3></div><div class="subsection-body prose"><p>เน€เธเธดเธ”เธเธฒเธเธญเธ”เธตเธ• เนเธ•เนเธขเธฑเธเนเธกเนเธฃเธนเนเนเธเนเธงเนเธฒเธเธดเธเธเธฒเธฃเธกเธตเธซเธเธตเนเธเธฃเธดเธเธซเธฃเธทเธญเนเธกเน เธ•เนเธญเธเธฃเธญเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธญเธเธฒเธเธ•เธกเธฒเธเธญเธเน€เธเธดเธฃเนเธก</p></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>14.2 Present obligation เธ—เธตเนเนเธกเนเธฃเธฑเธเธฃเธนเน</h3></div><div class="subsection-body prose"><p>เธฃเธนเนเนเธฅเนเธงเธงเนเธฒเธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเธ•เธฑเนเธ provision เนเธกเนเนเธ”เนเน€เธเธฃเธฒเธฐ:</p><ol>
-<li><strong>เนเธกเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></li>
-<li><strong>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</strong></li>
-</ol></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเธเธซเธฅเธฑเธ</h3></div><div class="subsection-body prose"><ul>
-<li><strong>No recognition</strong></li>
-<li>เนเธซเน <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></li>
-<li>เธขเธเน€เธงเนเธเธเธฃเธ“เธต <strong>remote</strong> -&gt; ?????????????</li>
-</ul></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธงเธฒเธกเนเธ•เธเธ•เนเธฒเธเธ—เธตเนเธ•เนเธญเธเนเธขเธเนเธซเนเธเธฑเธ”</h3></div><div class="subsection-body prose"><h4>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเธ—เธตเนเธญเธฒเธเธกเธตเธญเธขเธนเน (Possible obligation)</h4><ul>
-<li>เธขเธฑเธเน€เธ–เธตเธขเธเธเธฑเธเธญเธขเธนเนเน€เธฅเธขเธงเนเธฒ โ€เธเธดเธเธเธฒเธฃเน€เธเนเธเธเธนเนเธฃเธฑเธเธเธดเธ”เธเธฃเธดเธเนเธซเธกโ€</li>
-<li>เธจเธฒเธฅเธซเธฃเธทเธญเธเธฒเธฃเธชเธทเธเธชเธงเธเธเธณเธฅเธฑเธเธเธดเธเธฒเธฃเธ“เธฒเธเธฒเธฃเธกเธตเธญเธขเธนเนเธเธญเธเธ เธฒเธฃเธฐ</li>
-</ul><h4>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเธขเธฑเธเนเธกเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธเธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</h4><ul>
-<li>เธฃเธนเนเนเธเนเนเธฅเนเธงเธงเนเธฒเธเธดเธเธเธฒเธฃเน€เธเธตเนเธขเธงเธเนเธญเธ/เธฃเธฑเธเธเธดเธ”</li>
-<li>เนเธ•เนเธขเธฑเธเธชเธนเนเธเธ”เธตเธซเธฃเธทเธญเธกเธตเธเนเธญเธเธเธซเธกเธฒเธขเธ—เธตเนเธ—เธณเนเธซเนเนเธญเธเธฒเธชเธเนเธฒเธขเน€เธเธดเธเธ•เนเธณเธเธงเนเธฒ 50%</li>
-</ul><h4>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธ เนเธ•เนเธขเธฑเธเธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธกเนเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</h4><ul>
-<li>เธฃเธนเนเธงเนเธฒเธ•เนเธญเธเธเนเธฒเธขเนเธเนเธซเธฃเธทเธญเธกเธตเนเธญเธเธฒเธชเธชเธนเธเธกเธฒเธ</li>
-<li>เนเธ•เนเธเธฃเธฐเน€เธกเธดเธเน€เธเนเธเธ•เธฑเธงเน€เธฅเธเธ—เธตเนเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเนเธกเนเนเธ”เน</li>
-<li>เธเธฃเธ“เธตเธเธตเนเธ–เธทเธญเธงเนเธฒ <strong>rare / extremely rare</strong></li>
-</ul></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธณเธเธฑเธ</h3></div><div class="subsection-body prose"><ul>
-<li><strong>เธเธ”เธตเธญเธฒเธซเธฒเธฃเน€เธเนเธเธเธดเธฉ</strong></li>
-<li>เธเธต 20X0 เธ—เธเธฒเธขเน€เธซเนเธเธงเนเธฒเธเนเธฒเธเธเธฐ -&gt; เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li>เธเธต 20X1 เธซเธฅเธฑเธเธเธฒเธเน€เธเธฅเธตเนเธขเธเนเธฅเธฐเธเนเธฒเธเธฐเนเธเน -&gt; เธฃเธฑเธเธฃเธนเนเธฃเธฒเธขเธเธฒเธฃเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</li>
-<li><strong>เธฃเธ–เธเธเธซเธฃเธทเธญเธเธงเธฒเธกเธเธดเธ”เธเธฑเธ” เนเธ•เนเนเธญเธเธฒเธชเธฃเธญเธ”เธเนเธฒเธขเธชเธนเธ</strong></li>
-<li>เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธกเธตเนเธฅเนเธง</li>
-<li>เนเธ•เนเธซเธฒเธเนเธญเธเธฒเธชเธเนเธฒเธข &lt; 50% -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li><strong>เธชเธฒเธฃเน€เธเธกเธตเธเธเธดเธ”เนเธซเธกเนเธฃเธฑเนเธงเนเธซเธฅเนเธฅเธฐเธเธฃเธฐเน€เธกเธดเธเธเนเธฒเธเธทเนเธเธเธนเนเธกเนเนเธ”เน</strong></li>
-<li>outflow 100%</li>
-<li>เนเธ•เนเธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธ—เธตเนเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญเนเธกเนเธกเธต -&gt; เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅเธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-</ul></div></article>
-<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เธเธฒเธฃเธเธฃเธฐเน€เธกเธดเธเธเนเธณ</h3></div><div class="subsection-body prose"><p>เธ•เนเธญเธ reassess เธ—เธธเธเธชเธดเนเธเธเธงเธ”</p><p>เธฃเธฒเธขเธเธฒเธฃเธชเธฒเธกเธฒเธฃเธ–เน€เธเธฅเธตเนเธขเธเธชเธ–เธฒเธเธฐเนเธ”เน:<br/>
-- เธเธฒเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ -&gt; provision<br/>
-- เธซเธฃเธทเธญเธเธฅเธฑเธเธเธฑเธเธซเธฒเธเธเนเธญเธกเธนเธฅเนเธซเธกเนเน€เธเธฅเธตเนเธขเธ</p></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเนเธญเธเธณเธซเธเธ”เธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</h3></div><div class="subsection-body prose"><p>เธเธฒเธฃเธเธฑเธ”เธเธฃเธฐเน€เธ เธ— current/non-current เนเธซเนเธ”เธน <strong>เธฃเธฐเธขเธฐเน€เธงเธฅเธฒเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเธเนเธฒเธข</strong></p></div></article>
-</section>
-<section class="sheet-section theme-review" data-title="15. ???????????????????????" id="15">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 16</p><h2>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h2></header>
-<div class="section-intro prose"><p>Contingent asset เธเธทเธญ <strong>possible asset</strong> เธ—เธตเนเน€เธเธดเธ”เธเธฒเธ ??????????????? เนเธ•เนเธเธฒเธฃเธกเธตเธญเธขเธนเนเธเธฃเธดเธเธขเธฑเธเธเธถเนเธเธเธฑเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเธญเธเธฒเธเธ•เธ—เธตเนเนเธกเนเนเธเนเธเธญเธเนเธฅเธฐเธเธดเธเธเธฒเธฃเธเธงเธเธเธธเธกเนเธกเนเนเธ”เนเธ—เธฑเนเธเธซเธกเธ”</p></div>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเธเธซเธฅเธฑเธ</h3></div><div class="subsection-body prose"><ul>
-<li><strong>เธซเนเธฒเธก ???????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong></li>
-<li>เธ—เธณเนเธ”เนเน€เธเธตเธขเธ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong> เน€เธกเธทเนเธญเนเธญเธเธฒเธชเนเธ”เนเธฃเธฑเธเธเธฅเธเธฃเธฐเนเธขเธเธเนเธญเธขเธนเนเนเธเธฃเธฐเธ”เธฑเธ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong></li>
-</ul></div></article>
-<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เน€เธซเธ•เธธเธเธฅเน€เธเธดเธเธเธฃเธฑเธเธเธฒ</h3></div><div class="subsection-body prose"><p>เนเธเธงเธเธดเธ”เธเธตเนเธญเธเธดเธเธฒเธขเธเธเธเธฒเธเธเธญเธ <strong>prudence / conservatism</strong></p><p>เธ–เนเธฒเธฃเธตเธเธฃเธฑเธเธฃเธนเนเธชเธดเธเธ—เธฃเธฑเธเธขเนเธซเธฃเธทเธญเธฃเธฒเธขเนเธ”เนเน€เธฃเนเธงเน€เธเธดเธเนเธ:<br/>
-- เธเธเธญเธฒเธเนเธชเธ”เธเธฃเธฒเธขเนเธ”เนเธ—เธตเนเนเธกเนเธกเธตเธงเธฑเธเน€เธเธดเธ”เธเธถเนเธเธเธฃเธดเธ<br/>
-- เธเธนเนเนเธเนเธเธเธญเธฒเธเธซเธฅเธเน€เธเธทเนเธญเธงเนเธฒเธเธดเธเธเธฒเธฃเธกเธตเธเธณเนเธฃเธกเธฒเธเธเธงเนเธฒเธเธงเธฒเธกเน€เธเนเธเธเธฃเธดเธ</p></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เธเธฒเธฃเน€เธเธฅเธตเนเธขเธเธเนเธฒเธเธเธญเธเธชเธ–เธฒเธเธฐ</h3></div><div class="subsection-body prose"><p>เนเธซเนเธเธณเธฅเธณเธ”เธฑเธเธชเธ–เธฒเธเธฐเธ”เธฑเธเธเธตเน:</p><ul>
-<li><strong>??????????? (Possible) (&lt; 50%)</strong> -&gt; ?????????????</li>
-<li><strong>????????????? (Probable) (&gt; 50%)</strong> -&gt; ????????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li><strong>Virtually certain</strong> -&gt; เนเธกเนเน€เธเนเธ เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เธญเธตเธเธ•เนเธญเนเธ เนเธฅเธฐเธ•เนเธญเธ ???????????? เน€เธเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเนเธเธเธ•เธด</li>
-</ul></div></article>
-<article class="subsection example"><div class="subsection-head"><span class="subsection-label">EXAMPLE</span><h3>เธ•เธฑเธงเธญเธขเนเธฒเธ Atlas</h3></div><div class="subsection-body prose"><ul>
-<li>เธเธต 25X1 เนเธญเธเธฒเธชเธเธเธฐ 40% -&gt; ?????????????</li>
-<li>เธเธต 25X2 เนเธญเธเธฒเธชเธเธเธฐ 85% -&gt; ????????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-<li>เธเธต 25X3 เธจเธฒเธฅเธเธตเธเธฒเธ•เธฑเธ”เธชเธดเธเน€เธ”เนเธ”เธเธฒเธ”เนเธฅเธฐเธเธฐเธฃเธฑเธเน€เธเธดเธเนเธเนเธเธญเธ -&gt; ???????????? normal asset เน€เธเนเธ เธฅเธนเธเธซเธเธตเน + เธฃเธฒเธขเนเธ”เน</li>
-</ul></div></article>
-</section>
-<section class="sheet-section theme-default" data-title="16. Asymmetry เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน" id="16-asymmetry-เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 17</p><h2>Asymmetry เธฃเธฐเธซเธงเนเธฒเธเธเธฑเนเธเธซเธเธตเนเธชเธดเธเธเธฑเธเธเธฑเนเธเธชเธดเธเธ—เธฃเธฑเธเธขเน</h2></header>
-<div class="section-intro prose"><p>เธเธตเนเธเธทเธญเนเธเนเธเธเธญเธเธเธ—เธเธตเน</p><p>เธ–เนเธฒเธเธงเธฒเธกเธเนเธฒเธเธฐเน€เธเนเธเน€เธ—เนเธฒเธเธฑเธ เน€เธเนเธ 75%:<br/>
-- เธเธฑเนเธ <strong>Liability</strong> -&gt; ???????????? provision<br/>
-- เธเธฑเนเธ <strong>Asset</strong> -&gt; เนเธเน ????????????? เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</p><p>เน€เธซเธ•เธธเธเธฅ:<br/>
-- เธกเธฒเธ•เธฃเธเธฒเธเน€เธเนเธกเธเธงเธ”เธเธฑเธเธเธฒเธฃเธฃเธฑเธเธฃเธนเน โ€เธเธณเนเธฃเธ—เธตเนเธญเธฒเธเนเธกเนเน€เธเธดเธ”เธเธฃเธดเธโ€<br/>
-- เนเธ•เนเธขเธญเธกเนเธซเนเธฃเธฑเธเธฃเธนเน โ€เธ เธฒเธฃเธฐเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเน€เธเธดเธ”โ€ เนเธ”เนเน€เธฃเนเธงเธเธงเนเธฒเน€เธเธทเนเธญเธเธเธเนเธญเธเธเธนเนเนเธเนเธเธ</p></div>
-</section>
-<section class="sheet-section theme-review" data-title="17. ????????????????????????" id="17">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 18</p><h2>เน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเนเธงเธขเธ•เธฑเธ”เธชเธดเธเนเธ</h2></header>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>17.1 ????????????????</h3></div><div class="subsection-body prose"><p>เธ•เนเธญเธเธกเธต <strong>???????????</strong></p><p>เธญเธเธเนเธเธฃเธฐเธเธญเธ:<br/>
-- เธขเธญเธ”เธขเธเธกเธฒ<br/>
-- เธเธงเธ provision เธ—เธตเนเธ•เธฑเนเธเน€เธเธดเนเธก<br/>
-- เธฃเธงเธกเธเธฅเธเธญเธ <strong>เน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธ—เธตเนเธเนเธญเนเธซเนเน€เธเธดเธ”เธ เธฒเธฃเธฐเธเธนเธเธเธฑเธ</strong><br/>
-- เธซเธฑเธเธเธณเธเธงเธเธ—เธตเนเนเธเนเธเธณเธฃเธฐเธเธฃเธดเธ<br/>
-- เธซเธฑเธเธเธณเธเธงเธเธ—เธตเนเนเธญเธเธเธฅเธฑเธเน€เธเธฃเธฒเธฐเนเธกเนเนเธ”เนเนเธเน<br/>
-- เธขเธญเธ”เธขเธเนเธ</p><p>เนเธฅเธฐเธ•เนเธญเธเธญเธเธดเธเธฒเธข:<br/>
-- เธฅเธฑเธเธฉเธ“เธฐเธเธญเธเธ เธฒเธฃเธฐ<br/>
-- เธเนเธงเธเน€เธงเธฅเธฒเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเธเนเธฒเธข<br/>
-- เธเธงเธฒเธกเนเธกเนเนเธเนเธเธญเธ<br/>
-- เธเธณเธเธงเธเน€เธเธดเธเธเธ”เน€เธเธขเธ—เธตเนเธเธฒเธ”เธงเนเธฒเธเธฐเนเธ”เนเธฃเธฑเธ</p></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>17.2 ?????????????????????</h3></div><div class="subsection-body prose"><p>เนเธกเนเธ•เนเธญเธเธ—เธณ reconciliation เนเธ•เนเธ•เนเธญเธเน€เธเธดเธ”เน€เธเธข:<br/>
-- เธฅเธฑเธเธฉเธ“เธฐเน€เธซเธ•เธธเธเธฒเธฃเธ“เน<br/>
-- เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธเธฅเธเธฃเธฐเธ—เธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเธ–เนเธฒเธเธญเธ—เธณเนเธ”เน<br/>
-- เธเนเธญเธเนเธเธเธตเนเธ–เธถเธเธเธงเธฒเธกเนเธกเนเนเธเนเธเธญเธ</p><p>เธ–เนเธฒเธเธฃเธฐเธกเธฒเธ“เนเธกเนเนเธ”เน เธ•เนเธญเธเธเธญเธเธ•เธฃเธ เน เธงเนเธฒ <strong>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธเธฃเธฐเธกเธฒเธ“เธเธฅเธเธฃเธฐเธ—เธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเนเธ”เนเธญเธขเนเธฒเธเธเนเธฒเน€เธเธทเนเธญเธ–เธทเธญ</strong></p></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>17.3 ???????????????????????</h3></div><div class="subsection-body prose"><p>เน€เธเธดเธ”เน€เธเธขเธชเธฑเนเธ เน เน€เธกเธทเนเธญเธญเธขเธนเนเธฃเธฐเธ”เธฑเธ ?????????????:<br/>
-- เธฅเธฑเธเธฉเธ“เธฐเธเธญเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เน<br/>
-- เธเธฅเธเธฃเธฐเธ—เธเธ—เธฒเธเธเธฒเธฃเน€เธเธดเธเธ–เนเธฒเธ—เธณเนเธ”เนเนเธเธ—เธฒเธเธเธเธดเธเธฑเธ•เธด</p></div></article>
-</section>
-</div>
-</section>
-<section class="sheet-group" data-group-title="?????????????????????? เนเธฅเธฐเธ—เธงเธเธเนเธญเธเธชเธญเธ" id="exam-wrap">
-<div class="group-head">
-<div class="group-meta">
-<p class="group-kicker">Module 05</p>
-<p class="group-kicker">6 sections</p>
-</div>
-<h2>เน€เธเธฃเธทเนเธญเธเธกเธทเธญเธเนเธงเธขเธ•เธฑเธ”เธชเธดเธเนเธเนเธฅเธฐเธ—เธงเธเธเนเธญเธเธชเธญเธ</h2>
-<p class="group-description">เน€เธเนเธ decision tree probability matrix เธเธณเธจเธฑเธเธ—เนเธ—เธตเนเธ•เนเธญเธเนเธเน เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เธเธธเธ”เธฃเธฐเธงเธฑเธ เนเธฅเธฐเธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเนเธงเนเน€เธเนเธเธเธธเธ”เธ—เธงเธเธฃเธญเธเธ—เนเธฒเธข</p>
-<nav aria-label="?????????????????????? เนเธฅเธฐเธ—เธงเธเธเนเธญเธเธชเธญเธ" class="group-nav"><a class="group-link" href="#18" title="18. ??????????????">Decision tree</a><a class="group-link" href="#19" title="19. ???????????????????????">Decision tree</a><a class="group-link" href="#20-เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ" title="20. เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ">Wording</a><a class="group-link" href="#21-เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ-เน-เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”" title="21. เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เน เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”">Mini cases</a><a class="group-link" href="#22-เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ" title="22. เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ">Warnings</a><a class="group-link" href="#23-เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—" title="23. เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—">Final recap</a></nav>
-</div>
-<div class="group-body">
-<section class="sheet-section theme-review" data-title="18. ??????????????" id="18">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 19</p><h2>เธเธฑเธเธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธ</h2></header>
-<div class="section-intro prose"><p>flow เธเธฒเธฃเธ•เธฑเธ”เธชเธดเธเนเธเธชเธฃเธธเธเนเธ”เนเธ”เธฑเธเธเธตเน</p><ol>
-<li>เธกเธตเธ เธฒเธฃเธฐเธเธนเธเธเธฑเธเนเธเธเธฑเธเธเธธเธเธฑเธเธเธฒเธเน€เธซเธ•เธธเธเธฒเธฃเธ“เนเนเธเธญเธ”เธตเธ•เธซเธฃเธทเธญเนเธกเน<br/>
-   - Yes -&gt; เนเธเธเนเธญ 2<br/>
-   - ??????????? (Possible) -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ<br/>
-   - No -&gt; ?????????????</li>
-<li>เธกเธต ????????????????????????? เธซเธฃเธทเธญเนเธกเน<br/>
-   - Yes -&gt; เนเธเธเนเธญ 3<br/>
-   - No -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ<br/>
-   - ??????????????? (Remote) -&gt; ?????????????</li>
-<li>เธงเธฑเธ”เธกเธนเธฅเธเนเธฒเนเธ”เน ???????????????? เธซเธฃเธทเธญเนเธกเน<br/>
-   - Yes -&gt; provision<br/>
-   - No -&gt; เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
-</ol></div>
-</section>
-<section class="sheet-section theme-review" data-title="19. ???????????????????????" id="19">
-<div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 20</p><h2>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</h2></header>
-<div class="section-intro prose"><p>เธชเธฃเธธเธเน€เธเนเธ tier เธ”เธฑเธเธเธตเน</p><div class="table-wrap"><table>
-<thead>
-<tr>
-<th>เธฃเธฐเธ”เธฑเธเธเธงเธฒเธกเธเนเธฒเธเธฐเน€เธเนเธ</th>
-<th>Liability</th>
-<th>Asset</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>??????????? (Virtually certain) (90%-100%)</strong></td>
-<td>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
-<td>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</td>
+<td>รายได้ที่รับรู้</td>
+<td>รายได้ค่าเช่า</td>
+<td>รายได้ดอกเบี้ย + ตัดเงินต้น</td>
 </tr>
 <tr>
-<td><strong>????????????? (Probable) (&gt;50% เนเธ•เนเธขเธฑเธเนเธกเนเธ–เธถเธ virtually certain)</strong></td>
-<td>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</td>
-<td>เธเธฅเธฅเธฑเธเธเนเธฃเธฒเธขเธเธฃเธ“เธตเธ—เธตเนเธกเธตเนเธญเธเธฒเธชเน€เธเธดเธ”เธกเธฒเธเธ—เธตเนเธชเธธเธ”</td>
-</tr>
-<tr>
-<td><strong>??????????? (Possible) (เธเธฃเธฐเธกเธฒเธ“ 5%-50%)</strong></td>
-<td>??????????????????????????????????</td>
-<td>Do nothing</td>
-</tr>
-<tr>
-<td><strong>??????????????? (Remote) (&lt;5%)</strong></td>
-<td>Do nothing</td>
-<td>Do nothing</td>
+<td>ความเชื่อมโยงกับ Investment Property</td>
+<td>ใช่ ถ้าทรัพย์ถือไว้เพื่อรับค่าเช่า</td>
+<td>ไม่ใช่ เพราะไม่ใช่การถือทรัพย์เพื่อรับค่าเช่าในสาระอีกต่อไป</td>
 </tr>
 </tbody>
 </table></div></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>อธิบายเพิ่ม</h3></div><div class="subsection-body prose"><h4>Operating Lease</h4><ul>
+<li>ผู้ให้เช่ายังรับความเสี่ยงหลักของทรัพย์อยู่</li>
+<li>ถ้าทรัพย์เสียหาย ราคาขึ้น หรือต้องซ่อมใหญ่ ผู้ให้เช่ายังเป็นฝ่ายรับผล</li>
+<li>จึงยังถือว่าทรัพย์อยู่กับผู้ให้เช่า และหากเข้าเงื่อนไขก็เป็น <code>Investment Property</code></li>
+</ul><h4>Finance Lease</h4><ul>
+<li>ลักษณะสัญญามักยาวมาก</li>
+<li>ครอบคลุมอายุการใช้งานส่วนใหญ่ของสินทรัพย์</li>
+<li>ทำให้ในเชิงสาระความเสี่ยงและผลประโยชน์หลักถูกโอนไปยังผู้เช่า</li>
+</ul><p>ดังนั้น ในงบของผู้ให้เช่า จะไม่ได้ถืออาคารเป็น <code>Investment Property</code> ต่อ</p><hr/></div></article>
 </section>
-<section class="sheet-section theme-default" data-title="20. เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ" id="20-เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ">
+<section class="sheet-section theme-default" id="7-การแยกประเภทโดยดู-บริการเสริม-ancillary-services" data-title="7) การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">เธชเนเธงเธเธ—เธตเน 21</p><h2>เธ–เนเธญเธขเธเธณเธ—เธตเนเธ•เนเธญเธเนเธเนเนเธซเนเธ–เธนเธ</h2></header>
-<div class="section-intro prose"><p>เธเธธเธ”เธเธตเนเธ•เนเธญเธเนเธเนเธเธณเนเธซเนเนเธกเนเธ:</p><ul>
-<li><strong>เธเธฃเธฐเธกเธฒเธ“เธเธฒเธฃเธซเธเธตเนเธชเธดเธ</strong> = เนเธเนเธเธณเธงเนเธฒ <strong>???????????? / เธเธฑเธเธ—เธถเธเธฃเธฑเธเธฃเธนเน</strong></li>
-<li><strong>เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong> = เนเธเนเธเธณเธงเนเธฒ <strong>????????????? / เน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ</strong></li>
-<li><strong>เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</strong> = เนเธเนเธเธณเธงเนเธฒ <strong>เธเนเธฒเธเธฐเน€เธเธดเธ”เธเธถเนเธ</strong> เน€เธกเธทเนเธญ ?????????????, เนเธฅเธฐ <strong>????????????</strong> เนเธ”เนเธ•เนเธญเน€เธกเธทเนเธญ virtually certain เธเธเธซเธฅเธธเธ”เธเธฒเธเธเธงเธฒเธกเน€เธเนเธ contingent</li>
-</ul><p>เธซเนเธฒเธกเนเธเนเธเธณเธงเนเธฒ โ€เธเธฑเธเธ—เธถเธเน€เธเนเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธโ€ เธ–เนเธฒเธขเธฑเธเนเธกเนเนเธ”เนเนเธชเนเธ•เธฑเธงเน€เธฅเธเธฅเธเธเธ</p></div>
+<header class="section-head"><p class="section-kicker">Part 05</p><h2>การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )</h2></header>
+<div class="section-intro prose"><p>นี่เป็นเกณฑ์สำคัญที่ต้นฉบับเน้นมาก</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าบริการเสริม “ไม่มีนัยสำคัญ”</h3></div><div class="subsection-body prose"><p>มักเป็น <code>Investment Property</code></p><p>ตัวอย่าง:</p><ul>
+<li>ให้เช่าตึกออฟฟิศ</li>
+<li>มีเพียงยามรักษาความปลอดภัย</li>
+<li>มีแม่บ้านดูแลพื้นที่ส่วนกลาง</li>
+</ul><p>บริการเหล่านี้เป็นเพียงบริการเล็กน้อย ทรัพย์ยังสร้างกระแสเงินสดได้ด้วยตัวเอง</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าบริการเสริม “มีนัยสำคัญ”</h3></div><div class="subsection-body prose"><p>มักเป็น <code>Owner-occupied property</code> หรือ <code>PPE</code></p><p>เหตุผล:</p><ul>
+<li>ทรัพย์ไม่ได้ทำเงินจากค่าเช่าล้วน ๆ</li>
+<li>รายได้เกิดจากแพ็กเกจบริการที่ผูกกับการดำเนินงาน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กรณีศึกษา: โรงแรม vs อพาร์ตเมนต์</h3></div><div class="subsection-body prose"><h4>โรงแรม</h4><p>โดยทั่วไปเป็น <code>PPE</code></p><p>เหตุผล:</p><ul>
+<li>มีบริการเสริมที่มีนัยสำคัญมาก</li>
+<li>เช่น ทำความสะอาดห้องทุกวัน อาหารเช้า สระว่ายน้ำ ฟิตเนส</li>
+<li>ผู้เข้าพักไม่ได้จ่ายแค่ “ค่าใช้ห้อง” แต่จ่ายเพื่อประสบการณ์บริการทั้งหมด</li>
+</ul><h4>อพาร์ตเมนต์ให้เช่า</h4><p>โดยทั่วไปเป็น <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>ผู้เช่ามักจ่ายเป็นรายเดือน</li>
+<li>เจ้าของให้บริการเสริมเพียงเล็กน้อย</li>
+<li>เช่น รปภ. หรือแม่บ้านส่วนกลาง</li>
+</ul><hr/></div></article>
 </section>
-<section class="sheet-section theme-default" data-title="21. เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เน เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”" id="21-เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ-เน-เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”">
+<section class="sheet-section theme-default" id="3-ตัวอย่างที่-เป็น-investment-property-พร้อมเหตุผล" data-title="3) ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">??????? 22</p><h2>เธ•เธฑเธงเธญเธขเนเธฒเธเธชเธฑเนเธ เน เธชเธณเธซเธฃเธฑเธเธเธถเธเธเธดเธ”</h2></header>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>??????????????????? เธเธฒเธ เนเธเธงเธเธเธดเธเธฑเธ•เธดเธ—เธตเนเธเนเธฒเธเธกเธฒ</h3></div><div class="subsection-body prose"><ul>
-<li>เธฃเนเธฒเธเน€เธเธขเธเธทเธเน€เธเธดเธเนเธซเนเธฅเธนเธเธเนเธฒเธกเธฒเธ•เธฅเธญเธ”</li>
-<li>เธฅเธนเธเธเนเธฒเธเธทเนเธญเธเนเธญเธเธงเธฑเธเธขเธเน€เธฅเธดเธเธเนเธขเธเธฒเธข</li>
-<li>?????????????????????????? เน€เธเธดเธ”เนเธฅเนเธง -&gt; เธญเธฒเธเธ•เนเธญเธเธ•เธฑเนเธ provision</li>
-</ul></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>เธเนเธฒเธเธฃเธฑเธเธเธฒเธเธเธฒเธฃเนเธกเนเธเธเธดเธเธฑเธ•เธดเธ•เธฒเธกเธชเธฑเธเธเธฒ</h3></div><div class="subsection-body prose"><ul>
-<li>เธชเธฑเธเธเธฒเน€เธเนเธฒเน€เธเธดเธฃเนเธเน€เธงเธญเธฃเน 3 เธเธตเธ—เธตเนเธขเธเน€เธฅเธดเธเนเธกเนเนเธ”เน</li>
-<li>เน€เธ—เธเนเธเนเธฅเธขเธตเน€เธเธฅเธตเนเธขเธเธเธเนเธเนเธ•เนเธญเนเธกเนเธเธธเนเธก</li>
-<li>เธ เธฒเธฃเธฐเธ•เธฒเธกเธชเธฑเธเธเธฒเธขเธฑเธเธญเธขเธนเน -&gt; ???????????? liability/provision</li>
-</ul></div></article>
-<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>Published policy เธ”เนเธฒเธเธชเธดเนเธเนเธงเธ”เธฅเนเธญเธก</h3></div><div class="subsection-body prose"><ul>
-<li>เธเธฃเธฐเน€เธ—เธจเนเธกเนเธกเธตเธเธเธซเธกเธฒเธขเธเธฑเธเธเธฑเธ</li>
-<li>เนเธ•เนเธเธฃเธดเธฉเธฑเธ—เธเธฃเธฐเธเธฒเธจเธฃเธฑเธเธเธดเธ”เธเธญเธ 100%</li>
-<li>เน€เธกเธทเนเธญเน€เธเธดเธ”เธเธฒเธฃเธฃเธฑเนเธงเนเธซเธฅ -&gt; ??????????????????? เธญเธฒเธเน€เธเธดเธ”เธ—เธฑเธเธ—เธต</li>
-</ul></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>????????????????????????????????????????????</h3></div><div class="subsection-body prose"><ul>
-<li>เธฃเธนเนเธฃเธฒเธเธฒเนเธเน เนเธ•เนเธขเธฑเธเนเธกเนเธญเธญเธเธเธดเธฅ -&gt; accrual/trade payable</li>
-<li>เธฃเธนเนเธงเนเธฒเธ•เนเธญเธเน€เธเธฅเธกเธเธฒเธเธชเนเธงเธ เนเธ•เนเนเธกเนเธฃเธนเนเธฅเธนเธเธเนเธฒเธเธเนเธซเธเนเธฅเธฐเน€เธกเธทเนเธญเนเธฃ -&gt; provision</li>
-</ul></div></article>
-<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>???????????????????????????</h3></div><div class="subsection-body prose"><ul>
-<li>เธ–เนเธฒเนเธเนเธขเธทเธเธขเธฑเธเธชเธ เธฒเธเธ—เธตเนเธกเธตเธญเธขเธนเนเนเธฅเนเธง -&gt; adjusting event</li>
-<li>เธ–เนเธฒเธชเธฃเนเธฒเธเน€เธซเธ•เธธเนเธซเธกเนเธซเธฅเธฑเธเธเธตเธเธดเธ” -&gt; non-adjusting event</li>
-</ul></div></article>
+<header class="section-head"><p class="section-kicker">Part 06</p><h2>ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.1 ที่ดินที่ถือไว้เพื่อรอให้ราคาขึ้นในระยะยาว</h3></div><div class="subsection-body prose"><p>(<code>Land held for long-term capital appreciation</code>)</p><p>เหตุผล:</p><ul>
+<li>ไม่ได้ถือไว้เพื่อใช้เอง</li>
+<li>ไม่ได้ถือไว้เพื่อขายเป็นปกติธุรกิจ</li>
+<li>ตั้งใจถือครองเพื่อประโยชน์จากมูลค่าที่จะเพิ่มขึ้นในอนาคต</li>
+</ul><p>ดังนั้น เข้ากับแนวคิด <code>Capital appreciation</code> โดยตรง</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.2 ที่ดินที่ยังไม่ได้กำหนดการใช้งานในอนาคตอย่างชัดเจน</h3></div><div class="subsection-body prose"><p>(<code>Land held for a currently undetermined future use</code>)</p><p>เหตุผล:</p><ul>
+<li>หากกิจการยังไม่ตัดสินใจแน่ชัดว่าจะใช้เองหรือขาย</li>
+<li>มาตรฐานมองในทางอนุรักษ์นิยมว่า ในช่วงนั้นกิจการถือครองที่ดินไว้เพื่อรอประโยชน์จากมูลค่าที่เพิ่มขึ้นไปก่อน</li>
+</ul><p>จึงตีความให้เป็น <code>Investment Property</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.3 อาคารที่กิจการเป็นเจ้าของและปล่อยเช่าแบบสัญญาเช่าดำเนินงาน</h3></div><div class="subsection-body prose"><p>(<code>A building owned by the entity and leased out under operating leases</code>)</p><p>เหตุผล:</p><ul>
+<li>รายได้หลักจากทรัพย์มาจากค่าเช่า</li>
+<li>กระแสเงินสดไม่ได้เกิดจากการผลิตสินค้าหรือให้บริการหลักของกิจการ</li>
+</ul><p>จึงเป็นตัวอย่างตรงของ <code>Earn rentals</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.4 อาคารว่างที่ถือไว้เพื่อเตรียมปล่อยเช่า</h3></div><div class="subsection-body prose"><p>(<code>A building that is vacant but is held to be leased out under operating leases</code>)</p><p>เหตุผล:</p><ul>
+<li>แม้ยังไม่มีผู้เช่าในปัจจุบัน</li>
+<li>แต่เจตนาการถือครองยังเป็นการสร้างรายได้ค่าเช่า</li>
+</ul><p>ตราบใดที่กิจการยังไม่ได้เปลี่ยนใจเอาไปใช้เอง ทรัพย์ยังถือเป็น <code>Investment Property</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>3.5 อสังหาริมทรัพย์ที่กำลังก่อสร้างหรือพัฒนาเพื่อใช้เป็น Investment Property ในอนาคต</h3></div><div class="subsection-body prose"><p>เหตุผล:</p><ul>
+<li>แม้จะยังสร้างไม่เสร็จ</li>
+<li>แต่จุดหมายปลายทางของทรัพย์ถูกกำหนดแล้วว่าจะใช้เพื่อหารายได้ค่าเช่าหรือเก็งกำไร</li>
+</ul><p>จากแนวคิดในไฟล์ต้นฉบับ ทรัพย์ลักษณะนี้ให้นับเป็น <code>Investment Property</code> ได้เลย ไม่ต้องรอให้สร้างเสร็จก่อน</p><hr/></div></article>
 </section>
-<section class="sheet-section theme-review" data-title="22. เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ" id="22-เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ">
+<section class="sheet-section theme-default" id="4-ตัวอย่างที่-ไม่เป็น-investment-property" data-title="4) ตัวอย่างที่ “ไม่เป็น” Investment Property">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">??????? 23</p><h2>เธเธธเธ”เธ—เธตเนเธเธงเธฃเธญเนเธฒเธเธญเธขเนเธฒเธเธฃเธฐเธงเธฑเธ</h2></header>
-<div class="section-intro prose"><ul>
-<li>เธเนเธงเธเน€เธเธญเธฃเนเน€เธเนเธเธ•เนเนเธเธ <strong>90%-100%, &gt;50%, 5%-50%, &lt;5%</strong> เน€เธเนเธ <strong>เธ•เธฒเธฃเธฒเธเธชเธฃเธธเธเนเธเธเธฑเนเธเน€เธฃเธตเธขเธ</strong> เธชเธณเธซเธฃเธฑเธเธเธณเธ เธฒเธเธฃเธงเธกเธเธญเธ matrix เนเธฅเธฐ decision rule</li>
-<li>เนเธกเนเธเธเธเธงเธฒเธกเธเธฑเธ”เนเธขเนเธเน€เธเธดเธเน€เธเธทเนเธญเธซเธฒเธชเธฒเธฃเธฐเธฃเธฐเธซเธงเนเธฒเธเธเนเธงเธเธ•เนเธฒเธ เน เธเธญเธเธเธ—เธชเธเธ—เธเธฒ เนเธ•เนเธกเธตเธเธฒเธฃเธขเนเธณเน€เธฃเธทเนเธญเธเน€เธ”เธดเธกเธซเธฅเธฒเธขเธฃเธญเธเธ”เนเธงเธขเธ•เธฑเธงเธญเธขเนเธฒเธเธ•เนเธฒเธเธเธฑเธ เธเธถเธเธฃเธงเธกเนเธงเนเนเธเนเธเนเธ•เธเธเธฑเธเธเธตเนเน€เธเนเธเธเธเธฃเนเธงเธกเนเธฅเธฐเธ•เธฑเธงเธญเธขเนเธฒเธเนเธ—เธ</li>
+<header class="section-head"><p class="section-kicker">Part 07</p><h2>ตัวอย่างที่ “ไม่เป็น” Investment Property</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>4.1 อสังหาริมทรัพย์ที่มีไว้ขายตามปกติธุรกิจ หรือกำลังก่อสร้างเพื่อขาย</h3></div><div class="subsection-body prose"><p>กลุ่มนี้จัดเป็น <code>สินค้าคงเหลือ (Inventory)</code> ไม่ใช่ <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>กิจการถือไว้เพื่อขาย</li>
+<li>ประโยชน์เชิงเศรษฐกิจจะเกิดจากการขายสินค้า ไม่ใช่ค่าเช่าหรือการถือรอราคาขึ้นแบบการลงทุน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>4.2 อสังหาริมทรัพย์ที่กิจการใช้งานเอง ( Owner-occupied property )</h3></div><div class="subsection-body prose"><p>เช่น</p><ul>
+<li>อาคารสำนักงานใหญ่</li>
+<li>โรงงาน</li>
+<li>สำนักงานสาขา</li>
+<li>อาคารที่เตรียมไว้ใช้เองในอนาคต</li>
+<li>อาคารที่รอพัฒนาเพื่อนำมาใช้เอง</li>
+<li>ที่พักพนักงาน</li>
+</ul><p>กลุ่มนี้จัดเป็น <code>PPE</code></p><p>เหตุผล:</p><ul>
+<li>ประโยชน์จากทรัพย์ถูกผูกกับการดำเนินงานหลักของกิจการ</li>
+<li>กระแสเงินสดไม่ได้เกิดจากตัวทรัพย์โดยตรง</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>4.3 อสังหาริมทรัพย์ที่ปล่อยเช่าแบบสัญญาเช่าการเงิน ( Finance lease )</h3></div><div class="subsection-body prose"><p>ในมุมผู้ให้เช่า ทรัพย์ลักษณะนี้ไม่ถือเป็น <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>เมื่อทำ <code>Finance lease</code> แล้ว ในเชิงสาระกิจการไม่ได้ถือทรัพย์เพื่อรับค่าเช่าแบบปกติอีกต่อไป</li>
+<li>รายการจะเปลี่ยนจากตัวทรัพย์เป็น <code>ลูกหนี้ตามสัญญาเช่า (Lease Receivable)</code></li>
+<li>รายได้ที่รับรู้ต่อไปจะเป็น <code>รายได้ดอกเบี้ย</code> และการตัดเงินต้น ไม่ใช่ <code>รายได้ค่าเช่า</code></li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="8-ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ" data-title="8) ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 08</p><h2>ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ที่ดินซื้อมาเพื่อสร้างสาขาสำนักงาน</h3></div><div class="subsection-body prose"><p>คำตอบ: ไม่ใช่ <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>จุดประสงค์คือใช้เพื่อการบริหาร</li>
+<li>จึงเป็น <code>PPE</code></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>อาคารสำนักงานที่ปล่อยเช่าแบบสัญญาเช่าดำเนินงาน</h3></div><div class="subsection-body prose"><p>คำตอบ: เป็น <code>Investment Property</code></p><p>เหตุผล:</p><ul>
+<li>ถือไว้เพื่อหารายได้ค่าเช่า</li>
+</ul><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="recognition-cost" data-group-title="Recognition และต้นทุน">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 02</p>
+<p class="group-kicker">5 sections</p>
+</div>
+<h2>Recognition และต้นทุน</h2>
+<p class="group-description">ต่อด้วยการรับรู้รายการ การวัดมูลค่าเมื่อเริ่มแรก และการแยก replacement ออกจาก day-to-day servicing</p>
+<nav class="group-nav" aria-label="Recognition และต้นทุน"><a href="#9-การรับรู้รายการ-recognition" class="group-link" title="9) การรับรู้รายการ ( Recognition )">Recognition</a><a href="#10-การวัดมูลค่าเมื่อเริ่มแรก-measurement-at-recognition" class="group-link" title="10) การวัดมูลค่าเมื่อเริ่มแรก ( Measurement at recognition )">Initial Cost</a><a href="#11-ต้นทุนภายหลังการรับรู้-subsequent-costs" class="group-link" title="11) ต้นทุนภายหลังการรับรู้ ( Subsequent costs )">Subsequent</a><a href="#12-replacement" class="group-link" title="12) Replacement">Replacement</a><a href="#13-day-to-day-servicing" class="group-link" title="13) Day-to-day servicing">Day-to-day servici</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="9-การรับรู้รายการ-recognition" data-title="9) การรับรู้รายการ ( Recognition )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 09</p><h2>การรับรู้รายการ ( Recognition )</h2></header>
+<div class="section-intro prose"><p>จะรับรู้เป็นสินทรัพย์ได้เมื่อเข้า 2 เงื่อนไขพร้อมกัน</p><ol>
+<li>มีความเป็นไปได้ค่อนข้างแน่ว่ากิจการจะได้รับประโยชน์เชิงเศรษฐกิจในอนาคต</li>
+<li>สามารถวัดมูลค่าต้นทุนได้อย่างน่าเชื่อถือ</li>
+</ol><p>ตัวอย่างของข้อ 1:</p><ul>
+<li>มั่นใจว่าจะได้ค่าเช่า</li>
+<li>หรือคาดว่าจะได้ประโยชน์จากการเพิ่มขึ้นของมูลค่า</li>
+</ul><p>ตัวอย่างของข้อ 2:</p><ul>
+<li>สามารถระบุราคาซื้อและค่าใช้จ่ายที่เกี่ยวข้องได้อย่างน่าเชื่อถือ</li>
 </ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ต้นทุนที่ต้องพิจารณา</h3></div><div class="subsection-body prose"><p>มาตรฐานให้ประเมินต้นทุนทั้งหมด ณ เวลาที่เกิดรายการ โดยรวมทั้ง</p><ul>
+<li><code>ต้นทุนเริ่มแรก (Costs incurred initially)</code></li>
+<li><code>ต้นทุนภายหลัง (Costs incurred subsequently)</code></li>
+</ul><p>เช่น</p><ul>
+<li>การต่อเติม</li>
+<li>การเปลี่ยนชิ้นส่วน</li>
+<li>การให้บริการเกี่ยวกับสินทรัพย์</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขยายความ Recognition Criteria แบบที่ต้นฉบับอธิบาย</h3></div><div class="subsection-body prose"><p>ต้นฉบับอธิบายว่าเรื่อง <code>Recognition</code> เป็นเหมือนด่านคัดกรองก่อนที่รายจ่ายก้อนหนึ่งจะได้สถานะเป็น “สินทรัพย์” ในงบแสดงฐานะการเงิน</p><p>ดังนั้น คำถามที่นักบัญชีต้องถามไม่ใช่เพียงว่า</p><ul>
+<li>ทรัพย์นี้เป็น <code>Investment Property</code> หรือไม่</li>
+</ul><p>แต่ต้องถามต่อด้วยว่า</p><ul>
+<li>ต้นทุนของทรัพย์นี้พร้อมหรือยังที่จะถูกตั้งเป็นสินทรัพย์</li>
+</ul><p>ถ้าขาดเงื่อนไขข้อใดข้อหนึ่งไป ก็ยังไม่ควรรับรู้เป็นสินทรัพย์</p><p>ตัวอย่างแนวคิดจากต้นฉบับ:</p><ul>
+<li>ถ้าคิดว่าทรัพย์น่าจะทำเงินได้ แต่ยังไม่รู้ต้นทุนจริงอย่างน่าเชื่อถือ ก็ยังตั้งเป็นสินทรัพย์ไม่ได้</li>
+<li>ถ้ารู้ต้นทุนชัด แต่ยังไม่มีความเป็นไปได้ค่อนข้างแน่ว่าจะได้ประโยชน์เชิงเศรษฐกิจในอนาคต ก็ยังไม่ควรรับรู้เช่นกัน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>Applying the Principle</h3></div><div class="subsection-body prose"><p>ต้นฉบับขยายเพิ่มว่า กฎ 2 ข้อนี้ต้องใช้กับ “ต้นทุนทุกก้อน ณ เวลาที่ต้นทุนนั้นเกิดขึ้น”</p><p>แปลว่า</p><ul>
+<li>ไม่ใช่ผ่านด่านครั้งเดียวตอนซื้อแล้วจบ</li>
+<li>แต่ต้องใช้หลักเดียวกันนี้กับต้นทุนภายหลังทุกก้อนด้วย</li>
+</ul><p>จุดนี้เชื่อมตรงกับบท <code>Replacement</code> และ <code>Day-to-day servicing</code><br/>
+เพราะต้นทุนภายหลังไม่ได้ถูกบวกเข้าทรัพย์โดยอัตโนมัติทุกกรณี</p><hr/></div></article>
 </section>
-<section class="sheet-section theme-review" data-title="23. เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—" id="23-เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—">
+<section class="sheet-section theme-default" id="10-การวัดมูลค่าเมื่อเริ่มแรก-measurement-at-recognition" data-title="10) การวัดมูลค่าเมื่อเริ่มแรก ( Measurement at recognition )">
 <div class="section-rule"></div>
-<header class="section-head"><p class="section-kicker">??????? 24</p><h2>เธเธ—เธชเธฃเธธเธเธชเธธเธ”เธ—เนเธฒเธขเธเธญเธเธเธ—</h2></header>
-<div class="section-intro prose"><p>เธ–เนเธฒเธเธฐเธเธณเธเธ—เธเธตเนเนเธซเนเนเธกเนเธเธ—เธตเนเธชเธธเธ” เนเธซเนเธเธณเน€เธเนเธเธฅเธณเธ”เธฑเธเธ”เธฑเธเธเธตเน:</p><ol>
-<li>เน€เธฃเธดเนเธกเธเธฒเธเธ–เธฒเธกเธงเนเธฒ <strong>เธกเธต ???????????????????? เธเธฒเธ ??????????????? เธซเธฃเธทเธญเธขเธฑเธ</strong></li>
-<li>เธ–เนเธฒเธกเธต เนเธซเนเธ–เธฒเธกเธ•เนเธญเธงเนเธฒ <strong>????????????? เนเธซเธก</strong></li>
-<li>เธ–เนเธฒ ????????????? เนเธซเนเธ–เธฒเธกเธ•เนเธญเธงเนเธฒ <strong>??????????????????????????????? เนเธ”เนเนเธซเธก</strong></li>
-<li>เธ–เนเธฒเน€เธเนเธเธซเธเธตเนเธฃเธฐเธขเธฐเธขเธฒเธง เนเธซเนเธ–เธฒเธกเน€เธเธดเนเธกเธงเนเธฒ <strong>เธ•เนเธญเธเธเธดเธ”เธฅเธ”เน€เธเนเธ PV เธซเธฃเธทเธญเนเธกเน</strong></li>
-<li>เธ–เนเธฒเธฃเธฑเธเธฃเธนเนเนเธกเนเนเธ”เน เธญเธขเนเธฒเธฅเธทเธกเธ–เธฒเธกเธงเนเธฒ <strong>เธ•เนเธญเธ ????????????? เธซเธฃเธทเธญ ?????????????</strong></li>
-<li>เธเธณเนเธซเนเธเธถเนเธเนเธเธงเนเธฒ <strong>เธเธฑเธเธเธตเธฃเธฐเธงเธฑเธเธเธฑเนเธเธฃเธฒเธขเนเธ”เนเธกเธฒเธเธเธงเนเธฒเธเธฑเนเธเธเธฒเธ”เธ—เธธเธ</strong> เธเธถเธเน€เธเธดเธ”เธเธงเธฒเธกเนเธกเนเธชเธกเธกเธฒเธ•เธฃเธฃเธฐเธซเธงเนเธฒเธ เธซเธเธตเนเธชเธดเธเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ เธเธฑเธ เธชเธดเธเธ—เธฃเธฑเธเธขเนเธ—เธตเนเธญเธฒเธเน€เธเธดเธ”เธเธถเนเธ</li>
+<header class="section-head"><p class="section-kicker">Part 10</p><h2>การวัดมูลค่าเมื่อเริ่มแรก ( Measurement at recognition )</h2></header>
+<div class="section-intro prose"><p>วันแรกที่รับรู้รายการ ต้องวัดด้วย <code>ราคาทุน (Cost)</code> เท่านั้น</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ราคาทุนประกอบด้วย</h3></div><div class="subsection-body prose"><ul>
+<li>ราคาซื้อ (<code>Purchase price</code>)</li>
+<li>ค่าใช้จ่ายทางตรงอื่น ๆ ที่เกี่ยวข้อง (<code>Directly attributable expenditure</code>)</li>
+</ul><p>ตัวอย่างค่าใช้จ่ายทางตรง</p><ul>
+<li>ค่าธรรมเนียมวิชาชีพด้านกฎหมาย</li>
+<li>ภาษีการโอนกรรมสิทธิ์</li>
+<li>ต้นทุนในการทำรายการอื่น ๆ (<code>Transaction costs</code>)</li>
+</ul><p>หลักจำ:</p><blockquote>
+<p>ค่าใช้จ่ายใดที่จำเป็นเพื่อให้ได้ทรัพย์มา และทำให้ทรัพย์อยู่ในสภาพพร้อมใช้เพื่อหาประโยชน์จากค่าเช่าหรือการลงทุน ให้รวมเป็นราคาทุน</p>
+</blockquote><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="11-ต้นทุนภายหลังการรับรู้-subsequent-costs" data-title="11) ต้นทุนภายหลังการรับรู้ ( Subsequent costs )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 11</p><h2>ต้นทุนภายหลังการรับรู้ ( Subsequent costs )</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับแบ่งชัดเจนเป็น 2 กลุ่มใหญ่</p><ol>
+<li><code>Replacement</code></li>
+<li><code>Day-to-day servicing</code></li>
+</ol><p>นี่เป็นจุดที่สับสนบ่อยมาก</p><hr/></div>
+</section>
+<section class="sheet-section theme-default" id="12-replacement" data-title="12) Replacement">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 12</p><h2>Replacement</h2></header>
+<div class="section-intro prose"><p>ถ้าเป็นการเปลี่ยนชิ้นส่วนสำคัญของทรัพย์ เช่น ระบบลิฟต์ ผนังภายใน หรือองค์ประกอบหลักอื่น</p><p>และต้นทุนนั้นเข้าเงื่อนไขการรับรู้รายการ</p><p>ให้ทำ 2 อย่างพร้อมกัน</p><ol>
+<li>รับรู้ต้นทุนของชิ้นส่วนใหม่เป็นส่วนหนึ่งของมูลค่าตามบัญชี</li>
+<li>ตัดรายการของชิ้นส่วนเก่าที่ถูกเปลี่ยนออก</li>
 </ol></div>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เหตุผล</h3></div><div class="subsection-body prose"><p>งบการเงินต้องสะท้อนความเป็นจริงทางเศรษฐกิจ</p><ul>
+<li>ของใหม่เข้ามาเพิ่มประโยชน์ในอนาคต</li>
+<li>ของเก่าถูกถอดหรือทุบทิ้งไปแล้ว จึงไม่ควรค้างอยู่ในงบ</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>ลิฟต์ใหม่ 2,000,000</li>
+<li>ลิฟต์เก่าราคาทุน 1,500,000</li>
+<li>ค่าเสื่อมสะสมของลิฟต์เก่า 1,200,000</li>
+<li>มูลค่าตามบัญชีของลิฟต์เก่า 300,000</li>
+</ul><p>รับรู้ของใหม่</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      2,000,000
+    Cr. Cash / Bank                                         2,000,000
+</code></pre><p>ตัดของเก่าออก</p><pre class="ledger-block"><code class="language-text">Dr. Accumulated Depreciation - IP           1,200,000
+Dr. Loss on Disposal                          300,000
+    Cr. Investment Property                                  1,500,000
+</code></pre><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="13-day-to-day-servicing" data-title="13) Day-to-day servicing">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 13</p><h2>Day-to-day servicing</h2></header>
+<div class="section-intro prose"><p>หมายถึงค่าใช้จ่ายยิบย่อยที่เกิดขึ้นเป็นประจำเพื่อดูแลสินทรัพย์ให้อยู่ในสภาพเดิม</p><p>ตัวอย่าง:</p><ul>
+<li>ค่าแรงซ่อมเล็ก ๆ</li>
+<li>ค่าวัสดุสิ้นเปลือง</li>
+<li>ค่าเปลี่ยนอะไหล่เล็กน้อย</li>
+<li>ค่าทำความสะอาด</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>วิธีรับรู้</h3></div><div class="subsection-body prose"><ul>
+<li>ห้ามบวกเพิ่มในมูลค่าตามบัญชีของ <code>Investment Property</code></li>
+<li>ให้รับรู้เป็นค่าใช้จ่ายในงบกำไรขาดทุนทันที</li>
+</ul></div></article>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เหตุผล</h3></div><div class="subsection-body prose"><p>เพราะค่าใช้จ่ายกลุ่มนี้เป็นเพียงการรักษาสภาพเดิมของสินทรัพย์<br/>
+ไม่ได้เพิ่มประโยชน์เชิงเศรษฐกิจในอนาคตเกินกว่าที่เคยคาดไว้เดิม</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>ค่าซ่อมท่อน้ำและทำความสะอาด 15,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Repairs and Maintenance Expense            15,000
+    Cr. Cash / Bank                                              15,000
+</code></pre></div></article>
+<article class="subsection summary"><div class="subsection-head"><span class="subsection-label">SUMMARY</span><h3>หลักจำ</h3></div><div class="subsection-body prose"><ul>
+<li><code>Replacement</code> = capitalize + derecognize ของเก่า</li>
+<li><code>Day-to-day servicing</code> = expense ทันที</li>
+</ul><hr/></div></article>
 </section>
 </div>
 </section>
-</main>
-<p class="footer-note">เธเธฑเธ”เธซเธเนเธฒเนเธซเธกเนเธเธฒเธเธชเธฃเธธเธ Chapter 09 เน€เธ”เธดเธกเน€เธเธทเนเธญเนเธเนเธ—เธงเธเธเนเธญเธเธชเธญเธ เนเธ”เธขเธเธเธชเธฒเธฃเธฐเธเธฒเธเธ•เนเธเธเธเธฑเธเนเธงเนเนเธเธฃเธนเธเนเธเธเธญเนเธฒเธเธเนเธฒเธขเธเธเธซเธเนเธฒเน€เธงเนเธ</p>
+<section class="sheet-group" id="measurement-models" data-group-title="การวัดมูลค่าและนโยบาย">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 03</p>
+<p class="group-kicker">6 sections</p>
 </div>
-<script>
+<h2>การวัดมูลค่าและนโยบาย</h2>
+<p class="group-description">จัด Cost model และ Fair value model ไว้ด้วยกัน รวมทั้งผู้ประเมินราคาและเงื่อนไขการเปลี่ยนนโยบาย</p>
+<nav class="group-nav" aria-label="การวัดมูลค่าและนโยบาย"><a href="#14-การวัดมูลค่าภายหลังการรับรู้-measurement-after-recognition" class="group-link" title="14) การวัดมูลค่าภายหลังการรับรู้ ( Measurement after recognition )">After Recognition</a><a href="#15-cost-model" class="group-link" title="15) Cost Model">Cost Model</a><a href="#16-fair-value-model" class="group-link" title="16) Fair Value Model">Fair Value</a><a href="#19-ตารางเทียบ-cost-model-กับ-fair-value-model" class="group-link" title="19) ตารางเทียบ Cost model กับ Fair value model">ตารางเทียบ Cost mo</a><a href="#17-การใช้ผู้ประเมินราคาอิสระ" class="group-link" title="17) การใช้ผู้ประเมินราคาอิสระ">การใช้ผู้ประเมินรา</a><a href="#18-ทำไมการเปลี่ยนจาก-fair-value-กลับไป-cost-จึง-เป็นไปได้ยากมาก" class="group-link" title="18) ทำไมการเปลี่ยนจาก Fair Value กลับไป Cost จึง “เป็นไปได้ยากมาก”">ทำไมการเปลี่ยนจาก </a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="14-การวัดมูลค่าภายหลังการรับรู้-measurement-after-recognition" data-title="14) การวัดมูลค่าภายหลังการรับรู้ ( Measurement after recognition )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 14</p><h2>การวัดมูลค่าภายหลังการรับรู้ ( Measurement after recognition )</h2></header>
+<div class="section-intro prose"><p>หลังรับรู้ครั้งแรกแล้ว กิจการต้องเลือกนโยบายบัญชีเพียง 1 วิธี และต้องใช้กับ <code>Investment Property ทุกรายการ</code></p><p>ทางเลือกคือ</p><ol>
+<li><code>Cost model</code></li>
+<li><code>Fair value model</code></li>
+</ol></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กฎสำคัญมาก</h3></div><div class="subsection-body prose"><p>ห้ามเลือกสลับรายสินทรัพย์</p><p>ตัวอย่างที่ผิด:</p><ul>
+<li>ตึก A ใช้ <code>Cost model</code></li>
+<li>ตึก B ใช้ <code>Fair value model</code></li>
+</ul><p>ถ้าทั้งสองเป็น <code>Investment Property</code> ของกิจการเดียวกัน มาตรฐานไม่ให้ทำแบบนี้</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="15-cost-model" data-title="15) Cost Model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 15</p><h2>Cost Model</h2></header>
+<div class="section-intro prose"><p>ถ้าเลือก <code>Cost model</code></p><ul>
+<li>การวัดมูลค่าภายหลังจะคล้าย <code>PPE</code></li>
+<li>มีการคิดค่าเสื่อมราคา</li>
+<li>พิจารณาการด้อยค่าเมื่อเข้าเงื่อนไข</li>
+</ul><p>ทรัพย์จะถูกแสดงด้วย</p><ul>
+<li>ราคาทุน</li>
+<li>หักค่าเสื่อมราคาสะสม</li>
+<li>หักผลขาดทุนจากการด้อยค่า (ถ้ามี)</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ข้อยกเว้นเรื่องการคิดค่าเสื่อม</h3></div><div class="subsection-body prose"><p>ต้นฉบับระบุไว้ด้วยว่า หากสินทรัพย์นั้นถูกจัดประเภทเป็น <code>Held for sale</code><br/>
+ตามมาตรฐานที่เกี่ยวข้อง<br/>
+กิจการจะหยุดคิดค่าเสื่อมราคา</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ข้อสำคัญที่คนชอบลืม</h3></div><div class="subsection-body prose"><p>แม้กิจการใช้ <code>Cost model</code></p><p>ก็ยังต้องเปิดเผย <code>Fair value</code> ของ <code>Investment Property</code> ในหมายเหตุประกอบงบการเงิน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="16-fair-value-model" data-title="16) Fair Value Model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 16</p><h2>Fair Value Model</h2></header>
+<div class="section-intro prose"><p>ถ้าเลือก <code>Fair value model</code></p><ul>
+<li>ต้องวัดมูลค่ายุติธรรมทุกวันสิ้นรอบบัญชี</li>
+<li>ไม่คิดค่าเสื่อมราคา</li>
+<li>ส่วนต่างจากการเปลี่ยนแปลงมูลค่ายุติธรรมรับรู้ใน <code>P&amp;L</code> ทันที</li>
+</ul></div>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>แนวคิดเบื้องหลัง</h3></div><div class="subsection-body prose"><p>ธรรมชาติของ <code>Investment Property</code> คือกิจการถือไว้เพื่อ</p><ul>
+<li>รับค่าเช่า</li>
+<li>หรือรอมูลค่าที่เพิ่มขึ้น</li>
+</ul><p>ดังนั้นข้อมูลที่มีประโยชน์ต่อผู้ใช้งบมากที่สุดคือ “มูลค่าปัจจุบัน”</p><p>ถ้าทรัพย์มีราคาขึ้น งบควรสะท้อนภาพนั้นทันทีภายใต้โมเดลนี้</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชีเมื่อมูลค่าเพิ่ม</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>มูลค่าตามบัญชีก่อนปรับ 15,000,000</li>
+<li>มูลค่ายุติธรรมปลายปี 16,200,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      1,200,000
+    Cr. Gain from Fair Value Adjustment                     1,200,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชีเมื่อมูลค่าลด</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>มูลค่าตามบัญชีก่อนปรับ 15,000,000</li>
+<li>มูลค่ายุติธรรมปลายปี 14,400,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Loss from Fair Value Adjustment            600,000
+    Cr. Investment Property                                      600,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ข้อห้ามสำคัญของ Fair Value Model</h3></div><div class="subsection-body prose"><p>ต้นฉบับย้ำไว้ชัดว่ามีข้อสำคัญที่ต้องจำ</p><ol>
+<li>ห้ามคิดค่าเสื่อมราคา</li>
+<li>ในการหามูลค่ายุติธรรม ห้ามหักค่าใช้จ่ายในการขายออกจากราคา</li>
+</ol><p>กล่าวคือ หากประเมินราคาตลาดได้เท่าไร ให้ใช้ราคาตลาดนั้นตรง ๆ<br/>
+ไม่ใช่ราคาตลาดสุทธิหลังหักค่านายหน้า หรือค่าใช้จ่ายในการขาย</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>Case เปรียบเทียบ Cost model กับ Fair Value model แบบเต็ม</h3></div><div class="subsection-body prose"><p>ต้นฉบับมีโจทย์เปรียบเทียบที่สำคัญมากดังนี้</p><ul>
+<li>วันที่ 1 ม.ค. 25X1 ซื้ออาคาร 100 ล้านบาท</li>
+<li>อายุการใช้งาน 10 ปี</li>
+<li>นำไปปล่อยเช่า</li>
+<li>ณ 31 ธ.ค. 25X1 มูลค่ายุติธรรม = 120 ล้านบาท</li>
+<li>ณ 31 ธ.ค. 25X2 มูลค่ายุติธรรม = 90 ล้านบาท</li>
+</ul><h4>ถ้าใช้ Cost model</h4><p>วิธีนี้ไม่ใช้ราคาตลาดมาบันทึกบัญชีโดยตรง แต่คิดค่าเสื่อมตามอายุการใช้งาน</p><p>ค่าเสื่อมต่อปี = 100 / 10 = 10 ล้านบาท</p><p>วันซื้อ</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                    100,000,000
+    Cr. Cash / Bank                                        100,000,000
+</code></pre><p>สิ้นปี 25X1</p><pre class="ledger-block"><code class="language-text">Dr. Depreciation Expense                    10,000,000
+    Cr. Accumulated Depreciation - IP                       10,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X1 = 90 ล้านบาท</p><p>สิ้นปี 25X2</p><pre class="ledger-block"><code class="language-text">Dr. Depreciation Expense                    10,000,000
+    Cr. Accumulated Depreciation - IP                       10,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X2 = 80 ล้านบาท</p><h4>ถ้าใช้ Fair Value model</h4><p>วิธีนี้ไม่คิดค่าเสื่อม แต่ปรับมูลค่าตามตลาดทุกสิ้นปี</p><p>วันซื้อ</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                    100,000,000
+    Cr. Cash / Bank                                        100,000,000
+</code></pre><p>สิ้นปี 25X1 ราคาขึ้นจาก 100 เป็น 120 ล้านบาท</p><pre class="ledger-block"><code class="language-text">Dr. Investment Property                     20,000,000
+    Cr. Gain from Fair Value Adjustment                      20,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X1 = 120 ล้านบาท</p><p>สิ้นปี 25X2 ราคาลดจาก 120 เหลือ 90 ล้านบาท</p><pre class="ledger-block"><code class="language-text">Dr. Loss from Fair Value Adjustment         30,000,000
+    Cr. Investment Property                                   30,000,000
+</code></pre><p>มูลค่าตามบัญชีปลายปี 25X2 = 90 ล้านบาท</p></div></article>
+<article class="subsection summary"><div class="subsection-head"><span class="subsection-label">SUMMARY</span><h3>ข้อสรุปจาก case นี้</h3></div><div class="subsection-body prose"><ul>
+<li><code>Cost model</code> ทำให้งบกำไรขาดทุนค่อนข้างนิ่งกว่า แต่ตัวเลขมูลค่าทรัพย์อาจห่างจากราคาตลาดจริง</li>
+<li><code>Fair Value model</code> ทำให้งบกำไรขาดทุนผันผวนตามตลาด แต่สะท้อนมูลค่าปัจจุบันชัดกว่า</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักการหามูลค่ายุติธรรม</h3></div><div class="subsection-body prose"><p>ต้นฉบับอธิบายว่า fair value ต้องสะท้อน <code>มุมมองของตลาด ณ ปัจจุบัน</code></p><p>นั่นหมายถึง</p><ul>
+<li>ต้องสะท้อนรายได้ค่าเช่าตามสัญญาที่มีอยู่จริง</li>
+<li>ต้องใช้สมมติฐานที่ <code>Market participants</code> จะใช้</li>
+</ul><p>ไม่ใช่ใช้ความเห็นส่วนตัวของผู้บริหารล้วน ๆ</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กฎห้ามนับซ้ำ ( No double-counting )</h3></div><div class="subsection-body prose"><p>ต้นฉบับเตือนชัดมากว่า ในการตีราคา ห้ามนับมูลค่าของสินทรัพย์หรือองค์ประกอบที่บันทึกแยกแล้วซ้ำอีก</p><p>ตัวอย่าง:</p><ul>
+<li>ลิฟต์</li>
+<li>ระบบปรับอากาศ</li>
+<li>เฟอร์นิเจอร์ที่รวมอยู่ในมูลค่าประเมินของออฟฟิศให้เช่าแล้ว</li>
+</ul><p>ต้นฉบับอธิบายเพิ่มว่า รายการอย่างลิฟต์หรือระบบปรับอากาศมักเป็น <code>Integral part of a building</code><br/>
+จึงถูกสะท้อนอยู่ในราคาของอาคารอยู่แล้ว</p><p>ถ้ามูลค่าตึกประเมินรวมสิ่งเหล่านี้อยู่แล้ว ห้ามตั้งสินทรัพย์แยกซ้ำอีก เพราะจะทำให้เกิดการนับซ้ำในงบ</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>เมื่อไม่สามารถวัด Fair value ได้อย่างน่าเชื่อถือ</h3></div><div class="subsection-body prose"><p>ต้นฉบับยกนี่เป็นกรณีฉุกเฉิน เช่น</p><ul>
+<li>ตลาดในพื้นที่พังจนไม่มี <code>Active market</code></li>
+<li>ไม่มีข้อมูลเปรียบเทียบ</li>
+<li>หา <code>observable inputs</code> ที่เชื่อถือได้ไม่ได้</li>
+</ul><p>ถ้าฝืนตั้ง fair value จากตัวเลขสมมติล้วน ๆ อาจทำให้งบ “ไม่น่าเชื่อถือมากกว่าเดิม”</p><p>ในบริบทสุดโต่งเช่นนี้ การกลับไปยืนบนฐานของ</p><ul>
+<li>ราคาทุน</li>
+<li>ค่าเสื่อมราคา</li>
+<li>ค่าเผื่อการด้อยค่า</li>
+</ul><p>อาจให้ข้อมูลที่ <code>Reliable</code> มากกว่า</p><p>ถ้อยคำที่ต้นฉบับโยงไว้ตรง ๆ คือ <code>Inability to measure fair value reliably</code></p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="19-ตารางเทียบ-cost-model-กับ-fair-value-model" data-title="19) ตารางเทียบ Cost model กับ Fair value model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 17</p><h2>ตารางเทียบ Cost model กับ Fair value model</h2></header>
+<div class="section-intro prose"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ประเด็น</th>
+<th>Cost model</th>
+<th>Fair value model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ฐานการวัดมูลค่า</td>
+<td>ราคาทุน</td>
+<td>มูลค่ายุติธรรม</td>
+</tr>
+<tr>
+<td>ค่าเสื่อมราคา</td>
+<td>มี</td>
+<td>ไม่มี</td>
+</tr>
+<tr>
+<td>ส่วนต่างจากราคาตลาด</td>
+<td>ไม่รับรู้ทุกงวดโดยตรง</td>
+<td>รับรู้ใน <code>P&amp;L</code> ทันที</td>
+</tr>
+<tr>
+<td>ความสดใหม่ของข้อมูล</td>
+<td>ต่ำกว่า</td>
+<td>สูงกว่า</td>
+</tr>
+<tr>
+<td>Disclosure เรื่อง fair value</td>
+<td>ต้องเปิดเผย</td>
+<td>เป็นตัวเลขสำคัญในงบ/หมายเหตุ</td>
+</tr>
+</tbody>
+</table></div><hr/></div>
+</section>
+<section class="sheet-section theme-default" id="17-การใช้ผู้ประเมินราคาอิสระ" data-title="17) การใช้ผู้ประเมินราคาอิสระ">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 18</p><h2>การใช้ผู้ประเมินราคาอิสระ</h2></header>
+<div class="section-intro prose"><p>มาตรฐาน “สนับสนุน” ให้ใช้ <code>ผู้ประเมินราคาอิสระ (Independent valuer)</code></p><p>คุณสมบัติที่ต้นฉบับกล่าวถึงคือ</p><ul>
+<li>มีคุณวุฒิวิชาชีพที่ได้รับการยอมรับ</li>
+<li>มีประสบการณ์ล่าสุดเกี่ยวกับทำเลและประเภทของทรัพย์ที่ประเมิน</li>
+</ul><p>เช่น</p><ul>
+<li>ถ้าประเมินคอนโดทำเลรถไฟฟ้า ก็ควรใช้ผู้ประเมินที่เชี่ยวชาญตลาดลักษณะนั้น</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าไม่ได้ใช้ผู้ประเมินอิสระ</h3></div><div class="subsection-body prose"><p>กิจการต้องเปิดเผยข้อเท็จจริงนี้ในหมายเหตุประกอบงบการเงินอย่างตรงไปตรงมา</p><p>เหตุผล:</p><ul>
+<li>เพื่อให้ผู้ใช้งบประเมินความน่าเชื่อถือของตัวเลขเองได้</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="18-ทำไมการเปลี่ยนจาก-fair-value-กลับไป-cost-จึง-เป็นไปได้ยากมาก" data-title="18) ทำไมการเปลี่ยนจาก Fair Value กลับไป Cost จึง “เป็นไปได้ยากมาก”">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 19</p><h2>ทำไมการเปลี่ยนจาก Fair Value กลับไป Cost จึง “เป็นไปได้ยากมาก”</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับอธิบายเหตุผลไว้ชัดว่า</p><ul>
+<li><code>Fair value</code> สะท้อนความจริงในปัจจุบัน</li>
+<li><code>Cost</code> สะท้อนต้นทุนในอดีต</li>
+</ul><p>ถ้าธรรมชาติของทรัพย์คือถือไว้เพื่อค่าเช่าหรือเก็งกำไร<br/>
+ข้อมูลที่ผู้ใช้งบอยากรู้ที่สุดคือ “ตอนนี้ทรัพย์มีมูลค่าเท่าไร”</p><p>ดังนั้น การเปลี่ยนจากวิธีที่สะท้อนปัจจุบัน กลับไปใช้วิธีที่อิงอดีต มักไม่ทำให้ข้อมูลดีขึ้น</p></div>
+<article class="subsection note"><div class="subsection-head"><span class="subsection-label">NOTE</span><h3>เปรียบเทียบเชิงแนวคิด</h3></div><div class="subsection-body prose"><h4>Fair Value</h4><ul>
+<li>อัปเดตราคาตลาดให้เป็นปัจจุบัน</li>
+<li>แสดงความมั่งคั่งที่แท้จริงของกิจการได้ดีกว่า</li>
+</ul><h4>Cost Model</h4><ul>
+<li>ใช้ราคาซื้อในอดีตเป็นหลัก</li>
+<li>แม้ราคาตลาดปัจจุบันจะเปลี่ยนไปมาก งบก็อาจยังแสดงมูลค่าที่ล้าสมัย</li>
+</ul></div></article>
+<article class="subsection summary"><div class="subsection-head"><span class="subsection-label">SUMMARY</span><h3>บทสรุป</h3></div><div class="subsection-body prose"><p>เพราะมาตรฐานกำหนดให้การเปลี่ยนนโยบายบัญชีต้องทำให้ข้อมูล “เกี่ยวข้องและเหมาะสมกว่าเดิม”<br/>
+การเปลี่ยนจาก <code>Fair value</code> กลับไป <code>Cost</code> จึงถูกมองว่าเป็นการลดคุณภาพข้อมูลในหลายกรณี</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>กรณีสุดโต่งที่ต้นฉบับใช้ช่วยคิด</h3></div><div class="subsection-body prose"><p>ต้นฉบับยกตัวอย่างเชิงเหตุผลไว้ด้วยว่า คำว่า <code>Highly unlikely</code><br/>
+ไม่ได้แปลว่า “ไม่มีทางเกิด”<br/>
+แต่หมายถึง “ยากมากและต้องมีเหตุผลหนักแน่นจริง”</p><h4>กรณีที่ 1 นโยบายกลุ่มบริษัทแม่</h4><p>ถ้าบริษัทลูกถูกซื้อโดยบริษัทแม่ที่มี <code>Group accounting policy</code><br/>
+ให้ทุกบริษัทในเครือใช้ <code>Cost model</code><br/>
+เพื่อให้งบการเงินรวมทั้งกลุ่มอยู่บนฐานนโยบายเดียวกัน</p><p>ในบางบริบท บริษัทลูกอาจพยายามอธิบายว่าการเปลี่ยนนโยบายช่วยให้ข้อมูลสอดคล้องกับผู้ใช้งบหลักของกลุ่มมากขึ้น</p><p>ต้นฉบับใช้คำว่า <code>Consolidated Financial Statements</code><br/>
+เพื่อชี้ให้เห็นว่าการบังคับใช้ <code>Cost model</code> อาจมาจากความต้องการให้การจัดทำงบการเงินรวมของทั้งกลุ่มเป็นมาตรฐานเดียวกัน</p><h4>กรณีที่ 2 ตลาดพังอย่างถาวร</h4><p>เช่น</p><ul>
+<li>เกิดสงครามรุนแรง</li>
+<li>เกิดวิกฤตจนไม่มีตลาดซื้อขายที่คล่องแคล่วอีก</li>
+<li>หา <code>observable inputs</code> ไม่ได้จริง</li>
+</ul><p>ในสถานการณ์สุดโต่งแบบนี้ การฝืนตั้ง fair value อาจทำให้งบไม่น่าเชื่อถือกว่าใช้ cost</p><p>ต้นฉบับใช้กรณีนี้เพื่ออธิบายว่า ทำไมจึงพูดว่า <code>Highly unlikely</code><br/>
+แทนที่จะใช้คำว่า “เป็นไปไม่ได้โดยเด็ดขาด”</p><p>ต้นฉบับยังเรียกสถานการณ์ลักษณะนี้ว่า <code>Permanent Market Failure</code></p><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="transfers" data-group-title="Transfers และกรณีโอนซับซ้อน">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 04</p>
+<p class="group-kicker">8 sections</p>
+</div>
+<h2>Transfers และกรณีโอนซับซ้อน</h2>
+<p class="group-description">รวม change in use, evidence, การวัดมูลค่าเมื่อโอน และกรณี PPE -> IP ที่ออกสอบบ่อย</p>
+<nav class="group-nav" aria-label="Transfers และกรณีโอนซับซ้อน"><a href="#20-การโอนเปลี่ยนประเภท-transfers" class="group-link" title="20) การโอนเปลี่ยนประเภท ( Transfers )">Transfers</a><a href="#21-ตัวอย่างหลักฐานของการโอน" class="group-link" title="21) ตัวอย่างหลักฐานของการโอน">ตัวอย่างหลักฐานของ</a><a href="#22-หลุมพรางเรื่อง-transfers-ที่ต้นฉบับเตือน" class="group-link" title="22) หลุมพรางเรื่อง Transfers ที่ต้นฉบับเตือน">หลุมพรางเรื่อง Tra</a><a href="#23-การวัดมูลค่าเมื่อมีการโอน-ถ้าใช้-cost-model" class="group-link" title="23) การวัดมูลค่าเมื่อมีการโอน: ถ้าใช้ Cost model">การวัดมูลค่าเมื่อม</a><a href="#24-การวัดมูลค่าเมื่อมีการโอน-กรณีที่เกี่ยวข้องกับ-fair-value" class="group-link" title="24) การวัดมูลค่าเมื่อมีการโอน: กรณีที่เกี่ยวข้องกับ Fair value">การวัดมูลค่าเมื่อม</a><a href="#25-กรณีซับซ้อนที่สุด-โอนจาก-ppe-ไปเป็น-ip-ที่ใช้-fair-value" class="group-link" title="25) กรณีซับซ้อนที่สุด: โอนจาก PPE ไปเป็น IP ที่ใช้ Fair value">กรณีซับซ้อนที่สุด:</a><a href="#26-ทำไมกรณี-ppe-ip-fair-value-ถึงต้องให้ส่วนเพิ่มไป-oci" class="group-link" title="26) ทำไมกรณี PPE -> IP (Fair value) ถึงต้องให้ส่วนเพิ่มไป OCI">ทำไมกรณี PPE -> IP</a><a href="#27-ตัวอย่างแนวบันทึกบัญชี-ppe-ip-fair-value" class="group-link" title="27) ตัวอย่างแนวบันทึกบัญชี: PPE -> IP (Fair value)">ตัวอย่างแนวบันทึกบ</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-default" id="20-การโอนเปลี่ยนประเภท-transfers" data-title="20) การโอนเปลี่ยนประเภท ( Transfers )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 20</p><h2>การโอนเปลี่ยนประเภท ( Transfers )</h2></header>
+<div class="section-intro prose"><p>นี่เป็นส่วนที่ไฟล์ต้นฉบับอธิบายละเอียดมาก</p></div>
+<article class="subsection alert"><div class="subsection-head"><span class="subsection-label">ALERT</span><h3>กฎเหล็ก</h3></div><div class="subsection-body prose"><p>จะโอนเข้าหรือออกจาก <code>Investment Property</code> ได้ก็ต่อเมื่อมี</p><ul>
+<li><code>การเปลี่ยนแปลงการใช้งานจริง (Change in use)</code></li>
+<li>และมี <code>หลักฐาน (Evidence)</code></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>สิ่งที่ “ไม่พอ”</h3></div><div class="subsection-body prose"><p>แค่ผู้บริหารเปลี่ยนใจหรือเปลี่ยนความตั้งใจ</p><p>ยังโอนไม่ได้</p><p>ต้องมีการเปลี่ยนการใช้งานจริงรองรับ</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="21-ตัวอย่างหลักฐานของการโอน" data-title="21) ตัวอย่างหลักฐานของการโอน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 21</p><h2>ตัวอย่างหลักฐานของการโอน</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก IP ไป PPE</h3></div><div class="subsection-body prose"><ul>
+<li>เริ่มนำอาคารมาใช้งานเอง</li>
+<li>เช่น ย้ายพนักงานเข้าไปทำงาน</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก IP ไป Inventory</h3></div><div class="subsection-body prose"><ul>
+<li>เริ่มพัฒนาเพื่อขาย</li>
+<li>เช่น เปลี่ยนจากถือไว้ลงทุนมาเป็นโครงการที่จะขาย</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก PPE ไป IP</h3></div><div class="subsection-body prose"><ul>
+<li>เลิกใช้งานเอง</li>
+<li>ย้ายพนักงานออก</li>
+<li>เปลี่ยนไปปล่อยเช่า</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>จาก Inventory ไป IP</h3></div><div class="subsection-body prose"><ul>
+<li>จากเดิมสร้างไว้ขาย</li>
+<li>แต่เปลี่ยนมาปล่อยเช่าแทน</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="22-หลุมพรางเรื่อง-transfers-ที่ต้นฉบับเตือน" data-title="22) หลุมพรางเรื่อง Transfers ที่ต้นฉบับเตือน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 22</p><h2>หลุมพรางเรื่อง Transfers ที่ต้นฉบับเตือน</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>22.1 แค่ติดป้ายขาย ยังไม่พอ</h3></div><div class="subsection-body prose"><p>ถ้ากิจการเพียง</p><ul>
+<li>ติดป้ายประกาศขาย</li>
+<li>หรือสั่งนายหน้าให้หาคนซื้อ</li>
+</ul><p>แต่ยังไม่มีการเริ่มพัฒนาเพื่อขายจริง</p><p>ทรัพย์ยังคงเป็น <code>Investment Property</code> ต่อไป</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>22.2 ทรัพย์ที่กำลังก่อสร้างเพื่อปล่อยเช่า</h3></div><div class="subsection-body prose"><p>ถ้าตอนสร้างมีจุดหมายชัดเจนว่าจะปล่อยเช่าในอนาคต</p><p>ให้ถือเป็น <code>Investment Property</code> ได้เลย</p><p>ไม่จำเป็นต้องพักเป็น <code>PPE</code> ก่อน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="23-การวัดมูลค่าเมื่อมีการโอน-ถ้าใช้-cost-model" data-title="23) การวัดมูลค่าเมื่อมีการโอน: ถ้าใช้ Cost model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 23</p><h2>การวัดมูลค่าเมื่อมีการโอน: ถ้าใช้ Cost model</h2></header>
+<div class="section-intro prose"><p>ถ้ากิจการใช้ <code>Cost model</code> อยู่แล้ว การโอนระหว่าง</p><ul>
+<li>IP</li>
+<li>PPE</li>
+<li>Inventory</li>
+</ul><p>จะไม่ทำให้เกิดกำไรหรือขาดทุนจากการโอน</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักปฏิบัติ</h3></div><div class="subsection-body prose"><p>ใช้ <code>Carrying amount ณ วันโอน</code> เป็นมูลค่าในหมวดใหม่ได้เลย</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="24-การวัดมูลค่าเมื่อมีการโอน-กรณีที่เกี่ยวข้องกับ-fair-value" data-title="24) การวัดมูลค่าเมื่อมีการโอน: กรณีที่เกี่ยวข้องกับ Fair value">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 24</p><h2>การวัดมูลค่าเมื่อมีการโอน: กรณีที่เกี่ยวข้องกับ Fair value</h2></header>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>24.1 โอนจาก IP (ที่ใช้ fair value) ไป PPE หรือ Inventory</h3></div><div class="subsection-body prose"><p>ให้ใช้ <code>Fair value ณ วันโอน</code> เป็น <code>Deemed cost</code> ของสินทรัพย์ใหม่</p><p>แนวคิดคือ</p><ul>
+<li>ณ วันที่โอน ทรัพย์ถูกวัดด้วย fair value อยู่แล้ว</li>
+<li>จึงนำมูลค่านั้นไปตั้งต้นเป็นราคาทุนสมมติของหมวดใหม่</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>24.2 โอนจาก Inventory ไปเป็น IP ที่ใช้ Fair value</h3></div><div class="subsection-body prose"><p>ให้รับรู้ส่วนต่างระหว่าง</p><ul>
+<li>มูลค่าตามบัญชีเดิม</li>
+<li>กับ fair value ณ วันโอน</li>
+</ul><p>เข้า <code>P&amp;L</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>Inventory 7,000,000</li>
+<li>Fair value ณ วันโอน 7,800,000</li>
+</ul><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      7,800,000
+    Cr. Inventory                                            7,000,000
+    Cr. Gain on Transfer to IP                                 800,000
+</code></pre><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="25-กรณีซับซ้อนที่สุด-โอนจาก-ppe-ไปเป็น-ip-ที่ใช้-fair-value" data-title="25) กรณีซับซ้อนที่สุด: โอนจาก PPE ไปเป็น IP ที่ใช้ Fair value">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 25</p><h2>กรณีซับซ้อนที่สุด: โอนจาก PPE ไปเป็น IP ที่ใช้ Fair value</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับอธิบายว่านี่เป็นจุดที่ “ปราบเซียน” มากที่สุด</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักการสำคัญ</h3></div><div class="subsection-body prose"><p>ก่อนที่ทรัพย์จะเปลี่ยนสถานะเป็น <code>Investment Property</code><br/>
+ต้องจัดการตามกติกาของ <code>PPE</code> ก่อน</p><p>แล้วค่อยปรับให้เท่ากับ <code>Fair value</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>วิธีคิดเป็นลำดับ</h3></div><div class="subsection-body prose"><ol>
+<li>ใช้มาตรฐานของ PPE จนถึงวันโอน</li>
+<li>ปรับมูลค่าให้เท่ากับ fair value ณ วันนั้น</li>
+<li>รับรู้ส่วนต่างแบบเดียวกับการตีราคา PPE</li>
+<li>จากนั้นจึงโอนไปเป็น <code>Investment Property</code></li>
+</ol></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าราคาตลาดลดลง</h3></div><div class="subsection-body prose"><ul>
+<li>รับรู้ขาดทุนใน <code>P&amp;L</code></li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าราคาตลาดเพิ่มขึ้น</h3></div><div class="subsection-body prose"><p>มาตรฐานไม่ให้โยนเข้า <code>P&amp;L</code> ทั้งหมดทันที</p><p>ต้องคิดเป็น 2 ขยัก</p><h4>ขยักแรก</h4><p>ถ้าในอดีตทรัพย์เคยมีการรับรู้ขาดทุนจากการด้อยค่า</p><ul>
+<li>ให้ส่วนที่เพิ่มขึ้นไปตีกลับขาดทุนเดิมก่อน</li>
+<li>รับรู้เข้า <code>P&amp;L</code> ได้ไม่เกินจำนวนขาดทุนเดิม</li>
+</ul><h4>ขยักสอง</h4><p>ส่วนที่เพิ่มเกินจากการตีกลับขาดทุนเดิม</p><ul>
+<li>ให้รับรู้ใน <code>OCI</code></li>
+<li>และแสดงเป็น <code>Revaluation surplus</code> ในส่วนของเจ้าของ</li>
+</ul><hr/></div></article>
+</section>
+<section class="sheet-section theme-default" id="26-ทำไมกรณี-ppe-ip-fair-value-ถึงต้องให้ส่วนเพิ่มไป-oci" data-title="26) ทำไมกรณี PPE -> IP (Fair value) ถึงต้องให้ส่วนเพิ่มไป OCI">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 26</p><h2>ทำไมกรณี PPE -> IP (Fair value) ถึงต้องให้ส่วนเพิ่มไป OCI</h2></header>
+<div class="section-intro prose"><p>ต้นฉบับอธิบายเหตุผลไว้ชัดมากว่า เพื่อป้องกัน <code>Earnings management</code></p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าไม่มีกฎนี้จะเกิดอะไรขึ้น</h3></div><div class="subsection-body prose"><p>สมมติ</p><ul>
+<li>บริษัทมีตึกสำนักงานใหญ่เก่า</li>
+<li>มูลค่าตามบัญชีเหลือ 10 ล้าน</li>
+<li>ราคาตลาดจริงพุ่งเป็น 100 ล้าน</li>
+</ul><p>ถ้ามาตรฐานยอมให้แค่ย้ายตึกจาก <code>PPE</code> ไป <code>IP</code><br/>
+แล้วรับกำไร 90 ล้านเข้า <code>P&amp;L</code> ทันที</p><p>ผู้บริหารก็สามารถ “สร้างกำไรทิพย์” ได้ง่ายมาก</p><ul>
+<li>แค่ย้ายพนักงานออก</li>
+<li>ประกาศว่าจะปล่อยเช่า</li>
+<li>แล้วกำไรจำนวนมหาศาลจะโผล่ในงบ ทั้งที่ยังไม่ได้ขายจริงและยังไม่ได้รับเงินสดจริง</li>
+</ul><p>ดังนั้น มาตรฐานจึงบังคับให้ส่วนเกินจากการตีราคาของ PPE ไปอยู่ใน <code>OCI</code> ตามกติกา PPE ก่อน</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-accounting" id="27-ตัวอย่างแนวบันทึกบัญชี-ppe-ip-fair-value" data-title="27) ตัวอย่างแนวบันทึกบัญชี: PPE -> IP (Fair value)">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 27</p><h2>ตัวอย่างแนวบันทึกบัญชี: PPE -> IP (Fair value)</h2></header>
+<div class="section-intro prose"><p>สมมติ</p><ul>
+<li>ราคาทุน PPE 10,000,000</li>
+<li>ค่าเสื่อมราคาสะสม 4,000,000</li>
+<li>มูลค่าตามบัญชี 6,000,000</li>
+<li>Fair value ณ วันโอน 9,000,000</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขั้นที่ 1 ล้างค่าเสื่อมสะสม</h3></div><div class="subsection-body prose"><pre class="ledger-block"><code class="language-text">Dr. Accumulated Depreciation - PPE           4,000,000
+    Cr. PPE                                                    4,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขั้นที่ 2 ปรับเป็น fair value</h3></div><div class="subsection-body prose"><pre class="ledger-block"><code class="language-text">Dr. PPE                                      3,000,000
+    Cr. Revaluation Surplus (OCI)                             3,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ขั้นที่ 3 โอนเข้า Investment Property</h3></div><div class="subsection-body prose"><pre class="ledger-block"><code class="language-text">Dr. Investment Property                      9,000,000
+    Cr. PPE                                                    9,000,000
+</code></pre></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ถ้าเดิม PPE ใช้ Revaluation model อยู่แล้ว</h3></div><div class="subsection-body prose"><p>ต้นฉบับบอกว่าหลักการยังเหมือนเดิม คือ ณ วันโอนต้องทำตามกติกาของ <code>PPE</code> ก่อน</p><p>ความต่างคือ ถ้ามี <code>Revaluation surplus</code> เดิมค้างอยู่แล้ว<br/>
+ยอดนั้นจะยังคงอยู่ในส่วนของเจ้าของต่อไป</p><p>ตัวอย่างจากต้นฉบับ:</p><ul>
+<li>Book value เดิม 10,000,000</li>
+<li>มี OCI เดิมค้างอยู่ 2,000,000</li>
+<li>Fair value ณ วันโอน 15,000,000</li>
+</ul><p>ส่วนต่างจากการประเมินครั้งสุดท้าย 5,000,000<br/>
+ยังต้องเข้า <code>OCI</code> ตามกติกา PPE ก่อน</p><p>หลังโอนจะมียอดส่วนเกินทุนจากการตีราคาสะสมรวมกันอยู่ในทุน</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ชะตากรรมของ OCI หลังโอน</h3></div><div class="subsection-body prose"><p>ต้นฉบับอธิบายเพิ่มไว้อย่างละเอียดว่า</p><h4>ถ้ายังเป็น PPE</h4><p>ถ้าใช้ <code>Revaluation model</code> กับ PPE<br/>
+กิจการอาจทยอยโอนส่วนเกินทุนจากการตีราคาไป <code>Retained earnings</code><br/>
+ตามส่วนต่างของค่าเสื่อมที่เพิ่มขึ้นได้</p><h4>แต่ถ้าโอนมาเป็น IP ที่ใช้ Fair Value แล้ว</h4><p>สถานการณ์เปลี่ยนทันที เพราะ</p><ul>
+<li><code>Investment Property</code> แบบ <code>Fair value model</code> ห้ามคิดค่าเสื่อมราคา</li>
+</ul><p>ดังนั้นยอด OCI ก้อนเดิมจะถูก “แช่แข็ง” (<code>Frozen</code>)</p><ul>
+<li>ห้ามทยอยโอนเข้ากำไรสะสมระหว่างทาง</li>
+<li>โดยหลักจะไปเคลียร์ได้เมื่อจำหน่ายหรือตัดรายการทรัพย์นั้นแล้ว</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ราคาตลาดในปีถัดไปหลังโอนรับรู้ที่ไหน</h3></div><div class="subsection-body prose"><p>ต้นฉบับย้ำว่าหลังทรัพย์กลายเป็น <code>Investment Property</code> แบบ <code>Fair value model</code> แล้ว</p><ul>
+<li>กำไรหรือขาดทุนจากราคาตลาดปีต่อ ๆ ไป</li>
+<li>ต้องรับรู้เข้า <code>P&amp;L</code> ทันทีทั้งหมด</li>
+</ul><p>ห้ามนำไปหักกลบกับ OCI ก้อนเดิมที่ถูกแช่แข็งไว้</p><p>นี่เป็นจุดที่คนทำข้อสอบพลาดบ่อยมาก</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตารางเปรียบเทียบการโอนแบบต่าง ๆ</h3></div><div class="subsection-body prose"><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>รูปแบบการโอน</th>
+<th>มูลค่าที่ใช้ ณ วันโอน</th>
+<th>ส่วนต่างรับรู้ที่ไหน</th>
+<th>แนวคิดจำง่าย</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PPE -&gt; IP</code></td>
+<td>Fair value</td>
+<td>ราคาขึ้นมักไป <code>OCI</code>, ราคาลงไป <code>P&amp;L</code> ตามกติกา PPE</td>
+<td>ทิ้งทวนแบบ PPE</td>
+</tr>
+<tr>
+<td><code>Inventory -&gt; IP</code></td>
+<td>Fair value</td>
+<td>ส่วนต่างทั้งหมดเข้า <code>P&amp;L</code></td>
+<td>คล้ายขายสินค้าแล้วตั้งทรัพย์ใหม่</td>
+</tr>
+<tr>
+<td><code>IP -&gt; PPE</code></td>
+<td>Fair value ณ วันโอนเป็น <code>Deemed cost</code></td>
+<td>โดยปกติไม่มีส่วนต่างพิเศษ ณ วันโอน เพราะ IP ถูกปรับมูลค่ามาก่อนแล้ว</td>
+<td>ย้ายจากโลก IP ไปตั้งต้นเป็น PPE</td>
+</tr>
+<tr>
+<td><code>IP -&gt; Inventory</code></td>
+<td>Fair value ณ วันโอนเป็น <code>Deemed cost</code></td>
+<td>ใช้หลักเดียวกับ <code>IP -&gt; PPE</code></td>
+<td>ย้ายไปหมวดขาย</td>
+</tr>
+</tbody>
+</table></div><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="ending-and-disclosure" data-group-title="ปลายทางของรายการ">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 05</p>
+<p class="group-kicker">7 sections</p>
+</div>
+<h2>ปลายทางของรายการ</h2>
+<p class="group-description">ดูเรื่อง compensation, disposal, และ disclosure ให้จบเป็นก้อนเดียว</p>
+<nav class="group-nav" aria-label="ปลายทางของรายการ"><a href="#28-การรับเงินชดเชย-compensation" class="group-link" title="28) การรับเงินชดเชย ( Compensation )">การรับเงินชดเชย ( </a><a href="#29-การตัดรายการ-จำหน่าย-disposals" class="group-link" title="29) การตัดรายการ / จำหน่าย ( Disposals )">Disposals</a><a href="#30-ตัวอย่างจำหน่ายภายใต้-cost-model" class="group-link" title="30) ตัวอย่างจำหน่ายภายใต้ Cost model">ตัวอย่างจำหน่ายภาย</a><a href="#31-ตัวอย่างจำหน่ายภายใต้-fair-value-model" class="group-link" title="31) ตัวอย่างจำหน่ายภายใต้ Fair value model">ตัวอย่างจำหน่ายภาย</a><a href="#32-การเปิดเผยข้อมูล-disclosure" class="group-link" title="32) การเปิดเผยข้อมูล ( Disclosure )">Disclosure</a><a href="#33-disclosure-นโยบายและผู้ประเมิน" class="group-link" title="33) Disclosure: นโยบายและผู้ประเมิน">Disclosure: นโยบาย</a><a href="#34-disclosure-ตัวเลขในงบกำไรขาดทุน" class="group-link" title="34) Disclosure: ตัวเลขในงบกำไรขาดทุน">Disclosure: ตัวเลข</a></nav>
+</div>
+<div class="group-body">
+<section class="sheet-section theme-ending" id="28-การรับเงินชดเชย-compensation" data-title="28) การรับเงินชดเชย ( Compensation )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 28</p><h2>การรับเงินชดเชย ( Compensation )</h2></header>
+<div class="section-intro prose"><p>กรณีที่ทรัพย์</p><ul>
+<li>ไฟไหม้</li>
+<li>น้ำท่วม</li>
+<li>ถูกเวนคืน</li>
+<li>สูญหาย</li>
+<li>หรือเสียหายจนต้องเลิกใช้</li>
+</ul><p>แล้วกิจการได้รับเงินชดเชยจาก</p><ul>
+<li>บริษัทประกัน</li>
+<li>หรือบุคคลที่สาม</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักการรับรู้</h3></div><div class="subsection-body prose"><p>เงินชดเชยให้รับรู้เป็นรายได้ใน <code>P&amp;L</code><br/>
+ในงวดที่กิจการมีสิทธิได้รับเงินอย่างแน่นอน (<code>Receivable</code>)</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>หลักสำคัญที่ต้นฉบับย้ำ</h3></div><div class="subsection-body prose"><p>ห้ามหักกลบเหตุการณ์ต่าง ๆ เข้าด้วยกัน</p><p>เพราะเหตุการณ์เหล่านี้เป็น <code>Separate economic events</code></p><ul>
+<li>การเสียหายของทรัพย์</li>
+<li>การรับเงินชดเชย</li>
+<li>การสร้างหรือซื้อทรัพย์ใหม่</li>
+</ul><p>ต้องบันทึกแยกกัน</p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ตัวอย่างแนวบันทึกบัญชี</h3></div><div class="subsection-body prose"><p>เมื่อมีสิทธิรับเงินชดเชย 2,500,000</p><pre class="ledger-block"><code class="language-text">Dr. Insurance Receivable                     2,500,000
+    Cr. Compensation Income                                   2,500,000
+</code></pre><p>เมื่อได้รับเงิน</p><pre class="ledger-block"><code class="language-text">Dr. Cash / Bank                              2,500,000
+    Cr. Insurance Receivable                                 2,500,000
+</code></pre><hr/></div></article>
+</section>
+<section class="sheet-section theme-ending" id="29-การตัดรายการ-จำหน่าย-disposals" data-title="29) การตัดรายการ / จำหน่าย ( Disposals )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 29</p><h2>การตัดรายการ / จำหน่าย ( Disposals )</h2></header>
+<div class="section-intro prose"><p>จะตัด <code>Investment Property</code> ออกจากงบได้เมื่อ</p><ul>
+<li>จำหน่ายแล้ว</li>
+<li>หรือยกเลิกการใช้อย่างถาวร</li>
+<li>และคาดว่าจะไม่ได้รับประโยชน์เชิงเศรษฐกิจในอนาคตจากการจำหน่ายอีก</li>
+</ul><p>เช่น</p><ul>
+<li>ขายออกไปแล้ว</li>
+<li>ตึกพังเสียหายจนใช้ประโยชน์ไม่ได้อีก</li>
+</ul></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>การคำนวณกำไรหรือขาดทุน</h3></div><div class="subsection-body prose"><p><code>กำไรหรือขาดทุน = จำนวนเงินสุทธิที่ได้รับจากการจำหน่าย - มูลค่าตามบัญชีของสินทรัพย์</code></p><p>ผลต่างนี้รับรู้ใน <code>P&amp;L</code> ทันทีในงวดที่ขายหรือตัดรายการ</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-ending" id="30-ตัวอย่างจำหน่ายภายใต้-cost-model" data-title="30) ตัวอย่างจำหน่ายภายใต้ Cost model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 30</p><h2>ตัวอย่างจำหน่ายภายใต้ Cost model</h2></header>
+<div class="section-intro prose"><p>สมมติ</p><ul>
+<li>ราคาทุนเดิม 20,000,000</li>
+<li>ค่าเสื่อมราคาสะสม 8,000,000</li>
+<li>มูลค่าตามบัญชี 12,000,000</li>
+<li>เงินสดสุทธิที่ได้รับ 15,000,000</li>
+</ul><p>กำไร = 15,000,000 - 12,000,000 = 3,000,000</p><pre class="ledger-block"><code class="language-text">Dr. Cash / Bank                             15,000,000
+Dr. Accumulated Depreciation - IP            8,000,000
+    Cr. Investment Property                                 20,000,000
+    Cr. Gain on Disposal of IP                               3,000,000
+</code></pre><hr/></div>
+</section>
+<section class="sheet-section theme-ending" id="31-ตัวอย่างจำหน่ายภายใต้-fair-value-model" data-title="31) ตัวอย่างจำหน่ายภายใต้ Fair value model">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 31</p><h2>ตัวอย่างจำหน่ายภายใต้ Fair value model</h2></header>
+<div class="section-intro prose"><p>สมมติ</p><ul>
+<li>มูลค่าตามบัญชี ณ วันขาย 16,000,000</li>
+<li>เงินสดสุทธิที่ได้รับ 15,000,000</li>
+</ul><p>ขาดทุน = 15,000,000 - 16,000,000 = 1,000,000</p><pre class="ledger-block"><code class="language-text">Dr. Cash / Bank                             15,000,000
+Dr. Loss on Disposal of IP                   1,000,000
+    Cr. Investment Property                                 16,000,000
+</code></pre></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>การแสดงผลในงบกำไรขาดทุน</h3></div><div class="subsection-body prose"><p>ต้นฉบับชี้เพิ่มว่า บัญชี <code>กำไร/ขาดทุนจากการจำหน่าย...</code><br/>
+มักถูกนำไปแสดงเป็นรายได้หรือค่าใช้จ่ายในลักษณะ <code>Other Income / Other Expenses</code><br/>
+ในงบกำไรขาดทุนของงวดนั้น</p><hr/></div></article>
+</section>
+<section class="sheet-section theme-disclosure" id="32-การเปิดเผยข้อมูล-disclosure" data-title="32) การเปิดเผยข้อมูล ( Disclosure )">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 32</p><h2>การเปิดเผยข้อมูล ( Disclosure )</h2></header>
+<div class="section-intro prose"><p>ไฟล์ต้นฉบับแบ่ง disclosure เป็น 2 ส่วนใหญ่</p><ol>
+<li>เรื่องนโยบายและผู้ประเมิน</li>
+<li>ตัวเลขในงบกำไรขาดทุน</li>
+</ol><hr/></div>
+</section>
+<section class="sheet-section theme-disclosure" id="33-disclosure-นโยบายและผู้ประเมิน" data-title="33) Disclosure: นโยบายและผู้ประเมิน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 33</p><h2>Disclosure: นโยบายและผู้ประเมิน</h2></header>
+<div class="section-intro prose"><p>กิจการต้องเปิดเผยว่า</p><ul>
+<li>เลือกใช้ <code>Cost model</code> หรือ <code>Fair value model</code></li>
+<li>มูลค่ายุติธรรมที่ใช้มาจากผู้ประเมินราคาอิสระหรือไม่</li>
+</ul><p>ถ้าใช้ผู้ประเมินราคาอิสระ</p><ul>
+<li>ควรเป็นผู้มีคุณวุฒิและมีประสบการณ์เหมาะสม</li>
+</ul><p>ถ้าไม่ได้ใช้</p><ul>
+<li>ต้องเปิดเผยข้อเท็จจริงนี้ให้ผู้ใช้งบทราบอย่างชัดเจน</li>
+</ul><hr/></div>
+</section>
+<section class="sheet-section theme-disclosure" id="34-disclosure-ตัวเลขในงบกำไรขาดทุน" data-title="34) Disclosure: ตัวเลขในงบกำไรขาดทุน">
+<div class="section-rule"></div>
+<header class="section-head"><p class="section-kicker">Part 34</p><h2>Disclosure: ตัวเลขในงบกำไรขาดทุน</h2></header>
+<div class="section-intro prose"><p>กิจการต้องเปิดเผยอย่างน้อยเรื่องต่อไปนี้</p></div>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>34.1 รายได้ค่าเช่า ( Rental income )</h3></div><div class="subsection-body prose"><p>รายได้ที่ได้รับจาก <code>Investment Property</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>34.2 ค่าใช้จ่ายในการดำเนินงานทางตรง ( Direct operating expenses )</h3></div><div class="subsection-body prose"><p>เช่น ค่าซ่อมแซมและบำรุงรักษา</p><p>โดยต้องแยกเป็น 2 บรรทัดให้ชัด</p><ol>
+<li>ค่าใช้จ่ายของทรัพย์ที่ “ก่อให้เกิดรายได้ค่าเช่า” ในงวดนั้น</li>
+<li>ค่าใช้จ่ายของทรัพย์ที่ “ไม่ได้ก่อให้เกิดรายได้ค่าเช่า” ในงวดนั้น</li>
+</ol><p>ตัวอย่างจากต้นฉบับ</p><ul>
+<li>ค่าซ่อมแอร์ในห้องที่มีคนเช่าอยู่แล้ว = กลุ่มที่ก่อให้เกิดรายได้ค่าเช่า</li>
+<li>ค่าทำความสะอาดตึกร้างที่ยังหาผู้เช่าไม่ได้ = กลุ่มที่ไม่ก่อให้เกิดรายได้ค่าเช่า</li>
+</ul></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>34.3 มูลค่ายุติธรรม ( Fair value )</h3></div><div class="subsection-body prose"><p>กิจการต้องเปิดเผยมูลค่ายุติธรรมของ <code>Investment Property</code></p><p>แม้กิจการจะเลือกใช้ <code>Cost model</code></p></div></article>
+<article class="subsection default"><div class="subsection-head"><span class="subsection-label">DEFAULT</span><h3>ทำไม Disclosure ส่วนนี้จึงสำคัญ</h3></div><div class="subsection-body prose"><p>ต้นฉบับชี้ให้เห็นว่า <code>Disclosure</code> ไม่ใช่ส่วนย่อยที่อ่านผ่านได้<br/>
+แต่เป็นส่วนที่ช่วยให้ผู้ใช้งบ “เห็นความจริงหลังตัวเลข”</p><p>ตัวอย่างเช่น</p><ul>
+<li>ถ้าใช้ <code>Cost model</code> งบแสดงมูลค่าตามราคาทุนหักค่าเสื่อม</li>
+<li>แต่ disclosure เรื่อง <code>Fair value</code> จะช่วยให้คนอ่านเห็นมูลค่าตลาดปัจจุบันด้วย</li>
+</ul><p>ส่วน <code>Direct operating expenses</code><br/>
+ก็ไม่ใช่แค่บอกยอดรวม<br/>
+แต่การแยกว่าทรัพย์ใดสร้างรายได้ค่าเช่าหรือยังไม่สร้างรายได้<br/>
+ช่วยให้ผู้ใช้งบประเมินประสิทธิภาพการบริหารทรัพย์ได้ดีขึ้น</p><hr/></div></article>
+</section>
+</div>
+</section>
+<section class="sheet-group" id="exam-wrap-up" data-group-title="วงจรชีวิต Investment Property (IP)">
+<div class="group-head">
+<div class="group-meta">
+<p class="group-kicker">Module 06</p>
+<p class="group-kicker">1 sections</p>
+</div>
+<h2>วงจรชีวิต Investment Property (IP)</h2>
+<p class="group-description">สรุป phase ทั้งวงจรตั้งแต่คัดกรอง บันทึก วัดมูลค่า โอน จำหน่าย จนถึง disclosure ใช้ทวนก่อนสอบได้ในหน้าเดียว</p>
+<nav class="group-nav" aria-label="วงจรชีวิต Investment Property (IP)"><a href="#ip-lifecycle-summary" class="group-link" title="วงจรชีวิต Investment Property (IP)">วงจร IP</a></nav>
+</div>
+<div class="group-body">
+
+<section class="sheet-section theme-review" id="ip-lifecycle-summary" data-title="วงจรชีวิต Investment Property (IP)">
+  <div class="section-rule"></div>
+  <header class="section-head">
+    <p class="section-kicker">Part 35</p>
+    <h2>วงจรชีวิต Investment Property (IP) สรุปจบในหน้าเดียว</h2>
+  </header>
+  <div class="section-intro prose">
+    <p>ใช้ทวนทั้งบทแบบมองเป็นลำดับตั้งแต่คัดกรองรายการ จนถึงการจำหน่ายและการเปิดเผยข้อมูล โดยคง logic หลักที่มักออกสอบไว้ครบในหน้าเดียว</p>
+  </div>
+
+  <article class="subsection summary">
+    <div class="subsection-head"><span class="subsection-label">PHASE 1</span><h3>คัดกรองจุดยืน (ใช่ หรือ ไม่ใช่ IP?)</h3></div>
+    <div class="subsection-body prose">
+      <ul>
+        <li><strong>ใช่ IP:</strong> ถือไว้เพื่อรับค่าเช่า หรือ รอราคาขึ้น เช่น อพาร์ตเมนต์ หรือที่ดินว่างเปล่า</li>
+        <li><strong>ไม่ใช่ IP:</strong> ใช้งานเอง หรือมีบริการเสริมเยอะ จัดเป็น <code>PPE</code> เช่น โรงแรม หรือออฟฟิศบริษัท</li>
+        <li><strong>ไม่ใช่ IP:</strong> มีไว้เพื่อขายตามปกติธุรกิจ จัดเป็น <code>Inventory</code> เช่น หมู่บ้านจัดสรร</li>
+        <li><strong>ไม่ใช่ IP:</strong> ถ้าปล่อยเช่าแบบโอนความเสี่ยงไปแล้ว เป็น <code>Finance Lease</code> และตัดตึกออกจากงบ</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection alert">
+    <div class="subsection-head"><span class="subsection-label">PHASE 2</span><h3>วันแรกที่เข้าบ้าน (Initial Recognition)</h3></div>
+    <div class="subsection-body prose">
+      <p><strong>กฎเหล็ก:</strong> วันแรกต้องบันทึกด้วย <code>ราคาทุน (Cost)</code> เสมอ</p>
+    </div>
+  </article>
+
+  <article class="subsection note">
+    <div class="subsection-head"><span class="subsection-label">PHASE 3</span><h3>การดูแลระหว่างทาง (Subsequent Costs)</h3></div>
+    <div class="subsection-body prose">
+      <ul>
+        <li><strong>เปลี่ยนชิ้นใหญ่ (Replacement):</strong> บวกทุนใหม่เข้าไป แล้วตัดมูลค่าบัญชีของเก่าทิ้ง</li>
+        <li><strong>ซ่อมแซมรายวัน (Day-to-day servicing):</strong> รับรู้เป็น <code>ค่าใช้จ่าย (Expense)</code> ของงวด ห้ามบวกเข้าตึก</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection example">
+    <div class="subsection-head"><span class="subsection-label">PHASE 4</span><h3>ประเมินค่าสิ้นปี (Subsequent Measurement)</h3></div>
+    <div class="subsection-body prose">
+      <p>ต้องเลือกใช้วิธีใดวิธีหนึ่ง และบังคับใช้กับ <strong>IP ทุกชิ้นทั้งกลุ่ม</strong></p>
+      <ul>
+        <li><strong>สาย Cost Model:</strong> คิดค่าเสื่อมราคาปกติ แต่ยังต้องหา <code>Fair Value</code> มาเปิดเผยในหมายเหตุประกอบงบเสมอ</li>
+        <li><strong>สาย Fair Value Model:</strong> ห้ามคิดค่าเสื่อมราคาเด็ดขาด และส่วนต่างราคาตลาดที่ขึ้นหรือลงให้รับรู้เข้า <code>P&amp;L</code> ทันที</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection trap">
+    <div class="subsection-head"><span class="subsection-label">PHASE 5</span><h3>เปลี่ยนใจย้ายหมวด (Transfers)</h3></div>
+    <div class="subsection-body prose">
+      <p><strong>กฎการโอน:</strong> จะโอนได้ต้องมี <code>การเปลี่ยนการใช้งานจริง + มีหลักฐาน</code> เท่านั้น แค่ผู้บริหารคิดเปลี่ยนใจเองยังโอนไม่ได้</p>
+      <blockquote>จุดสลบปราบเซียน: โอน <code>PPE</code> เปลี่ยนเป็น <code>IP (Fair Value)</code></blockquote>
+      <ul>
+        <li><strong>ก่อนโอน:</strong> ต้องตีราคาแบบทิ้งทวนด้วยกฎของ <code>PPE</code> ก่อน ถ้าราคาขึ้นให้เอากำไรไปไว้ใน <code>OCI / Revaluation surplus</code></li>
+        <li><strong>หลังโอน:</strong> เมื่อกลายเป็น <code>IP</code> แล้ว ราคาที่ขึ้นหรือลงหลังจากนั้นจึงค่อยวิ่งเข้า <code>P&amp;L</code></li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection default">
+    <div class="subsection-head"><span class="subsection-label">PHASE 6</span><h3>ขายทิ้ง / พังทลาย (Disposals)</h3></div>
+    <div class="subsection-body prose">
+      <p><strong>สูตรคำนวณ:</strong> <code>เงินที่ได้สุทธิ (Proceeds) - มูลค่าบัญชี (Carrying amount) = กำไร/ขาดทุน</code></p>
+      <p>ส่วนต่างนี้ให้รับรู้เข้า <code>P&amp;L</code> ทันที</p>
+    </div>
+  </article>
+
+  <article class="subsection note">
+    <div class="subsection-head"><span class="subsection-label">PHASE 7</span><h3>เล่าให้นักลงทุนฟัง (Disclosure)</h3></div>
+    <div class="subsection-body prose">
+      <ul>
+        <li>ต้องเปิดเผยนโยบายที่ใช้ว่าเป็น <code>Cost</code> หรือ <code>Fair Value</code> และบอกมูลค่ายุติธรรม</li>
+        <li>ต้องแยก <code>Rental income</code> และ <code>Direct operating expenses</code> ให้ชัด</li>
+        <li>ต้องแยกค่าใช้จ่ายของ <strong>ตึกที่มีคนเช่า</strong> ออกจาก <strong>ตึกที่ว่างเปล่า</strong> ด้วย</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="subsection alert">
+    <div class="subsection-head"><span class="subsection-label">EXAM TRICK</span><h3>ทริคในห้องสอบ</h3></div>
+    <div class="subsection-body prose">
+      <p>ถ้าเจอโจทย์หลอก ให้ท่องไว้เสมอว่า <strong>Fair Value ของบทนี้ห้ามคิดค่าเสื่อม และกำไร/ขาดทุนวิ่งเข้า <code>P&amp;L</code> ล้วน ๆ</strong> ยกเว้นตอนโอนมาจาก <code>PPE</code></p>
+    </div>
+  </article>
+</section>
+
+</div>
+</section>
+    </main>
+
+    <p class="footer-note">หน้าเดียวนี้ใช้ข้อมูลจากไฟล์สรุปที่ผู้ใช้อัปโหลดเป็นฐานหลักทั้งหมด และจัดใหม่ให้อ่านแบบชีทก่อนสอบในรูปแบบเว็บ</p>
+  </div>
+
+  <script>
     const sections = [...document.querySelectorAll('.sheet-section')];
     const groups = [...document.querySelectorAll('.sheet-group')];
     const navLinks = [...document.querySelectorAll('.mini-link')];

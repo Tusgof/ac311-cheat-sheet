@@ -5,8 +5,8 @@ import markdown
 from bs4 import BeautifulSoup, Tag
 
 
-SRC = Path(r"D:\Fogust\Workspace\College\AC311\08 Investment Property - Exam Sheet.md")
-OUT = Path(r"D:\Fogust\Workspace\College\AC311\08 Investment Property - Exam Sheet.html")
+SRC = Path(r"D:\Fogust\Workspace\College\AC311\09 Investment Property - Exam Sheet.md")
+OUT = Path(r"D:\Fogust\Workspace\College\AC311\09 Investment Property - Exam Sheet.html")
 
 
 SUBTITLE = (
@@ -102,91 +102,91 @@ GROUP_NAV_LABELS = {
 }
 
 MODULE_6_REPLACEMENT_HTML = """
-<section class="sheet-section theme-review" id="ip-lifecycle-summary" data-title="วงจรชีวิต Investment Property (IP)">
+<section class="sheet-section theme-review" id="ip-lifecycle-summary" data-title="เธงเธเธเธฃเธเธตเธงเธดเธ• Investment Property (IP)">
   <div class="section-rule"></div>
   <header class="section-head">
     <p class="section-kicker">Part {part_number:02d}</p>
-    <h2>วงจรชีวิต Investment Property (IP) สรุปจบในหน้าเดียว</h2>
+    <h2>เธงเธเธเธฃเธเธตเธงเธดเธ• Investment Property (IP) เธชเธฃเธธเธเธเธเนเธเธซเธเนเธฒเน€เธ”เธตเธขเธง</h2>
   </header>
   <div class="section-intro prose">
-    <p>ใช้ทวนทั้งบทแบบมองเป็นลำดับตั้งแต่คัดกรองรายการ จนถึงการจำหน่ายและการเปิดเผยข้อมูล โดยคง logic หลักที่มักออกสอบไว้ครบในหน้าเดียว</p>
+    <p>เนเธเนเธ—เธงเธเธ—เธฑเนเธเธเธ—เนเธเธเธกเธญเธเน€เธเนเธเธฅเธณเธ”เธฑเธเธ•เธฑเนเธเนเธ•เนเธเธฑเธ”เธเธฃเธญเธเธฃเธฒเธขเธเธฒเธฃ เธเธเธ–เธถเธเธเธฒเธฃเธเธณเธซเธเนเธฒเธขเนเธฅเธฐเธเธฒเธฃเน€เธเธดเธ”เน€เธเธขเธเนเธญเธกเธนเธฅ เนเธ”เธขเธเธ logic เธซเธฅเธฑเธเธ—เธตเนเธกเธฑเธเธญเธญเธเธชเธญเธเนเธงเนเธเธฃเธเนเธเธซเธเนเธฒเน€เธ”เธตเธขเธง</p>
   </div>
 
   <article class="subsection summary">
-    <div class="subsection-head"><span class="subsection-label">PHASE 1</span><h3>คัดกรองจุดยืน (ใช่ หรือ ไม่ใช่ IP?)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 1</span><h3>เธเธฑเธ”เธเธฃเธญเธเธเธธเธ”เธขเธทเธ (เนเธเน เธซเธฃเธทเธญ เนเธกเนเนเธเน IP?)</h3></div>
     <div class="subsection-body prose">
       <ul>
-        <li><strong>ใช่ IP:</strong> ถือไว้เพื่อรับค่าเช่า หรือ รอราคาขึ้น เช่น อพาร์ตเมนต์ หรือที่ดินว่างเปล่า</li>
-        <li><strong>ไม่ใช่ IP:</strong> ใช้งานเอง หรือมีบริการเสริมเยอะ จัดเป็น <code>PPE</code> เช่น โรงแรม หรือออฟฟิศบริษัท</li>
-        <li><strong>ไม่ใช่ IP:</strong> มีไว้เพื่อขายตามปกติธุรกิจ จัดเป็น <code>Inventory</code> เช่น หมู่บ้านจัดสรร</li>
-        <li><strong>ไม่ใช่ IP:</strong> ถ้าปล่อยเช่าแบบโอนความเสี่ยงไปแล้ว เป็น <code>Finance Lease</code> และตัดตึกออกจากงบ</li>
+        <li><strong>เนเธเน IP:</strong> เธ–เธทเธญเนเธงเนเน€เธเธทเนเธญเธฃเธฑเธเธเนเธฒเน€เธเนเธฒ เธซเธฃเธทเธญ เธฃเธญเธฃเธฒเธเธฒเธเธถเนเธ เน€เธเนเธ เธญเธเธฒเธฃเนเธ•เน€เธกเธเธ•เน เธซเธฃเธทเธญเธ—เธตเนเธ”เธดเธเธงเนเธฒเธเน€เธเธฅเนเธฒ</li>
+        <li><strong>เนเธกเนเนเธเน IP:</strong> เนเธเนเธเธฒเธเน€เธญเธ เธซเธฃเธทเธญเธกเธตเธเธฃเธดเธเธฒเธฃเน€เธชเธฃเธดเธกเน€เธขเธญเธฐ เธเธฑเธ”เน€เธเนเธ <code>PPE</code> เน€เธเนเธ เนเธฃเธเนเธฃเธก เธซเธฃเธทเธญเธญเธญเธเธเธดเธจเธเธฃเธดเธฉเธฑเธ—</li>
+        <li><strong>เนเธกเนเนเธเน IP:</strong> เธกเธตเนเธงเนเน€เธเธทเนเธญเธเธฒเธขเธ•เธฒเธกเธเธเธ•เธดเธเธธเธฃเธเธดเธ เธเธฑเธ”เน€เธเนเธ <code>Inventory</code> เน€เธเนเธ เธซเธกเธนเนเธเนเธฒเธเธเธฑเธ”เธชเธฃเธฃ</li>
+        <li><strong>เนเธกเนเนเธเน IP:</strong> เธ–เนเธฒเธเธฅเนเธญเธขเน€เธเนเธฒเนเธเธเนเธญเธเธเธงเธฒเธกเน€เธชเธตเนเธขเธเนเธเนเธฅเนเธง เน€เธเนเธ <code>Finance Lease</code> เนเธฅเธฐเธ•เธฑเธ”เธ•เธถเธเธญเธญเธเธเธฒเธเธเธ</li>
       </ul>
     </div>
   </article>
 
   <article class="subsection alert">
-    <div class="subsection-head"><span class="subsection-label">PHASE 2</span><h3>วันแรกที่เข้าบ้าน (Initial Recognition)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 2</span><h3>เธงเธฑเธเนเธฃเธเธ—เธตเนเน€เธเนเธฒเธเนเธฒเธ (Initial Recognition)</h3></div>
     <div class="subsection-body prose">
-      <p><strong>กฎเหล็ก:</strong> วันแรกต้องบันทึกด้วย <code>ราคาทุน (Cost)</code> เสมอ</p>
+      <p><strong>เธเธเน€เธซเธฅเนเธ:</strong> เธงเธฑเธเนเธฃเธเธ•เนเธญเธเธเธฑเธเธ—เธถเธเธ”เนเธงเธข <code>เธฃเธฒเธเธฒเธ—เธธเธ (Cost)</code> เน€เธชเธกเธญ</p>
     </div>
   </article>
 
   <article class="subsection note">
-    <div class="subsection-head"><span class="subsection-label">PHASE 3</span><h3>การดูแลระหว่างทาง (Subsequent Costs)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 3</span><h3>เธเธฒเธฃเธ”เธนเนเธฅเธฃเธฐเธซเธงเนเธฒเธเธ—เธฒเธ (Subsequent Costs)</h3></div>
     <div class="subsection-body prose">
       <ul>
-        <li><strong>เปลี่ยนชิ้นใหญ่ (Replacement):</strong> บวกทุนใหม่เข้าไป แล้วตัดมูลค่าบัญชีของเก่าทิ้ง</li>
-        <li><strong>ซ่อมแซมรายวัน (Day-to-day servicing):</strong> รับรู้เป็น <code>ค่าใช้จ่าย (Expense)</code> ของงวด ห้ามบวกเข้าตึก</li>
+        <li><strong>เน€เธเธฅเธตเนเธขเธเธเธดเนเธเนเธซเธเน (Replacement):</strong> เธเธงเธเธ—เธธเธเนเธซเธกเนเน€เธเนเธฒเนเธ เนเธฅเนเธงเธ•เธฑเธ”เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธตเธเธญเธเน€เธเนเธฒเธ—เธดเนเธ</li>
+        <li><strong>เธเนเธญเธกเนเธเธกเธฃเธฒเธขเธงเธฑเธ (Day-to-day servicing):</strong> เธฃเธฑเธเธฃเธนเนเน€เธเนเธ <code>เธเนเธฒเนเธเนเธเนเธฒเธข (Expense)</code> เธเธญเธเธเธงเธ” เธซเนเธฒเธกเธเธงเธเน€เธเนเธฒเธ•เธถเธ</li>
       </ul>
     </div>
   </article>
 
   <article class="subsection example">
-    <div class="subsection-head"><span class="subsection-label">PHASE 4</span><h3>ประเมินค่าสิ้นปี (Subsequent Measurement)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 4</span><h3>เธเธฃเธฐเน€เธกเธดเธเธเนเธฒเธชเธดเนเธเธเธต (Subsequent Measurement)</h3></div>
     <div class="subsection-body prose">
-      <p>ต้องเลือกใช้วิธีใดวิธีหนึ่ง และบังคับใช้กับ <strong>IP ทุกชิ้นทั้งกลุ่ม</strong></p>
+      <p>เธ•เนเธญเธเน€เธฅเธทเธญเธเนเธเนเธงเธดเธเธตเนเธ”เธงเธดเธเธตเธซเธเธถเนเธ เนเธฅเธฐเธเธฑเธเธเธฑเธเนเธเนเธเธฑเธ <strong>IP เธ—เธธเธเธเธดเนเธเธ—เธฑเนเธเธเธฅเธธเนเธก</strong></p>
       <ul>
-        <li><strong>สาย Cost Model:</strong> คิดค่าเสื่อมราคาปกติ แต่ยังต้องหา <code>Fair Value</code> มาเปิดเผยในหมายเหตุประกอบงบเสมอ</li>
-        <li><strong>สาย Fair Value Model:</strong> ห้ามคิดค่าเสื่อมราคาเด็ดขาด และส่วนต่างราคาตลาดที่ขึ้นหรือลงให้รับรู้เข้า <code>P&amp;L</code> ทันที</li>
+        <li><strong>เธชเธฒเธข Cost Model:</strong> เธเธดเธ”เธเนเธฒเน€เธชเธทเนเธญเธกเธฃเธฒเธเธฒเธเธเธ•เธด เนเธ•เนเธขเธฑเธเธ•เนเธญเธเธซเธฒ <code>Fair Value</code> เธกเธฒเน€เธเธดเธ”เน€เธเธขเนเธเธซเธกเธฒเธขเน€เธซเธ•เธธเธเธฃเธฐเธเธญเธเธเธเน€เธชเธกเธญ</li>
+        <li><strong>เธชเธฒเธข Fair Value Model:</strong> เธซเนเธฒเธกเธเธดเธ”เธเนเธฒเน€เธชเธทเนเธญเธกเธฃเธฒเธเธฒเน€เธ”เนเธ”เธเธฒเธ” เนเธฅเธฐเธชเนเธงเธเธ•เนเธฒเธเธฃเธฒเธเธฒเธ•เธฅเธฒเธ”เธ—เธตเนเธเธถเนเธเธซเธฃเธทเธญเธฅเธเนเธซเนเธฃเธฑเธเธฃเธนเนเน€เธเนเธฒ <code>P&amp;L</code> เธ—เธฑเธเธ—เธต</li>
       </ul>
     </div>
   </article>
 
   <article class="subsection trap">
-    <div class="subsection-head"><span class="subsection-label">PHASE 5</span><h3>เปลี่ยนใจย้ายหมวด (Transfers)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 5</span><h3>เน€เธเธฅเธตเนเธขเธเนเธเธขเนเธฒเธขเธซเธกเธงเธ” (Transfers)</h3></div>
     <div class="subsection-body prose">
-      <p><strong>กฎการโอน:</strong> จะโอนได้ต้องมี <code>การเปลี่ยนการใช้งานจริง + มีหลักฐาน</code> เท่านั้น แค่ผู้บริหารคิดเปลี่ยนใจเองยังโอนไม่ได้</p>
-      <blockquote>จุดสลบปราบเซียน: โอน <code>PPE</code> เปลี่ยนเป็น <code>IP (Fair Value)</code></blockquote>
+      <p><strong>เธเธเธเธฒเธฃเนเธญเธ:</strong> เธเธฐเนเธญเธเนเธ”เนเธ•เนเธญเธเธกเธต <code>เธเธฒเธฃเน€เธเธฅเธตเนเธขเธเธเธฒเธฃเนเธเนเธเธฒเธเธเธฃเธดเธ + เธกเธตเธซเธฅเธฑเธเธเธฒเธ</code> เน€เธ—เนเธฒเธเธฑเนเธ เนเธเนเธเธนเนเธเธฃเธดเธซเธฒเธฃเธเธดเธ”เน€เธเธฅเธตเนเธขเธเนเธเน€เธญเธเธขเธฑเธเนเธญเธเนเธกเนเนเธ”เน</p>
+      <blockquote>เธเธธเธ”เธชเธฅเธเธเธฃเธฒเธเน€เธเธตเธขเธ: เนเธญเธ <code>PPE</code> เน€เธเธฅเธตเนเธขเธเน€เธเนเธ <code>IP (Fair Value)</code></blockquote>
       <ul>
-        <li><strong>ก่อนโอน:</strong> ต้องตีราคาแบบทิ้งทวนด้วยกฎของ <code>PPE</code> ก่อน ถ้าราคาขึ้นให้เอากำไรไปไว้ใน <code>OCI / Revaluation surplus</code></li>
-        <li><strong>หลังโอน:</strong> เมื่อกลายเป็น <code>IP</code> แล้ว ราคาที่ขึ้นหรือลงหลังจากนั้นจึงค่อยวิ่งเข้า <code>P&amp;L</code></li>
+        <li><strong>เธเนเธญเธเนเธญเธ:</strong> เธ•เนเธญเธเธ•เธตเธฃเธฒเธเธฒเนเธเธเธ—เธดเนเธเธ—เธงเธเธ”เนเธงเธขเธเธเธเธญเธ <code>PPE</code> เธเนเธญเธ เธ–เนเธฒเธฃเธฒเธเธฒเธเธถเนเธเนเธซเนเน€เธญเธฒเธเธณเนเธฃเนเธเนเธงเนเนเธ <code>OCI / Revaluation surplus</code></li>
+        <li><strong>เธซเธฅเธฑเธเนเธญเธ:</strong> เน€เธกเธทเนเธญเธเธฅเธฒเธขเน€เธเนเธ <code>IP</code> เนเธฅเนเธง เธฃเธฒเธเธฒเธ—เธตเนเธเธถเนเธเธซเธฃเธทเธญเธฅเธเธซเธฅเธฑเธเธเธฒเธเธเธฑเนเธเธเธถเธเธเนเธญเธขเธงเธดเนเธเน€เธเนเธฒ <code>P&amp;L</code></li>
       </ul>
     </div>
   </article>
 
   <article class="subsection default">
-    <div class="subsection-head"><span class="subsection-label">PHASE 6</span><h3>ขายทิ้ง / พังทลาย (Disposals)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 6</span><h3>เธเธฒเธขเธ—เธดเนเธ / เธเธฑเธเธ—เธฅเธฒเธข (Disposals)</h3></div>
     <div class="subsection-body prose">
-      <p><strong>สูตรคำนวณ:</strong> <code>เงินที่ได้สุทธิ (Proceeds) - มูลค่าบัญชี (Carrying amount) = กำไร/ขาดทุน</code></p>
-      <p>ส่วนต่างนี้ให้รับรู้เข้า <code>P&amp;L</code> ทันที</p>
+      <p><strong>เธชเธนเธ•เธฃเธเธณเธเธงเธ“:</strong> <code>เน€เธเธดเธเธ—เธตเนเนเธ”เนเธชเธธเธ—เธเธด (Proceeds) - เธกเธนเธฅเธเนเธฒเธเธฑเธเธเธต (Carrying amount) = เธเธณเนเธฃ/เธเธฒเธ”เธ—เธธเธ</code></p>
+      <p>เธชเนเธงเธเธ•เนเธฒเธเธเธตเนเนเธซเนเธฃเธฑเธเธฃเธนเนเน€เธเนเธฒ <code>P&amp;L</code> เธ—เธฑเธเธ—เธต</p>
     </div>
   </article>
 
   <article class="subsection note">
-    <div class="subsection-head"><span class="subsection-label">PHASE 7</span><h3>เล่าให้นักลงทุนฟัง (Disclosure)</h3></div>
+    <div class="subsection-head"><span class="subsection-label">PHASE 7</span><h3>เน€เธฅเนเธฒเนเธซเนเธเธฑเธเธฅเธเธ—เธธเธเธเธฑเธ (Disclosure)</h3></div>
     <div class="subsection-body prose">
       <ul>
-        <li>ต้องเปิดเผยนโยบายที่ใช้ว่าเป็น <code>Cost</code> หรือ <code>Fair Value</code> และบอกมูลค่ายุติธรรม</li>
-        <li>ต้องแยก <code>Rental income</code> และ <code>Direct operating expenses</code> ให้ชัด</li>
-        <li>ต้องแยกค่าใช้จ่ายของ <strong>ตึกที่มีคนเช่า</strong> ออกจาก <strong>ตึกที่ว่างเปล่า</strong> ด้วย</li>
+        <li>เธ•เนเธญเธเน€เธเธดเธ”เน€เธเธขเธเนเธขเธเธฒเธขเธ—เธตเนเนเธเนเธงเนเธฒเน€เธเนเธ <code>Cost</code> เธซเธฃเธทเธญ <code>Fair Value</code> เนเธฅเธฐเธเธญเธเธกเธนเธฅเธเนเธฒเธขเธธเธ•เธดเธเธฃเธฃเธก</li>
+        <li>เธ•เนเธญเธเนเธขเธ <code>Rental income</code> เนเธฅเธฐ <code>Direct operating expenses</code> เนเธซเนเธเธฑเธ”</li>
+        <li>เธ•เนเธญเธเนเธขเธเธเนเธฒเนเธเนเธเนเธฒเธขเธเธญเธ <strong>เธ•เธถเธเธ—เธตเนเธกเธตเธเธเน€เธเนเธฒ</strong> เธญเธญเธเธเธฒเธ <strong>เธ•เธถเธเธ—เธตเนเธงเนเธฒเธเน€เธเธฅเนเธฒ</strong> เธ”เนเธงเธข</li>
       </ul>
     </div>
   </article>
 
   <article class="subsection alert">
-    <div class="subsection-head"><span class="subsection-label">EXAM TRICK</span><h3>ทริคในห้องสอบ</h3></div>
+    <div class="subsection-head"><span class="subsection-label">EXAM TRICK</span><h3>เธ—เธฃเธดเธเนเธเธซเนเธญเธเธชเธญเธ</h3></div>
     <div class="subsection-body prose">
-      <p>ถ้าเจอโจทย์หลอก ให้ท่องไว้เสมอว่า <strong>Fair Value ของบทนี้ห้ามคิดค่าเสื่อม และกำไร/ขาดทุนวิ่งเข้า <code>P&amp;L</code> ล้วน ๆ</strong> ยกเว้นตอนโอนมาจาก <code>PPE</code></p>
+      <p>เธ–เนเธฒเน€เธเธญเนเธเธ—เธขเนเธซเธฅเธญเธ เนเธซเนเธ—เนเธญเธเนเธงเนเน€เธชเธกเธญเธงเนเธฒ <strong>Fair Value เธเธญเธเธเธ—เธเธตเนเธซเนเธฒเธกเธเธดเธ”เธเนเธฒเน€เธชเธทเนเธญเธก เนเธฅเธฐเธเธณเนเธฃ/เธเธฒเธ”เธ—เธธเธเธงเธดเนเธเน€เธเนเธฒ <code>P&amp;L</code> เธฅเนเธงเธ เน</strong> เธขเธเน€เธงเนเธเธ•เธญเธเนเธญเธเธกเธฒเธเธฒเธ <code>PPE</code></p>
     </div>
   </article>
 </section>
