@@ -20,13 +20,11 @@
       --accent:#8b6238;
       --accent-soft:#efe2cf;
       --olive:#7c8160;
-      --note:#fbf3e8;
       --shadow:0 18px 42px rgba(52,41,28,.08);
       --radius-lg:22px;
       --radius-md:16px;
       --content:1040px;
       --font-sans:"Google Sans Text","Google Sans","Product Sans","Noto Sans Thai",sans-serif;
-      --font-mono:"Google Sans Code","SFMono-Regular",Consolas,monospace;
     }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
@@ -43,7 +41,7 @@
         linear-gradient(180deg,#faf6ee 0%,var(--bg) 100%);
       background-size:auto, 28px 28px, auto;
     }
-    a { color:inherit; }
+    a { color:inherit; text-decoration:none; }
     .page {
       width:min(calc(100% - 36px), var(--content));
       margin:0 auto;
@@ -76,13 +74,6 @@
       line-height:.96;
       letter-spacing:-.06em;
       font-weight:700;
-    }
-    .lead {
-      max-width:66ch;
-      margin-top:18px;
-      color:#44372a;
-      font-size:18px;
-      line-height:1.85;
     }
     .subject-line {
       display:flex;
@@ -118,50 +109,21 @@
       line-height:1.2;
       letter-spacing:-.02em;
     }
-    .section-heading p {
-      max-width:42ch;
-      color:var(--muted);
-      font-size:14px;
-      text-align:right;
-    }
     .chapter-list {
       display:grid;
-      gap:14px;
+      gap:16px;
     }
     .chapter-row {
-      position:relative;
       display:grid;
-      grid-template-columns:90px minmax(0,1fr) auto;
-      gap:20px;
+      grid-template-columns:72px minmax(0, 1fr) auto;
+      gap:18px;
       align-items:center;
-      min-height:132px;
-      padding:20px 22px;
-      overflow:hidden;
-      border:1px solid rgba(139,98,56,.18);
+      min-height:120px;
+      padding:22px 22px 22px 24px;
+      border:1px solid var(--line);
       border-radius:var(--radius-lg);
-      background:
-        linear-gradient(180deg, rgba(255,253,248,.94), rgba(251,246,238,.88)),
-        repeating-linear-gradient(180deg, transparent 0, transparent 30px, rgba(87,69,47,.045) 30px, rgba(87,69,47,.045) 31px);
-      box-shadow:0 10px 26px rgba(52,41,28,.05);
-      text-decoration:none;
-      transition:border-color .18s ease, background-color .18s ease, transform .18s ease;
-    }
-    .chapter-row::before {
-      content:"";
-      position:absolute;
-      inset:0 auto 0 0;
-      width:5px;
-      background:var(--accent);
-      opacity:.82;
-    }
-    .chapter-row:hover,
-    .chapter-row:focus-visible {
-      transform:translateY(-1px);
-      border-color:var(--line-strong);
-      outline:none;
-      background:
-        linear-gradient(180deg, rgba(255,250,241,.98), rgba(247,238,223,.94)),
-        repeating-linear-gradient(180deg, transparent 0, transparent 30px, rgba(87,69,47,.05) 30px, rgba(87,69,47,.05) 31px);
+      background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(251,246,238,.96));
+      box-shadow:var(--shadow);
     }
     .chapter-number {
       color:#8b6238;
@@ -170,7 +132,10 @@
       font-weight:800;
       letter-spacing:-.04em;
     }
-    .chapter-copy { display:grid; gap:8px; }
+    .chapter-copy {
+      display:grid;
+      gap:8px;
+    }
     .chapter-copy h3 {
       color:var(--ink-strong);
       font-size:clamp(21px, 2.4vw, 28px);
@@ -224,13 +189,11 @@
       }
       .masthead { padding-top:16px; }
       h1 { max-width:10ch; font-size:42px; }
-      .lead { font-size:16px; line-height:1.8; }
       .section-heading {
         display:grid;
         gap:6px;
         align-items:start;
       }
-      .section-heading p { text-align:left; }
       .chapter-row {
         grid-template-columns:1fr;
         gap:12px;
@@ -246,7 +209,6 @@
     @media (prefers-reduced-motion:reduce) {
       html { scroll-behavior:auto; }
       *,*::before,*::after { transition:none !important; animation:none !important; }
-      .chapter-row { opacity:1; transform:none; }
     }
   </style>
 </head>
@@ -262,7 +224,7 @@
 
     <section class="library" aria-labelledby="library-title">
       <div class="section-heading">
-        <h2 id="library-title">เน€เธฅเธทเธญเธเธเธ—เธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธญเนเธฒเธ</h2>
+        <h2 id="library-title">&#3648;&#3621;&#3639;&#3629;&#3585;&#3610;&#3607;&#3607;&#3637;&#3656;&#3605;&#3657;&#3629;&#3591;&#3585;&#3634;&#3619;&#3629;&#3656;&#3634;&#3609;</h2>
       </div>
 
       <div class="chapter-list">
@@ -273,7 +235,7 @@
             <p>Cost model, revaluation model, sufficient regularity, depreciation after revaluation, transfer of surplus, and disposal logic.</p>
             <span class="chips"><span class="chip">TAS 16</span><span class="chip">Cost / Revaluation</span><span class="chip">Dr./Cr.</span></span>
           </span>
-          <span class="chapter-link">เน€เธเธดเธ”เธญเนเธฒเธ</span>
+          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
         </a>
 
         <a class="chapter-row" href="chapter-07-notes.html">
@@ -283,7 +245,7 @@
             <p>Indicator-first logic, recoverable amount, impairment loss, reversal, ceiling rule, revalued-asset exception, and goodwill boundary.</p>
             <span class="chips"><span class="chip">TAS 36</span><span class="chip">Indicator-first</span><span class="chip">Dr./Cr.</span></span>
           </span>
-          <span class="chapter-link">เน€เธเธดเธ”เธญเนเธฒเธ</span>
+          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
         </a>
 
         <a class="chapter-row" href="chapter-09-notes.html">
@@ -293,22 +255,20 @@
             <p>Classification, initial recognition, subsequent costs, cost model, fair value model, transfers, disposals, and disclosure points.</p>
             <span class="chips"><span class="chip">TAS 40</span><span class="chip">Investment Property</span><span class="chip">Lifecycle</span></span>
           </span>
-          <span class="chapter-link">เน€เธเธดเธ”เธญเนเธฒเธ</span>
+          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
         </a>
 
         <a class="chapter-row" href="chapter-10-notes.html">
           <span class="chapter-number">10</span>
           <span class="chapter-copy">
-            <h3>Chapter 10: IAS 37</h3>
+            <h3>Chapter 10: Provision</h3>
             <p>Provisions, contingent liabilities, contingent assets, reimbursement logic, measurement, and disclosure decisions.</p>
             <span class="chips"><span class="chip">IAS 37</span><span class="chip">Provision</span><span class="chip">Decision Logic</span></span>
           </span>
-          <span class="chapter-link">เน€เธเธดเธ”เธญเนเธฒเธ</span>
+          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
         </a>
       </div>
     </section>
-
   </main>
-
 </body>
 </html>
