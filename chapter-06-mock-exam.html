@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 6 Mock Exam | AC311</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#f4efe6; --paper:#fffdf8; --ink:#2b2118; --ink-strong:#1f1711; --muted:#766858; --line:#ded2bf; --accent:#8b6238; --accent-soft:#efe2cf; --code:#28251f; --shadow:0 18px 42px rgba(52,41,28,.08); --content:1040px; --font-sans:"Google Sans Text","Google Sans","Product Sans","Noto Sans Thai",sans-serif; --font-mono:"Google Sans Code","SFMono-Regular",Consolas,monospace; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:92px; }
+    body { margin:0; overflow-x:hidden; font-family:var(--font-sans); color:var(--ink); line-height:1.78; letter-spacing:0; background:radial-gradient(circle at 18% 0%, rgba(139,98,56,.09), transparent 26%), linear-gradient(90deg, rgba(139,98,56,.035) 1px, transparent 1px), linear-gradient(180deg,#faf6ee 0%,var(--bg) 100%); background-size:auto,28px 28px,auto; }
+    a { color:inherit; text-decoration:none; }
+    .page { width:min(calc(100% - 36px), var(--content)); max-width:100%; overflow:hidden; margin:34px auto 72px; padding:46px clamp(24px,5vw,70px) 68px; background:var(--paper); border:1px solid rgba(139,98,56,.16); box-shadow:var(--shadow); }
+    .back { display:inline-flex; margin-bottom:18px; color:var(--muted); font-size:14px; font-weight:700; }
+    header { padding-bottom:22px; border-bottom:1px solid var(--line); }
+    .eyebrow { display:inline-flex; width:max-content; margin-bottom:14px; padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:#754c23; font-size:11px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
+    h1,h2,h3,h4,p { margin:0; }
+    h1 { color:#36261c; font-size:56px; line-height:1; letter-spacing:0; max-width:14ch; margin-bottom:13px; }
+    .lead { max-width:68ch; color:#4b3a29; font-size:17px; overflow-wrap:anywhere; }
+    .mode-nav { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .mode-link { display:inline-flex; align-items:center; justify-content:center; min-height:38px; padding:7px 13px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.38); color:var(--muted); font-weight:800; font-size:14px; }
+    .mode-link.is-active { background:#f0e4d1; border-color:#d3bd99; color:#3d2916; }
+    .toc { position:sticky; top:14px; z-index:5; display:flex; gap:8px; overflow:auto; margin:22px -6px 30px; padding:9px 6px; background:linear-gradient(90deg, rgba(255,253,248,.95), rgba(255,253,248,.72)); backdrop-filter:blur(8px); scrollbar-width:none; }
+    .toc::-webkit-scrollbar { display:none; }
+    .toc a { white-space:nowrap; padding:7px 10px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.45); color:var(--muted); font-size:13px; font-weight:700; }
+    .toc a.depth-3 { color:#5d5144; background:#f8f1e6; }
+    .document h1 { font-size:40px; margin:36px 0 18px; }
+    .document { min-width:0; max-width:100%; }
+    .document h1,.document h2,.document h3,.document h4 { overflow-wrap:anywhere; word-break:break-word; }
+    .document h2 { margin:56px 0 16px; padding:0 0 12px 16px; border-bottom:1px solid var(--line); color:var(--ink-strong); font-size:30px; line-height:1.25; position:relative; }
+    .document h2::before { content:""; position:absolute; left:0; top:5px; bottom:15px; width:4px; border-radius:999px; background:var(--accent); }
+    .document h3 { margin:32px 0 12px; color:#3a2a1c; font-size:23px; line-height:1.3; }
+    .document h4 { display:inline-flex; margin:24px 0 10px; padding:4px 11px; border:1px solid rgba(124,129,96,.28); border-radius:999px; background:#f3f1e7; color:#555b3b; font-size:15px; }
+    .document p { max-width:78ch; margin:0 0 14px; overflow-wrap:anywhere; }
+    .document ul,.document ol { margin:0 0 18px 1.25rem; padding:0; }
+    .document li { margin-bottom:7px; padding-left:.1rem; overflow-wrap:anywhere; }
+    strong { color:#24180e; font-weight:800; }
+    code { font-family:var(--font-mono); font-size:.88em; background:rgba(139,98,56,.10); padding:1px 5px; border-radius:5px; overflow-wrap:anywhere; word-break:break-word; white-space:normal; }
+    pre { margin:16px 0 24px; padding:18px 20px; background:linear-gradient(180deg,#302a22 0%,var(--code) 100%); color:#fff7e9; border-left:4px solid #d0aa73; border-radius:16px; overflow:auto; font:14px/1.6 var(--font-mono); }
+    pre code { background:transparent; color:inherit; padding:0; border-radius:0; font-size:inherit; }
+    .table-wrap { max-width:100%; overflow:auto; margin:16px 0 24px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.54); }
+    table { width:100%; min-width:620px; border-collapse:collapse; font-size:14px; }
+    th,td { padding:11px 13px; border-bottom:1px solid rgba(139,98,56,.14); text-align:left; vertical-align:top; }
+    th { background:#f3eee5; color:#2f241b; font-weight:800; }
+    tr:last-child td { border-bottom:0; }
+    .footer-note { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
+    @media (max-width:760px) { .page { width:min(calc(100% - 26px), var(--content)); margin:16px auto 48px; padding:26px 18px 42px; } h1 { font-size:38px; max-width:10ch; } .lead { max-width:31ch; font-size:15px; } .document p,.document li { max-width:31ch; } .lead,.document p,.document li,.document h2,.document h3 { word-break:break-all; } .document h2 { max-width:15ch; font-size:25px; } .document h3 { max-width:17ch; font-size:20px; } .toc { position:relative; top:auto; margin-bottom:18px; } }
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <a class="back" href="index.html">กลับไปหน้า Library</a>
+    <header>
+      <div class="eyebrow">AC311 Intermediate Accounting 1</div>
+      <h1>Chapter 6 Mock Exam</h1>
+      <p class="lead">ข้อสอบจำลอง Revaluation บทที่ 6 แยกเป็น 2 ชุด สำหรับฝึกบันทึกรายการ คำนวณ carrying amount และแยก OCI / P&amp;L</p>
+      <nav class="mode-nav" aria-label="Chapter 6 sections"><a class="mode-link" href="chapter-06-notes.html">เนื้อหา</a><a class="mode-link is-active" href="chapter-06-mock-exam.html" aria-current="page">ข้อสอบจำลอง</a><a class="mode-link" href="chapter-06-solution.html">เฉลย</a></nav>
+    </header>
+    
+    <article class="document">
+<h1 id="ชดท-1">ชุดที่ 1</h1>
+<p><strong>ข้อสอบปลายภาคจำลอง บทที่ 6</strong></p>
+<p>บริษัท วารีอุตสาหกรรม จำกัด</p>
+<p>บริษัท วารีอุตสาหกรรม จำกัด มีรอบบัญชีสิ้นสุดวันที่ 31 ธันวาคมของทุกปี บริษัทไม่มีภาษีเงินได้ ใช้วิธีเส้นตรงในการคิดค่าเสื่อมราคา และให้ปัดเศษทศนิยม 2 ตำแหน่งหากจำเป็น</p>
+<p>บริษัทเลือกใช้ revaluation model สำหรับอาคารทั้งประเภท และที่ดินทั้งประเภท บริษัทมีนโยบายโอนส่วนเกินทุนจากการตีราคาสินทรัพย์ไปยังกำไรสะสมตลอดอายุการใช้งานที่เหลือ สำหรับสินทรัพย์ที่คิดค่าเสื่อมราคาได้ หากมีการจำหน่ายสินทรัพย์ ให้โอนส่วนเกินทุนคงเหลือทั้งหมดไปยังกำไรสะสม ณ วันที่จำหน่าย</p>
+<p>วันที่ 1 เมษายน 25X1 บริษัทซื้ออาคารโรงงานในราคา 5,600,000 บาท อาคารพร้อมใช้งานทันทีในวันซื้อ อาคารมีอายุการให้ประโยชน์ 20 ปี และมีมูลค่าคงเหลือ 400,000 บาท</p>
+<p>วันที่ 31 ธันวาคม 25X3 ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของอาคารเท่ากับ 5,300,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method</p>
+<p>วันที่ 31 ธันวาคม 25X4 หลังบันทึกค่าเสื่อมราคาประจำปีและโอนส่วนเกินทุนจากการตีราคาประจำปีแล้ว ผู้ประเมินอิสระรายงานว่ามูลค่ายุติธรรมของอาคารไม่แตกต่างจากมูลค่าตามบัญชีอย่างมีสาระสำคัญ บริษัทจึงไม่บันทึกการตีราคาใหม่ในปี 25X4 แต่ยังคงมีหลักฐานการประเมินมูลค่ายุติธรรม ณ วันสิ้นงวด</p>
+<p>วันที่ 1 มกราคม 25X5 บริษัทจ่ายเงินสด 700,000 บาท เพื่อปรับปรุงอาคาร ทำให้อาคารมีอายุการให้ประโยชน์คงเหลือนับจากวันที่ 1 มกราคม 25X5 เท่ากับ 18 ปี และมีมูลค่าคงเหลือใหม่เท่ากับ 500,000 บาท</p>
+<p>วันที่ 31 ธันวาคม 25X6 หลังบันทึกค่าเสื่อมราคาประจำปีและโอนส่วนเกินทุนจากการตีราคาประจำปีแล้ว ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของอาคารเท่ากับ 4,650,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method</p>
+<p>วันที่ 31 ธันวาคม 25X7 หลังบันทึกค่าเสื่อมราคาประจำปีแล้ว ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของอาคารเท่ากับ 4,980,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method ในการวิเคราะห์จำนวนที่รับรู้เป็นขาดทุนจากการตีราคาได้รับกลับคืนในกำไรขาดทุน ให้พิจารณาเพดานของมูลค่าตามบัญชีที่ควรเป็น หากอาคารไม่เคยถูกตีราคาลดลงในวันที่ 31 ธันวาคม 25X6</p>
+<p>วันที่ 1 ตุลาคม 25X8 บริษัทขายอาคารโรงงาน ได้รับเงินสด 4,760,000 บาท</p>
+<p>นอกจากนี้ บริษัทซื้อที่ดินเมื่อวันที่ 1 มกราคม 25X1 ในราคา 2,000,000 บาท ที่ดินไม่มีการคิดค่าเสื่อมราคา มูลค่ายุติธรรมของที่ดิน ณ วันสิ้นปีมีดังนี้</p>
+<p>- 31 ธันวาคม 25X1 = 2,350,000 บาท - 31 ธันวาคม 25X2 = 1,850,000 บาท - 31 ธันวาคม 25X3 = 1,920,000 บาท - 31 ธันวาคม 25X4 = 2,080,000 บาท - 31 ธันวาคม 25X5 = 2,260,000 บาท - 31 ธันวาคม 25X6 = 2,100,000 บาท - 31 ธันวาคม 25X7 = 2,380,000 บาท</p>
+<p>—</p>
+<p>คำสั่ง</p>
+<p>ข้อ 1 จากข้อมูลเกี่ยวกับอาคารโรงงาน ให้บันทึกรายการบัญชีที่เกี่ยวข้องตั้งแต่วันที่ซื้ออาคารจนถึงวันที่ 31 ธันวาคม 25X3 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีอาคาร ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X3</p>
+<p>ข้อ 2 สมมติว่าเฉพาะการตีราคาใหม่ ณ วันที่ 31 ธันวาคม 25X3 บริษัทใช้ restated accumulated depreciation method แทนวิธีที่กำหนดในโจทย์ ให้บันทึกรายการตีราคาใหม่พร้อมแสดงการคำนวณประกอบ หมายเหตุ: ข้อนี้เป็นข้อสมมติแยกต่างหาก ไม่ต้องนำตัวเลขไปใช้ต่อในข้ออื่น</p>
+<p>ข้อ 3 จากข้อมูลเกี่ยวกับอาคารโรงงาน ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X4 และ 25X5 พร้อมแสดงการคำนวณประกอบ</p>
+<p>ข้อ 4 จากข้อมูลเกี่ยวกับอาคารโรงงาน ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X6 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีอาคาร ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X6</p>
+<p>ข้อ 5 จากข้อมูลเกี่ยวกับอาคารโรงงาน ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X7 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีอาคาร ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X7</p>
+<p>ข้อ 6 จากข้อมูลเกี่ยวกับที่ดิน ให้จัดทำตารางวิเคราะห์การตีราคาใหม่ตั้งแต่ปี 25X1-25X7 พร้อมบันทึกรายการบัญชีที่เกี่ยวข้อง และแสดงยอดคงเหลือของบัญชีที่ดินและส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X7</p>
+<p>ข้อ 7 จากข้อมูลเกี่ยวกับการขายอาคารโรงงานในปี 25X8 ให้บันทึกรายการบัญชีที่เกี่ยวข้องทั้งหมด พร้อมแสดงการคำนวณประกอบ</p>
+<p>ข้อ 8 จัดทำงบกำไรขาดทุนเบ็ดเสร็จบางส่วน และงบแสดงฐานะการเงินบางส่วน สำหรับปีสิ้นสุดวันที่ 31 ธันวาคม 25X6 และ 25X7</p>
+<p>ข้อ 9 จัดทำสรุปผลกระทบของรายการในปี 25X8 ต่อกำไรขาดทุน กำไรสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์</p>
+<h1 id="ชดท-2">ชุดที่ 2</h1>
+<p><strong>ข้อสอบปลายภาคจำลอง บทที่ 6</strong></p>
+<p>บริษัท อัศวกล จำกัด</p>
+<p>บริษัท อัศวกล จำกัด มีรอบบัญชีสิ้นสุดวันที่ 31 ธันวาคมของทุกปี บริษัทซื้อเครื่องจักรเพื่อใช้ในการผลิตสินค้าและใช้วิธีเส้นตรงในการคิดค่าเสื่อมราคา บริษัทไม่มีภาษีเงินได้ ให้ปัดเศษทศนิยม 2 ตำแหน่งหากจำเป็น</p>
+<p>บริษัทเลือกใช้ revaluation model สำหรับเครื่องจักรประเภทนี้ และมีนโยบายโอนส่วนเกินทุนจากการตีราคาสินทรัพย์ไปยังกำไรสะสมตลอดอายุการใช้งานที่เหลือ หากมีการจำหน่ายสินทรัพย์ ให้โอนส่วนเกินทุนคงเหลือทั้งหมดไปยังกำไรสะสมในวันที่จำหน่าย</p>
+<p>วันที่ 1 กรกฎาคม 25X1 บริษัทซื้อเครื่องจักร A ในราคา 4,800,000 บาท เครื่องจักรพร้อมใช้งานทันทีในวันซื้อ เครื่องจักรมีอายุการให้ประโยชน์ 12 ปี และมีมูลค่าคงเหลือ 240,000 บาท</p>
+<p>วันที่ 31 ธันวาคม 25X3 หลังบันทึกค่าเสื่อมราคาประจำปีแล้ว ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของเครื่องจักร A เท่ากับ 4,200,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method</p>
+<p>วันที่ 1 กรกฎาคม 25X4 บริษัทจ่ายเงินสด 600,000 บาท เพื่อเปลี่ยนชิ้นส่วนหลักของเครื่องจักร ทำให้กำลังการผลิตเพิ่มขึ้นอย่างมีสาระสำคัญ และทำให้อายุการให้ประโยชน์คงเหลือนับจากวันที่ 1 กรกฎาคม 25X4 เท่ากับ 9 ปี มูลค่าคงเหลือใหม่เท่ากับ 300,000 บาท</p>
+<p>ข้อมูลเพิ่มเติม: ชิ้นส่วนเดิมที่ถูกเปลี่ยนออกไม่มีราคาขาย และบริษัทไม่สามารถแยกต้นทุนเดิมของชิ้นส่วนดังกล่าวออกจากราคาทุนเดิมของเครื่องจักรได้อย่างน่าเชื่อถือ ให้ถือว่ารายจ่าย 600,000 บาทเข้าเงื่อนไขเป็นรายจ่ายฝ่ายทุนทั้งหมด</p>
+<p>วันที่ 31 ธันวาคม 25X4 หลังบันทึกค่าเสื่อมราคาประจำปีและโอนส่วนเกินทุนจากการตีราคาประจำปีแล้ว ผู้ประเมินอิสระรายงานว่ามูลค่ายุติธรรมของเครื่องจักร A ไม่แตกต่างจากมูลค่าตามบัญชีอย่างมีสาระสำคัญ บริษัทจึงไม่บันทึกการตีราคาใหม่ในปี 25X4 แต่ยังคงมีหลักฐานการประเมินมูลค่ายุติธรรม ณ วันสิ้นงวด</p>
+<p>วันที่ 31 ธันวาคม 25X5 หลังบันทึกค่าเสื่อมราคาประจำปีและโอนส่วนเกินทุนจากการตีราคาไปยังกำไรสะสมประจำปีแล้ว ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของเครื่องจักร A เท่ากับ 3,350,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method</p>
+<p>วันที่ 31 ธันวาคม 25X6 หลังบันทึกค่าเสื่อมราคาประจำปีแล้ว ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของเครื่องจักร A เท่ากับ 3,620,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method ในการวิเคราะห์จำนวนที่รับรู้เป็นขาดทุนจากการตีราคาได้รับกลับคืนในกำไรขาดทุน ให้พิจารณาเพดานของมูลค่าตามบัญชีที่ควรเป็น หากเครื่องจักร A ไม่เคยถูกตีราคาลดลงในวันที่ 31 ธันวาคม 25X5</p>
+<p>วันที่ 31 ธันวาคม 25X7 หลังบันทึกค่าเสื่อมราคาประจำปีและโอนส่วนเกินทุนจากการตีราคาไปยังกำไรสะสมประจำปีแล้ว ผู้ประเมินอิสระประเมินมูลค่ายุติธรรมของเครื่องจักร A เท่ากับ 2,780,000 บาท บริษัทบันทึกการตีราคาใหม่โดยใช้วิธี eliminated accumulated depreciation method</p>
+<p>วันที่ 1 เมษายน 25X8 บริษัทขายเครื่องจักร A ได้รับเงินสด 2,600,000 บาท</p>
+<p>—</p>
+<p>คำสั่ง</p>
+<p>ข้อ 1 จากข้อมูลเกี่ยวกับเครื่องจักร A ให้บันทึกรายการบัญชีที่เกี่ยวข้องตั้งแต่วันที่ซื้อเครื่องจักรจนถึงวันที่ 31 ธันวาคม 25X3 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีเครื่องจักร A ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X3</p>
+<p>ข้อ 2 สมมติว่าเฉพาะการตีราคาใหม่ ณ วันที่ 31 ธันวาคม 25X3 บริษัทใช้ restated accumulated depreciation method แทนวิธีที่กำหนดในโจทย์ ให้บันทึกรายการตีราคาใหม่พร้อมแสดงการคำนวณประกอบ หมายเหตุ: ข้อนี้เป็นข้อสมมติแยกต่างหาก ไม่ต้องนำตัวเลขไปใช้ต่อในข้ออื่น</p>
+<p>ข้อ 3 จากข้อมูลเกี่ยวกับเครื่องจักร A ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X4 พร้อมแสดงการคำนวณประกอบ</p>
+<p>ข้อ 4 จากข้อมูลเกี่ยวกับเครื่องจักร A ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X5 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีเครื่องจักร A ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X5</p>
+<p>ข้อ 5 จากข้อมูลเกี่ยวกับเครื่องจักร A ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X6 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีเครื่องจักร A ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X6</p>
+<p>ข้อ 6 จากข้อมูลเกี่ยวกับเครื่องจักร A ให้บันทึกรายการบัญชีที่เกี่ยวข้องสำหรับปี 25X7 พร้อมแสดงการคำนวณประกอบ และแสดงยอดคงเหลือของบัญชีเครื่องจักร A ค่าเสื่อมราคาสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์ ณ วันที่ 31 ธันวาคม 25X7</p>
+<p>ข้อ 7 จากข้อมูลเกี่ยวกับการขายเครื่องจักร A ในปี 25X8 ให้บันทึกรายการบัญชีที่เกี่ยวข้องทั้งหมด พร้อมแสดงการคำนวณประกอบ</p>
+<p>ข้อ 8 จัดทำงบกำไรขาดทุนเบ็ดเสร็จบางส่วน และงบแสดงฐานะการเงินบางส่วน สำหรับปีสิ้นสุดวันที่ 31 ธันวาคม 25X5 และ 25X7</p>
+<p>ข้อ 9 จัดทำสรุปผลกระทบของรายการในปี 25X8 ต่อกำไรขาดทุน กำไรสะสม และส่วนเกินทุนจากการตีราคาสินทรัพย์</p>
+    </article>
+    <p class="footer-note">AC311 Chapter 6 PPE Subsequent Measurement</p>
+  </main>
+</body>
+</html>

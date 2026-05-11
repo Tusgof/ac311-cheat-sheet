@@ -33,7 +33,7 @@
       font-family:var(--font-sans);
       color:var(--ink);
       line-height:1.75;
-      letter-spacing:-.01em;
+      letter-spacing:0;
       text-rendering:optimizeLegibility;
       background:
         radial-gradient(circle at 18% 0%, rgba(139,98,56,.09), transparent 26%),
@@ -70,24 +70,41 @@
     h1 {
       max-width:12ch;
       color:#36261c;
-      font-size:clamp(2.55rem, 7vw, 5.6rem);
+      font-size:82px;
       line-height:.96;
-      letter-spacing:-.06em;
+      letter-spacing:0;
       font-weight:700;
     }
-    .subject-line {
+    .library-tabs {
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       margin-top:18px;
-      color:var(--muted);
-      font-size:13px;
     }
-    .subject-line span {
-      padding:7px 11px;
+    .tab-button {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      padding:7px 14px;
       border:1px solid var(--line);
       border-radius:999px;
       background:rgba(255,255,255,.34);
+      color:var(--muted);
+      font:800 14px/1 var(--font-sans);
+      cursor:pointer;
+      transition:background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+    }
+    .tab-button:hover,
+    .tab-button:focus-visible {
+      color:var(--ink);
+      border-color:var(--line-strong);
+      transform:translateY(-1px);
+    }
+    .tab-button.is-active {
+      background:#f0e4d1;
+      border-color:#d3bd99;
+      color:#3d2916;
     }
     .library {
       display:grid;
@@ -105,10 +122,11 @@
     }
     .section-heading h2 {
       color:var(--ink-strong);
-      font-size:clamp(24px, 3vw, 34px);
+      font-size:34px;
       line-height:1.2;
-      letter-spacing:-.02em;
+      letter-spacing:0;
     }
+    .library-panel[hidden] { display:none; }
     .chapter-list {
       display:grid;
       gap:16px;
@@ -130,7 +148,7 @@
       font-size:38px;
       line-height:1;
       font-weight:800;
-      letter-spacing:-.04em;
+      letter-spacing:0;
     }
     .chapter-copy {
       display:grid;
@@ -138,9 +156,9 @@
     }
     .chapter-copy h3 {
       color:var(--ink-strong);
-      font-size:clamp(21px, 2.4vw, 28px);
+      font-size:28px;
       line-height:1.25;
-      letter-spacing:-.025em;
+      letter-spacing:0;
     }
     .chapter-copy p {
       max-width:62ch;
@@ -189,6 +207,9 @@
       }
       .masthead { padding-top:16px; }
       h1 { max-width:10ch; font-size:42px; }
+      .tab-button {
+        flex:1 1 auto;
+      }
       .section-heading {
         display:grid;
         gap:6px;
@@ -217,9 +238,11 @@
     <header class="masthead">
       <div class="eyebrow">AC311 Intermediate Accounting 1</div>
       <h1>Exam Sheet Library</h1>
-      <div class="subject-line">
-        <span>Clean student notebook</span>
-      </div>
+      <nav class="library-tabs" aria-label="เลือกประเภทเอกสาร">
+        <button class="tab-button is-active" type="button" data-panel="content" aria-controls="panel-content" aria-selected="true">เนื้อหา</button>
+        <button class="tab-button" type="button" data-panel="exam" aria-controls="panel-exam" aria-selected="false">ข้อสอบจำลอง</button>
+        <button class="tab-button" type="button" data-panel="solution" aria-controls="panel-solution" aria-selected="false">เฉลย</button>
+      </nav>
     </header>
 
     <section class="library" aria-labelledby="library-title">
@@ -227,48 +250,108 @@
         <h2 id="library-title">&#3648;&#3621;&#3639;&#3629;&#3585;&#3610;&#3607;&#3607;&#3637;&#3656;&#3605;&#3657;&#3629;&#3591;&#3585;&#3634;&#3619;&#3629;&#3656;&#3634;&#3609;</h2>
       </div>
 
-      <div class="chapter-list">
-        <a class="chapter-row" href="chapter-06-notes.html">
-          <span class="chapter-number">06</span>
-          <span class="chapter-copy">
-            <h3>Chapter 6: PPE Subsequent Measurement</h3>
-            <p>Cost model, revaluation model, sufficient regularity, depreciation after revaluation, transfer of surplus, and disposal logic.</p>
-            <span class="chips"><span class="chip">TAS 16</span><span class="chip">Cost / Revaluation</span><span class="chip">Dr./Cr.</span></span>
-          </span>
-          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
-        </a>
+      <div class="library-panel" id="panel-content" data-panel="content">
+        <div class="chapter-list">
+          <a class="chapter-row" href="chapter-06-notes.html">
+            <span class="chapter-number">06</span>
+            <span class="chapter-copy">
+              <h3>Chapter 6: PPE Subsequent Measurement</h3>
+              <p>Cost model, revaluation model, sufficient regularity, depreciation after revaluation, transfer of surplus, and disposal logic.</p>
+              <span class="chips"><span class="chip">TAS 16</span><span class="chip">Cost / Revaluation</span><span class="chip">Dr./Cr.</span></span>
+            </span>
+            <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
+          </a>
 
-        <a class="chapter-row" href="chapter-07-notes.html">
-          <span class="chapter-number">07</span>
-          <span class="chapter-copy">
-            <h3>Chapter 7: Impairment of Assets</h3>
-            <p>Indicator-first logic, recoverable amount, impairment loss, reversal, ceiling rule, revalued-asset exception, and goodwill boundary.</p>
-            <span class="chips"><span class="chip">TAS 36</span><span class="chip">Indicator-first</span><span class="chip">Dr./Cr.</span></span>
-          </span>
-          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
-        </a>
+          <a class="chapter-row" href="chapter-07-notes.html">
+            <span class="chapter-number">07</span>
+            <span class="chapter-copy">
+              <h3>Chapter 7: Impairment of Assets</h3>
+              <p>Indicator-first logic, recoverable amount, impairment loss, reversal, ceiling rule, revalued-asset exception, and goodwill boundary.</p>
+              <span class="chips"><span class="chip">TAS 36</span><span class="chip">Indicator-first</span><span class="chip">Dr./Cr.</span></span>
+            </span>
+            <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
+          </a>
 
-        <a class="chapter-row" href="chapter-09-notes.html">
-          <span class="chapter-number">09</span>
-          <span class="chapter-copy">
-            <h3>Chapter 9: Investment Property</h3>
-            <p>Classification, initial recognition, subsequent costs, cost model, fair value model, transfers, disposals, and disclosure points.</p>
-            <span class="chips"><span class="chip">TAS 40</span><span class="chip">Investment Property</span><span class="chip">Lifecycle</span></span>
-          </span>
-          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
-        </a>
+          <a class="chapter-row" href="chapter-09-notes.html">
+            <span class="chapter-number">09</span>
+            <span class="chapter-copy">
+              <h3>Chapter 9: Investment Property</h3>
+              <p>Classification, initial recognition, subsequent costs, cost model, fair value model, transfers, disposals, and disclosure points.</p>
+              <span class="chips"><span class="chip">TAS 40</span><span class="chip">Investment Property</span><span class="chip">Lifecycle</span></span>
+            </span>
+            <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
+          </a>
 
-        <a class="chapter-row" href="chapter-10-notes.html">
-          <span class="chapter-number">10</span>
-          <span class="chapter-copy">
-            <h3>Chapter 10: Provision</h3>
-            <p>Provisions, contingent liabilities, contingent assets, reimbursement logic, measurement, and disclosure decisions.</p>
-            <span class="chips"><span class="chip">IAS 37</span><span class="chip">Provision</span><span class="chip">Decision Logic</span></span>
-          </span>
-          <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
-        </a>
+          <a class="chapter-row" href="chapter-10-notes.html">
+            <span class="chapter-number">10</span>
+            <span class="chapter-copy">
+              <h3>Chapter 10: Provision</h3>
+              <p>Provisions, contingent liabilities, contingent assets, reimbursement logic, measurement, and disclosure decisions.</p>
+              <span class="chips"><span class="chip">IAS 37</span><span class="chip">Provision</span><span class="chip">Decision Logic</span></span>
+            </span>
+            <span class="chapter-link">&#3648;&#3611;&#3636;&#3604;&#3629;&#3656;&#3634;&#3609;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="library-panel" id="panel-exam" data-panel="exam" hidden>
+        <div class="chapter-list">
+          <a class="chapter-row" href="chapter-06-mock-exam.html">
+            <span class="chapter-number">06</span>
+            <span class="chapter-copy">
+              <h3>Chapter 6: Revaluation Mock Exam</h3>
+              <p>Two full mock exam sets for PPE revaluation, disposal sequence, OCI / P&amp;L split, and financial statement presentation.</p>
+              <span class="chips"><span class="chip">2 Sets</span><span class="chip">Revaluation</span><span class="chip">Exam Practice</span></span>
+            </span>
+            <span class="chapter-link">เปิดข้อสอบ</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="library-panel" id="panel-solution" data-panel="solution" hidden>
+        <div class="chapter-list">
+          <a class="chapter-row" href="chapter-06-solution.html">
+            <span class="chapter-number">06</span>
+            <span class="chapter-copy">
+              <h3>Chapter 6: Mock Exam Solution</h3>
+              <p>Step-by-step solution sheet with depreciation schedules, revaluation entries, disposal entries, and final impact summaries.</p>
+              <span class="chips"><span class="chip">Answer Key</span><span class="chip">Journal Entries</span><span class="chip">Calculations</span></span>
+            </span>
+            <span class="chapter-link">เปิดเฉลย</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
+  <script>
+    const titles = {
+      content: "เลือกบทที่ต้องการอ่าน",
+      exam: "เลือกข้อสอบจำลอง",
+      solution: "เลือกเฉลยที่ต้องการอ่าน"
+    };
+    const buttons = [...document.querySelectorAll(".tab-button")];
+    const panels = [...document.querySelectorAll(".library-panel")];
+    const title = document.querySelector("#library-title");
+
+    const setPanel = (name, updateHash = true) => {
+      const target = panels.some((panel) => panel.dataset.panel === name) ? name : "content";
+      buttons.forEach((button) => {
+        const active = button.dataset.panel === target;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.panel !== target;
+      });
+      title.textContent = titles[target];
+      if (updateHash) history.replaceState(null, "", `#${target}`);
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setPanel(button.dataset.panel));
+    });
+
+    setPanel(location.hash.replace("#", "") || "content", false);
+  </script>
 </body>
 </html>
