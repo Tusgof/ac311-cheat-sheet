@@ -27,6 +27,7 @@
     * { box-sizing: border-box; }
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 92px;
       width: 100%;
       max-width: 100%;
       overflow-x: hidden;
@@ -416,6 +417,25 @@
       border: 1px solid rgba(113, 82, 46, 0.18);
       box-shadow: 0 24px 60px rgba(57, 41, 24, 0.12);
       position: relative;
+      overflow: visible;
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0) 12%),
+        repeating-linear-gradient(180deg, transparent 0, transparent 31px, rgba(87,69,47,.045) 31px, rgba(87,69,47,.045) 32px);
+      opacity: .72;
+    }
+    .masthead,
+    .toc,
+    .content,
+    .footer-note {
+      position: relative;
+      z-index: 1;
     }
     .masthead {
       padding: 0 0 30px;
@@ -524,42 +544,75 @@
     }
     .toc.mini-nav-shell {
       position: sticky;
-      top: 0;
+      top: 10px;
       z-index: 30;
-      margin: 30px -18px 46px;
-      padding: 16px 18px;
+      margin: 24px -8px 36px;
+      padding: 10px 12px;
       border: 1px solid rgba(119, 82, 45, 0.22);
-      border-radius: 0;
+      border-radius: 18px;
       background: rgba(255, 250, 242, 0.94);
       backdrop-filter: blur(10px);
-      overflow: visible;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(57, 41, 24, 0.06);
     }
     .toc h2 {
-      margin: 0 0 12px;
-      font-size: 22px;
+      margin: 0 0 8px;
+      font-size: 15px;
       line-height: 1.25;
       letter-spacing: 0;
+      color: #6f604f;
     }
     .mini-nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      overflow: visible;
-      padding: 0;
+      flex-wrap: nowrap;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 2px 2px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
     }
     .mini-link,
     .group-link {
       display: inline-flex;
       align-items: center;
-      padding: 8px 12px;
+      min-height: 32px;
+      padding: 5px 10px;
       border: 1px solid rgba(119, 82, 45, 0.22);
       border-radius: 999px;
       color: #2c2118;
       text-decoration: none;
       font-weight: 700;
       background: #fffaf2;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.35;
+      white-space: nowrap;
+    }
+    .mini-link:hover,
+    .mini-link:focus-visible,
+    .mini-link.is-active,
+    .group-link:hover,
+    .group-link:focus-visible,
+    .group-link.is-current {
+      background: #f0e4d1;
+      border-color: #d3bd99;
+      color: #3d2916;
+      outline: none;
+    }
+    p strong,
+    li strong,
+    td strong {
+      color: #24180e;
+      font-weight: 800;
+      background: linear-gradient(transparent 58%, rgba(208, 170, 115, .34) 58%);
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
+      transition: background-size .65s ease;
+    }
+    p strong.is-visible,
+    li strong.is-visible,
+    td strong.is-visible {
+      background-size: 100% 100%;
     }
     .study-map,
     .roadmap {
@@ -619,6 +672,9 @@
       background: rgba(255, 255, 255, 0.72);
       border: 1px solid rgba(119, 82, 45, 0.22);
       overflow: visible;
+    }
+    .sheet-section:target .section-head h2 {
+      background: linear-gradient(90deg, rgba(239,226,207,.95), transparent 72%);
     }
     .section-rule { background: #a36b2d; width: 6px; }
     .subsection,
@@ -730,9 +786,13 @@
       display: block;
     }
     @media (max-width: 900px) {
+      html { scroll-padding-top: 24px; }
       .page {
         width: min(100% - 18px, var(--max));
+        margin: 0;
         padding: 28px 18px 44px;
+        border: 0;
+        box-shadow: none;
       }
       .hero,
       .study-map.template-study-map {
@@ -743,8 +803,16 @@
       .group-head h2,
       .section-head h2 { font-size: 28px; }
       .toc.mini-nav-shell { margin-left: 0; margin-right: 0; }
+      .toc.mini-nav-shell { position: static; }
       .mini-nav { flex-wrap: nowrap; overflow-x: auto; }
       table { min-width: 560px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      p strong,
+      li strong,
+      td strong {
+        background-size: 100% 100%;
+      }
     }
 
   </style>
@@ -1836,34 +1904,49 @@ Dr. Loss on Disposal of IP                   1,000,000
     const byId = Object.fromEntries(navLinks.map(link => [link.dataset.target, link]));
     const groupById = Object.fromEntries(groupLinks.map(link => [link.getAttribute('href').slice(1), link]));
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle('in-view', entry.isIntersecting);
-        const localLink = groupById[entry.target.id];
-        if (localLink && entry.isIntersecting) {
-          groupLinks.forEach(item => item.classList.remove('is-current'));
-          localLink.classList.add('is-current');
-        }
+    const setActive = (link, collection, className, aria = false) => {
+      collection.forEach(item => {
+        item.classList.remove(className);
+        if (aria) item.removeAttribute('aria-current');
       });
-    }, { threshold: 0.18 });
-    sections.forEach(section => sectionObserver.observe(section));
+      link.classList.add(className);
+      if (aria) link.setAttribute('aria-current', 'true');
+    };
 
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const link = byId[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(item => item.classList.remove('is-active'));
-          link.classList.add('is-active');
-        }
-      });
-    }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
-    groups.forEach(group => navObserver.observe(group));
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('in-view', entry.isIntersecting);
+          const localLink = groupById[entry.target.id];
+          if (localLink && entry.isIntersecting) setActive(localLink, groupLinks, 'is-current', true);
+        });
+      }, { threshold: 0.18 });
+      sections.forEach(section => sectionObserver.observe(section));
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const link = byId[entry.target.id];
+          if (link && entry.isIntersecting) setActive(link, navLinks, 'is-active', true);
+        });
+      }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+      groups.forEach(group => navObserver.observe(group));
+
+      const keywordObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            keywordObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.35 });
+      document.querySelectorAll('p strong, li strong, td strong').forEach(keyword => keywordObserver.observe(keyword));
+    } else {
+      document.querySelectorAll('strong').forEach(keyword => keyword.classList.add('is-visible'));
+    }
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.forEach(item => item.classList.remove('is-active'));
-        link.classList.add('is-active');
+        setActive(link, navLinks, 'is-active', true);
       });
     });
   </script>

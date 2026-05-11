@@ -25,7 +25,7 @@
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
 
     body {
       margin: 0;
@@ -49,6 +49,24 @@
       background: rgba(255, 250, 242, 0.94);
       border: 1px solid rgba(113, 82, 46, 0.18);
       box-shadow: 0 24px 60px rgba(57, 41, 24, 0.12);
+      position: relative;
+      overflow: visible;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0) 12%),
+        repeating-linear-gradient(180deg, transparent 0, transparent 31px, rgba(87,69,47,.045) 31px, rgba(87,69,47,.045) 32px);
+      opacity: .72;
+    }
+
+    h1,h2,h3,h4,p,li,table,pre,.toc,.callout,.formula,.panel,.roadmap,.test-box,.answer-box,.footer-note {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -86,6 +104,20 @@
       font-size: 34px;
       line-height: 1.25;
       letter-spacing: 0;
+      position: relative;
+      scroll-margin-top: 96px;
+      padding-left: 18px;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      bottom: 8px;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     h3 {
@@ -103,8 +135,13 @@
       color: #24180e;
       font-weight: 900;
       background: linear-gradient(transparent 58%, rgba(208, 170, 115, 0.34) 58%);
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
       border-radius: 2px;
+      transition: background-size .65s ease;
     }
+
+    strong.is-visible { background-size: 100% 100%; }
 
     .lead {
       margin-top: 20px;
@@ -157,7 +194,10 @@
       font-weight: 900;
       letter-spacing: 0;
       text-transform: uppercase;
+      padding-left: 0;
     }
+
+    .formula-strip h2::before { display: none; }
 
     .formula-item {
       padding-bottom: 12px;
@@ -176,44 +216,73 @@
 
     .toc {
       position: sticky;
-      top: 0;
+      top: 10px;
       z-index: 5;
-      margin: 30px -18px 46px;
-      padding: 16px 18px;
+      margin: 24px -8px 36px;
+      padding: 10px 12px;
       border: 1px solid var(--line);
+      border-radius: 18px;
       background: rgba(255, 250, 242, 0.94);
       backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(57, 41, 24, 0.06);
     }
 
     .toc h2 {
-      margin: 0 0 12px;
-      font-size: 22px;
+      margin: 0 0 8px;
+      font-size: 15px;
+      padding-left: 0;
+      color: var(--muted);
     }
+
+    .toc h2::before { display: none; }
 
     .toc ol {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      flex-wrap: nowrap;
+      gap: 8px;
       margin: 0;
-      padding: 0;
+      padding: 0 2px 2px;
       list-style: none;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
     }
 
     .toc a {
       display: inline-flex;
-      padding: 8px 12px;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 10px;
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--ink);
       text-decoration: none;
       font-weight: 800;
       background: #fffaf2;
-      font-size: 14px;
+      font-size: 12px;
+      line-height: 1.3;
+      white-space: nowrap;
+      transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible,
+    .toc a.is-active {
+      background: #f0e4d1;
+      border-color: #d3bd99;
+      color: #3d2916;
+      outline: none;
     }
 
     section {
       padding: 42px 0;
       border-bottom: 1px solid var(--line);
+      scroll-margin-top: 92px;
+    }
+
+    section:target > h2 {
+      background: linear-gradient(90deg, rgba(239,226,207,.95), transparent 72%);
     }
 
     .segment-label,
@@ -235,6 +304,25 @@
     .answer-box {
       padding: 22px;
       margin: 22px 0;
+    }
+
+    .callout,
+    .formula,
+    .roadmap,
+    .test-box,
+    .answer-box,
+    .panel {
+      transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+    }
+
+    .callout:hover,
+    .formula:hover,
+    .roadmap:hover,
+    .test-box:hover,
+    .answer-box:hover,
+    .panel:hover {
+      transform: translateY(-1px);
+      border-color: rgba(119, 82, 45, 0.36);
     }
 
     .formula {
@@ -266,6 +354,7 @@
       border-radius: 8px;
       background: #fffdfa;
       font-size: 16px;
+      font-variant-numeric: tabular-nums;
     }
 
     th,
@@ -280,10 +369,14 @@
       background: #f4e3cb;
       color: var(--accent-strong);
       font-weight: 900;
+      position: sticky;
+      top: 0;
+      z-index: 2;
     }
 
     tr:last-child td { border-bottom: 0; }
     tbody tr:nth-child(even) td { background: rgba(250, 244, 233, 0.45); }
+    tbody tr:hover td { background: #f6eddc; }
 
     code {
       padding: 2px 6px;
@@ -341,9 +434,14 @@
     }
 
     @media (max-width: 900px) {
+      html { scroll-padding-top: 24px; }
+
       .page {
         width: min(100% - 18px, var(--content));
+        margin: 0;
         padding: 28px 18px 44px;
+        border: 0;
+        box-shadow: none;
       }
 
       .hero,
@@ -352,7 +450,18 @@
       }
 
       h1 { font-size: 42px; }
-      h2 { font-size: 28px; }
+      h2 { font-size: 28px; padding-left: 14px; }
+
+      .toc {
+        position: static;
+        margin: 22px 0 32px;
+      }
+
+      .toc ol {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
 
       table {
         display: block;
@@ -364,6 +473,15 @@
       td {
         min-width: 160px;
       }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      strong { background-size: 100% 100%; }
     }
   </style>
 </head>
@@ -408,12 +526,12 @@
     <nav class="toc" aria-labelledby="toc-title">
       <h2 id="toc-title">สารบัญ</h2>
       <ol>
-        <li><a href="#segment-1">Segment 1: Scope and Definition</a></li>
-        <li><a href="#segment-2">Segment 2: Recognition and Initial Measurement</a></li>
-        <li><a href="#segment-3">Segment 3: Research and Development</a></li>
-        <li><a href="#segment-4">Segment 4: Measurement After Recognition</a></li>
-        <li><a href="#segment-5">Segment 5: Useful Life, Amortization, and Impairment</a></li>
-        <li><a href="#segment-6">Segment 6: Derecognition and Disclosure</a></li>
+        <li><a href="#segment-1">01 Scope</a></li>
+        <li><a href="#segment-2">02 Recognition</a></li>
+        <li><a href="#segment-3">03 R&amp;D</a></li>
+        <li><a href="#segment-4">04 Measurement</a></li>
+        <li><a href="#segment-5">05 Life + Impairment</a></li>
+        <li><a href="#segment-6">06 Disclosure</a></li>
       </ol>
     </nav>
 
@@ -850,5 +968,41 @@ Dr Loss on Disposal xxx
 
     <p class="footer-note">Prepared from the provided Intangible Assets source material for AC311. This sheet uses the Chapter 6 visual system for hierarchy, highlights, tables, formulas, callouts, and journal-entry blocks.</p>
   </main>
+  <script>
+    const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
+    const sections = tocLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActiveLink = (id) => {
+      tocLinks.forEach((link) => {
+        const active = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
+        });
+      }, { rootMargin: "-30% 0px -62% 0px", threshold: 0.01 });
+      sections.forEach((section) => sectionObserver.observe(section));
+
+      const keywordObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            keywordObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.35 });
+      document.querySelectorAll("p strong, li strong, td strong").forEach((keyword) => keywordObserver.observe(keyword));
+    } else {
+      document.querySelectorAll("strong").forEach((keyword) => keyword.classList.add("is-visible"));
+    }
+  </script>
 </body>
 </html>

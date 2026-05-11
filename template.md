@@ -817,6 +817,9 @@ Common Mistake
 - ถ้าเป็นศูนย์หรือไม่มีรายการ ใช้ `-`
 - อย่าใส่ paragraph ยาวใน cell
 - ถ้าตารางใหญ่ ให้แบ่งเป็น 2 ตารางแทนการยัดทั้งหมดในตารางเดียว
+- ตารางที่มีตัวเลขควรใช้ `font-variant-numeric: tabular-nums` เพื่อให้ตัวเลขอ่านเป็นคอลัมน์ได้ง่าย
+- หัวตารางควรใช้ `position: sticky` ได้เมื่อเหมาะสม โดยเฉพาะตารางยาวหรือมีหลายแถว
+- ใช้ zebra row และ hover row แบบเบา ๆ เพื่อช่วยไล่อ่าน ไม่ใช่เพื่อทำให้ดูเป็น dashboard
 
 ## รายการบัญชี
 
@@ -969,6 +972,15 @@ Dr [บัญชี] xxx
 
 อย่าเริ่มเฉลยด้วย journal entry ทันทีถ้าโจทย์มีการคำนวณ ต้องพาผู้อ่านเห็นที่มาของตัวเลขก่อน
 
+Answer Key ที่ดีควรทำหน้าที่เป็น `solution guide` ไม่ใช่เฉลยสั้นแบบให้แต่คำตอบปลายทาง
+
+- ก่อนเริ่มเฉลยรวม ควรมี roadmap สั้น ๆ บอกลำดับอ่านเฉลย เช่น `policy / history -> measurement -> recognition location -> journal entry`
+- ในแต่ละข้อให้เริ่มจาก rule หรือ history ที่ใช้ตัดสินใจก่อน
+- ถัดมาจึงแสดงการคำนวณและตัวเลข
+- หลังจากนั้นค่อยลง journal entry
+- ปิดท้ายด้วยผลกระทบต่อ `OCI`, `P/L`, `equity`, หรือ carrying amount ถ้าเกี่ยวข้อง
+- ถ้าเป็นโจทย์หลายปี ให้ใช้ตารางสรุปก่อน journal entry เพื่อให้ผู้อ่านเห็น flow ของตัวเลข
+
 ## น้ำเสียงการเขียน
 
 น้ำเสียงต้องเหมือนติวเตอร์ที่พาอ่านสอบ
@@ -1018,6 +1030,120 @@ residual value
 ถ้า fair value สูงกว่า carrying amount จะเกิด revaluation increase
 แต่ยังต้องดูว่าก่อนหน้านี้เคยมี revaluation decrease ที่เข้า P/L หรือไม่
 ```
+
+## Interaction Pattern จากบท 6
+
+Interaction ต้องช่วยให้คนอ่านชีทยาว ๆ ไม่หลงตำแหน่ง และต้องไม่ทำให้หน้าเหมือน landing page
+
+### Active TOC
+
+ถ้าหน้ามีหลาย segment และยาวมาก ควรใช้ `IntersectionObserver` เพื่อทำ active state ให้สารบัญ
+
+- ลิงก์สารบัญของ section ปัจจุบันควรได้ class เช่น `is-active`
+- ลิงก์ที่ active ควรมี `aria-current="true"`
+- ถ้า browser ไม่รองรับ `IntersectionObserver` หน้า HTML ต้องยังอ่านได้ตามปกติ
+- active state ควรเป็นพื้นหลังครีมหรือน้ำตาลอ่อน ไม่ใช้สีจัด
+
+ตัวอย่าง logic ที่ใช้ได้
+
+```html
+<script>
+  const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
+  const sections = tocLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setActiveLink = (id) => {
+    tocLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveLink(entry.target.id);
+      });
+    }, { rootMargin: "-30% 0px -62% 0px", threshold: 0.01 });
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>
+```
+
+### Keyword Highlight
+
+บท 6 ใช้ highlight กับคำสำคัญใน `strong` แบบค่อย ๆ ปรากฏเมื่อเลื่อนถึง ซึ่งช่วยให้จำ keyword ได้โดยไม่ทำให้หน้าแน่น
+
+- ใช้กับ `p strong`, `li strong`, `td strong` เป็นหลัก
+- ไม่ควร highlight heading ทั้งหมดหรือทำให้สีแรงเกินไป
+- ถ้าใช้ animation ต้องมี reduced-motion fallback
+- ถ้าไม่ใช้ JavaScript ให้แสดง highlight แบบ static ได้
+
+CSS pattern ที่ควรใช้
+
+```css
+strong {
+  background: linear-gradient(transparent 58%, rgba(208, 170, 115, .34) 58%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size .65s ease;
+}
+
+strong.is-visible {
+  background-size: 100% 100%;
+}
+```
+
+### Target Cue
+
+เมื่อกดจากสารบัญไปยัง section ต้องรู้ว่ากระโดดมาถึงตรงไหน
+
+- ตั้ง `scroll-padding-top` ใน `html`
+- ตั้ง `scroll-margin-top` ให้ heading หรือ section
+- ใช้ `section:target > h2` เพื่อให้หัวข้อปลายทางมีพื้นหลังอ่อน ๆ
+- บนมือถือให้ลด `scroll-padding-top` เพราะ TOC มักไม่ sticky
+
+### Motion Rule
+
+ใช้ micro-interaction ได้ แต่ต้องเบาและมีเหตุผลด้านการอ่าน
+
+- hover ของ `formula`, `callout`, `roadmap`, `panel`, `test-box`, `answer-box` ขยับได้เพียงเล็กน้อย เช่น `translateY(-1px)`
+- เปลี่ยน border หรือ background เบา ๆ ได้
+- ห้ามใช้ animation แบบ showcase, bounce, parallax, glassmorphism หรือ effect ที่ทำให้รู้สึกเป็นเว็บขายของ
+- ต้องมี `@media (prefers-reduced-motion: reduce)` เสมอถ้ามี transition หรือ animation
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  strong { background-size: 100% 100%; }
+}
+```
+
+## Visual Texture และ Page Finish
+
+บท 6 ดีเพราะพื้นหลังไม่ได้แบน แต่ยังไม่แย่งความสนใจจากเนื้อหา
+
+- พื้นหลัง body ใช้ครีมอ่อนพร้อม grid หรือเส้นบาง ๆ ได้
+- `.page` ควรเป็นกระดาษกลางหน้า มี border และ shadow เบา ๆ
+- ใช้ `.page::before` เป็น notebook line หรือ paper texture ได้ แต่ต้อง `pointer-events: none` และ opacity ต่ำ
+- texture ต้องอยู่หลัง content โดยให้ content มี `position: relative; z-index: 1`
+- หัวข้อ `h2` ควรมี visual anchor เช่น เส้น accent ด้านซ้าย เพื่อช่วยสแกน
+- footer note ควรบอกที่มาหรือขอบเขตของชีทสั้น ๆ ไม่ควรเป็นคำโฆษณา
+
+Responsive behavior ที่ควรรักษา
+
+- บนมือถือ `.page` ควรลด margin/padding และอาจตัด shadow ออก
+- TOC ควรเปลี่ยนเป็น `position: static` บนจอเล็ก เพื่อไม่กินพื้นที่อ่าน
+- TOC list ควร scroll แนวนอนได้
+- `grid-two` ต้อง collapse เป็น 1 column
+- ตาราง, pre, และ ledger block ต้องไม่ทำให้หน้า overflow แนวนอนทั้งหน้า
 
 ## Pattern สำหรับบทบัญชีประเภทต่าง ๆ
 
@@ -1099,7 +1225,15 @@ Segment 4: Integrated Case
 - รายการบัญชีอยู่คนละบรรทัดและใช้ `pre code`
 - `pre code` มี `white-space: pre`
 - ตารางไม่แน่นเกินไป
+- ตารางตัวเลขใช้ `font-variant-numeric: tabular-nums`
+- ตารางยาวมี sticky header หรือ visual aid ที่ช่วยไล่อ่าน
 - mobile มี horizontal scroll สำหรับตาราง
+- TOC มี active state หรืออย่างน้อยมี hover/focus state ชัดเจน
+- anchor jump ไม่ถูก sticky nav บัง เพราะตั้ง `scroll-padding-top` / `scroll-margin-top` แล้ว
+- section ที่ถูก jump ไปควรมี target cue เช่น `section:target > h2`
+- ถ้ามี animation หรือ transition ต้องมี `prefers-reduced-motion`
+- ถ้าใช้ keyword highlight ต้องไม่ทำให้ข้อความรก และต้องมี fallback เมื่อไม่มี JavaScript
+- บนมือถือ TOC ไม่กินพื้นที่อ่านมากเกินไป
 - ไม่มีข้อความภาษาอังกฤษยาวโดยไม่จำเป็น
 - ไม่มีตัวเลขที่แต่งขึ้นโดยไม่อิง source เว้นแต่ระบุว่าเป็นโจทย์จำลอง
 - ถ้ามีข้อมูลไม่ชัดเจน ให้ใส่ note ว่า source ไม่ได้ระบุ แทนการเดา

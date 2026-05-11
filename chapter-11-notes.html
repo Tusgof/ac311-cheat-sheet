@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 11: Conceptual Framework | AC311</title>
+  <meta name="description" content="AC311 Chapter 11 Conceptual Framework for Financial Reporting: objective, qualitative characteristics, elements, recognition, measurement, presentation, disclosure, and capital maintenance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fffaf2;
+      --paper-strong: #f7ead6;
+      --ink: #2c2118;
+      --muted: #6f604f;
+      --accent: #8a5a23;
+      --accent-strong: #6d3c0d;
+      --line: rgba(119, 82, 45, .22);
+      --green: #eaf1de;
+      --green-line: #c3cfaa;
+      --warn: #fff2d7;
+      --warn-line: #d5a85f;
+      --code-bg: #2a251d;
+      --content: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+      line-height: 1.7;
+      background:
+        linear-gradient(rgba(122, 89, 52, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 89, 52, .05) 1px, transparent 1px),
+        #f6efe3;
+      background-size: 32px 32px;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(var(--content), calc(100% - 32px));
+      margin: 28px auto;
+      padding: 46px 56px 64px;
+      background: rgba(255, 250, 242, .94);
+      border: 1px solid rgba(113, 82, 46, .18);
+      box-shadow: 0 24px 60px rgba(57, 41, 24, .12);
+      position: relative;
+      overflow: visible;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,0) 12%),
+        repeating-linear-gradient(180deg, transparent 0, transparent 31px, rgba(87,69,47,.045) 31px, rgba(87,69,47,.045) 32px);
+      opacity: .72;
+    }
+
+    h1,h2,h3,h4,p,li,table,pre,.toc,.callout,.formula,.panel,.roadmap,.footer-note {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--paper-strong);
+      color: var(--accent-strong);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 32px;
+      align-items: end;
+      padding: 28px 0 30px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.05;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      padding-left: 18px;
+      font-size: 34px;
+      line-height: 1.25;
+      scroll-margin-top: 96px;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      bottom: 8px;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 16px;
+      font-size: 18px;
+    }
+
+    strong {
+      color: #24180e;
+      font-weight: 900;
+      background: linear-gradient(transparent 58%, rgba(208, 170, 115, .34) 58%);
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
+      border-radius: 2px;
+      transition: background-size .65s ease;
+    }
+
+    strong.is-visible { background-size: 100% 100%; }
+
+    .lead {
+      margin-top: 20px;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .subject-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.58);
+      color: #4c3c2d;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .formula-strip,
+    .roadmap,
+    .formula,
+    .panel,
+    .callout {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+    }
+
+    .formula-strip {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .formula-strip h2 {
+      margin: 0;
+      padding-left: 0;
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .formula-strip h2::before { display: none; }
+
+    .formula-item {
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .formula-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .formula-item strong {
+      display: block;
+      color: var(--accent-strong);
+    }
+
+    .toc {
+      position: sticky;
+      top: 10px;
+      z-index: 5;
+      margin: 24px -8px 36px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 242, .92);
+      box-shadow: 0 14px 34px rgba(57, 41, 24, .08);
+      backdrop-filter: blur(14px);
+    }
+
+    .toc h2 {
+      margin: 0 0 8px;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    .toc h2::before { display: none; }
+
+    .toc ul {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .toc a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .toc a:hover,
+    .toc a[aria-current="true"] {
+      border-color: rgba(138, 90, 35, .42);
+      background: #f3e2c9;
+      transform: translateY(-1px);
+    }
+
+    section {
+      margin-top: 46px;
+      scroll-margin-top: 100px;
+    }
+
+    .roadmap {
+      margin: 16px 0 24px;
+      padding: 18px 20px;
+    }
+
+    .roadmap strong {
+      display: inline;
+      font-size: 18px;
+    }
+
+    .callout,
+    .formula,
+    .panel {
+      margin: 22px 0;
+      padding: 18px 20px;
+    }
+
+    .callout {
+      border-left: 6px solid var(--accent);
+      background: var(--warn);
+      border-color: var(--warn-line);
+    }
+
+    .panel {
+      background: rgba(255,255,255,.78);
+    }
+
+    .formula {
+      color: #fff8ee;
+      background: var(--code-bg);
+      border-color: rgba(255,255,255,.12);
+      font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 22px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.78);
+      font-size: 17px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    th,td {
+      padding: 13px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      position: sticky;
+      top: 66px;
+      z-index: 2;
+      background: #ead8bd;
+      color: var(--accent-strong);
+      text-align: left;
+      font-weight: 900;
+    }
+
+    tr:nth-child(even) td { background: rgba(255,255,255,.35); }
+    tr:last-child td { border-bottom: 0; }
+    ul,ol { margin: 0 0 18px; padding-left: 28px; font-size: 18px; }
+    li { margin: 8px 0; }
+    .back { margin-top: 24px; font-size: 14px; font-weight: 800; color: var(--accent-strong); }
+    .footer-note { margin-top: 54px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+    :target {
+      animation: targetFlash 1.2s ease;
+    }
+
+    @keyframes targetFlash {
+      0% { background: rgba(210, 170, 100, .28); }
+      100% { background: transparent; }
+    }
+
+    @media (max-width: 820px) {
+      .page { width: min(100% - 20px, var(--content)); margin: 10px auto; padding: 28px 22px 42px; }
+      .hero { grid-template-columns: 1fr; gap: 22px; }
+      h1 { font-size: 38px; }
+      h2 { font-size: 27px; }
+      p,li,table { font-size: 16px; }
+      .toc { position: static; margin: 20px 0 28px; }
+      .toc ul { flex-wrap: nowrap; }
+      th { position: static; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { transition: none !important; animation: none !important; }
+      strong { background-size: 100% 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">AC311 Intermediate Accounting 1</div>
+        <h1>Chapter 11: Conceptual Framework</h1>
+        <p class="lead">กรอบแนวคิดสำหรับการรายงานทางการเงินคือกรอบใหญ่ที่อธิบายว่าข้อมูลบัญชีควรมีเป้าหมาย คุณภาพ นิยาม และวิธีคิดอย่างไร แต่ถ้าขัดกับ TFRS ให้ยึดมาตรฐานเฉพาะเป็นหลักก่อนเสมอ</p>
+        <div class="subject-line">
+          <span class="chip">Objective</span>
+          <span class="chip">Qualitative Characteristics</span>
+          <span class="chip">Elements</span>
+          <span class="chip">Measurement</span>
+        </div>
+      </div>
+      <aside class="formula-strip" aria-label="Quick frame">
+        <h2>Quick Frame</h2>
+        <div class="formula-item"><strong>ลำดับอำนาจ</strong>TFRS มาก่อน Conceptual Framework</div>
+        <div class="formula-item"><strong>เป้าหมาย</strong>ช่วยผู้ใช้งบประเมิน cash flows และ stewardship</div>
+        <div class="formula-item"><strong>คุณภาพพื้นฐาน</strong>relevance + faithful representation</div>
+        <div class="formula-item"><strong>วัดมูลค่า</strong>historical cost หรือ current value ตามความเหมาะสม</div>
+      </aside>
+    </header>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">สารบัญ</h2>
+      <ul>
+        <li><a href="#segment-1">01 Role</a></li>
+        <li><a href="#segment-2">02 Qualities</a></li>
+        <li><a href="#segment-3">03 Elements</a></li>
+        <li><a href="#segment-4">04 Recognition</a></li>
+        <li><a href="#segment-5">05 Presentation</a></li>
+      </ul>
+    </nav>
+
+    <section id="segment-1">
+      <h2>Segment 1: Role, Objective, and Primary Users</h2>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านให้ได้ภาพใหญ่ก่อน: กรอบแนวคิดไม่ใช่ TFRS, ผู้ใช้หลักคือใคร, และงบการเงินมีหน้าที่ให้ข้อมูลเพื่อการตัดสินใจ ไม่ใช่ให้ valuation สำเร็จรูปของกิจการ</p>
+      </div>
+
+      <p><strong>Conceptual Framework</strong> เป็นเหมือนรัฐธรรมนูญของการรายงานทางการเงิน เพราะวางหลักคิดเรื่องวัตถุประสงค์ คุณภาพของข้อมูล นิยามองค์ประกอบ การรับรู้รายการ การวัดมูลค่า และการนำเสนอข้อมูล แต่ไม่ใช่มาตรฐานการบัญชีที่ใช้บังคับรายการเฉพาะโดยตรง</p>
+
+      <div class="callout">
+        <h3>Hierarchy Conflict</h3>
+        <p>ถ้า TFRS เฉพาะเรื่องขัดกับกรอบแนวคิด ให้ยึด <strong>TFRS เป็นหลัก</strong> กรอบแนวคิดใช้ช่วยพัฒนามาตรฐานและใช้เป็นฐานคิดเมื่อต้องกำหนดนโยบายบัญชีในเรื่องที่ยังไม่มีมาตรฐานรองรับ</p>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>เรื่อง</th><th>สรุปที่ต้องจำ</th><th>จุดหลอก</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Financial Reporting</td><td>ขอบเขตกว้างกว่างบการเงิน รวมข้อมูลอื่นที่สื่อสารให้ผู้ใช้เข้าใจฐานะและผลการดำเนินงาน</td><td>สิ่งที่ไม่รับรู้ในงบอาจยังสื่อสารในรายงานประจำปีหรือ MD&amp;A ได้</td></tr>
+          <tr><td>Financial Statements</td><td>เป็นส่วนหนึ่งของ financial reporting และรับรู้ได้เฉพาะรายการที่ผ่านนิยามและเกณฑ์รับรู้</td><td>ทีมผู้บริหารหรือฐานลูกค้าโดยทั่วไปไม่รับรู้เป็นสินทรัพย์ในงบ</td></tr>
+          <tr><td>Primary Users</td><td>นักลงทุน ผู้ให้กู้ และเจ้าหนี้อื่น</td><td>งบไม่ได้ออกแบบเพื่อผู้ใช้ทุกกลุ่มเท่ากันทั้งหมด</td></tr>
+        </tbody>
+      </table>
+
+      <p>วัตถุประสงค์หลักคือให้ข้อมูลที่ช่วยผู้ใช้ประเมิน <strong>จำนวนเงิน จังหวะเวลา และความไม่แน่นอนของกระแสเงินสดในอนาคต</strong> รวมถึงประเมิน <strong>stewardship</strong> หรือการใช้ทรัพยากรโดยฝ่ายบริหาร</p>
+
+      <div class="callout">
+        <h3>Valuation vs Information</h3>
+        <p>งบการเงินไม่ได้มีเป้าหมายเพื่อบอกมูลค่ากิจการแบบเบ็ดเสร็จ ผู้ใช้งบต้องนำข้อมูลไปวิเคราะห์ต่อเอง เพราะงบมีทั้งการประมาณการ ดุลยพินิจ และข้อจำกัดของการรับรู้รายการ</p>
+      </div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="segment-2">
+      <h2>Segment 2: Qualitative Characteristics</h2>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>แยกคุณภาพพื้นฐานที่ขาดไม่ได้ออกจากคุณภาพเสริมที่ทำให้ข้อมูลใช้ได้ดีขึ้น แล้วจำ trade-off สำคัญที่ข้อสอบชอบถาม</p>
+      </div>
+
+      <h3>Fundamental Qualitative Characteristics</h3>
+      <table>
+        <thead>
+          <tr><th>คุณภาพพื้นฐาน</th><th>ความหมาย</th><th>จุดที่ต้องระวัง</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Relevance</td><td>ข้อมูลเกี่ยวข้องกับการตัดสินใจ มี predictive value หรือ confirmative value</td><td>Materiality ดูทั้งขนาดเงินและลักษณะรายการ เช่น fraud ของผู้บริหารอาจมีสาระสำคัญแม้จำนวนเงินน้อย</td></tr>
+          <tr><td>Faithful Representation</td><td>ข้อมูลเป็นตัวแทนอันเที่ยงธรรม ต้อง complete, neutral และ free from error</td><td>ต้องสะท้อน substance over form และ prudence ต้องไม่กลายเป็น conservative bias</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h3>Substance over Form</h3>
+        <p>หากรูปแบบกฎหมายบอกอย่างหนึ่ง แต่เนื้อหาเศรษฐกิจบอกอีกอย่าง ต้องให้ความสำคัญกับเนื้อหาเศรษฐกิจ เช่น การเช่าสินทรัพย์ตลอดอายุการใช้งานพร้อมรับความเสี่ยงและประโยชน์หลัก อาจต้องรับรู้เหมือนกิจการควบคุมทรัพยากรนั้นจริง</p>
+      </div>
+
+      <h3>Enhancing Qualitative Characteristics</h3>
+      <table>
+        <thead>
+          <tr><th>คุณภาพเสริม</th><th>ความหมาย</th><th>ข้อควรจำ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Comparability</td><td>ผู้ใช้เปรียบเทียบข้อมูลระหว่างกิจการหรือระหว่างงวดได้</td><td>ไม่ใช่ uniformity สิ่งที่ต่างกันควรแสดงให้ต่างกัน</td></tr>
+          <tr><td>Verifiability</td><td>ผู้สังเกตการณ์อิสระสามารถเห็นพ้องได้ว่าข้อมูลมีฐานรองรับ</td><td>ข้อมูลประมาณการยัง verify ได้ หากวิธีและสมมติฐานตรวจสอบได้</td></tr>
+          <tr><td>Timeliness</td><td>ข้อมูลมาทันเวลาที่ยังมีอิทธิพลต่อการตัดสินใจ</td><td>เร็วแต่เดาสุ่มไม่ได้ เพราะคุณภาพพื้นฐานยังต้องมาก่อน</td></tr>
+          <tr><td>Understandability</td><td>จัดประเภท นำเสนอ และอธิบายให้เข้าใจได้</td><td>ห้ามตัดข้อมูลซับซ้อนทิ้งเพียงเพราะกลัวผู้ใช้ไม่เข้าใจ</td></tr>
+        </tbody>
+      </table>
+
+      <div class="formula">Useful information = Relevance + Faithful Representation, then improved by comparability, verifiability, timeliness, and understandability</div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="segment-3">
+      <h2>Segment 3: Financial Statements, Reporting Entity, and Elements</h2>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>เก็บฐานนิยามของงบการเงิน: going concern, reporting entity และองค์ประกอบ 5 กลุ่มที่ใช้ตัดสินว่าสิ่งใดเข้า asset, liability, equity, income หรือ expense</p>
+      </div>
+
+      <p>ข้อสมมติพื้นฐานสำคัญคือ <strong>going concern</strong> หรือสมมติว่ากิจการจะดำเนินงานต่อเนื่องในอนาคตอันใกล้ หากมีมติชัดเจนว่าจะเลิกกิจการ ต้องใช้ฐานการจัดทำงบอื่นและเปิดเผยเหตุผลให้ชัดเจน</p>
+
+      <table>
+        <thead>
+          <tr><th>หัวข้อ</th><th>หลักคิด</th><th>จุดหลอก</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Going Concern</td><td>กิจการไม่มีเจตนาหรือความจำเป็นต้องเลิกกิจการหรือหยุดดำเนินงาน</td><td>เมื่อ liquidation ชัดเจน ห้ามใช้ going concern basis ต่อโดยไม่พิจารณาฐานอื่น</td></tr>
+          <tr><td>Reporting Entity</td><td>หน่วยที่ต้องหรือเลือกจัดทำรายงานทางการเงิน อิงหน่วยเศรษฐกิจ ไม่จำเป็นต้องเป็นนิติบุคคลเดียว</td><td>งบการเงินเดี่ยวใช้แทนงบรวมไม่ได้ เพราะไม่สะท้อนทรัพยากรและความเสี่ยงของกลุ่มทั้งหมด</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Elements of Financial Statements</h3>
+      <table>
+        <thead>
+          <tr><th>องค์ประกอบ</th><th>นิยามหลัก</th><th>ข้อควรระวัง</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Asset</td><td>ทรัพยากรปัจจุบันที่กิจการควบคุมได้จากเหตุการณ์ในอดีต</td><td>ห้ามใช้ matching illusion เช่น ตั้งค่าโฆษณาเป็น asset เพียงเพราะหวังยอดขายอนาคต หากควบคุมประโยชน์ไม่ได้</td></tr>
+          <tr><td>Liability</td><td>ภาระผูกพันปัจจุบันที่จะต้องโอนทรัพยากร อันเกิดจากเหตุการณ์ในอดีต</td><td>constructive obligation อาจเกิดจาก practice/policy แม้ไม่มีกฎหมายบังคับ แต่ executory contract ทั่วไปที่ยังไม่มีการส่งมอบมักยังไม่เป็นหนี้สิน</td></tr>
+          <tr><td>Equity</td><td>ส่วนได้เสียคงเหลือหลังหักหนี้สินออกจากสินทรัพย์</td><td>book value ของ equity ไม่จำเป็นต้องเท่ากับ market capitalization</td></tr>
+          <tr><td>Income</td><td>สินทรัพย์เพิ่มหรือหนี้สินลดที่ทำให้ส่วนของเจ้าของเพิ่มขึ้น โดยไม่ใช่เงินทุนจากเจ้าของ</td><td>การตีราคาที่ดินเพิ่มเป็น income ตามกรอบแนวคิด แต่ผู้ถือหุ้นยกหนี้ให้ไม่ใช่ income เพราะเป็น contribution from owner</td></tr>
+          <tr><td>Expense</td><td>สินทรัพย์ลดหรือหนี้สินเพิ่มที่ทำให้ส่วนของเจ้าของลดลง โดยไม่ใช่การแจกจ่ายให้เจ้าของ</td><td>เงินปันผลไม่ใช่ expense เพราะเป็น distribution to owners</td></tr>
+        </tbody>
+      </table>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="segment-4">
+      <h2>Segment 4: Recognition, Derecognition, and Measurement</h2>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>เชื่อมคำถามสำคัญสามข้อ: จะรับรู้รายการเมื่อใด จะตัดรายการออกเมื่อใด และจะใช้ฐานวัดมูลค่าแบบใดจึงให้ข้อมูลที่มีประโยชน์ที่สุด</p>
+      </div>
+
+      <h3>Recognition</h3>
+      <p>การรับรู้รายการคือการนำรายการเข้าไปแสดงในงบการเงินเมื่อรายการนั้นเข้าองค์ประกอบและการรับรู้ให้ข้อมูลที่มีประโยชน์ ทั้งด้าน relevance และ faithful representation หากความไม่แน่นอนสูงจนข้อมูลไม่เกี่ยวข้องหรือไม่เป็นตัวแทนอันเที่ยงธรรม อาจไม่รับรู้ตัวเลขแต่เปิดเผยข้อมูลแทน</p>
+
+      <div class="callout">
+        <h3>Measurement Uncertainty</h3>
+        <p>ความไม่แน่นอนของการวัดมูลค่าไม่ได้ทำให้ห้ามรับรู้เสมอไป แต่ถ้าความไม่แน่นอนสูงมากจนตัวเลขไม่สื่อสารข้อมูลที่มีประโยชน์ การเปิดเผยในหมายเหตุอาจเหมาะสมกว่า</p>
+      </div>
+
+      <h3>Derecognition</h3>
+      <p>การเลิกรับรู้รายการคือการเอาสินทรัพย์หรือหนี้สินออกจากงบเมื่อกิจการสูญเสียการควบคุมทรัพยากรหรือไม่มีภาระผูกพันนั้นแล้ว จุดตัดสำคัญคือดูว่า control หรือ obligation หมดจริงหรือไม่ ไม่ใช่ดูเพียงการส่งมอบทางกายภาพ</p>
+
+      <div class="callout">
+        <h3>Phantom Transfer</h3>
+        <p>ถ้าส่งสินค้าให้ agent แล้ว แต่กิจการยังรับความเสี่ยงหลัก รับผลขาดทุน และรับผลประโยชน์จากยอดขายอยู่ แปลว่ายังไม่สูญเสียการควบคุมอย่างแท้จริง จึงไม่ควรตัดสินทรัพย์ออกเพียงเพราะย้ายของออกจากคลัง</p>
+      </div>
+
+      <h3>Measurement Bases</h3>
+      <table>
+        <thead>
+          <tr><th>ฐานวัดมูลค่า</th><th>มุมมอง</th><th>Entry / Exit</th><th>ต้นทุนทำรายการ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Historical Cost</td><td>ข้อมูลจากธุรกรรมเดิม</td><td>entry-based at transaction date</td><td>มักรวมต้นทุนที่เกี่ยวข้องกับการได้มา</td></tr>
+          <tr><td>Current Cost</td><td>specific to entity</td><td>entry value</td><td>บวกต้นทุนทำรายการที่ต้องจ่ายเพื่อได้สินทรัพย์ใหม่</td></tr>
+          <tr><td>Fair Value</td><td>market participant perspective</td><td>exit value</td><td>ไม่หักต้นทุนทำรายการออกจาก fair value</td></tr>
+          <tr><td>Value in Use</td><td>specific to entity</td><td>value from use and disposal</td><td>หักต้นทุนที่เกี่ยวกับการจำหน่ายเมื่อประเมินกระแสเงินสดที่เกี่ยวข้อง</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Historical cost</strong> พิสูจน์ง่ายและเข้าใจง่าย แต่ความเกี่ยวข้องอาจลดลงเมื่อเวลาผ่านไป ส่วน <strong>current value</strong> ให้ข้อมูลปัจจุบันกว่า แต่ใช้ดุลยพินิจสูงกว่าและอาจลด verifiability หรือ comparability ได้</p>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="segment-5">
+      <h2>Segment 5: Presentation, Disclosure, Offsetting, and Capital Maintenance</h2>
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>ปิดบทด้วยวิธีสื่อสารข้อมูลอย่างมีประสิทธิผล กฎห้ามหักกลบ และแนวคิดเรื่องทุนที่อธิบายว่าเมื่อใดจึงถือว่ากิจการมีกำไรจริง</p>
+      </div>
+
+      <h3>Presentation and Disclosure</h3>
+      <p>การนำเสนอและเปิดเผยข้อมูลควรช่วยให้ผู้ใช้เข้าใจรายการ ธุรกรรม และเหตุการณ์ของกิจการจริง ไม่ใช่ใช้ข้อความสำเร็จรูปแบบ boilerplate โดยไม่เชื่อมกับสถานการณ์ของกิจการ</p>
+
+      <div class="panel">
+        <h3>Effective Communication</h3>
+        <ul>
+          <li>ใช้ข้อมูลที่ entity-specific มากพอ ไม่ใช่ข้อความทั่วไปที่ใช้ได้กับทุกบริษัท</li>
+          <li>จัดหมวดหมู่ แยกข้อมูลสำคัญ และรวมยอดเฉพาะเมื่อไม่ทำให้ข้อมูลสำคัญถูกกลบ</li>
+          <li>เปิดเผยข้อมูลซับซ้อนเมื่อจำเป็น เพราะ understandability ไม่ใช่ข้ออ้างในการตัดข้อมูลสำคัญทิ้ง</li>
+        </ul>
+      </div>
+
+      <h3>Offsetting</h3>
+      <p>โดยหลัก <strong>ห้ามหักกลบ</strong> สินทรัพย์กับหนี้สิน หรือรายได้กับค่าใช้จ่าย เว้นแต่การหักกลบนั้นสะท้อนเนื้อหาทางเศรษฐกิจของรายการอย่างแท้จริง การหักกลบผิดหลักอาจทำให้ผู้ใช้งบมองขนาดความเสี่ยงหรือกิจกรรมของกิจการต่ำเกินจริง</p>
+
+      <h3>Capital Maintenance</h3>
+      <table>
+        <thead>
+          <tr><th>แนวคิดเรื่องทุน</th><th>ทุนคืออะไร</th><th>กำไรคืออะไร</th><th>ผลเมื่อราคาเพิ่มขึ้น</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Financial Capital</td><td>จำนวนเงินหรืออำนาจซื้อทางการเงิน</td><td>จำนวนเงินสุทธิเพิ่มขึ้นหลังรักษาทุนทางการเงิน</td><td>ถ้าปันผลเงินเพิ่มขึ้นทั้งหมด อาจไม่มีเงินพอรักษากำลังซื้อเพื่อดำเนินงานต่อ</td></tr>
+          <tr><td>Physical Capital</td><td>กำลังการผลิตหรือ operating capability</td><td>กำลังการผลิตเพิ่มขึ้นหลังรักษาความสามารถเดิมไว้แล้ว</td><td>ต้องกันส่วนหนึ่งไว้ชดเชยต้นทุนที่แพงขึ้นก่อน ส่วนที่เหลือจึงเป็นกำไรจริง</td></tr>
+        </tbody>
+      </table>
+
+      <div class="formula">Physical capital maintenance normally requires current cost measurement</div>
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <p class="footer-note">จัดทำจากไฟล์ Conceptual_Framework_Summary.md เพื่อใช้เป็นชีตอ่านทบทวน AC311 Chapter 11.</p>
+  </main>
+
+  <script>
+    const links = [...document.querySelectorAll(".toc a")];
+    const sections = links
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach((link) => {
+        const active = link.getAttribute("href") === `#${id}`;
+        link.setAttribute("aria-current", active ? "true" : "false");
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      }, { rootMargin: "-18% 0px -66% 0px", threshold: [0.08, 0.18, 0.35] });
+      sections.forEach((section) => observer.observe(section));
+    } else if (sections[0]) {
+      setActive(sections[0].id);
+    }
+
+    const strongItems = [...document.querySelectorAll("strong")];
+    if ("IntersectionObserver" in window) {
+      const keywordObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        });
+      }, { threshold: .55 });
+      strongItems.forEach((item) => keywordObserver.observe(item));
+    } else {
+      strongItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
