@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 8: Intangible Assets | AC311</title>
+  <meta name="description" content="AC311 Chapter 8 Intangible Assets ตาม IAS 38 / TAS 38: recognition, initial measurement, research and development, subsequent measurement, amortization, impairment, derecognition, and disclosure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fffaf2;
+      --paper-strong: #f7ead6;
+      --ink: #2c2118;
+      --muted: #6f604f;
+      --accent: #a36b2d;
+      --accent-strong: #7d4612;
+      --line: rgba(119, 82, 45, 0.22);
+      --green: #eaf1de;
+      --green-line: #c3cfaa;
+      --code-bg: #2a251d;
+      --content: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans Thai", "Segoe UI", sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0;
+      background:
+        linear-gradient(rgba(122, 89, 52, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 89, 52, 0.05) 1px, transparent 1px),
+        #f6efe3;
+      background-size: 32px 32px;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(var(--content), calc(100% - 32px));
+      margin: 28px auto;
+      padding: 46px 56px 64px;
+      background: rgba(255, 250, 242, 0.94);
+      border: 1px solid rgba(113, 82, 46, 0.18);
+      box-shadow: 0 24px 60px rgba(57, 41, 24, 0.12);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--paper-strong);
+      color: var(--accent-strong);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 32px;
+      align-items: end;
+      padding: 28px 0 30px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 34px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 16px;
+      font-size: 18px;
+    }
+
+    .lead {
+      margin-top: 20px;
+      color: var(--muted);
+      max-width: 780px;
+      font-size: 20px;
+    }
+
+    .subject-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      color: #4c3c2d;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .formula-strip,
+    .roadmap,
+    .formula,
+    .panel,
+    .callout,
+    .test-box,
+    .answer-box {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .formula-strip {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .formula-strip h2 {
+      margin: 0;
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .formula-item {
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .formula-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .formula-item strong {
+      display: block;
+      color: var(--accent-strong);
+    }
+
+    .toc {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      margin: 30px -18px 46px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 242, 0.94);
+      backdrop-filter: blur(10px);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .toc ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: inline-flex;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      background: #fffaf2;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .segment-label,
+    .test-label,
+    .answer-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .roadmap,
+    .formula,
+    .callout,
+    .test-box,
+    .answer-box {
+      padding: 22px;
+      margin: 22px 0;
+    }
+
+    .formula {
+      border-left: 6px solid var(--accent);
+      background: #fff3de;
+    }
+
+    .callout {
+      background: var(--green);
+      border-color: var(--green-line);
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 22px 0;
+    }
+
+    .panel { padding: 20px; }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 22px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdfa;
+      font-size: 16px;
+    }
+
+    th,
+    td {
+      padding: 13px 15px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    th {
+      background: #f4e3cb;
+      color: var(--accent-strong);
+      font-weight: 900;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) td { background: rgba(250, 244, 233, 0.45); }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: rgba(116, 78, 38, 0.09);
+      font-family: "Cascadia Mono", "Consolas", monospace;
+      font-size: 0.95em;
+    }
+
+    pre {
+      margin: 22px 0;
+      padding: 22px 26px;
+      overflow-x: auto;
+      border-radius: 8px;
+      border-left: 6px solid #c79145;
+      background: var(--code-bg);
+      color: #fffaf0;
+      font-family: "Cascadia Mono", "Consolas", monospace;
+      font-size: 16px;
+      line-height: 1.7;
+      white-space: pre;
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      white-space: pre;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    .test-box {
+      background: #f4f8ec;
+      border-color: var(--green-line);
+    }
+
+    .answer-box {
+      background: #fff7eb;
+      border-left: 6px solid var(--accent);
+    }
+
+    .back { margin-top: 24px; }
+
+    .back a {
+      color: var(--accent-strong);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      padding-top: 28px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        width: min(100% - 18px, var(--content));
+        padding: 28px 18px 44px;
+      }
+
+      .hero,
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 42px; }
+      h2 { font-size: 28px; }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      th,
+      td {
+        min-width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header id="top">
+      <span class="eyebrow">AC311 Intermediate Accounting 1</span>
+      <div class="hero">
+        <div>
+          <h1>Chapter 8: Intangible Assets</h1>
+          <p class="lead">อ่านตามลำดับ: ระบุว่าเป็นสินทรัพย์ไม่มีตัวตนจริงไหม -> รับรู้และวัดราคาทุน -> แยก research/development -> ตัดจำหน่าย ด้อยค่า และตัดรายการ</p>
+          <div class="subject-line">
+            <span class="chip">IAS 38 / TAS 38</span>
+            <span class="chip">Recognition</span>
+            <span class="chip">R&amp;D</span>
+            <span class="chip">Amortization</span>
+          </div>
+        </div>
+
+        <aside class="formula-strip" aria-label="Quick frame">
+          <h2>Quick Frame</h2>
+          <div class="formula-item">
+            <strong>ต้องเป็น IA จริง</strong>
+            identifiable + control + future economic benefits
+          </div>
+          <div class="formula-item">
+            <strong>รับรู้เมื่อผ่าน 2 test</strong>
+            probable benefits + cost measured reliably
+          </div>
+          <div class="formula-item">
+            <strong>Research vs Development</strong>
+            research expense, development capitalize เมื่อครบเงื่อนไข
+          </div>
+          <div class="formula-item">
+            <strong>Finite vs Indefinite</strong>
+            finite amortize, indefinite ไม่ amortize แต่ทดสอบ impairment
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">สารบัญ</h2>
+      <ol>
+        <li><a href="#segment-1">Segment 1</a></li>
+        <li><a href="#mini-test-1">Mini Test 1</a></li>
+        <li><a href="#segment-2">Segment 2</a></li>
+        <li><a href="#mini-test-2">Mini Test 2</a></li>
+        <li><a href="#segment-3">Segment 3</a></li>
+        <li><a href="#mini-test-3">Mini Test 3</a></li>
+        <li><a href="#segment-4">Segment 4</a></li>
+        <li><a href="#mini-test-4">Mini Test 4</a></li>
+        <li><a href="#segment-5">Segment 5</a></li>
+        <li><a href="#mini-test-5">Mini Test 5</a></li>
+        <li><a href="#segment-6">Segment 6</a></li>
+        <li><a href="#mini-test-6">Mini Test 6</a></li>
+        <li><a href="#mock-exam">Mock Exam</a></li>
+        <li><a href="#answer-key">Answer Key</a></li>
+      </ol>
+    </nav>
+
+    <section id="segment-1">
+      <span class="segment-label">Current Segment</span>
+      <h2>Segment 1: Scope, Definition, and 3 Core Characteristics</h2>
+
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: คัด scope -> ดูนิยาม -> เช็ก identifiable -> เช็ก control -> เช็ก future benefits</p>
+      </div>
+
+      <p>บท Intangible Assets ตาม IAS 38 / TAS 38 ไม่ได้เอาทุกอย่างที่จับต้องไม่ได้มาเป็นสินทรัพย์ทันที จุดเริ่มต้นของข้อสอบคือถามก่อนว่าเรื่องนั้นอยู่ในขอบเขตมาตรฐานนี้ไหม แล้วจึงค่อยตรวจว่ามีลักษณะของสินทรัพย์ไม่มีตัวตนครบหรือไม่</p>
+
+      <div class="formula">
+        <strong>Definition:</strong>
+        สินทรัพย์ไม่มีตัวตนคือสินทรัพย์ที่ไม่เป็นตัวเงิน ไม่มีรูปร่าง แต่ต้องระบุแยกได้ ควบคุมได้ และคาดว่าจะให้ประโยชน์เชิงเศรษฐกิจในอนาคต
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Checkpoint</th>
+            <th>ถามตัวเองว่า</th>
+            <th>ตัวอย่างแนวข้อสอบ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identifiability</td>
+            <td>แยกออกจากกิจการได้หรือเกิดจากสิทธิตามสัญญา/กฎหมายหรือไม่</td>
+            <td>software license, patent, copyright, customer contract</td>
+          </tr>
+          <tr>
+            <td>Control</td>
+            <td>กิจการควบคุมประโยชน์และกันผู้อื่นไม่ให้ใช้ประโยชน์ได้หรือไม่</td>
+            <td>สิทธิบัตรควบคุมได้ แต่ความสามารถของพนักงานโดยทั่วไปควบคุมไม่ได้</td>
+          </tr>
+          <tr>
+            <td>Future benefits</td>
+            <td>คาดว่าจะสร้างรายได้ ลดต้นทุน หรือให้ประโยชน์เชิงเศรษฐกิจอื่นหรือไม่</td>
+            <td>software ลดต้นทุนการผลิต หรือ license ใช้ขายสินค้าได้</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h3>อยู่ใน IAS 38 / TAS 38</h3>
+          <p>เช่น software, patent, copyright, trademark ที่ได้มา, franchise, license, customer relationship ที่ระบุแยกได้ และ development cost ที่ผ่านเกณฑ์รับรู้</p>
+        </div>
+        <div class="panel">
+          <h3>อยู่นอกมาตรฐานนี้</h3>
+          <p>เช่น financial asset, lease asset, deferred tax asset, employee benefit asset, goodwill จาก business combination, inventory ที่เป็น software เพื่อขาย และ exploration/evaluation asset</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h3>Exam Watch</h3>
+        <p>ข้อสอบชอบให้รายการที่จับต้องไม่ได้แต่ยังไม่ใช่ intangible asset เช่น training cost, customer loyalty ที่ควบคุมไม่ได้, internally generated brand, masthead, publishing title หรือ goodwill ที่สร้างขึ้นเอง รายการพวกนี้มักลง expense ไม่ใช่ asset</p>
+      </div>
+
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-1" class="test-box">
+      <span class="test-label">Mini Test 1</span>
+      <h2>Mini Test 1: Identify Intangible Assets</h2>
+      <p>ให้วิเคราะห์ว่ารายการต่อไปนี้เป็นสินทรัพย์ไม่มีตัวตนตาม IAS 38 / TAS 38 หรือไม่</p>
+      <ol>
+        <li>สิทธิบัตรที่ซื้อมาและจดทะเบียนถูกต้องตามกฎหมาย</li>
+        <li>ความสามารถของทีมวิศวกรที่บริษัทฝึกอบรมมาเอง</li>
+        <li>software ที่พัฒนาขึ้นเพื่อขายตามปกติธุรกิจ</li>
+        <li>brand ที่กิจการสร้างเองจากการโฆษณาต่อเนื่องหลายปี</li>
+      </ol>
+    </section>
+
+    <section id="segment-2">
+      <span class="segment-label">Current Segment</span>
+      <h2>Segment 2: Recognition and Initial Measurement</h2>
+
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: ผ่าน definition -> ผ่าน recognition test -> ดูแหล่งที่มา -> วัดราคาทุนเริ่มแรก -> ลงบัญชี</p>
+      </div>
+
+      <p>หลังจากรายการผ่านนิยามแล้ว ยังไม่พอที่จะบันทึกเป็นสินทรัพย์ ต้องผ่านเกณฑ์รับรู้ 2 ข้อ คือมีความเป็นไปได้ที่ประโยชน์เชิงเศรษฐกิจจะไหลเข้าสู่กิจการ และสามารถวัดราคาทุนได้อย่างน่าเชื่อถือ</p>
+
+      <div class="formula">
+        <strong>Recognition test:</strong>
+        recognize only when future economic benefits are probable and cost can be measured reliably
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ที่มา</th>
+            <th>ฐานวัดมูลค่าเริ่มแรก</th>
+            <th>จุดที่ต้องระวัง</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Separate acquisition</td>
+            <td>purchase price + directly attributable cost</td>
+            <td>ราคาซื้อสะท้อน probability อยู่แล้ว จึงมักผ่านเกณฑ์รับรู้</td>
+          </tr>
+          <tr>
+            <td>Business combination</td>
+            <td>fair value ณ acquisition date</td>
+            <td>ต้องแยก intangible asset ออกจาก goodwill ถ้าระบุแยกได้</td>
+          </tr>
+          <tr>
+            <td>Government grant</td>
+            <td>fair value หรือ nominal amount ตามนโยบายที่ใช้</td>
+            <td>ต้องดูมาตรฐานเรื่อง grant ประกอบ</td>
+          </tr>
+          <tr>
+            <td>Exchange of assets</td>
+            <td>fair value เว้นแต่ไม่มี commercial substance หรือวัด fair value ไม่ได้</td>
+            <td>ถ้าวัด fair value ไม่ได้ ให้ใช้ carrying amount ของสินทรัพย์ที่ให้ไป</td>
+          </tr>
+          <tr>
+            <td>Internally generated</td>
+            <td>เฉพาะต้นทุน development ที่ผ่านเกณฑ์</td>
+            <td>research expense ทันที และ internally generated brand/goodwill ไม่รับรู้</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h3>รวมเป็น cost ได้</h3>
+          <p>ราคาซื้อหลังหักส่วนลด ภาษีนำเข้าที่ขอคืนไม่ได้ professional fee และต้นทุนโดยตรงที่ทำให้สินทรัพย์พร้อมใช้งาน</p>
+        </div>
+        <div class="panel">
+          <h3>ไม่รวมเป็น cost</h3>
+          <p>ค่าโฆษณา ค่า promotion ค่า training ค่า administrative overhead และ operating loss ช่วงเริ่มต้นที่ไม่เกี่ยวโดยตรงกับการทำให้สินทรัพย์พร้อมใช้งาน</p>
+        </div>
+      </div>
+
+      <p>ตัวอย่าง entry สำหรับการซื้อ license แยกต่างหาก:</p>
+
+      <pre><code>วันที่ซื้อ
+Dr Intangible Asset - License xxx
+   Cr Cash / Accounts Payable xxx</code></pre>
+
+      <div class="callout">
+        <h3>Trap: ซื้อมา vs สร้างเอง</h3>
+        <p>รายการที่ซื้อมาแยกต่างหากมักพิสูจน์ reliable cost ได้ง่าย แต่รายการที่สร้างเองต้องระวังมากกว่า เพราะต้องแยก research phase และ development phase ให้ถูก</p>
+      </div>
+
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-2" class="test-box">
+      <span class="test-label">Mini Test 2</span>
+      <h2>Mini Test 2: Recognition and Cost</h2>
+      <p>บริษัทซื้อ software license พร้อมค่าที่ปรึกษาติดตั้งและค่าอบรมพนักงาน</p>
+      <ol>
+        <li>license รับรู้เป็น intangible asset ได้หรือไม่</li>
+        <li>ค่าที่ปรึกษาติดตั้งรวมเป็น cost ได้หรือไม่</li>
+        <li>ค่าอบรมพนักงานรวมเป็น cost ได้หรือไม่</li>
+        <li>เขียน journal entry แบบโครงสร้าง Dr/Cr</li>
+      </ol>
+    </section>
+
+    <section id="segment-3">
+      <span class="segment-label">Current Segment</span>
+      <h2>Segment 3: Internally Generated Assets, Research, and Development</h2>
+
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: แยก research -> แยก development -> เช็ก 6 criteria -> capitalize เฉพาะช่วงที่ผ่านเกณฑ์ -> expense รายการต้องห้าม</p>
+      </div>
+
+      <p>ส่วนที่ออกสอบบ่อยที่สุดของบทนี้คือสินทรัพย์ที่สร้างขึ้นเองภายใน กฎหลักคือ research phase ต้องเป็นค่าใช้จ่ายทันที เพราะยังพิสูจน์ไม่ได้ว่าจะมีสินทรัพย์ที่ให้ประโยชน์ในอนาคต ส่วน development phase จะบันทึกเป็นสินทรัพย์ได้เฉพาะเมื่อพิสูจน์ครบทุกเงื่อนไข</p>
+
+      <div class="formula">
+        <strong>Memory hook:</strong>
+        research = expense, development = capitalize only after all 6 criteria are met
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>ลักษณะ</th>
+            <th>Accounting treatment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Research</td>
+            <td>ค้นคว้า สำรวจ ทดลองทางเลือก ยังไม่พร้อมพิสูจน์ feasibility</td>
+            <td>บันทึกเป็นค่าใช้จ่ายทันที</td>
+          </tr>
+          <tr>
+            <td>Development before criteria met</td>
+            <td>เริ่มพัฒนาแล้ว แต่ยังพิสูจน์เงื่อนไขครบไม่ได้</td>
+            <td>บันทึกเป็นค่าใช้จ่าย</td>
+          </tr>
+          <tr>
+            <td>Development after criteria met</td>
+            <td>พิสูจน์ technical feasibility, intention, ability, benefits, resources และ measurable cost ได้ครบ</td>
+            <td>capitalize เป็นต้นทุน intangible asset</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h3>6 Criteria สำหรับ Development</h3>
+        <p>ต้องพิสูจน์ได้ครบ: ความเป็นไปได้ทางเทคนิค, ความตั้งใจทำให้เสร็จ, ความสามารถใช้หรือขาย, วิธีสร้างประโยชน์เชิงเศรษฐกิจ, มีทรัพยากรพอ และวัดต้นทุนได้อย่างน่าเชื่อถือ</p>
+      </div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h3>รายการที่สร้างเองแต่ห้ามรับรู้</h3>
+          <p>internally generated goodwill, brand, masthead, publishing title, customer list และรายการคล้ายกัน เพราะแยกต้นทุนจากการพัฒนาธุรกิจโดยรวมได้ยาก</p>
+        </div>
+        <div class="panel">
+          <h3>ตัวอย่าง development ที่อาจ capitalize</h3>
+          <p>software ภายในที่ผ่าน feasibility แล้ว มีแผนใช้จริง มีทีมและงบประมาณพร้อม และสามารถวัดต้นทุนช่วงหลังผ่านเกณฑ์ได้ชัดเจน</p>
+        </div>
+      </div>
+
+      <pre><code>ช่วง research
+Dr Research Expense xxx
+   Cr Cash / Payables xxx
+
+ช่วง development หลังผ่านเกณฑ์ครบ
+Dr Intangible Asset - Development Cost xxx
+   Cr Cash / Payables xxx</code></pre>
+
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-3" class="test-box">
+      <span class="test-label">Mini Test 3</span>
+      <h2>Mini Test 3: Research or Development</h2>
+      <p>บริษัทพัฒนา platform ใหม่ ช่วงแรกทดลองหลายแนวทาง ต่อมาผู้บริหารอนุมัติแผนพัฒนา มีทีมงาน งบประมาณ และพิสูจน์ feasibility ได้ครบ</p>
+      <ol>
+        <li>ต้นทุนช่วงทดลองหลายแนวทางเป็น research หรือ development</li>
+        <li>ต้นทุนหลังพิสูจน์ 6 criteria ครบ บันทึกอย่างไร</li>
+        <li>brand ที่เกิดจาก platform สำเร็จรับรู้เป็น intangible asset แยกได้หรือไม่</li>
+        <li>เขียน entry สำหรับช่วง research และช่วง development ที่ผ่านเกณฑ์</li>
+      </ol>
+    </section>
+
+    <section id="segment-4">
+      <span class="segment-label">Current Segment</span>
+      <h2>Segment 4: Measurement After Recognition</h2>
+
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: เลือก cost model หรือ revaluation model -> ดู active market -> วัด carrying amount -> จำผลเข้า financial statements</p>
+      </div>
+
+      <p>หลังรับรู้รายการแล้ว IAS 38 / TAS 38 ให้เลือกได้ระหว่าง cost model และ revaluation model แต่ในทางปฏิบัติสินทรัพย์ไม่มีตัวตนมักใช้ cost model เพราะ revaluation model ใช้ได้เฉพาะเมื่อมี active market ซึ่งพบได้ยากมากสำหรับ intangible assets ที่มีลักษณะเฉพาะตัว</p>
+
+      <div class="formula">
+        <strong>Cost model:</strong>
+        carrying amount = cost - accumulated amortization - accumulated impairment losses
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ประเด็น</th>
+            <th>Cost Model</th>
+            <th>Revaluation Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ฐานวัดมูลค่า</td>
+            <td>ราคาทุนหัก amortization และ impairment สะสม</td>
+            <td>fair value ณ วันตีราคาใหม่ หัก amortization และ impairment ภายหลัง</td>
+          </tr>
+          <tr>
+            <td>เงื่อนไขสำคัญ</td>
+            <td>ใช้ได้ทั่วไปและเป็นวิธีที่พบมากที่สุด</td>
+            <td>ต้องมี active market เท่านั้น</td>
+          </tr>
+          <tr>
+            <td>ข้อสอบชอบถาม</td>
+            <td>คำนวณ carrying amount และ amortization</td>
+            <td>ถามว่าใช้ได้ไหม ถ้าไม่มี active market คำตอบคือใช้ไม่ได้</td>
+          </tr>
+          <tr>
+            <td>ถ้า active market หายไป</td>
+            <td>ไม่เกี่ยว</td>
+            <td>ต้องกลับไปใช้ cost model โดยใช้มูลค่ายุติธรรมครั้งล่าสุดเป็นฐานตั้งต้น</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h3>Exam Watch: Active Market</h3>
+        <p>คำว่า fair value เฉย ๆ ยังไม่พอสำหรับ revaluation model ของ intangible assets ต้องมี active market ถ้าโจทย์ให้แค่ valuation report หรือ management estimate โดยไม่มี active market ให้ระวังว่าอาจใช้ revaluation model ไม่ได้</p>
+      </div>
+
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-4" class="test-box">
+      <span class="test-label">Mini Test 4</span>
+      <h2>Mini Test 4: Cost or Revaluation</h2>
+      <p>กิจการมี license เฉพาะทางที่ไม่มีตลาดซื้อขายกลาง แต่ผู้ประเมินให้มูลค่ายุติธรรมไว้</p>
+      <ol>
+        <li>กิจการใช้ revaluation model ได้หรือไม่</li>
+        <li>ถ้าใช้ cost model สูตร carrying amount คืออะไร</li>
+        <li>ถ้าเคยใช้ revaluation model แล้ว active market หายไป ต้องทำอย่างไร</li>
+      </ol>
+    </section>
+
+    <section id="segment-5">
+      <span class="segment-label">Current Segment</span>
+      <h2>Segment 5: Useful Life, Amortization, and Impairment</h2>
+
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: finite หรือ indefinite -> amortize หรือไม่ -> review ทุกปี -> test impairment -> ปรับประมาณการเมื่อข้อมูลเปลี่ยน</p>
+      </div>
+
+      <p>เมื่อได้ carrying amount แล้ว ต้องแยกอายุการให้ประโยชน์ก่อน เพราะ finite useful life และ indefinite useful life ให้ treatment ต่างกันมาก ข้อสอบมักหลอกด้วยคำว่า indefinite ซึ่งไม่ได้แปลว่า infinite และไม่ได้แปลว่าสินทรัพย์ไม่มีวันด้อยค่า</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ประเภทอายุ</th>
+            <th>Amortization</th>
+            <th>Impairment test</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Finite useful life</td>
+            <td>ต้องตัดจำหน่ายอย่างเป็นระบบตลอดอายุให้ประโยชน์</td>
+            <td>ทดสอบเมื่อมี indicator ตาม IAS 36 / TAS 36</td>
+            <td>ทบทวน useful life, residual value และ method อย่างน้อยทุกสิ้นงวด</td>
+          </tr>
+          <tr>
+            <td>Indefinite useful life</td>
+            <td>ห้ามตัดจำหน่าย</td>
+            <td>ต้องทดสอบ impairment อย่างน้อยปีละครั้ง และเมื่อมี indicator</td>
+            <td>ทบทวนทุกปีว่ายัง indefinite อยู่หรือไม่</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="formula">
+        <strong>Amortization formula:</strong>
+        amortizable amount = cost - residual value, then allocate over useful life using the pattern of consumption
+      </div>
+
+      <div class="grid-two">
+        <div class="panel">
+          <h3>Finite Life</h3>
+          <p>เริ่ม amortize เมื่อสินทรัพย์พร้อมใช้งาน ไม่ใช่เมื่อเริ่มสร้างรายได้ วิธีตัดจำหน่ายควรสะท้อน pattern of consumption หากระบุไม่ได้ชัดเจน มักใช้ straight-line</p>
+        </div>
+        <div class="panel">
+          <h3>Indefinite Life</h3>
+          <p>ไม่ amortize แต่ต้อง test impairment อย่างสม่ำเสมอ เพราะยังมีความเสี่ยงที่ recoverable amount ต่ำกว่า carrying amount</p>
+        </div>
+      </div>
+
+      <pre><code>บันทึกค่าตัดจำหน่าย
+Dr Amortization Expense xxx
+   Cr Accumulated Amortization - Intangible Asset xxx
+
+บันทึกขาดทุนจากการด้อยค่า
+Dr Impairment Loss xxx
+   Cr Intangible Asset / Accumulated Impairment Loss xxx</code></pre>
+
+      <div class="callout">
+        <h3>Trap: Indefinite ไม่ใช่ไม่ต้องทำอะไร</h3>
+        <p>สินทรัพย์ที่ไม่ทราบอายุไม่ตัดจำหน่าย แต่ต้องทดสอบ impairment อย่างน้อยทุกปี และต้องทบทวนว่าข้อสรุปเรื่อง indefinite ยังสมเหตุสมผลหรือไม่</p>
+      </div>
+
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-5" class="test-box">
+      <span class="test-label">Mini Test 5</span>
+      <h2>Mini Test 5: Amortization and Impairment</h2>
+      <p>บริษัทมี patent อายุ 10 ปี และ trademark ที่ยังไม่สามารถกำหนดอายุให้ประโยชน์ได้แน่นอน</p>
+      <ol>
+        <li>patent ต้อง amortize หรือไม่</li>
+        <li>trademark แบบ indefinite useful life ต้อง amortize หรือไม่</li>
+        <li>trademark ต้องทดสอบ impairment เมื่อใด</li>
+        <li>ถ้าภายหลัง trademark มีอายุให้ประโยชน์จำกัด ต้องทำอย่างไร</li>
+      </ol>
+    </section>
+
+    <section id="segment-6">
+      <span class="segment-label">Current Segment</span>
+      <h2>Segment 6: Derecognition, Deferred Payment, Disclosure, and Exam Traps</h2>
+
+      <div class="roadmap">
+        <strong>In This Segment</strong>
+        <p>อ่านตามลำดับนี้: เลิกใช้/ขาย -> คำนวณ gain/loss -> ดู deferred payment -> disclose -> ทวนจุดหลอกสอบ</p>
+      </div>
+
+      <p>สินทรัพย์ไม่มีตัวตนต้องตัดรายการเมื่อจำหน่าย หรือเมื่อไม่คาดว่าจะได้รับประโยชน์เชิงเศรษฐกิจในอนาคตอีกต่อไป กำไรหรือขาดทุนจากการตัดรายการคำนวณจาก proceeds เทียบกับ carrying amount และรับรู้ในกำไรขาดทุน</p>
+
+      <div class="formula">
+        <strong>Disposal formula:</strong>
+        gain/loss = net disposal proceeds - carrying amount
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>หัวข้อ disclosure</th>
+            <th>สิ่งที่ควรเปิดเผย</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Useful life</td>
+            <td>finite หรือ indefinite พร้อมเหตุผลของ indefinite useful life</td>
+          </tr>
+          <tr>
+            <td>Amortization</td>
+            <td>method, useful life/rate, gross carrying amount และ accumulated amortization</td>
+          </tr>
+          <tr>
+            <td>Reconciliation</td>
+            <td>ยอดต้นงวด เพิ่มขึ้น ตัดจำหน่าย ด้อยค่า ตัดรายการ revaluation และยอดปลายงวด</td>
+          </tr>
+          <tr>
+            <td>Restrictions / commitments</td>
+            <td>ข้อจำกัดกรรมสิทธิ์ ภาระผูกพันซื้อสินทรัพย์ไม่มีตัวตน และข้อมูลสำคัญอื่น</td>
+          </tr>
+          <tr>
+            <td>Research and development</td>
+            <td>จำนวนรายจ่าย R&amp;D ที่รับรู้เป็นค่าใช้จ่ายระหว่างงวด</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h3>Deferred Payment</h3>
+        <p>ถ้าซื้อหรือขายแบบผ่อนชำระและมีผลของเวลาอย่างมีสาระสำคัญ ต้องพิจารณา present value และแยกดอกเบี้ยตาม substance ของรายการ ไม่ใช่รับรู้ทั้งหมดเป็นราคาทุนหรือ proceeds ทันที</p>
+      </div>
+
+      <pre><code>จำหน่ายสินทรัพย์ไม่มีตัวตน
+Dr Cash / Receivable xxx
+Dr Accumulated Amortization xxx
+Dr Loss on Disposal xxx
+   Cr Intangible Asset xxx
+   Cr Gain on Disposal xxx</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>จุดหลอกสอบ</th>
+            <th>คำตอบที่ควรจำ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>training cost</td>
+            <td>โดยทั่วไปเป็น expense เพราะกิจการควบคุมพนักงานไม่ได้แบบสินทรัพย์</td>
+          </tr>
+          <tr>
+            <td>internally generated brand</td>
+            <td>ไม่รับรู้เป็น asset แยก เพราะแยกต้นทุนจากธุรกิจโดยรวมไม่ได้อย่างน่าเชื่อถือ</td>
+          </tr>
+          <tr>
+            <td>research cost</td>
+            <td>expense ทันที</td>
+          </tr>
+          <tr>
+            <td>development cost</td>
+            <td>capitalize เฉพาะหลังผ่าน 6 criteria ครบ</td>
+          </tr>
+          <tr>
+            <td>indefinite useful life</td>
+            <td>ไม่ amortize แต่ต้อง impairment test อย่างน้อยปีละครั้ง</td>
+          </tr>
+          <tr>
+            <td>revaluation model</td>
+            <td>ใช้ได้เมื่อมี active market เท่านั้น</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+    </section>
+
+    <section id="mini-test-6" class="test-box">
+      <span class="test-label">Mini Test 6</span>
+      <h2>Mini Test 6: Disposal and Disclosure</h2>
+      <p>บริษัทตัดสินใจขาย copyright ที่มี carrying amount เหลืออยู่ และจะได้รับเงินบางส่วนในอนาคต</p>
+      <ol>
+        <li>สูตรคำนวณ gain/loss จากการจำหน่ายคืออะไร</li>
+        <li>ถ้าการรับเงินในอนาคตมีผลของเวลาอย่างมีสาระสำคัญ ต้องพิจารณาอะไร</li>
+        <li>รายการ disclosure สำคัญเกี่ยวกับ intangible assets มีอะไรบ้าง</li>
+        <li>เขียน journal entry โครงสร้างการจำหน่าย</li>
+      </ol>
+    </section>
+
+    <section id="mock-exam" class="test-box">
+      <span class="test-label">Mock Exam</span>
+      <h2>Mock Exam: Integrated Intangible Assets</h2>
+      <div class="roadmap">
+        <strong>Exam Scope</strong>
+        <p>โจทย์นี้รวม definition -> initial recognition -> R&amp;D -> amortization -> impairment -> disposal/disclosure</p>
+      </div>
+      <p>บริษัทซันพัฒนาระบบ software ภายใน ปี 25X1 มีค่าใช้จ่ายช่วงค้นคว้าแนวทางหลายแบบ ต่อมาในวันที่ 1 กรกฎาคม 25X1 บริษัทพิสูจน์ feasibility ได้ครบ มีแผนใช้ระบบจริง มีทีมงานและงบประมาณเพียงพอ และเริ่มเก็บต้นทุนพัฒนาหลังวันดังกล่าวได้อย่างชัดเจน ระบบพร้อมใช้งานวันที่ 1 มกราคม 25X2 โดยคาดว่าจะใช้ 5 ปี ไม่มีมูลค่าคงเหลือ นอกจากนี้บริษัทซื้อ trademark ที่ยังไม่สามารถกำหนดอายุให้ประโยชน์ได้แน่นอน และปลายปีพบ indicator ว่า software อาจด้อยค่า</p>
+      <ol>
+        <li>ต้นทุนช่วงก่อน 1 กรกฎาคม 25X1 ต้องบันทึกอย่างไร</li>
+        <li>ต้นทุนหลังผ่าน 6 criteria แล้วบันทึกอย่างไร</li>
+        <li>software พร้อมใช้งานวันที่ 1 มกราคม 25X2 ต้องเริ่ม amortize เมื่อใด และจัดเป็น finite หรือ indefinite</li>
+        <li>trademark ที่ไม่ทราบอายุต้อง amortize หรือไม่ และต้อง test impairment เมื่อใด</li>
+        <li>เมื่อพบ indicator ว่า software อาจด้อยค่า ต้องเชื่อมกับมาตรฐานใด</li>
+        <li>ระบุ disclosure หลักที่ควรมีในหมายเหตุประกอบงบการเงิน</li>
+      </ol>
+    </section>
+
+    <section id="answer-key">
+      <span class="answer-label">Answer Key</span>
+      <h2>Answer Key</h2>
+
+      <article class="answer-box">
+        <h3>Mini Test 1</h3>
+        <p>สิทธิบัตรที่ซื้อมาเป็น intangible asset หากควบคุมได้และคาดว่าจะให้ประโยชน์ในอนาคต ความสามารถของทีมวิศวกรไม่รับรู้เป็น asset เพราะกิจการควบคุมคนและประโยชน์ไม่ได้แบบสินทรัพย์ software ที่พัฒนาเพื่อขายตามปกติธุรกิจมักอยู่ใน IAS 2 inventory ไม่ใช่ IAS 38 ส่วน internally generated brand ไม่รับรู้เป็น asset แยก</p>
+      </article>
+
+      <article class="answer-box">
+        <h3>Mini Test 2</h3>
+        <p>license รับรู้ได้หากผ่าน recognition test ค่าที่ปรึกษาติดตั้งที่ทำให้ software พร้อมใช้งานรวมเป็น cost ได้ แต่ค่าอบรมพนักงานโดยทั่วไปเป็น expense</p>
+        <pre><code>วันที่ซื้อและติดตั้ง
+Dr Intangible Asset - Software License xxx
+Dr Training Expense xxx
+   Cr Cash / Accounts Payable xxx</code></pre>
+      </article>
+
+      <article class="answer-box">
+        <h3>Mini Test 3</h3>
+        <p>ช่วงทดลองหลายแนวทางเป็น research จึง expense ทันที ต้นทุนหลังพิสูจน์ 6 criteria ครบจึง capitalize ได้ Brand ที่เกิดจาก platform สำเร็จยังเป็น internally generated brand จึงไม่รับรู้เป็น intangible asset แยก</p>
+        <pre><code>ช่วง research
+Dr Research Expense xxx
+   Cr Cash / Payables xxx
+
+ช่วง development หลังผ่านเกณฑ์
+Dr Intangible Asset - Development Cost xxx
+   Cr Cash / Payables xxx</code></pre>
+      </article>
+
+      <article class="answer-box">
+        <h3>Mini Test 4</h3>
+        <p>ใช้ revaluation model ไม่ได้ถ้าไม่มี active market แม้มีผู้ประเมินให้ fair value ก็ตาม ภายใต้ cost model ใช้สูตร cost - accumulated amortization - accumulated impairment losses หากเคยใช้ revaluation model แล้ว active market หายไป ต้องกลับไปใช้ cost model โดยใช้ fair value ครั้งล่าสุดเป็นฐานตั้งต้น</p>
+      </article>
+
+      <article class="answer-box">
+        <h3>Mini Test 5</h3>
+        <p>Patent อายุ 10 ปีเป็น finite useful life จึงต้อง amortize Trademark ที่เป็น indefinite useful life ไม่ amortize แต่ต้อง test impairment อย่างน้อยปีละครั้งและเมื่อมี indicator หากภายหลังประเมินได้ว่าอายุจำกัด ต้องเปลี่ยนเป็น finite useful life และเริ่ม amortize prospectively ตามประมาณการใหม่</p>
+      </article>
+
+      <article class="answer-box">
+        <h3>Mini Test 6</h3>
+        <p>Gain/loss = net disposal proceeds - carrying amount หากมี deferred payment และ time value มีสาระสำคัญ ต้องพิจารณา present value และแยกดอกเบี้ย Disclosure สำคัญคือ useful life, amortization method/rate, gross carrying amount, accumulated amortization, reconciliation, impairment, restrictions, commitments และ R&amp;D expense</p>
+        <pre><code>จำหน่าย copyright
+Dr Cash / Receivable xxx
+Dr Accumulated Amortization xxx
+Dr Loss on Disposal xxx
+   Cr Copyright xxx
+   Cr Gain on Disposal xxx</code></pre>
+      </article>
+
+      <article class="answer-box">
+        <h3>Mock Exam</h3>
+        <ol>
+          <li>ต้นทุนก่อน 1 กรกฎาคม 25X1 เป็น research หรือ development before criteria met จึงรับรู้เป็นค่าใช้จ่าย</li>
+          <li>ต้นทุนหลังผ่าน 6 criteria ครบและวัดต้นทุนได้ชัดเจน capitalize เป็น intangible asset - development cost</li>
+          <li>Software พร้อมใช้งานวันที่ 1 มกราคม 25X2 จึงเริ่ม amortize เมื่อพร้อมใช้งาน และเป็น finite useful life 5 ปี</li>
+          <li>Trademark ที่ไม่ทราบอายุไม่ amortize แต่ต้อง test impairment อย่างน้อยปีละครั้งและเมื่อมี indicator</li>
+          <li>เมื่อมี indicator ของ impairment ให้เชื่อมกับ IAS 36 / TAS 36 เพื่อเทียบ carrying amount กับ recoverable amount</li>
+          <li>Disclosure ควรครอบคลุม useful life, amortization method, carrying amount reconciliation, impairment loss/reversal ถ้ามี, indefinite life rationale และ R&amp;D expense ที่รับรู้ในงวด</li>
+        </ol>
+      </article>
+    </section>
+
+    <p class="footer-note">Prepared from the provided Intangible Assets source files for AC311. This sheet follows the Chapter 6 template rhythm: concept frame, exam logic, mini tests, mock exam, and answer key.</p>
+  </main>
+</body>
+</html>

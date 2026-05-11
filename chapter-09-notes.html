@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AC311 | Investment Property</title>
+  <title>Chapter 9: Investment Property | AC311</title>
   <meta name="description" content="ชีทอ่านสอบวิชา AC311 เรื่อง Investment Property แบบหน้าเดียว พร้อม Dr./Cr. และตารางเปรียบเทียบ">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -397,16 +397,366 @@
       .quick-review h2 { font-size: 1.2rem; }
       .check-item { padding: 9px 10px; }
     }
+
+
+    /* Template v1 overlay: Chapter 6 sheet system */
+    body {
+      letter-spacing: 0;
+      background:
+        linear-gradient(rgba(122, 89, 52, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 89, 52, 0.05) 1px, transparent 1px),
+        #f6efe3;
+      background-size: 32px 32px;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 28px auto;
+      padding: 46px 56px 64px;
+      background: rgba(255, 250, 242, 0.94);
+      border: 1px solid rgba(113, 82, 46, 0.18);
+      box-shadow: 0 24px 60px rgba(57, 41, 24, 0.12);
+      position: relative;
+    }
+    .masthead {
+      padding: 0 0 30px;
+      border-bottom: 2px solid rgba(119, 82, 45, 0.22);
+      margin-bottom: 0;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: auto;
+      margin: 0;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #f7ead6;
+      color: #7d4612;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 32px;
+      align-items: end;
+      padding: 28px 0 0;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: #2c2118;
+    }
+    .hero p,
+    .lead {
+      margin-top: 20px;
+      color: #6f604f;
+      max-width: 780px;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+    .subject-line span,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      color: #4c3c2d;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .formula-strip,
+    .roadmap,
+    .formula,
+    .callout,
+    .panel,
+    .test-box,
+    .answer-box {
+      border-radius: 8px;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .formula-strip {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      box-shadow: none;
+    }
+    .formula-strip h2 {
+      margin: 0;
+      font-size: 13px;
+      color: #7d4612;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+    .formula-item {
+      display: block;
+      padding: 0 0 12px;
+      border: 0;
+      border-bottom: 1px dashed rgba(119, 82, 45, 0.22);
+    }
+    .formula-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    .formula-item span,
+    .formula-item strong {
+      display: block;
+      letter-spacing: 0;
+    }
+    .formula-item span {
+      color: #7d4612;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: none;
+    }
+    .formula-item strong {
+      color: #2c2118;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    .toc.mini-nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      margin: 30px -18px 46px;
+      padding: 16px 18px;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      border-radius: 0;
+      background: rgba(255, 250, 242, 0.94);
+      backdrop-filter: blur(10px);
+      overflow: visible;
+    }
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      overflow: visible;
+      padding: 0;
+    }
+    .mini-link,
+    .group-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      border-radius: 999px;
+      color: #2c2118;
+      text-decoration: none;
+      font-weight: 700;
+      background: #fffaf2;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .study-map,
+    .roadmap {
+      padding: 22px;
+      margin: 22px 0;
+      border-radius: 8px;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .study-map.template-study-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      overflow: visible;
+      box-shadow: none;
+    }
+    .map-step {
+      border: 1px dashed rgba(119, 82, 45, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, 0.72);
+    }
+    .sheet-group {
+      gap: 20px;
+      padding: 42px 0;
+      border-bottom: 1px solid rgba(119, 82, 45, 0.22);
+    }
+    .group-head {
+      padding: 22px;
+      border-radius: 8px;
+      background: #fff3de;
+      border-left: 6px solid #a36b2d;
+      box-shadow: none;
+    }
+    .group-head::after { display: none; }
+    .group-kicker,
+    .section-kicker,
+    .subsection-label,
+    .test-label,
+    .answer-label,
+    .segment-label {
+      color: #7d4612;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .group-head h2,
+    .section-head h2 {
+      font-size: 34px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      color: #2c2118;
+    }
+    .sheet-section {
+      border-radius: 8px;
+      box-shadow: none;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      overflow: visible;
+    }
+    .section-rule { background: #a36b2d; width: 6px; }
+    .subsection,
+    details.subsection {
+      border-radius: 8px;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+      background: rgba(255, 255, 255, 0.64);
+    }
+    .subsection.alert,
+    .subsection.trap,
+    .callout {
+      background: #eaf1de;
+      border-color: #c3cfaa;
+      border-left: 6px solid #7b8564;
+    }
+    .subsection.summary,
+    .formula {
+      background: #fff3de;
+      border-left: 6px solid #a36b2d;
+    }
+    .subsection.example,
+    .panel {
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .table-wrap {
+      border-radius: 8px;
+      background: #fffdfa;
+      border: 1px solid rgba(119, 82, 45, 0.22);
+    }
+    th {
+      background: #f4e3cb;
+      color: #7d4612;
+      font-weight: 900;
+    }
+    .ledger-block {
+      margin: 22px 0;
+      padding: 22px 26px;
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 0;
+      border-left: 6px solid #c79145;
+      background: #2a251d;
+      color: #fffaf0;
+    }
+    .ledger-block pre {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      overflow: visible;
+    }
+    .ledger-block code,
+    pre code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font-family: "Cascadia Mono", "Consolas", monospace;
+      font-size: 16px;
+      line-height: 1.7;
+      white-space: pre;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .test-box {
+      padding: 22px;
+      margin: 22px 0;
+      background: #f4f8ec;
+      border-color: #c3cfaa;
+    }
+    .answer-box {
+      padding: 22px;
+      margin: 22px 0;
+      background: #fff7eb;
+      border-left: 6px solid #a36b2d;
+    }
+    .template-mini-test h2,
+    .template-mock-exam h2,
+    .template-answer-section h2 {
+      margin: 0 0 16px;
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .template-mini-test ol,
+    .template-mock-exam ol,
+    .answer-box ol,
+    .answer-box ul {
+      margin-top: 0;
+      padding-left: 1.25rem;
+    }
+    .back {
+      margin-top: 20px;
+    }
+    .back a {
+      color: #7d4612;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .map-step {
+      display: grid;
+      align-content: start;
+      gap: 6px;
+      padding: 14px 13px 16px;
+    }
+    .map-step span,
+    .map-step strong,
+    .map-step small {
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .page {
+        width: min(100% - 18px, var(--max));
+        padding: 28px 18px 44px;
+      }
+      .hero,
+      .study-map.template-study-map {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 { font-size: 42px; }
+      .hero p, .lead { font-size: 18px; }
+      .group-head h2,
+      .section-head h2 { font-size: 28px; }
+      .toc.mini-nav-shell { margin-left: 0; margin-right: 0; }
+      .mini-nav { flex-wrap: nowrap; overflow-x: auto; }
+      table { min-width: 560px; }
+    }
+
   </style>
 </head>
 <body>
   <div class="page">
-    <header class="masthead">
-      <p class="eyebrow">AC311 Intermediate Accounting</p>
+    <header class="masthead" id="top">
+      <p class="eyebrow">AC311 Intermediate Accounting 1</p>
       <div class="hero">
         <div>
-          <h1>Investment Property</h1>
-          <p>อ่านตามลำดับ: แยกประเภท -> รับรู้<br>วัดมูลค่า -> โอน -> จำหน่าย/เปิดเผย</p>
+          <h1>Chapter 9: Investment Property</h1>
+          <p class="lead">อ่านตามลำดับ: แยกประเภท -> รับรู้<br>วัดมูลค่า -> โอน -> จำหน่าย/เปิดเผย</p>
           <div class="subject-line"><span>TAS 40</span><span>Cost / FV</span><span>Transfer / Disclosure</span></div>
         </div>
         <aside class="formula-strip" aria-label="quick formulae">
@@ -416,13 +766,23 @@
       </div>
     </header>
 
-    <div class="mini-nav-shell">
+    <section class="toc mini-nav-shell" aria-labelledby="toc-title">
+      <h2 id="toc-title">สารบัญ</h2>
       <nav class="mini-nav" aria-label="สารบัญย่อ">
         <a href="#foundations" class="mini-link" data-target="foundations" title="เริ่มจากนิยาม ขอบเขต และตัวอย่างที่มักใช้แยกว่าเป็นหรือไม่เป็น Investment Property">01 Basics</a><a href="#recognition-cost" class="mini-link" data-target="recognition-cost" title="ต่อด้วยการรับรู้รายการ การวัดมูลค่าเมื่อเริ่มแรก และการแยก replacement ออกจาก day-to-day servicing">02 Recognition</a><a href="#measurement-models" class="mini-link" data-target="measurement-models" title="จัด Cost model และ Fair value model ไว้ด้วยกัน รวมทั้งผู้ประเมินราคาและเงื่อนไขการเปลี่ยนนโยบาย">03 Models</a><a href="#transfers" class="mini-link" data-target="transfers" title="รวม change in use, evidence, การวัดมูลค่าเมื่อโอน และกรณี PPE -> IP ที่ออกสอบบ่อย">04 Transfers</a><a href="#ending-and-disclosure" class="mini-link" data-target="ending-and-disclosure" title="ดูเรื่อง compensation, disposal, และ disclosure ให้จบเป็นก้อนเดียว">05 Closing</a><a href="#exam-wrap-up" class="mini-link" data-target="exam-wrap-up" title="สรุป phase ทั้งวงจรตั้งแต่คัดกรอง บันทึก วัดมูลค่า โอน จำหน่าย จนถึง disclosure ใช้ทวนก่อนสอบได้ในหน้าเดียว">06 Lifecycle</a>
+      <a href="#mock-exam" class="mini-link" data-target="mock-exam">Mock Exam</a><a href="#answer-key" class="mini-link" data-target="answer-key">Answer Key</a>
       </nav>
-    </div>
+    </section>
 
     <main class="content">
+      <section class="study-map template-study-map" aria-label="แผนที่อ่านเร็ว">
+        <a class="map-step" href="#foundations"><span>Step 01</span><strong>แยกประเภทก่อน</strong><small>IP, PPE, Inventory, lease และ ancillary services</small></a>
+        <a class="map-step" href="#recognition-cost"><span>Step 02</span><strong>รับรู้ด้วย cost</strong><small>initial cost, replacement, day-to-day servicing</small></a>
+        <a class="map-step" href="#measurement-models"><span>Step 03</span><strong>เลือก model</strong><small>cost model, fair value model, disclosure</small></a>
+        <a class="map-step" href="#transfers"><span>Step 04</span><strong>โอนเมื่อใช้จริงเปลี่ยน</strong><small>change in use, evidence, PPE -> IP</small></a>
+        <a class="map-step" href="#ending-and-disclosure"><span>Step 05</span><strong>ปิดรายการ</strong><small>disposal, compensation, disclosure</small></a>
+        <a class="map-step" href="#exam-wrap-up"><span>Step 06</span><strong>รวมวงจรสอบ</strong><small>classification -> measurement -> transfer -> disposal</small></a>
+      </section>
       <section class="sheet-group" id="foundations" data-group-title="ภาพรวมและการแยกประเภท">
 <div class="group-head">
 <div class="group-meta">
@@ -431,8 +791,9 @@
 </div>
 <h2>ภาพรวมและการแยกประเภท</h2>
 <p class="group-description">เริ่มจากนิยาม ขอบเขต และตัวอย่างที่มักใช้แยกว่าเป็นหรือไม่เป็น Investment Property</p>
-<nav class="group-nav" aria-label="ภาพรวมและการแยกประเภท"><a href="#1-ภาพรวมของบท" class="group-link" title="1) ภาพรวมของบท">ภาพรวมของบท</a><a href="#2-คำนิยามของ-investment-property" class="group-link" title="2) คำนิยามของ Investment Property">คำนิยามของ Investm</a><a href="#5-owner-occupied-property-คืออะไร" class="group-link" title="5) Owner-occupied property คืออะไร">Owner-occupied pro</a><a href="#6-operating-lease-vs-finance-lease-ในมุมผู้ให้เช่า" class="group-link" title="6) Operating Lease vs Finance Lease ในมุมผู้ให้เช่า">Operating Lease vs</a><a href="#7-การแยกประเภทโดยดู-บริการเสริม-ancillary-services" class="group-link" title="7) การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )">บริการเสริม</a><a href="#3-ตัวอย่างที่-เป็น-investment-property-พร้อมเหตุผล" class="group-link" title="3) ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล">ตัวอย่างที่ “เป็น”</a><a href="#4-ตัวอย่างที่-ไม่เป็น-investment-property" class="group-link" title="4) ตัวอย่างที่ “ไม่เป็น” Investment Property">ตัวอย่างที่ “ไม่เป</a><a href="#8-ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ" class="group-link" title="8) ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ">ตัวอย่างคำถามแยกปร</a></nav>
-</div>
+<nav class="group-nav" aria-label="ภาพรวมและการแยกประเภท"><a href="#1-ภาพรวมของบท" class="group-link" title="1) ภาพรวมของบท">ภาพรวมของบท</a><a href="#2-คำนิยามของ-investment-property" class="group-link" title="2) คำนิยามของ Investment Property">คำนิยามของ Investm</a><a href="#5-owner-occupied-property-คืออะไร" class="group-link" title="5) Owner-occupied property คืออะไร">Owner-occupied pro</a><a href="#6-operating-lease-vs-finance-lease-ในมุมผู้ให้เช่า" class="group-link" title="6) Operating Lease vs Finance Lease ในมุมผู้ให้เช่า">Operating Lease vs</a><a href="#7-การแยกประเภทโดยดู-บริการเสริม-ancillary-services" class="group-link" title="7) การแยกประเภทโดยดู “บริการเสริม” ( Ancillary services )">บริการเสริม</a><a href="#3-ตัวอย่างที่-เป็น-investment-property-พร้อมเหตุผล" class="group-link" title="3) ตัวอย่างที่ “เป็น” Investment Property พร้อมเหตุผล">ตัวอย่างที่ “เป็น”</a><a href="#4-ตัวอย่างที่-ไม่เป็น-investment-property" class="group-link" title="4) ตัวอย่างที่ “ไม่เป็น” Investment Property">ตัวอย่างที่ “ไม่เป</a><a href="#8-ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ" class="group-link" title="8) ตัวอย่างคำถามแยกประเภทที่ชอบออกสอบ">ตัวอย่างคำถามแยกปร</a>
+      </nav>
+    </section>
 <div class="group-body">
 <section class="sheet-section theme-default" id="1-ภาพรวมของบท" data-title="1) ภาพรวมของบท">
 <div class="section-rule"></div>
@@ -619,6 +980,20 @@
 </ul><hr/></div></article>
 </section>
 </div>
+
+
+<section id="mini-test-1" class="test-box template-mini-test">
+  <span class="test-label">Mini Test 1</span>
+  <h2>Mini Test 1: Classify Investment Property</h2>
+  <p>ลองตอบโดยใช้เฉพาะ logic ของ segment นี้ก่อน แล้วค่อยตรวจใน Answer Key ท้ายบท</p>
+  <ol>
+    <li>อาคารสำนักงานที่บริษัทถือไว้ปล่อยเช่าแบบ operating lease ควรจัดเป็นอะไร และเพราะอะไร</li>
+    <li>โรงแรมที่ให้บริการห้องพัก ทำความสะอาด และอาหารเช้าโดยกิจการบริหารเอง เป็น Investment Property หรือ PPE</li>
+    <li>ที่ดินที่ยังไม่กำหนดการใช้งานในอนาคตชัดเจน เข้ากลุ่มใดตาม TAS 40</li>
+    <li>ถ้าผู้ให้เช่าปล่อยเช่าแบบ finance lease ทรัพย์ยังเป็น Investment Property หรือไม่</li>
+  </ol>
+  <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+</section>
 </section>
 <section class="sheet-group" id="recognition-cost" data-group-title="Recognition และต้นทุน">
 <div class="group-head">
@@ -737,6 +1112,20 @@ Dr. Loss on Disposal                          300,000
 </ul><hr/></div></article>
 </section>
 </div>
+
+
+<section id="mini-test-2" class="test-box template-mini-test">
+  <span class="test-label">Mini Test 2</span>
+  <h2>Mini Test 2: Recognition and Cost</h2>
+  <p>ลองตอบโดยใช้เฉพาะ logic ของ segment นี้ก่อน แล้วค่อยตรวจใน Answer Key ท้ายบท</p>
+  <ol>
+    <li>Investment Property รับรู้ครั้งแรกด้วยฐานใด</li>
+    <li>ค่าซื้อ ค่าโอน และ professional fee รวมเป็น cost ได้หรือไม่</li>
+    <li>การเปลี่ยนลิฟต์ชุดใหญ่ในอาคารให้เช่าควร capitalize หรือ expense</li>
+    <li>ค่าซ่อมแซมรายเดือนของอาคารให้เช่าบันทึกอย่างไร</li>
+  </ol>
+  <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+</section>
 </section>
 <section class="sheet-group" id="measurement-models" data-group-title="การวัดมูลค่าและนโยบาย">
 <div class="group-head">
@@ -933,6 +1322,20 @@ Dr. Loss on Disposal                          300,000
 แทนที่จะใช้คำว่า “เป็นไปไม่ได้โดยเด็ดขาด”</p><p>ต้นฉบับยังเรียกสถานการณ์ลักษณะนี้ว่า <code>Permanent Market Failure</code></p><hr/></div></article>
 </section>
 </div>
+
+
+<section id="mini-test-3" class="test-box template-mini-test">
+  <span class="test-label">Mini Test 3</span>
+  <h2>Mini Test 3: Cost Model vs Fair Value Model</h2>
+  <p>ลองตอบโดยใช้เฉพาะ logic ของ segment นี้ก่อน แล้วค่อยตรวจใน Answer Key ท้ายบท</p>
+  <ol>
+    <li>หลังรับรู้ครั้งแรก กิจการเลือก model ใดได้บ้าง</li>
+    <li>ถ้าเลือก fair value model ต้องคิด depreciation หรือไม่</li>
+    <li>กำไรหรือขาดทุนจาก fair value model เข้า OCI หรือ P/L</li>
+    <li>ถ้าใช้ cost model ยังต้องเปิดเผย fair value หรือไม่</li>
+  </ol>
+  <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+</section>
 </section>
 <section class="sheet-group" id="transfers" data-group-title="Transfers และกรณีโอนซับซ้อน">
 <div class="group-head">
@@ -1127,6 +1530,20 @@ Dr. Loss on Disposal                          300,000
 </table></div><hr/></div></article>
 </section>
 </div>
+
+
+<section id="mini-test-4" class="test-box template-mini-test">
+  <span class="test-label">Mini Test 4</span>
+  <h2>Mini Test 4: Transfers</h2>
+  <p>ลองตอบโดยใช้เฉพาะ logic ของ segment นี้ก่อน แล้วค่อยตรวจใน Answer Key ท้ายบท</p>
+  <ol>
+    <li>เงื่อนไขหลักก่อนโอนเข้าออก Investment Property คืออะไร</li>
+    <li>แค่ผู้บริหารประกาศเปลี่ยนแผนใช้ที่ดิน พอโอนประเภทได้หรือไม่</li>
+    <li>ถ้าโอนจาก Inventory ไป IP ที่ใช้ fair value ส่วนต่างเข้าไหน</li>
+    <li>กรณี PPE -> IP fair value ต้องใช้ logic ของมาตรฐานใดก่อนวันโอน</li>
+  </ol>
+  <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+</section>
 </section>
 <section class="sheet-group" id="ending-and-disclosure" data-group-title="ปลายทางของรายการ">
 <div class="group-head">
@@ -1249,6 +1666,20 @@ Dr. Loss on Disposal of IP                   1,000,000
 ช่วยให้ผู้ใช้งบประเมินประสิทธิภาพการบริหารทรัพย์ได้ดีขึ้น</p><hr/></div></article>
 </section>
 </div>
+
+
+<section id="mini-test-5" class="test-box template-mini-test">
+  <span class="test-label">Mini Test 5</span>
+  <h2>Mini Test 5: Disposal and Disclosure</h2>
+  <p>ลองตอบโดยใช้เฉพาะ logic ของ segment นี้ก่อน แล้วค่อยตรวจใน Answer Key ท้ายบท</p>
+  <ol>
+    <li>เมื่อจำหน่าย Investment Property ให้คำนวณ gain/loss อย่างไร</li>
+    <li>ค่าชดเชยจากบริษัทประกันรับรู้เมื่อใด</li>
+    <li>Disclosure ของ Investment Property ต้องบอกนโยบายอะไรเป็นขั้นต่ำ</li>
+    <li>ต้องเปิดเผย rental income และ direct operating expenses แยกกันหรือไม่</li>
+  </ol>
+  <div class="back"><a href="#top">กลับไปด้านบน</a></div>
+</section>
 </section>
 <section class="sheet-group" id="exam-wrap-up" data-group-title="วงจรชีวิต Investment Property (IP)">
 <div class="group-head">
@@ -1352,7 +1783,46 @@ Dr. Loss on Disposal of IP                   1,000,000
 </section>
 
 </div>
+
+
+<section id="mini-test-6" class="test-box template-mini-test">
+  <span class="test-label">Mini Test 6</span>
+  <h2>Mini Test 6: Lifecycle Check</h2>
+  <p>ลองตอบโดยใช้เฉพาะ logic ของ segment นี้ก่อน แล้วค่อยตรวจใน Answer Key ท้ายบท</p>
+  <ol>
+    <li>เรียงลำดับการทำข้อสอบ Investment Property ตั้งแต่ classification ถึง disclosure</li>
+    <li>จุดที่ fair value gain/loss เข้า P/L ต่างจาก PPE revaluation อย่างไร</li>
+    <li>กรณีไหนในบทนี้ที่ OCI อาจเข้ามาเกี่ยวข้อง</li>
+    <li>ข้อสอบให้ที่ดินพร้อมแผนขายในธุรกิจอสังหาฯ ควรเริ่มคิดจากหมวดใด</li>
+  </ol>
+  <div class="back"><a href="#top">กลับไปด้านบน</a></div>
 </section>
+</section>
+    <section id="mock-exam" class="test-box template-mock-exam">
+      <span class="test-label">Mock Exam</span>
+      <h2>Mock Exam: Integrated Investment Property</h2>
+      <div class="roadmap"><strong>Exam Scope</strong><p>โจทย์นี้รวม classification -> initial cost -> subsequent model -> transfer -> disposal/disclosure</p></div>
+      <p>บริษัทมีทรัพย์ 4 รายการ: อาคาร A ปล่อยเช่าแบบ operating lease, อาคาร B ใช้เป็นสำนักงานใหญ่, ที่ดิน C ถือไว้รอราคาขึ้นโดยยังไม่กำหนดการใช้งาน, และโครงการ D สร้างเพื่อขายตามปกติธุรกิจ ต่อมาบริษัทเลือก fair value model สำหรับ Investment Property และมีการโอนอาคาร B บางส่วนไปปล่อยเช่าพร้อมหลักฐานการเปลี่ยนการใช้งานจริง</p>
+      <ol>
+        <li>จัดประเภททรัพย์ทั้ง 4 รายการ</li>
+        <li>ระบุฐานการวัดมูลค่าเมื่อรับรู้ครั้งแรกของรายการที่เป็น Investment Property</li>
+        <li>อธิบายผลของ fair value change หลังเลือก fair value model</li>
+        <li>อธิบายหลักการโอนอาคาร B ไปเป็น Investment Property</li>
+        <li>สรุป disclosure หลักที่ต้องมีในหมายเหตุประกอบงบการเงิน</li>
+      </ol>
+    </section>
+
+<section id="answer-key" class="template-answer-section">
+      <span class="answer-label">Answer Key</span>
+      <h2>Answer Key</h2>
+      <article class="answer-box"><h3>Mini Test 1</h3><p>อาคารปล่อยเช่าแบบ operating lease และที่ดินถือไว้รอราคาขึ้นเป็น Investment Property เพราะถือไว้เพื่อ rental income หรือ capital appreciation ส่วนโรงแรมที่กิจการให้บริการสำคัญเป็น PPE และทรัพย์ที่ปล่อยเช่าแบบ finance lease ไม่คงเป็น IP ในมุมผู้ให้เช่า</p></article>
+      <article class="answer-box"><h3>Mini Test 2</h3><p>วันแรกใช้ cost เสมอ รวมต้นทุนที่เกี่ยวข้องโดยตรงได้ การ replacement ชิ้นใหญ่ capitalize ถ้าผ่าน recognition criteria และตัดชิ้นเดิมออก ส่วน day-to-day servicing เป็น expense</p></article>
+      <article class="answer-box"><h3>Mini Test 3</h3><p>หลังรับรู้ครั้งแรกเลือก cost model หรือ fair value model และใช้สม่ำเสมอในกลุ่ม IP ถ้าใช้ fair value model ไม่คิด depreciation และ fair value gain/loss เข้า P/L ส่วน cost model ยังต้อง disclose fair value</p></article>
+      <article class="answer-box"><h3>Mini Test 4</h3><p>โอนได้เมื่อมี change in use พร้อมหลักฐาน ไม่ใช่แค่ผู้บริหารเปลี่ยนใจ Inventory -> IP fair value ให้ส่วนต่างเข้า P/L ส่วน PPE -> IP fair value ต้องใช้กฎ PPE revaluation จนถึงวันโอนก่อน</p></article>
+      <article class="answer-box"><h3>Mini Test 5</h3><p>Gain/loss จาก disposal = proceeds - carrying amount และเข้า P/L ค่าชดเชยรับรู้เมื่อ receivable ชัดเจน ต้อง disclose model ที่ใช้, fair value, rental income และ direct operating expenses แยกให้เห็น</p></article>
+      <article class="answer-box"><h3>Mini Test 6</h3><p>ลำดับสอบคือ classify -> recognize cost -> choose model -> handle transfer -> disposal -> disclosure ความต่างสำคัญคือ IP fair value model วิ่งเข้า P/L แต่ PPE revaluation มักเกี่ยวกับ OCI เฉพาะกรณี PPE -> IP ก่อนวันโอนจึงต้องระวัง OCI</p></article>
+      <article class="answer-box"><h3>Mock Exam</h3><ol><li>A และ C เป็น Investment Property, B เป็น PPE ก่อนเปลี่ยนการใช้งาน, D เป็น Inventory</li><li>รายการ IP รับรู้ครั้งแรกด้วย cost</li><li>เมื่อใช้ fair value model ส่วนต่าง fair value เข้า P/L และไม่คิด depreciation</li><li>อาคาร B โอนได้เมื่อมีการเปลี่ยนการใช้งานจริงพร้อม evidence และก่อนโอนต้องใช้หลัก PPE จนถึงวันโอน</li><li>Disclosure ต้องบอก policy, fair value, rental income, direct operating expenses และข้อมูลสำคัญของ transfer/disposal ถ้ามี</li></ol></article>
+    </section>
     </main>
 
     <p class="footer-note">หน้าเดียวนี้ใช้ข้อมูลจากไฟล์สรุปที่ผู้ใช้อัปโหลดเป็นฐานหลักทั้งหมด และจัดใหม่ให้อ่านแบบชีทก่อนสอบในรูปแบบเว็บ</p>
